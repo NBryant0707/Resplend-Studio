@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Book a visit at Lakeside Family Dental. Submit a request and our scheduling coordinator will reach out within one business day. For urgent care, call (555) 555-0123.">
+  <meta name="theme-color" content="#1F5F5B">
+  <title>Book a Visit | Lakeside Family Dental</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" aria-label="Lakeside Family Dental home">
+        <svg class="logo-mark" width="36" height="36" viewBox="0 0 36 36" aria-hidden="true">
+          <circle cx="18" cy="18" r="16" fill="none" stroke="#1F5F5B" stroke-width="2"/>
+          <path d="M12 14 Q12 22 14 24 Q16 26 17 22 Q18 18 19 22 Q20 26 22 24 Q24 22 24 14" fill="none" stroke="#1F5F5B" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <span class="logo-wordmark">Lakeside<span class="logo-divider">&middot;</span><span class="logo-tagline">Family Dental</span></span>
+      </a>
+      <nav class="primary-nav" aria-label="Primary">
+        <ul class="nav-menu">
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="patients.html">Patients</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="book.html" aria-current="page" class="nav-cta">Book a visit</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <section class="page-header" aria-labelledby="book-title">
+      <div class="container">
+        <p class="eyebrow">Book a visit</p>
+        <h1 id="book-title">Ready to schedule?</h1>
+        <p class="section-lede">
+          Tell us a bit about your visit and our scheduling coordinator will reach out within one business day with available times. For urgent care or same-day emergencies, please call (555) 555-0123 directly.
+        </p>
+      </div>
+    </section>
+
+    <section class="book" aria-label="Appointment request form">
+      <div class="container container-narrow">
+        <form class="book-form" action="#" method="post" novalidate>
+          <div class="form-row form-row-split">
+            <div>
+              <label for="first-name">First name</label>
+              <input type="text" id="first-name" name="first-name" required autocomplete="given-name">
+            </div>
+            <div>
+              <label for="last-name">Last name</label>
+              <input type="text" id="last-name" name="last-name" required autocomplete="family-name">
+            </div>
+          </div>
+          <div class="form-row">
+            <label for="phone">Phone number</label>
+            <input type="tel" id="phone" name="phone" required autocomplete="tel">
+          </div>
+          <div class="form-row">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required autocomplete="email">
+          </div>
+          <div class="form-row">
+            <label for="visit-type">Reason for visit</label>
+            <select id="visit-type" name="visit-type" required>
+              <option value="">Choose one&hellip;</option>
+              <option value="new-patient-cleaning">New patient cleaning &amp; exam</option>
+              <option value="specific-issue">Specific issue or pain</option>
+              <option value="cosmetic-consultation">Cosmetic consultation</option>
+              <option value="ortho-consultation">Orthodontic consultation</option>
+              <option value="emergency">Same-day emergency</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label for="insurance">Insurance (optional)</label>
+            <input type="text" id="insurance" name="insurance" placeholder="e.g., Delta Dental, MetLife">
+          </div>
+          <div class="form-row">
+            <label for="notes">Anything else we should know? <span class="label-optional">(optional)</span></label>
+            <textarea id="notes" name="notes" rows="3" placeholder="Dental anxiety, accessibility needs, preferred appointment times, etc."></textarea>
+            <p class="form-disclaimer">
+              Do not include any protected health information (PHI) in this form. We will collect medical history securely during your first visit.
+            </p>
+          </div>
+          <div class="form-row form-row-submit">
+            <button type="submit" class="btn btn-primary">Request appointment</button>
+            <p class="form-note">Or call us directly at <a href="tel:+15555550123">(555) 555-0123</a>.</p>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section class="cta-banner" aria-labelledby="book-cta">
+      <div class="container">
+        <h2 id="book-cta">Prefer to talk to a person first?</h2>
+        <p>We always answer the phone during business hours. No phone tree, no waiting on hold - just a real person who can answer your questions and find you a good time.</p>
+        <div class="hero-cta">
+          <a href="tel:+15555550123" class="btn btn-primary">Call (555) 555-0123</a>
+          <a href="mailto:hello@lakesidefamilydental.example" class="btn btn-secondary">Email us</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-name">Lakeside Family Dental</p>
+          <address class="footer-address">
+            1234 Lakeside Drive<br>
+            [City], [State] 12345<br>
+            <a href="tel:+15555550123">(555) 555-0123</a>
+          </address>
+          <p class="footer-hours">
+            Mon&ndash;Thu: 8am&ndash;6pm<br>
+            Fri: 8am&ndash;3pm<br>
+            Sat: 9am&ndash;1pm (alternating)
+          </p>
+        </div>
+        <div class="footer-nav">
+          <h3>Services</h3>
+          <ul>
+            <li><a href="services.html">General &amp; Preventive</a></li>
+            <li><a href="services.html">Cosmetic</a></li>
+            <li><a href="services.html">Restorative</a></li>
+            <li><a href="services.html">Orthodontics</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav">
+          <h3>Practice</h3>
+          <ul>
+            <li><a href="about.html">About us</a></li>
+            <li><a href="patients.html">Patient stories</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="book.html">Book a visit</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav">
+          <h3>Compliance</h3>
+          <ul>
+            <li><a href="#">HIPAA Notice</a></li>
+            <li><a href="#">Accessibility statement</a></li>
+            <li><a href="#">Privacy policy</a></li>
+            <li><a href="#">Insurance &amp; billing</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-base">
+        <p>&copy; 2024 Lakeside Family Dental. All rights reserved.</p>
+        <p>Sample portfolio piece built by <a href="../../index.html">FinVis</a>. Fictional practice.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Form handler - same pattern as FinVis main site
+    (function () {
+      'use strict';
+      var form = document.querySelector('.book-form');
+      if (form) {
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          var required = form.querySelectorAll('[required]');
+          var valid = true;
+          var firstInvalid = null;
+          required.forEach(function (f) {
+            if (!f.value.trim()) {
+              valid = false;
+              f.setAttribute('aria-invalid', 'true');
+              if (!firstInvalid) firstInvalid = f;
+            } else {
+              f.removeAttribute('aria-invalid');
+            }
+          });
+          if (!valid) { if (firstInvalid) firstInvalid.focus(); return; }
+
+          var btn = form.querySelector('button[type="submit"]');
+          var orig = btn.textContent;
+          btn.textContent = 'Sending...';
+          btn.disabled = true;
+          setTimeout(function () {
+            form.reset();
+            btn.textContent = "Request received - we'll call you soon.";
+            setTimeout(function () {
+              btn.textContent = orig;
+              btn.disabled = false;
+            }, 4000);
+          }, 800);
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
