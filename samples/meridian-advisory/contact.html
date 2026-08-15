@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!--
+  © 2026 Resplend Studio · DesignByBryant@gmail.com
+  All rights reserved. Sample work — not for redistribution.
+-->
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Contact — Meridian &amp; Co.</title>
+  <meta name="description" content="Book a 45-minute introductory conversation with a senior partner at Meridian & Co. No deck, no obligation, no follow-up sequence." />
+  <meta name="theme-color" content="#0B0F17" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <link rel="stylesheet" href="styles.css" />
+  <script>
+    /* Preview embed: hide the back-to-portfolio chip when framed */
+    if (window.self !== window.top) document.documentElement.classList.add('is-embedded');
+  </script>
+  <style>
+    /* ── 2-column contact layout ─────────────────────────────── */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    @media (min-width: 960px) { .contact-grid { grid-template-columns: 0.85fr 1.15fr; gap: 2rem; } }
+
+    /* ── 45-min call card ─────────────────────────────────────── */
+    .call-card {
+      position: relative;
+      padding: 6px;
+      background: rgba(255,255,255,0.025);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 2rem;
+      overflow: hidden;
+    }
+    .call-card__core {
+      padding: clamp(1.75rem, 3vw, 2.5rem);
+      background: rgba(17,22,31,0.7);
+      backdrop-filter: blur(20px) saturate(140%);
+      -webkit-backdrop-filter: blur(20px) saturate(140%);
+      border-radius: 1.625rem;
+      box-shadow: inset 0 1px 1px rgba(255,255,255,0.05);
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .call-card__visual {
+      position: relative;
+      aspect-ratio: 4 / 3;
+      border-radius: 1.5rem;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .call-card__visual img {
+      width: 100%; height: 100%; object-fit: cover;
+      filter: grayscale(40%) brightness(0.85);
+    }
+    .call-card__visual::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(11,15,23,0.20) 0%, rgba(11,15,23,0.70) 100%);
+    }
+    .call-card__visual-tag {
+      position: absolute; top: 1rem; left: 1rem; z-index: 2;
+      padding: 0.4rem 0.85rem 0.4rem 0.7rem;
+      background: rgba(11,15,23,0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 999px;
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #D4CCBA;
+      display: inline-flex; align-items: center; gap: 0.4rem;
+    }
+    .call-card__visual-tag::before {
+      content: ''; width: 6px; height: 6px; border-radius: 999px; background: #14A37D;
+    }
+    .call-card__heading {
+      font-family: 'Fraunces', serif;
+      font-variation-settings: 'opsz' 144, 'wght' 400;
+      font-size: clamp(1.5rem, 2.5vw, 2.1rem);
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      color: #F5F0E5;
+      margin: 0;
+      max-width: 18ch;
+    }
+    .call-card__heading em {
+      font-style: italic;
+      font-variation-settings: 'opsz' 144, 'wght' 300;
+      color: #14A37D;
+    }
+    .call-card__body {
+      color: #A8A092;
+      font-size: 0.95rem;
+      line-height: 1.55;
+      margin: 0;
+    }
+    .call-card__steps {
+      list-style: none; padding: 0; margin: 0;
+      display: flex; flex-direction: column; gap: 0.85rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .call-card__steps li {
+      display: flex; gap: 0.85rem; align-items: flex-start;
+      color: #D4CCBA;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+    .call-card__steps li strong {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 24px; height: 24px;
+      border-radius: 999px;
+      background: rgba(20,163,125,0.10);
+      color: #14A37D;
+      font-family: 'Fraunces', serif;
+      font-variation-settings: 'opsz' 36, 'wght' 500;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+    }
+    .call-card__contact-list {
+      list-style: none; padding: 0; margin: 0;
+      display: flex; flex-direction: column; gap: 0.6rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      font-size: 0.9rem;
+    }
+    .call-card__contact-list li { display: flex; gap: 0.6rem; align-items: flex-start; color: #D4CCBA; }
+    .call-card__contact-list li i { color: #14A37D; flex-shrink: 0; margin-top: 0.2em; width: 14px; height: 14px; }
+    .call-card__contact-list li a:hover { color: #14A37D; }
+
+    /* ── Calendar slot picker ─────────────────────────────────── */
+    .slots {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.5rem;
+    }
+    @media (min-width: 380px) { .slots { grid-template-columns: repeat(2, 1fr); } }
+    .slot {
+      padding: 0.55rem 0.5rem;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 0.65rem;
+      font-size: 0.85rem;
+      text-align: center;
+      color: #D4CCBA;
+      cursor: pointer;
+      transition: background-color 300ms var(--bezier), border-color 300ms var(--bezier), color 300ms var(--bezier);
+    }
+    .slot:hover { background: rgba(20,163,125,0.10); border-color: rgba(20,163,125,0.30); color: #F5F0E5; }
+    .slot.is-selected {
+      background: rgba(20,163,125,0.20);
+      border-color: #14A37D;
+      color: #F5F0E5;
+    }
+    .slot[disabled] {
+      opacity: 0.30;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    /* ── Full intake form panel ───────────────────────────────── */
+    .intake-panel {
+      position: relative;
+      padding: 6px;
+      background: rgba(255,255,255,0.025);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 2rem;
+    }
+    .intake-panel__core {
+      padding: clamp(1.75rem, 3vw, 2.5rem);
+      background: rgba(17,22,31,0.7);
+      backdrop-filter: blur(20px) saturate(140%);
+      -webkit-backdrop-filter: blur(20px) saturate(140%);
+      border-radius: 1.625rem;
+      box-shadow: inset 0 1px 1px rgba(255,255,255,0.05);
+    }
+    .intake-panel__heading {
+      font-family: 'Fraunces', serif;
+      font-variation-settings: 'opsz' 144, 'wght' 400;
+      font-size: clamp(1.6rem, 2.6vw, 2.2rem);
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      color: #F5F0E5;
+      margin: 0.5rem 0 0.5rem;
+      max-width: 22ch;
+    }
+    .intake-panel__heading em {
+      font-style: italic;
+      color: #14A37D;
+      font-variation-settings: 'opsz' 144, 'wght' 300;
+    }
+    .intake-panel__sub {
+      color: #A8A092;
+      font-size: 0.92rem;
+      line-height: 1.55;
+      margin: 0 0 2rem;
+    }
+    .intake-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+    @media (min-width: 640px) { .intake-row { grid-template-columns: 1fr 1fr; gap: 0.6rem; } }
+
+    /* ── Offices (bottom) ─────────────────────────────────────── */
+    .office-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    @media (min-width: 768px) { .office-grid { grid-template-columns: repeat(2, 1fr); gap: 1.25rem; } }
+    @media (min-width: 1100px) { .office-grid { grid-template-columns: repeat(4, 1fr); } }
+    .office {
+      position: relative;
+      padding: 6px;
+      background: rgba(255,255,255,0.025);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 1.5rem;
+      transition: border-color 600ms var(--bezier);
+    }
+    .office:hover { border-color: rgba(20,163,125,0.30); }
+    .office__core {
+      padding: 1.5rem;
+      background: rgba(17,22,31,0.6);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-radius: 1.25rem;
+      box-shadow: inset 0 1px 1px rgba(255,255,255,0.05);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .office__visual {
+      aspect-ratio: 16 / 9;
+      border-radius: 0.85rem;
+      overflow: hidden;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .office__visual img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(40%) brightness(0.8); }
+    .office__city {
+      font-family: 'Fraunces', serif;
+      font-variation-settings: 'opsz' 144, 'wght' 400;
+      font-size: 1.4rem;
+      letter-spacing: -0.02em;
+      color: #F5F0E5;
+      margin: 0;
+    }
+    .office__role {
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #A39887;
+      margin: 0;
+    }
+    .office__addr {
+      font-size: 0.88rem;
+      line-height: 1.5;
+      color: #D4CCBA;
+      margin: 0;
+    }
+    .office__phone {
+      font-size: 0.88rem;
+      color: #D4CCBA;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="mesh-bg" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <div class="nav-wrap">
+    <nav class="nav" id="nav" aria-label="Primary">
+      <a href="index.html" class="nav__brand">
+        <span class="nav__mark"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L4 6V12C4 17 7.5 21 12 22C16.5 21 20 17 20 12V6L12 2Z"/><path d="M12 7V17"/></svg></span>
+        Meridian &amp; Co.
+      </a>
+      <ul class="nav__links">
+        <li><a href="about.html" class="nav__link">About</a></li>
+        <li><a href="practice.html" class="nav__link">Practice</a></li>
+        <li><a href="framework.html" class="nav__link">Framework</a></li>
+        <li><a href="case-studies.html" class="nav__link">Impact</a></li>
+        <li><a href="insights.html" class="nav__link">Insights</a></li>
+        <li><a href="team.html" class="nav__link">Team</a></li>
+        <li><a href="engagements.html" class="nav__link">Engage</a></li>
+      </ul>
+      <a href="contact.html" class="cta nav__cta cta--sm" style="display:none">
+        <span style="padding-left:.3rem">Book a call</span>
+        <span class="cta__arrow"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+      <a href="#call" class="cta nav__cta cta--sm" style="display:inline-flex">
+        <span style="padding-left:.3rem">Book a call</span>
+        <span class="cta__arrow"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+      <button class="nav__burger" id="burger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span></button>
+    </nav>
+  </div>
+
+  <div class="menu-overlay" id="menuOverlay" aria-hidden="true">
+    <ul class="menu-overlay__list">
+      <li><a href="about.html">About</a></li>
+      <li><a href="practice.html">Practice</a></li>
+      <li><a href="framework.html">Framework</a></li>
+      <li><a href="case-studies.html">Impact</a></li>
+      <li><a href="insights.html">Insights</a></li>
+      <li><a href="team.html">Team</a></li>
+      <li><a href="engagements.html">Engage</a></li>
+      <li class="menu-overlay__sep">— get in touch —</li>
+      <li><a href="contact.html">Book a call →</a></li>
+    </ul>
+  </div>
+
+  <a class="back-chip" href="../../index.html#portfolio">
+    <span class="back-chip__icon"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M10 6H2M2 6L6 2M2 6L6 10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    Back to Resplend Studio
+  </a>
+
+  <main>
+
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+      <div class="container">
+        <div class="page-hero__split">
+          <div>
+            <span class="eyebrow reveal">Begin a conversation</span>
+            <h1 class="page-hero__title reveal" data-delay="1">Forty-five minutes <em>with a senior partner.</em></h1>
+            <p class="page-hero__sub reveal" data-delay="2">No deck, no obligation, no follow-up sequence. You leave the call with a clearer view of your situation — whether or not we end up working together. Senior partners run every intro call; we don't gate the conversation through junior staff.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CALL CARD + INTAKE FORM -->
+    <section id="call">
+      <div class="container">
+
+        <div class="contact-grid">
+
+          <!-- CALL CARD -->
+          <aside class="call-card reveal" data-delay="1">
+            <div class="call-card__core">
+              <div class="call-card__visual">
+                <span class="call-card__visual-tag">Currently accepting Q1</span>
+                <img src="https://images.unsplash.com/photo-1551836022-deb4988cc6c0?auto=format&fit=crop&w=1200&q=80" alt="" loading="lazy" />
+              </div>
+
+              <div>
+                <h2 class="call-card__heading">A 45-minute intro call <em>with Helena or James.</em></h2>
+                <p class="call-card__body">We pair you with a partner whose background is closest to the situation you bring. You talk, we listen, we ask questions. The output is a clearer view of your situation than you came in with — that is the entire deliverable from the call.</p>
+              </div>
+
+              <ol class="call-card__steps">
+                <li><strong>01</strong>Pick a slot below or fill in the intake form. We confirm within one business day.</li>
+                <li><strong>02</strong>Brief prep note from us — a one-pager with the questions we'll bring to the call.</li>
+                <li><strong>03</strong>The call itself. Forty-five minutes, video, no deck, no slides.</li>
+                <li><strong>04</strong>A two-page follow-up note summarizing what we heard and our initial read.</li>
+              </ol>
+
+              <div>
+                <p style="font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#A39887;margin:0 0 .85rem">This week · available slots (EST)</p>
+                <div class="slots">
+                  <button type="button" class="slot" data-slot="Tue 9:00">Tue 9:00 AM</button>
+                  <button type="button" class="slot" data-slot="Tue 14:00">Tue 2:00 PM</button>
+                  <button type="button" class="slot" data-slot="Wed 10:00">Wed 10:00 AM</button>
+                  <button type="button" class="slot is-selected" data-slot="Wed 15:00">Wed 3:00 PM</button>
+                  <button type="button" class="slot" data-slot="Thu 11:00">Thu 11:00 AM</button>
+                  <button type="button" class="slot" data-slot="Thu 16:00">Thu 4:00 PM</button>
+                  <button type="button" class="slot" data-slot="Fri 9:00">Fri 9:00 AM</button>
+                  <button type="button" class="slot" disabled data-slot="Fri 14:00">Fri 2:00 PM</button>
+                </div>
+              </div>
+
+              <ul class="call-card__contact-list">
+                <li><i data-lucide="mail"></i><a href="mailto:hello@meridianco.example">hello@meridianco.example</a></li>
+                <li><i data-lucide="phone"></i>+1 (555) 123-4567</li>
+                <li><i data-lucide="clock"></i>Mon–Fri, 8:00 AM – 7:00 PM ET</li>
+                <li><i data-lucide="map-pin"></i>200 Park Avenue, Floor 14, New York, NY 10166</li>
+              </ul>
+
+              <a href="#intake" class="cta cta--ghost" style="width:100%;justify-content:center;margin-top:.5rem">
+                <span style="padding-left:.3rem">Use the full intake form instead</span>
+                <span class="cta__arrow"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              </a>
+            </div>
+          </aside>
+
+          <!-- INTAKE FORM -->
+          <article class="intake-panel reveal" data-delay="2" id="intake">
+            <div class="intake-panel__core">
+              <span class="eyebrow reveal">Full intake form</span>
+              <h2 class="intake-panel__heading reveal" data-delay="1">Tell us <em>where to start.</em></h2>
+              <p class="intake-panel__sub reveal" data-delay="2">Submitting the intake form is the same as booking an intro call — a partner will be in touch within one business day. We read every submission ourselves.</p>
+
+              <form class="reveal" data-delay="3" onsubmit="event.preventDefault(); var s=document.getElementById('form-status'); s.hidden=false; s.textContent='Thank you — a partner will be in touch within one business day. We have logged your submission and will reach out shortly.'; this.reset();">
+                <div class="form__row">
+                  <label for="i-name">Your name</label>
+                  <input id="i-name" name="name" type="text" required autocomplete="name" />
+                </div>
+
+                <div class="form__row">
+                  <label for="i-email">Email</label>
+                  <input id="i-email" name="email" type="email" required autocomplete="email" />
+                </div>
+
+                <div class="form__row">
+                  <label for="i-phone">Phone (optional)</label>
+                  <input id="i-phone" name="phone" type="tel" autocomplete="tel" />
+                </div>
+
+                <div class="form__row">
+                  <label for="i-company">Company</label>
+                  <input id="i-company" name="company" type="text" autocomplete="organization" />
+                </div>
+
+                <div class="form__row">
+                  <label for="i-role">Your role</label>
+                  <input id="i-role" name="role" type="text" placeholder="Founder, CEO, COO, CFO, PE Operating Partner…" />
+                </div>
+
+                <div class="form__row">
+                  <label for="i-area">Where you need help</label>
+                  <select id="i-area" name="area">
+                    <option value="">Choose a practice area…</option>
+                    <option>Strategy &amp; Growth</option>
+                    <option>M&amp;A Advisory</option>
+                    <option>Operational Excellence</option>
+                    <option>Digital Transformation</option>
+                    <option>ESG &amp; Sustainability</option>
+                    <option>Capital &amp; Financing</option>
+                    <option>Not sure yet — let's discuss</option>
+                  </select>
+                </div>
+
+                <div class="form__row">
+                  <label for="i-tier">Engagement tier you're considering</label>
+                  <select id="i-tier" name="tier">
+                    <option value="">Choose a tier…</option>
+                    <option>Diagnostic · ~$40K</option>
+                    <option>Strategic · ~$160K</option>
+                    <option>Embedded · ~$1.4M+</option>
+                    <option>Not sure yet — let's discuss</option>
+                  </select>
+                </div>
+
+                <div class="form__row">
+                  <label for="i-message">What you're working on</label>
+                  <textarea id="i-message" name="message" rows="5" placeholder="A few sentences on the situation. Enough that we can route to the right partner on first read."></textarea>
+                </div>
+
+                <div class="form__row">
+                  <label for="i-timeline">Decision timeline</label>
+                  <select id="i-timeline" name="timeline">
+                    <option value="">Choose a timeline…</option>
+                    <option>Urgent — this quarter</option>
+                    <option>Within 6 months</option>
+                    <option>Exploring for now</option>
+                  </select>
+                </div>
+
+                <button type="submit" class="cta cta--ink cta--lg" style="width:100%;justify-content:center;margin-top:.5rem">
+                  <span style="padding-left:.3rem">Submit intake form</span>
+                  <span class="cta__arrow"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                </button>
+
+                <p class="form__status" id="form-status" hidden></p>
+              </form>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- OFFICES -->
+    <section id="offices">
+      <div class="container">
+        <header class="section-header">
+          <div>
+            <span class="eyebrow reveal">Our offices</span>
+            <h2 class="section-header__title reveal" data-delay="1">Three cities, <em>one senior bench.</em></h2>
+          </div>
+          <p class="section-header__lede reveal" data-delay="2">Engagements are staffed from the office closest to the work. Every office is led by a managing partner and holds dedicated senior staff.</p>
+        </header>
+
+        <div class="office-grid">
+          <article class="office reveal" data-delay="1">
+            <div class="office__core">
+              <div class="office__visual"><img src="https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?auto=format&fit=crop&w=1000&q=80" alt="" loading="lazy" /></div>
+              <p class="office__role">Headquarters · NYC</p>
+              <h3 class="office__city">New York</h3>
+              <p class="office__addr">200 Park Avenue, Floor 14<br />New York, NY 10166</p>
+              <p class="office__phone">+1 (555) 123-4567</p>
+            </div>
+          </article>
+
+          <article class="office reveal" data-delay="2">
+            <div class="office__core">
+              <div class="office__visual"><img src="https://images.unsplash.com/photo-1494522855154-9297ac14b55f?auto=format&fit=crop&w=1000&q=80" alt="" loading="lazy" /></div>
+              <p class="office__role">Operations hub · Chicago</p>
+              <h3 class="office__city">Chicago</h3>
+              <p class="office__addr">401 South Wacker Drive, Suite 2200<br />Chicago, IL 60606</p>
+              <p class="office__phone">+1 (555) 234-5678</p>
+            </div>
+          </article>
+
+          <article class="office reveal" data-delay="3">
+            <div class="office__core">
+              <div class="office__visual"><img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=1000&q=80" alt="" loading="lazy" /></div>
+              <p class="office__role">European hub · London</p>
+              <h3 class="office__city">London</h3>
+              <p class="office__addr">8 Devonshire Square<br />London EC2M 4PL, United Kingdom</p>
+              <p class="office__phone">+44 20 7946 1234</p>
+            </div>
+          </article>
+
+          <article class="office reveal" data-delay="4">
+            <div class="office__core">
+              <div class="office__visual"><img src="https://images.unsplash.com/photo-1521747116042-5a810fda10cb?auto=format&fit=crop&w=1000&q=80" alt="" loading="lazy" /></div>
+              <p class="office__role">Practice partner · SF</p>
+              <h3 class="office__city">San Francisco</h3>
+              <p class="office__addr">One Sansome Street, Floor 18<br />San Francisco, CA 94104</p>
+              <p class="office__phone">+1 (555) 345-6789</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav__brand">
+            <span class="nav__mark"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L4 6V12C4 17 7.5 21 12 22C16.5 21 20 17 20 12V6L12 2Z"/><path d="M12 7V17"/></svg></span>
+            Meridian &amp; Co.
+          </a>
+          <p>Boutique advisory for founder-led companies and private equity operators. Senior-led engagements, measurable outcomes.</p>
+        </div>
+        <div class="footer-col"><h4>Explore</h4><ul>
+          <li><a href="about.html">About</a></li><li><a href="practice.html">Practice</a></li>
+          <li><a href="framework.html">Framework</a></li><li><a href="case-studies.html">Case studies</a></li>
+          <li><a href="team.html">Senior team</a></li><li><a href="insights.html">Insights</a></li>
+        </ul></div>
+        <div class="footer-col"><h4>Engage</h4><ul>
+          <li><a href="engagements.html">Engagement tiers</a></li><li><a href="contact.html">Book a call</a></li>
+          <li><a href="contact.html#intake">Full intake form</a></li><li><a href="contact.html#offices">Office locations</a></li>
+        </ul></div>
+        <div class="footer-col"><h4>Contact</h4><ul>
+          <li><a href="mailto:hello@meridianco.example">hello@meridianco.example</a></li>
+          <li><a href="tel:+15551234567">+1 (555) 123-4567</a></li>
+          <li>200 Park Avenue, Floor 14<br />New York, NY 10166</li>
+        </ul></div>
+      </div>
+      <div class="footer-base">
+        <p>&copy; <span id="year"></span> Meridian &amp; Co. Advisory Partners LLP. All rights reserved.</p>
+        <p><a href="../../index.html#portfolio">← Back to Resplend Studio</a> · <a href="#">Back to top ↑</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function(){const n=document.getElementById('nav'),b=document.getElementById('burger'),o=document.getElementById('menuOverlay');if(!n||!b||!o)return;window.addEventListener('scroll',()=>{n.classList.toggle('is-scrolled',window.scrollY>24);},{passive:!0});const c=()=>{n.classList.remove('is-open');o.classList.remove('is-open');b.setAttribute('aria-expanded','false');o.setAttribute('aria-hidden','true');document.body.style.overflow=''};b.addEventListener('click',()=>{const p=!n.classList.contains('is-open');if(p){n.classList.add('is-open');o.classList.add('is-open');b.setAttribute('aria-expanded','true');o.setAttribute('aria-hidden','false');document.body.style.overflow='hidden'}else c()});o.querySelectorAll('a').forEach(a=>a.addEventListener('click',c))})();
+
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const id=a.getAttribute('href');if(id.length>1){const t=document.querySelector(id);if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'})}}})});
+
+    const reveals=document.querySelectorAll('.reveal');
+    if('IntersectionObserver' in window){const io=new IntersectionObserver(es=>{es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('is-in');io.unobserve(en.target)}})},{rootMargin:'0px 0px -8% 0px',threshold:0.08});reveals.forEach(el=>io.observe(el))}else reveals.forEach(el=>el.classList.add('is-in'));
+
+    document.querySelectorAll('.cta').forEach(el=>{const s=.18;let r=null;el.addEventListener('mousemove',e=>{const re=el.getBoundingClientRect(),x=(e.clientX-re.left-re.width/2)*s,y=(e.clientY-re.top-re.height/2)*s;if(r)cancelAnimationFrame(r);r=requestAnimationFrame(()=>{el.style.transform=`translate(${x}px,${y}px)`})});el.addEventListener('mouseleave',()=>{if(r)cancelAnimationFrame(r);r=null;el.style.transition='transform 600ms cubic-bezier(0.32,0.72,0,1)';el.style.transform='translate(0,0)';setTimeout(()=>{el.style.transition=''},700)})});
+
+    /* Slot picker */
+    document.querySelectorAll('.slot').forEach(s => {
+      s.addEventListener('click', () => {
+        document.querySelectorAll('.slot').forEach(x => x.classList.remove('is-selected'));
+        s.classList.add('is-selected');
+      });
+    });
+
+    function initLucide(){if(window.lucide&&window.lucide.createIcons)window.lucide.createIcons({attrs:{'stroke-width':1.5}})}
+    const yEl=document.getElementById('year');if(yEl)yEl.textContent=new Date().getFullYear();
+    if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',initLucide);else initLucide();
+  </script>
+</body>
+</html>

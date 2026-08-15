@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!--
+  © 2026 Resplend Studio · DesignByBryant@gmail.com
+  All rights reserved. Sample work — not for redistribution.
+-->
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Reference 12.04 — VOLTIER &amp; CIE.</title>
+  <meta name="description" content="Reference 12.04 «Platine» — the platinum edition of the Calibre V-12. Twelve pieces, CHF 112,000, the heaviest reference in the maison's catalogue." />
+  <meta name="theme-color" content="#050505" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Reference 12.04 — VOLTIER &amp; CIE." />
+  <meta property="og:description" content="Reference 12.04 «Platine». Twelve pieces in 950 platinum." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="pages.css" />
+</head>
+
+<body class="vc-body">
+  <!-- AMBIENT ORBS + GRAIN ─────────────────────────────────────────── -->
+  <div class="vc-orb vc-orb--top" aria-hidden="true"></div>
+  <div class="vc-orb vc-orb--bottom" aria-hidden="true"></div>
+  <div class="vc-grain" aria-hidden="true"></div>
+
+  <!-- HEADER ────────────────────────────────────────────────────────── -->
+  <header class="vc-header" id="vc-header">
+    <a href="index.html" class="vc-header__brand">VOLTIER <span>&amp;</span> CIE.</a>
+    <nav class="vc-nav" aria-label="Primary">
+      <a href="calibre.html" class="vc-nav__link">Calibre</a>
+      <a href="collection.html" class="vc-nav__link">Collection</a>
+      <a href="atelier.html" class="vc-nav__link">Atelier</a>
+      <a href="journal.html" class="vc-nav__link">Journal</a>
+      <a href="acquisition.html" class="vc-nav__link">Acquire</a>
+    </nav>
+    <div class="vc-header__actions">
+      <div class="vc-locale" role="group" aria-label="Currency locale — visual only, no conversion">
+        <button class="vc-locale__btn is-active" data-locale="CHF" aria-pressed="true">CHF</button>
+        <button class="vc-locale__btn" data-locale="EUR" aria-pressed="false">EUR</button>
+        <button class="vc-locale__btn" data-locale="USD" aria-pressed="false">USD</button>
+        <button class="vc-locale__btn" data-locale="GBP" aria-pressed="false">GBP</button>
+      </div>
+      <button id="vc-cart-open" class="vc-iconbtn" aria-label="Open acquisition bag">
+        <i data-lucide="shopping-bag" class="vc-icon"></i>
+        <span id="vc-cart-badge" class="vc-badge" hidden>0</span>
+      </button>
+      <button id="vc-burger" class="vc-burger" aria-label="Open menu" aria-expanded="false" aria-controls="vc-menu">
+        <span class="vc-burger__bar"></span>
+        <span class="vc-burger__bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- MENU OVERLAY ──────────────────────────────────────────────────── -->
+  <div id="vc-menu" class="vc-menu" aria-hidden="true">
+    <ul class="vc-menu__list">
+      <li class="vc-menu__item"><a class="vc-menu__link" href="index.html"><span class="vc-menu__idx">01</span> Maison</a></li>
+      <li class="vc-menu__item"><a class="vc-menu__link" href="calibre.html"><span class="vc-menu__idx">02</span> The Calibre</a></li>
+      <li class="vc-menu__item"><a class="vc-menu__link" href="collection.html"><span class="vc-menu__idx">03</span> The Collection</a></li>
+      <li class="vc-menu__item"><a class="vc-menu__link is-current" href="reference-12-04.html"><span class="vc-menu__idx">04</span> Reference 12.04</a></li>
+      <li class="vc-menu__item"><a class="vc-menu__link" href="atelier.html"><span class="vc-menu__idx">05</span> The Atelier</a></li>
+      <li class="vc-menu__item"><a class="vc-menu__link" href="artisans.html"><span class="vc-menu__idx">06</span> The Hands</a></li>
+      <li class="vc-menu__item"><a class="vc-menu__link" href="heritage.html"><span class="vc-menu__idx">07</span> Heritage</a></li>
+      <li class="vc-menu__item"><a class="vc-menu__link" href="materials.html"><span class="vc-menu__idx">08</span> Materials</a></li>
+      <li class="vc-menu__item"><a class="vc-menu__link" href="journal.html"><span class="vc-menu__idx">09</span> The Journal</a></li>
+      <li class="vc-menu__item"><a class="vc-menu__link" href="journal-twelve-weeks.html"><span class="vc-menu__idx">10</span> Twelve Weeks of Line</a></li>
+      <li class="vc-menu__item"><a class="vc-menu__link" href="acquisition.html"><span class="vc-menu__idx">11</span> Acquisition</a></li>
+      <li class="vc-menu__item"><a class="vc-menu__link" href="salons.html"><span class="vc-menu__idx">12</span> Salons</a></li>
+    </ul>
+    <div class="vc-menu__foot">
+      <span>Genève · Depuis 1912</span>
+      <span>Editions of twelve</span>
+      <span>Time, kept by hand</span>
+    </div>
+  </div>
+
+  <main>
+    <!-- §1 PAGE HERO ───────────────────────────────────────────────── -->
+    <section class="vc-phero vc-phero--plate">
+      <div class="vc-phero__grid">
+        <div>
+          <nav class="vc-crumb" aria-label="Breadcrumb">
+            <a href="index.html">Maison</a>
+            <span class="vc-crumb__sep">/</span>
+            <a href="collection.html">The Collection</a>
+            <span class="vc-crumb__sep">/</span>
+            <span class="vc-crumb__here">Reference 12.04</span>
+          </nav>
+          <h1 class="vc-phero__title">Reference 12.04<br /><span class="italic">«Platine».</span></h1>
+        </div>
+        <div>
+          <p class="vc-phero__lede">The platinum edition of the Calibre V-12. Twelve pieces, 178 grams on the wrist, the heaviest reference in the maison&rsquo;s catalogue.</p>
+          <ul class="vc-meta">
+            <li><span class="vc-meta__k">Reference</span><span class="vc-meta__v">12.04 «Platine»</span></li>
+            <li><span class="vc-meta__k">Case metal</span><span class="vc-meta__v">950 Platinum</span></li>
+            <li><span class="vc-meta__k">Edition</span><span class="vc-meta__v">12 / 12</span></li>
+            <li><span class="vc-meta__k">Price</span><span class="vc-meta__v">CHF 112,000</span></li>
+            <li><span class="vc-meta__k">Availability</span><span class="vc-meta__v">By allocation</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="vc-phero__plate">
+        <div class="vc-phero__plate-core">
+          <img src="https://images.unsplash.com/photo-1612817159949-195b6eb9e31a?w=1800&q=80&auto=format" alt="Reference 12.04 «Platine» — the platinum edition, on anthracite alligator" />
+          <div class="vc-phero__plate-scrim"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- §2 THE PIECE ──────────────────────────────────────────────── -->
+    <section class="vc-section">
+      <div class="vc-container">
+        <div class="vc-rule"><span class="vc-rule__num">01</span></div>
+        <header class="vc-section__head reveal">
+          <div>
+            <p class="vc-eyebrow">The piece</p>
+            <h2 class="vc-h2">950 platinum, drawn from a <span class="italic text-champagne">single ingot.</span></h2>
+          </div>
+          <p class="vc-section__lede">The case of Reference 12.04 is milled in the maison&rsquo;s atelier at Carouge from one ingot of 950 platinum. Forty-seven hours of machining. No two cases share the exact grain.</p>
+        </header>
+
+        <div class="vc-split">
+          <aside class="vc-split__aside">
+            <p class="vc-eyebrow text-champagne">Reference 12.04</p>
+            <h3 class="vc-h3block">A heavier <span class="italic">register.</span></h3>
+          </aside>
+          <div class="vc-prose">
+            <p>Platinum is the densest of the four metals in the maison&rsquo;s catalogue. A piece in 12.04 reads 178 grams on the leather strap &mdash; roughly twice the weight of the titanium 12.01. The maison considers this not a disadvantage but a property: a heavier watch sits quietly on the wrist, less given to slide, and reads against the sleeve as something carried rather than worn.</p>
+            <p>The bezel is polished; the flanks are satin by hand, drawn in a single pass under a pearwood polisher. The lugs are milled as part of the case and brushed lengthwise, so the strap sits flush at the junction. The case is 39 millimetres in diameter and 9.1 millimetres in height, sealed against ingress to 30 metres. The dial ships as frosted platinum; two further treatments are recorded below.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- §3 CONFIGURATION ──────────────────────────────────────────── -->
+    <section class="vc-section vc-section--alt">
+      <div class="vc-container">
+        <div class="vc-rule"><span class="vc-rule__num">02</span></div>
+        <header class="vc-section__head reveal">
+          <div>
+            <p class="vc-eyebrow">Configuration</p>
+            <h2 class="vc-h2">Three dial <span class="italic">treatments</span>.</h2>
+          </div>
+          <p class="vc-section__lede">A piece of 12.04 is offered in one of three dial treatments, specified at the point of allocation. The maison does not change a dial after the caseback has been signed.</p>
+        </header>
+
+        <div data-tabs>
+          <div class="vc-tabs reveal" role="tablist" aria-label="Dial treatments">
+            <button class="vc-tab is-active" data-tab="guilloche" role="tab" aria-selected="true">Guilloché Silver</button>
+            <button class="vc-tab" data-tab="grandfeu" role="tab" aria-selected="false">Grand Feu Black</button>
+            <button class="vc-tab" data-tab="frosted" role="tab" aria-selected="false">Frosted Platinum</button>
+          </div>
+
+          <div class="vc-tabpanel is-active" data-panel="guilloche">
+            <div class="vc-split" style="margin-top:3.5rem">
+              <aside class="vc-split__aside">
+                <p class="vc-eyebrow text-champagne">Guilloché Silver</p>
+                <h3 class="vc-h3block">A barleycorn engine.</h3>
+              </aside>
+              <div class="vc-prose">
+                <p>The dial is silvered over a brass blank and engraved by a straight-line guilloché engine imported by the maison in 1947. The pattern is barleycorn &mdash; forty-eight lines per millimetre. The dial is lacquered twice and fired at 90&deg;C between coats. Indices are applied in 18k white gold and set by hand.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="vc-tabpanel" data-panel="grandfeu">
+            <div class="vc-split" style="margin-top:3.5rem">
+              <aside class="vc-split__aside">
+                <p class="vc-eyebrow text-champagne">Grand Feu Black</p>
+                <h3 class="vc-h3block">Enamel, fired <span class="italic">seven times.</span></h3>
+              </aside>
+              <div class="vc-prose">
+                <p>A grand feu enamel dial is built from successive fusions of vitreous enamel on a gold blank. The maison fires seven layers. Each layer risks the work &mdash; a single bubble voids the dial. Indices are fired into the enamel, not applied after.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="vc-tabpanel" data-panel="frosted">
+            <div class="vc-split" style="margin-top:3.5rem">
+              <aside class="vc-split__aside">
+                <p class="vc-eyebrow text-champagne">Frosted Platinum</p>
+                <h3 class="vc-h3block">The maison&rsquo;s <span class="italic">standard.</span></h3>
+              </aside>
+              <div class="vc-prose">
+                <p>The frosted platinum treatment is the maison&rsquo;s standard for 12.04. A brass blank is plated with platinum and finished by hand with a fine abrasive, producing a matte surface that reads the colour of the case. It is the dial treatment shipped to the first six pieces of the edition.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="vc-h3 italic reveal" style="margin-top:6rem">Full technical specification</h3>
+
+        <div class="vc-specs reveal" style="margin-top:2rem">
+          <div class="vc-specs__core">
+            <div class="vc-specs__row">
+              <span class="vc-specs__k">Case diameter</span>
+              <span class="vc-specs__v">39 mm</span>
+            </div>
+            <div class="vc-specs__row">
+              <span class="vc-specs__k">Case height</span>
+              <span class="vc-specs__v">9.1 mm</span>
+            </div>
+            <div class="vc-specs__row">
+              <span class="vc-specs__k">Case material</span>
+              <span class="vc-specs__v">950 platinum<small>Single ingot, 47 hours of milling.</small></span>
+            </div>
+            <div class="vc-specs__row">
+              <span class="vc-specs__k">Crystal</span>
+              <span class="vc-specs__v">Sapphire, anti-reflective both sides</span>
+            </div>
+            <div class="vc-specs__row">
+              <span class="vc-specs__k">Water resistance</span>
+              <span class="vc-specs__v">30 metres</span>
+            </div>
+            <div class="vc-specs__row">
+              <span class="vc-specs__k">Calibre</span>
+              <span class="vc-specs__v">V-12, manual wind<small>312 components. 28,800 vph. Single barrel.</small></span>
+            </div>
+            <div class="vc-specs__row">
+              <span class="vc-specs__k">Power reserve</span>
+              <span class="vc-specs__v">72 hours</span>
+            </div>
+            <div class="vc-specs__row">
+              <span class="vc-specs__k">Strap</span>
+              <span class="vc-specs__v">Hand-stitched alligator, anthracite, 22 mm</span>
+            </div>
+            <div class="vc-specs__row">
+              <span class="vc-specs__k">Buckle</span>
+              <span class="vc-specs__v">Ardillon, 950 platinum, signed</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- §4 IN DETAIL ─────────────────────────────────────────────── -->
+    <section class="vc-section">
+      <div class="vc-container">
+        <div class="vc-rule"><span class="vc-rule__num">03</span></div>
+        <header class="vc-section__head reveal">
+          <div>
+            <p class="vc-eyebrow">In detail</p>
+            <h2 class="vc-h2">Four <span class="italic text-champagne">close studies.</span></h2>
+          </div>
+          <p class="vc-section__lede">The maison&rsquo;s atelier photograph in natural light, against linen. Drag the rail to inspect.</p>
+        </header>
+
+        <div class="vc-gallery reveal">
+          <figure class="vc-figure vc-figure--square">
+            <div class="vc-figure__core"><img src="https://images.unsplash.com/photo-1622434641406-a158123450f9?w=1200&q=80&auto=format" alt="Dial of Reference 12.04 — frosted platinum, applied white gold indices" /></div>
+            <figcaption class="vc-figure__cap"><span>Plate 04 · a</span><b>Dial</b></figcaption>
+          </figure>
+
+          <figure class="vc-figure vc-figure--square">
+            <div class="vc-figure__core"><img src="https://images.unsplash.com/photo-1610847498332-2865d27d4b80?w=1200&q=80&auto=format" alt="Caseback of Reference 12.04 — edition number, calibre serial, watchmaker signature" /></div>
+            <figcaption class="vc-figure__cap"><span>Plate 04 · b</span><b>Caseback</b></figcaption>
+          </figure>
+
+          <figure class="vc-figure vc-figure--square">
+            <div class="vc-figure__core"><img src="https://images.unsplash.com/photo-1606293459339-3ca7ee0e6b85?w=1200&q=80&auto=format" alt="Crown of Reference 12.04 — knurled, signed with the maison's V" /></div>
+            <figcaption class="vc-figure__cap"><span>Plate 04 · c</span><b>Crown</b></figcaption>
+          </figure>
+
+          <figure class="vc-figure vc-figure--square">
+            <div class="vc-figure__core"><img src="https://images.unsplash.com/photo-1612817159949-195b6eb9e31a?w=1200&q=80&auto=format" alt="Strap of Reference 12.04 — hand-stitched alligator, anthracite" /></div>
+            <figcaption class="vc-figure__cap"><span>Plate 04 · d</span><b>Strap</b></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- §5 PROVENANCE AND DELIVERY ───────────────────────────────── -->
+    <section class="vc-section vc-section--alt">
+      <div class="vc-container">
+        <div class="vc-rule"><span class="vc-rule__num">04</span></div>
+        <header class="vc-section__head reveal">
+          <div>
+            <p class="vc-eyebrow">Provenance &amp; delivery</p>
+            <h2 class="vc-h2">Two numbers. One box. <span class="italic">Twelve years.</span></h2>
+          </div>
+          <p class="vc-section__lede">Each piece of 12.04 is finished by a single watchmaker, signed by that watchmaker, and recorded in the maison&rsquo;s register at Geneva.</p>
+        </header>
+
+        <div class="vc-split">
+          <aside class="vc-split__aside">
+            <p class="vc-eyebrow text-champagne">Numbering</p>
+            <h3 class="vc-h3block">The two <span class="italic">stamps.</span></h3>
+          </aside>
+          <div class="vc-prose">
+            <p>Each piece carries two marks. The first is the edition number &mdash; <em>N of 12</em> &mdash; engraved on the caseback in the maison&rsquo;s hand. The second is the calibre serial, struck on the mainplate at the close of the eleven-day assembly. The two are entered in the maison&rsquo;s register against the name of the watchmaker.</p>
+            <p>The caseback is also signed, beneath the edition number, by the watchmaker who assembled the watch. The maison considers this signature a record of work done; it is not a brand mark.</p>
+          </div>
+        </div>
+
+        <div class="vc-split" style="margin-top:5rem">
+          <aside class="vc-split__aside">
+            <p class="vc-eyebrow text-champagne">Delivery</p>
+            <h3 class="vc-h3block">A box, a key, a <span class="italic">certificate.</span></h3>
+          </aside>
+          <div class="vc-prose">
+            <p>A piece of 12.04 is delivered in a box of patinated walnut, lined in undyed calf. The box carries a brass plaque engraved with the edition number and the calibre serial. A single brass key is provided; the maison retains no copy.</p>
+            <p>With the box, the maison writes a certificate of regulation: the rate observed across six positions over fourteen days; the date of signature; the name of the watchmaker. The certificate is hand-written, in iron-gall ink, on laid paper from the papeterie of Saint-Amand.</p>
+          </div>
+        </div>
+
+        <div class="vc-split" style="margin-top:5rem">
+          <aside class="vc-split__aside">
+            <p class="vc-eyebrow text-champagne">Service interval</p>
+            <h3 class="vc-h3block">Twelve years, by <span class="italic">appointment.</span></h3>
+          </aside>
+          <div class="vc-prose">
+            <p>The maison undertakes the full service of a V-12 once every twelve years, by appointment at the atelier in Carouge. The service takes six to eight weeks. The calibre is disassembled, cleaned, re-lubricated and re-certified against the maison&rsquo;s six-position standard of &plusmn;2 seconds per day. The case is not opened. The dial is not removed.</p>
+            <p>A piece returned for service travels insured and in person. Service is offered to the registered owner at any point in the piece&rsquo;s life, regardless of where it was acquired.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- §6 OWNERSHIP ──────────────────────────────────────────────── -->
+    <section class="vc-section">
+      <div class="vc-container">
+        <div class="vc-rule"><span class="vc-rule__num">05</span></div>
+        <header class="vc-section__head reveal">
+          <div>
+            <p class="vc-eyebrow">Ownership</p>
+            <h2 class="vc-h2">Five questions, <span class="italic">asked in advance.</span></h2>
+          </div>
+          <p class="vc-section__lede">A short reader for the prospective owner. The maison answers in writing; the answers below are offered as a guide and do not substitute for a private audience.</p>
+        </header>
+
+        <div class="vc-acc reveal">
+          <div class="vc-acc__item is-open">
+            <button class="vc-acc__btn">How is a piece serviced, and at what cost?<span class="vc-acc__sign"></span></button>
+            <div class="vc-acc__panel"><div>
+              <p>A full service is undertaken every twelve years, by appointment at the Carouge atelier. The service takes six to eight weeks and is invoiced at the maison&rsquo;s published rate &mdash; currently CHF 4,800, all inclusive. Interim interventions (crown replacement, strap fitting, regulation check) are billed separately and are quoted in advance.</p>
+            </div></div>
+          </div>
+
+          <div class="vc-acc__item">
+            <button class="vc-acc__btn">What is the insurance valuation?<span class="vc-acc__sign"></span></button>
+            <div class="vc-acc__panel"><div>
+              <p>The maison supplies a written valuation at the point of delivery and at every service. The valuation is based on the price of acquisition adjusted by the published index of the maison; it is not a market estimate. Insurers may accept this valuation, or may request their own. The maison does not warrant a third-party valuation.</p>
+            </div></div>
+          </div>
+
+          <div class="vc-acc__item">
+            <button class="vc-acc__btn">Can a piece be resold through the maison?<span class="vc-acc__sign"></span></button>
+            <div class="vc-acc__panel"><div>
+              <p>The maison does not operate a resale desk. A piece offered back to the maison is held in the archive and is not reissued. The maison will, on request, introduce a piece to enquirers on the register, without commission, and will write a letter of provenance. The maison is not a party to the sale.</p>
+            </div></div>
+          </div>
+
+          <div class="vc-acc__item">
+            <button class="vc-acc__btn">What is the water resistance in practice?<span class="vc-acc__sign"></span></button>
+            <div class="vc-acc__panel"><div>
+              <p>The case is sealed to 30 metres. The maison&rsquo;s standard for 12.04 is incidental contact &mdash; rain, hand-washing &mdash; and not immersion. The crown must be returned to the closed position before any contact with water. The maison tests water resistance at every service.</p>
+            </div></div>
+          </div>
+
+          <div class="vc-acc__item">
+            <button class="vc-acc__btn">How is the piece wound, and how often?<span class="vc-acc__sign"></span></button>
+            <div class="vc-acc__panel"><div>
+              <p>Twelve to fifteen crowns, daily, in the morning. The crown is knurled and signed with the maison&rsquo;s <em>V</em>; it pulls out to the time-setting position only &mdash; the V-12 has no hacking lever. The crown should be returned to the closed position with the maison&rsquo;s coin, provided with the box, to avoid cross-thread on the seal.</p>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- §7 CLOSING CTA ────────────────────────────────────────────── -->
+    <section class="vc-band">
+      <div class="vc-band__glow" aria-hidden="true"></div>
+      <div class="vc-band__inner">
+        <p class="vc-eyebrow text-champagne">Acquire</p>
+        <h2 class="vc-h2">A line of <span class="italic text-champagne">enquiry.</span></h2>
+        <p class="vc-section__lede" style="margin:1.5rem auto 0">Pieces of Reference 12.04 are offered by name, after a written enquiry has been received by the atelier.</p>
+        <div class="vc-band__cta">
+          <a href="acquisition.html" class="vc-btn">
+            <span class="pl-1">Request an audience</span>
+            <span class="vc-btn__dot"><i data-lucide="arrow-up-right" class="vc-icon"></i></span>
+          </a>
+          <a href="collection.html" class="vc-btn vc-btn--ghost"><span class="pl-1">The Collection</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- PAGE NAV ──────────────────────────────────────────────────────── -->
+  <nav class="vc-pagenav" aria-label="Chapter">
+    <a class="vc-pagenav__link" href="collection.html">
+      <span class="vc-pagenav__k">← Previous</span>
+      <p class="vc-pagenav__t">The Collection</p>
+    </a>
+    <a class="vc-pagenav__link vc-pagenav__link--next" href="atelier.html">
+      <span class="vc-pagenav__k">Next →</span>
+      <p class="vc-pagenav__t">The Atelier</p>
+    </a>
+  </nav>
+
+  <!-- FOOTER ────────────────────────────────────────────────────────── -->
+  <footer class="vc-footer">
+    <div class="vc-footer__newsletter">
+      <div>
+        <p class="vc-eyebrow text-champagne">The register</p>
+        <h2 class="vc-h3block">Editions are offered to the register first.</h2>
+        <p class="vc-footer__lede">
+          Twelve pieces per reference. We write once a season — never more — when a calibre leaves regulation.
+        </p>
+      </div>
+      <form class="vc-footer__form" onsubmit="return false;">
+        <input class="vc-input" type="email" placeholder="Your atelier address" aria-label="Email address" />
+        <button class="vc-btn vc-btn--fill-sm" type="submit">
+          <span class="pl-1">Join</span>
+          <span class="vc-btn__dot"><i data-lucide="arrow-up-right" class="vc-icon"></i></span>
+        </button>
+      </form>
+    </div>
+
+    <div class="vc-footer__grid">
+      <div>
+        <h5 class="vc-eyebrow">Maison</h5>
+        <ul class="vc-footer__list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="heritage.html">Heritage</a></li>
+          <li><a href="artisans.html">The Hands</a></li>
+          <li><a href="salons.html">Salons</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="vc-eyebrow">Calibre</h5>
+        <ul class="vc-footer__list">
+          <li><a href="calibre.html">The Calibre V-12</a></li>
+          <li><a href="materials.html">Materials</a></li>
+          <li><a href="collection.html">The Collection</a></li>
+          <li><a href="reference-12-04.html">Reference 12.04</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="vc-eyebrow">Atelier</h5>
+        <ul class="vc-footer__list">
+          <li><a href="atelier.html">Inside the atelier</a></li>
+          <li><a href="journal.html">The Journal</a></li>
+          <li><a href="acquisition.html">Acquisition</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="vc-eyebrow">Time across ateliers</h5>
+        <ul class="vc-footer__clocks">
+          <li><span class="vc-eyebrow" style="opacity:.6">Geneva</span> <span class="vc-clock" data-tz="Europe/Zurich">--:--:--</span></li>
+          <li><span class="vc-eyebrow" style="opacity:.6">New York</span> <span class="vc-clock" data-tz="America/New_York">--:--:--</span></li>
+          <li><span class="vc-eyebrow" style="opacity:.6">Tokyo</span> <span class="vc-clock" data-tz="Asia/Tokyo">--:--:--</span></li>
+          <li><span class="vc-eyebrow" style="opacity:.6">Dubai</span> <span class="vc-clock" data-tz="Asia/Dubai">--:--:--</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="vc-footer__legal">
+      <span>WCAG 2.1 AA · Made in Geneva · All editions numbered</span>
+      <span id="vc-copy-year">© VOLTIER &amp; CIE.</span>
+    </div>
+  </footer>
+
+  <!-- CART DRAWER ───────────────────────────────────────────────────── -->
+  <div id="vc-cart-scrim" class="vc-cart__scrim" hidden></div>
+  <aside id="vc-cart-drawer" class="vc-cart" aria-label="Acquisition bag" hidden>
+    <header class="vc-cart__head">
+      <h2 class="vc-h3 italic">Acquisition</h2>
+      <button id="vc-cart-close" class="vc-iconbtn" aria-label="Close acquisition bag">
+        <i data-lucide="x" class="vc-icon"></i>
+      </button>
+    </header>
+
+    <div class="vc-cart__ship">
+      <div class="vc-cart__ship-row">
+        <span id="vc-cart-ship-label">CHF 80,000 to complimentary shipping</span>
+        <span id="vc-cart-ship-pct">0%</span>
+      </div>
+      <div class="vc-cart__ship-bar"><span id="vc-cart-ship-fill"></span></div>
+    </div>
+
+    <div class="vc-cart__body" id="vc-cart-body">
+      <p id="vc-cart-empty" class="vc-cart__empty">Your acquisition bag is empty.</p>
+      <ul id="vc-cart-items" class="vc-cart__items" hidden></ul>
+
+      <div class="vc-cart__upsell">
+        <div>
+          <p class="vc-eyebrow text-champagne">Recommended</p>
+          <p class="vc-cart__upsell-text">Hand-stitched alligator strap · CHF 4,200</p>
+        </div>
+        <button class="vc-iconbtn vc-iconbtn--champagne" aria-label="Add strap to acquisition">
+          <i data-lucide="plus" class="vc-icon"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="vc-cart__foot">
+      <div class="vc-cart__subtotal">
+        <span class="vc-eyebrow" style="opacity:.6">Subtotal</span>
+        <span id="vc-cart-subtotal" class="vc-h3">CHF 0</span>
+      </div>
+      <button class="vc-shimmer">
+        <span class="vc-shimmer__label">Proceed to Acquisition</span>
+        <span class="vc-shimmer__bar" aria-hidden="true"></span>
+      </button>
+      <p class="vc-cart__note">Reserved for atelier confirmation</p>
+    </div>
+  </aside>
+
+  <!-- SCRIPTS ───────────────────────────────────────────────────────── -->
+  <script>
+  if (window.tailwind && window.tailwind.config) {
+    window.tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            obsidian:        '#050505',
+            'obsidian-soft': '#0D0D11',
+            ash:             '#1A1A1F',
+            bone:            '#E5E0D8',
+            'bone-soft':     '#A8A092',
+            champagne:       '#D4AF37',
+            bronze:          '#B8763A'
+          },
+          fontFamily: {
+            display: ['"Cormorant Garamond"', 'serif'],
+            sans:    ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif']
+          },
+          letterSpacing: { meta: '0.22em' }
+        }
+      }
+    };
+  }
+  if (window.lucide && window.lucide.createIcons) window.lucide.createIcons();
+  </script>
+  <script src="volter-cie.js" defer></script>
+  <script src="pages.js" defer></script>
+</body>
+</html>

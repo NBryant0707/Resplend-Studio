@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!--
+  © 2026 Resplend Studio · DesignByBryant@gmail.com
+  All rights reserved. Sample work — not for redistribution.
+-->
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Framework — Meridian &amp; Co.</title>
+  <meta name="description" content="Meridian's four-stage engagement framework: Diagnostic, Strategy, Execution, Embed. Refined across 200+ engagements over twelve years." />
+  <meta name="theme-color" content="#0B0F17" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <link rel="stylesheet" href="styles.css" />
+  <script>
+    /* Preview embed: hide the back-to-portfolio chip when framed */
+    if (window.self !== window.top) document.documentElement.classList.add('is-embedded');
+  </script>
+  <style>
+    /* ── Stage cards ─────────────────────────────────────────── */
+    .stage {
+      position: relative;
+      padding-top: clamp(4rem, 8vw, 7rem);
+      padding-bottom: clamp(4rem, 8vw, 7rem);
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .stage:first-of-type { border-top: 0; }
+    .stage__grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    @media (min-width: 1024px) { .stage__grid { grid-template-columns: 1fr 1.1fr; gap: 5rem; } }
+    .stage__aside {
+      position: sticky;
+      top: 7rem;
+    }
+    .stage__num {
+      font-family: 'Fraunces', serif;
+      font-variation-settings: 'opsz' 144, 'wght' 400;
+      font-size: clamp(4rem, 10vw, 9rem);
+      letter-spacing: -0.04em;
+      line-height: 0.85;
+      margin: 0 0 1rem;
+      color: #A39887;
+    }
+    .stage__num em {
+      font-style: italic;
+      font-variation-settings: 'opsz' 144, 'wght' 300;
+      color: #14A37D;
+    }
+    .stage__title {
+      font-family: 'Fraunces', serif;
+      font-variation-settings: 'opsz' 144, 'wght' 400;
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      letter-spacing: -0.025em;
+      line-height: 1.02;
+      color: #F5F0E5;
+      margin: 0.5rem 0 1rem;
+      max-width: 14ch;
+    }
+    .stage__title em {
+      font-style: italic;
+      color: #14A37D;
+      font-variation-settings: 'opsz' 144, 'wght' 300;
+    }
+    .stage__meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      margin: 1.5rem 0;
+    }
+    .stage__chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.4rem 0.85rem 0.4rem 0.7rem;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 999px;
+      font-size: 0.78rem;
+      color: #D4CCBA;
+    }
+    .stage__chip::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 999px;
+      background: #14A37D;
+    }
+
+    /* ── Stage detail (right side) ───────────────────────────── */
+    .stage-detail {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .stage-detail__intro {
+      padding: 6px;
+      background: rgba(255,255,255,0.025);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 2rem;
+    }
+    .stage-detail__intro-core {
+      padding: 2rem;
+      background: rgba(17,22,31,0.7);
+      backdrop-filter: blur(20px) saturate(140%);
+      -webkit-backdrop-filter: blur(20px) saturate(140%);
+      border-radius: 1.625rem;
+      box-shadow: inset 0 1px 1px rgba(255,255,255,0.05);
+    }
+    .stage-detail__lede {
+      font-family: 'Fraunces', serif;
+      font-variation-settings: 'opsz' 144, 'wght' 400;
+      font-size: clamp(1.3rem, 2vw, 1.7rem);
+      letter-spacing: -0.015em;
+      line-height: 1.25;
+      color: #F5F0E5;
+      margin: 0;
+      max-width: 32ch;
+    }
+    .stage-detail__lede em {
+      font-style: italic;
+      color: #14A37D;
+      font-variation-settings: 'opsz' 144, 'wght' 300;
+    }
+    .stage-detail__body {
+      color: #A8A092;
+      font-size: 0.98rem;
+      line-height: 1.6;
+      margin: 1rem 0 0;
+      max-width: 52ch;
+    }
+
+    .stage-detail__panel {
+      position: relative;
+      padding: 6px;
+      background: rgba(255,255,255,0.025);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 1.5rem;
+    }
+    .stage-detail__panel-core {
+      padding: 1.5rem;
+      background: rgba(17,22,31,0.6);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-radius: 1.25rem;
+      box-shadow: inset 0 1px 1px rgba(255,255,255,0.05);
+    }
+    .stage-detail__panel-label {
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #A39887;
+      margin: 0 0 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .stage-detail__panel-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(255,255,255,0.08);
+    }
+    .stage-detail__list {
+      list-style: none; padding: 0; margin: 0;
+      display: flex; flex-direction: column; gap: 0.6rem;
+    }
+    .stage-detail__list li {
+      display: flex; gap: 0.7rem; align-items: flex-start;
+      font-size: 0.92rem; line-height: 1.5;
+      color: #D4CCBA;
+    }
+    .stage-detail__list li::before {
+      content: '→';
+      color: #14A37D;
+      flex-shrink: 0;
+    }
+
+    .stage-detail__row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    @media (min-width: 640px) { .stage-detail__row { grid-template-columns: 1fr 1fr; gap: 1.25rem; } }
+
+    /* ── Cadence row at the bottom ───────────────────────────── */
+    .cadence {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.6rem;
+    }
+    .cadence__item {
+      display: flex; gap: 1rem; align-items: flex-start;
+      padding: 1rem 1.25rem;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 1rem;
+      transition: background-color 500ms var(--bezier), border-color 500ms var(--bezier);
+    }
+    .cadence__item:hover { background: rgba(20,163,125,0.04); border-color: rgba(20,163,125,0.20); }
+    .cadence__icon {
+      width: 36px; height: 36px;
+      flex-shrink: 0;
+      border-radius: 999px;
+      background: rgba(20,163,125,0.10);
+      border: 1px solid rgba(20,163,125,0.25);
+      display: grid; place-items: center;
+      color: #14A37D;
+    }
+    .cadence__body { flex: 1; }
+    .cadence__title { font-weight: 500; color: #F5F0E5; margin: 0 0 0.25rem; font-size: 0.95rem; }
+    .cadence__sub { color: #A39887; font-size: 0.82rem; line-height: 1.45; margin: 0; }
+
+    /* ── Diagram-style progress ──────────────────────────────── */
+    .stage-arc {
+      display: flex;
+      align-items: stretch;
+      gap: 0;
+      padding: 1.5rem;
+      background: rgba(255,255,255,0.025);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 1.5rem;
+    }
+    .stage-arc__cell {
+      flex: 1;
+      padding: 1.25rem 1rem;
+      border-right: 1px solid rgba(255,255,255,0.06);
+      text-align: center;
+      position: relative;
+    }
+    .stage-arc__cell:last-child { border-right: 0; }
+    .stage-arc__num {
+      font-family: 'Fraunces', serif;
+      font-variation-settings: 'opsz' 144, 'wght' 400;
+      font-size: 1.6rem;
+      letter-spacing: -0.02em;
+      color: #14A37D;
+      line-height: 1;
+      margin: 0 0 0.4rem;
+    }
+    .stage-arc__title {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #F5F0E5;
+      margin: 0 0 0.25rem;
+    }
+    .stage-arc__weeks {
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #A39887;
+    }
+    @media (max-width: 640px) {
+      .stage-arc { flex-direction: column; gap: 0; }
+      .stage-arc__cell { border-right: 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
+      .stage-arc__cell:last-child { border-bottom: 0; }
+    }
+
+    /* ── Outcomes table ──────────────────────────────────────── */
+    .outcomes-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+    }
+    @media (min-width: 768px) { .outcomes-row { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1024px) { .outcomes-row { grid-template-columns: repeat(4, 1fr); } }
+    .outcome-stat {
+      padding: 1.5rem;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 1.25rem;
+    }
+    .outcome-stat__num {
+      display: block;
+      font-family: 'Fraunces', serif;
+      font-variation-settings: 'opsz' 144, 'wght' 400;
+      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      letter-spacing: -0.025em;
+      line-height: 1;
+      color: #F5F0E5;
+    }
+    .outcome-stat__num sup {
+      font-size: 0.5em;
+      color: #14A37D;
+      margin-left: 0.05em;
+    }
+    .outcome-stat__label {
+      margin-top: 0.6rem;
+      font-size: 0.78rem;
+      line-height: 1.45;
+      color: #A39887;
+    }
+  </style>
+</head>
+<body>
+  <div class="mesh-bg" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <div class="nav-wrap">
+    <nav class="nav" id="nav" aria-label="Primary">
+      <a href="index.html" class="nav__brand">
+        <span class="nav__mark"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L4 6V12C4 17 7.5 21 12 22C16.5 21 20 17 20 12V6L12 2Z"/><path d="M12 7V17"/></svg></span>
+        Meridian &amp; Co.
+      </a>
+      <ul class="nav__links">
+        <li><a href="about.html" class="nav__link">About</a></li>
+        <li><a href="practice.html" class="nav__link">Practice</a></li>
+        <li><a href="framework.html" class="nav__link is-current">Framework</a></li>
+        <li><a href="case-studies.html" class="nav__link">Impact</a></li>
+        <li><a href="insights.html" class="nav__link">Insights</a></li>
+        <li><a href="team.html" class="nav__link">Team</a></li>
+        <li><a href="engagements.html" class="nav__link">Engage</a></li>
+      </ul>
+      <a href="contact.html" class="cta nav__cta cta--sm">
+        <span style="padding-left:.3rem">Book a call</span>
+        <span class="cta__arrow"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+      <button class="nav__burger" id="burger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span></button>
+    </nav>
+  </div>
+
+  <div class="menu-overlay" id="menuOverlay" aria-hidden="true">
+    <ul class="menu-overlay__list">
+      <li><a href="about.html">About</a></li>
+      <li><a href="practice.html">Practice</a></li>
+      <li><a href="framework.html">Framework</a></li>
+      <li><a href="case-studies.html">Impact</a></li>
+      <li><a href="insights.html">Insights</a></li>
+      <li><a href="team.html">Team</a></li>
+      <li><a href="engagements.html">Engage</a></li>
+      <li class="menu-overlay__sep">— get in touch —</li>
+      <li><a href="contact.html">Book a call →</a></li>
+    </ul>
+  </div>
+
+  <a class="back-chip" href="../../index.html#portfolio">
+    <span class="back-chip__icon"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M10 6H2M2 6L6 2M2 6L6 10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    Back to Resplend Studio
+  </a>
+
+  <main>
+
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+      <div class="container">
+        <div class="page-hero__split">
+          <div>
+            <span class="eyebrow reveal">Strategic framework</span>
+            <h1 class="page-hero__title reveal" data-delay="1">How an engagement <em>actually runs.</em></h1>
+            <p class="page-hero__sub reveal" data-delay="2">A four-stage operating model refined across 200+ engagements over twelve years. It is not a marketing artifact. Every active engagement at Meridian runs against this framework — the weekly business reviews, the partner cadence, the dashboards, the 90-day post-engagement check-ins are the same on every deal. Below is the version we use internally.</p>
+          </div>
+        </div>
+
+        <div class="stage-arc reveal" data-delay="3" aria-label="Four engagement stages">
+          <div class="stage-arc__cell">
+            <p class="stage-arc__num">01</p>
+            <p class="stage-arc__title">Diagnostic</p>
+            <p class="stage-arc__weeks">2 weeks</p>
+          </div>
+          <div class="stage-arc__cell">
+            <p class="stage-arc__num">02</p>
+            <p class="stage-arc__title">Strategy</p>
+            <p class="stage-arc__weeks">6 weeks</p>
+          </div>
+          <div class="stage-arc__cell">
+            <p class="stage-arc__num">03</p>
+            <p class="stage-arc__title">Execution</p>
+            <p class="stage-arc__weeks">6–9 months</p>
+          </div>
+          <div class="stage-arc__cell">
+            <p class="stage-arc__num">04</p>
+            <p class="stage-arc__title">Embed</p>
+            <p class="stage-arc__weeks">12 weeks</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STAGE 01 - DIAGNOSTIC -->
+    <section class="stage" id="diagnostic">
+      <div class="container">
+        <div class="stage__grid">
+          <aside class="stage__aside">
+            <p class="stage__num reveal"><em>01</em></p>
+            <h2 class="stage__title reveal" data-delay="1">Diagnostic.</h2>
+            <div class="stage__meta reveal" data-delay="2">
+              <span class="stage__chip">2 weeks</span>
+              <span class="stage__chip">$40K–$90K</span>
+              <span class="stage__chip">On-site, full-time</span>
+            </div>
+            <p class="stage-detail__body reveal" data-delay="3" style="max-width:42ch">Two weeks on-site with the senior team. We build a written view of the situation before any solution work begins.</p>
+          </aside>
+
+          <div class="stage-detail">
+            <div class="stage-detail__intro reveal" data-delay="1">
+              <div class="stage-detail__intro-core">
+                <p class="stage-detail__lede">Two weeks on-site. <em>No slides, no preamble.</em></p>
+                <p class="stage-detail__body">Our partners sit beside your operators for ten business days. We don't bring a stack of templates — we bring structured questions, calibrated judgment, and a willingness to find the answer you don't want to hear.</p>
+                <p class="stage-detail__body">By the end of week two we deliver a written diagnostic memo. Twelve pages, plain prose, the kind the leadership team will actually read. It is the document everyone reads at the executive team meeting that follows.</p>
+              </div>
+            </div>
+
+            <div class="stage-detail__row">
+              <div class="stage-detail__panel reveal" data-delay="1">
+                <div class="stage-detail__panel-core">
+                  <p class="stage-detail__panel-label"><i data-lucide="users" style="color:#14A37D"></i> Stakeholder coverage</p>
+                  <ul class="stage-detail__list">
+                    <li>12–20 structured interviews across functions</li>
+                    <li>One-on-ones with the executive team (90 min each)</li>
+                    <li>Frontline ride-alongs (manufacturing floor, support queues, sales calls)</li>
+                    <li>Customer interviews where the relationship allows</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="stage-detail__panel reveal" data-delay="2">
+                <div class="stage-detail__panel-core">
+                  <p class="stage-detail__panel-label"><i data-lucide="line-chart"></i> Financial teardown</p>
+                  <ul class="stage-detail__list">
+                    <li>Revenue cohort analysis and pricing architecture</li>
+                    <li>Unit economics by segment, customer, and channel</li>
+                    <li>Working-capital review — DSO/DIO/DPO deep-dives</li>
+                    <li>Capex history review and capital deployment scorecard</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="stage-detail__panel reveal" data-delay="3">
+                <div class="stage-detail__panel-core">
+                  <p class="stage-detail__panel-label"><i data-lucide="compass"></i> Operating view</p>
+                  <ul class="stage-detail__list">
+                    <li>Org design and span-of-control mapping</li>
+                    <li>Incentive alignment — comp plans, KPIs, performance cycles</li>
+                    <li>Productivity and capacity assessment</li>
+                    <li>Customer and vendor voice — interviews and ride-alongs</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="stage-detail__panel reveal" data-delay="4">
+                <div class="stage-detail__panel-core">
+                  <p class="stage-detail__panel-label"><i data-lucide="file-text"></i> What you receive</p>
+                  <ul class="stage-detail__list">
+                    <li>A 12-page diagnostic memo the executive team actually reads</li>
+                    <li>A data appendix with the underlying cohort and unit-economics views</li>
+                    <li>A pre-read deck for the executive team meeting</li>
+                    <li>Our preliminary read on where the next stage should focus</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STAGE 02 - STRATEGY -->
+    <section class="stage" id="strategy">
+      <div class="container">
+        <div class="stage__grid">
+          <aside class="stage__aside">
+            <p class="stage__num reveal"><em>02</em></p>
+            <h2 class="stage__title reveal" data-delay="1">Strategy.</h2>
+            <div class="stage__meta reveal" data-delay="2">
+              <span class="stage__chip">6 weeks</span>
+              <span class="stage__chip">$120K–$220K</span>
+              <span class="stage__chip">Hybrid cadence</span>
+            </div>
+            <p class="stage-detail__body reveal" data-delay="3" style="max-width:42ch">The diagnostic synthesizes into a strategy &amp; 18-month operating plan — three scenarios, defensible at the board, ready to execute.</p>
+          </aside>
+
+          <div class="stage-detail">
+            <div class="stage-detail__intro reveal" data-delay="1">
+              <div class="stage-detail__intro-core">
+                <p class="stage-detail__lede">Three scenarios. <em>One decision.</em></p>
+                <p class="stage-detail__body">The strategy stage synthesizes the diagnostic into an 18-month operating plan with three financial scenarios — base, stretch, and transformational — each tied to specific capital, hiring, and capability decisions.</p>
+                <p class="stage-detail__body">Every scenario is stress-tested against the same set of operating decisions: where do we deploy capital, who do we hire, what do we stop doing, what do we start, and what is the threshold at which the next scenario becomes the right one. Our partners sit in the boardroom while this is debated, not after.</p>
+              </div>
+            </div>
+
+            <div class="stage-detail__panel reveal" data-delay="2">
+              <div class="stage-detail__panel-core">
+                <p class="stage-detail__panel-label"><i data-lucide="layers"></i> Three scenarios, modeled in parallel</p>
+                <div class="stage-detail__row" style="margin-top:1rem">
+                  <ul class="stage-detail__list">
+                    <li><strong style="color:#F5F0E5">Base</strong> — what the existing plan looks like, optimized</li>
+                    <li><strong style="color:#F5F0E5">Stretch</strong> — one or two strategic bets layered on top</li>
+                    <li><strong style="color:#F5F0E5">Transformational</strong> — full operating-model redesign with sequenced capital</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="stage-detail__row">
+              <div class="stage-detail__panel reveal" data-delay="1">
+                <div class="stage-detail__panel-core">
+                  <p class="stage-detail__panel-label"><i data-lucide="calculator"></i> Modeling</p>
+                  <ul class="stage-detail__list">
+                    <li>Full P&amp;L with revenue, gross margin, opex, and capex</li>
+                    <li>Headcount plan with timing and skill requirements</li>
+                    <li>Cash flow waterfall with debt covenants tracked</li>
+                    <li>Sensitivity analysis on the assumptions that matter</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="stage-detail__panel reveal" data-delay="2">
+                <div class="stage-detail__panel-core">
+                  <p class="stage-detail__panel-label"><i data-lucide="map"></i> Roadmap</p>
+                  <ul class="stage-detail__list">
+                    <li>Quarterly milestones with named owners</li>
+                    <li>Sequenced hiring and capital deployment calendar</li>
+                    <li>Decision gates — what forces a re-look vs. continue</li>
+                    <li>Risk register with mitigation owners</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="stage-detail__panel reveal" data-delay="3">
+                <div class="stage-detail__panel-core">
+                  <p class="stage-detail__panel-label"><i data-lucide="presentation"></i> Board packaging</p>
+                  <ul class="stage-detail__list">
+                    <li>30-page board deck, defensible under cross-examination</li>
+                    <li>Three-scenario financial summary page</li>
+                    <li>Capital structure and financing options memo</li>
+                    <li>The board pre-read we hand to the chair the day before</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="stage-detail__panel reveal" data-delay="4">
+                <div class="stage-detail__panel-core">
+                  <p class="stage-detail__panel-label"><i data-lucide="shield-check"></i> What you receive</p>
+                  <ul class="stage-detail__list">
+                    <li>The 18-month operating plan, three scenarios</li>
+                    <li>The capital structure memo</li>
+                    <li>The board-ready strategy deck</li>
+                    <li>The transition plan for entering the execution stage</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STAGE 03 - EXECUTION -->
+    <section class="stage" id="execution">
+      <div class="container">
+        <div class="stage__grid">
+          <aside class="stage__aside">
+            <p class="stage__num reveal"><em>03</em></p>
+            <h2 class="stage__title reveal" data-delay="1">Execution.</h2>
+            <div class="stage__meta reveal" data-delay="2">
+              <span class="stage__chip">6–9 months</span>
+              <span class="stage__chip">$1.4M–$3.6M</span>
+              <span class="stage__chip">Embedded operator</span>
+            </div>
+            <p class="stage-detail__body reveal" data-delay="3" style="max-width:42ch">Senior Meridian staff sit in your operating cadence for six to nine months. We are accountable to the same metrics you are.</p>
+          </aside>
+
+          <div class="stage-detail">
+            <div class="stage-detail__intro reveal" data-delay="1">
+              <div class="stage-detail__intro-core">
+                <p class="stage-detail__lede">Embedded operators. <em>Measurable outcomes.</em></p>
+                <p class="stage-detail__body">The execution stage is where the strategy actually runs. Senior Meridian staff sit in your operating cadence — weekly business reviews, monthly steering committees, quarterly board prep — for the duration of the engagement. We are accountable to the same metrics you are.</p>
+                <p class="stage-detail__body">We do not staff this from across the bench. One partner is named for the engagement. They are the one in the operating cadence. The senior specialists underneath them rotate through as the work demands — but the partner stays.</p>
+              </div>
+            </div>
+
+            <div class="stage-detail__row">
+              <div class="stage-detail__panel reveal" data-delay="1">
+                <div class="stage-detail__panel-core">
+                  <p class="stage-detail__panel-label"><i data-lucide="user-check"></i> Operating partner assigned</p>
+                  <ul class="stage-detail__list">
+                    <li>One partner named for the engagement, end-to-end</li>
+                    <li>Sits in your executive team meetings weekly</li>
+                    <li>Holds decision rights alongside your COO/CFO</li>
+                    <li>Direct line to your board chair on capital reallocation</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="stage-detail__panel reveal" data-delay="2">
+                <div class="stage-detail__panel-core">
+                  <p class="stage-detail__panel-label"><i data-lucide="bar-chart-3"></i> Cadence</p>
+                  <ul class="stage-detail__list">
+                    <li>Weekly business reviews with structured dashboards</li>
+                    <li>Monthly steering committee with capital reallocation rights</li>
+                    <li>Quarterly board prep with the chair ahead of the meeting</li>
+                    <li>Real-time tracking against the strategy stage milestones</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="stage-detail__panel reveal" data-delay="3">
+                <div class="stage-detail__panel-core">
+                  <p class="stage-detail__panel-label"><i data-lucide="git-branch"></i> Workstreams</p>
+                  <ul class="stage-detail__list">
+                    <li>Sequenced by the strategy stage; budget ring-fenced</li>
+                    <li>Named workstream leads, accountable for outcomes</li>
+                    <li>Weekly workstream syncs feeding the WBR</li>
+                    <li>Explicit decision-rights matrix per workstream</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="stage-detail__panel reveal" data-delay="4">
+                <div class="stage-detail__panel-core">
+                  <p class="stage-detail__panel-label"><i data-lucide="trending-up"></i> What you receive</p>
+                  <ul class="stage-detail__list">
+                    <li>Weekly WBR with structured action register</li>
+                    <li>Monthly steering committee memo and minutes</li>
+                    <li>Mid-engagement strategy refresh (month 4)</li>
+                    <li>Real-time dashboards with operating and financial metrics</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STAGE 04 - EMBED -->
+    <section class="stage" id="embed">
+      <div class="container">
+        <div class="stage__grid">
+          <aside class="stage__aside">
+            <p class="stage__num reveal"><em>04</em></p>
+            <h2 class="stage__title reveal" data-delay="1">Embed.</h2>
+            <div class="stage__meta reveal" data-delay="2">
+              <span class="stage__chip">12 weeks</span>
+              <span class="stage__chip">Incl. in execution</span>
+              <span class="stage__chip">90-day check-in built-in</span>
+            </div>
+            <p class="stage-detail__body reveal" data-delay="3" style="max-width:42ch">Twelve weeks to independence. The operating muscle stays with your team, supported by measurement infrastructure and a structured hand-off.</p>
+          </aside>
+
+          <div class="stage-detail">
+            <div class="stage-detail__intro reveal" data-delay="1">
+              <div class="stage-detail__intro-core">
+                <p class="stage-detail__lede">Twelve weeks to <em>independence.</em></p>
+                <p class="stage-detail__body">The embed stage is where we hand the operating muscle back to your team. The dashboards, the cadence, the workstream structure — all of it stays. We train your team to run it, document it, and improve it without us in the room.</p>
+                <p class="stage-detail__body">The 90-day check-in is built in, written into the engagement letter. We come back at day +90, walk the metrics against the strategy-stage baseline, and make a recommendation on whether to re-engage. Three of every five engagements re-engage in some form, mostly at a smaller scope.</p>
+              </div>
+            </div>
+
+            <div class="stage-detail__row">
+              <div class="stage-detail__panel reveal" data-delay="1">
+                <div class="stage-detail__panel-core">
+                  <p class="stage-detail__panel-label"><i data-lucide="gauge"></i> Measurement infrastructure</p>
+                  <ul class="stage-detail__list">
+                    <li>Dashboard and KPI architecture, fully documented</li>
+                    <li>Weekly business review runbook (note templates, decision-rights)</li>
+                    <li>Monthly steering committee structure and pre-read template</li>
+                    <li>Alerting and exception handling thresholds</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="stage-detail__panel reveal" data-delay="2">
+                <div class="stage-detail__panel-core">
+                  <p class="stage-detail__panel-label"><i data-lucide="users"></i> Leadership coaching</p>
+                  <ul class="stage-detail__list">
+                    <li>Top 8 executives receive structured coaching</li>
+                    <li>Monthly 1:1 cadence, written coaching notes</li>
+                    <li>Succession planning support for two key positions</li>
+                    <li>Performance calibration support during the hand-off</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="stage-detail__panel reveal" data-delay="3">
+                <div class="stage-detail__panel-core">
+                  <p class="stage-detail__panel-label"><i data-lucide="book-open"></i> Documentation playbook</p>
+                  <ul class="stage-detail__list">
+                    <li>Each workstream has a written operations manual</li>
+                    <li>Decision-rights matrix is mapped to role definitions</li>
+                    <li>Process documentation lives where the team works</li>
+                    <li>Onboarding materials for new joiners</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="stage-detail__panel reveal" data-delay="4">
+                <div class="stage-detail__panel-core">
+                  <p class="stage-detail__panel-label"><i data-lucide="check-circle-2"></i> 90-day check-in</p>
+                  <ul class="stage-detail__list">
+                    <li>Written re-engagement option, included in the engagement letter</li>
+                    <li>Walk-through of metrics vs. the strategy-stage baseline</li>
+                    <li>Independent assessment of operating muscle strength</li>
+                    <li>Pre-agreed scope and price for re-engagement</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CADENCE -->
+    <section>
+      <div class="container two-col two-col--narrow">
+        <div style="margin-bottom:2.5rem">
+          <span class="eyebrow reveal">The cadence inside an engagement</span>
+          <h2 class="section-header__title reveal" data-delay="1" style="margin-top:1rem">Eight meetings <em>your calendar will have.</em></h2>
+          <p class="section-header__lede reveal" data-delay="2">The same cadence on every Meridian engagement, regardless of practice area. Predictability is part of what we charge for.</p>
+        </div>
+
+        <div class="cadence">
+          <div class="cadence__item reveal" data-delay="1">
+            <span class="cadence__icon"><i data-lucide="users" style="width:14px;height:14px"></i></span>
+            <div class="cadence__body">
+              <p class="cadence__title">Weekly business review</p>
+              <p class="cadence__sub">Mondays · 90 min · Operating team. The dashboard is reviewed against the strategy-stage baseline; action register is closed out.</p>
+            </div>
+          </div>
+          <div class="cadence__item reveal" data-delay="2">
+            <span class="cadence__icon"><i data-lucide="phone-call" style="width:14px;height:14px"></i></span>
+            <div class="cadence__body">
+              <p class="cadence__title">Operating partner 1:1</p>
+              <p class="cadence__sub">Weekly · 30 min · CEO or COO. Relationship check-in, decision escalated before the WBR.</p>
+            </div>
+          </div>
+          <div class="cadence__item reveal" data-delay="3">
+            <span class="cadence__icon"><i data-lucide="presentation" style="width:14px;height:14px"></i></span>
+            <div class="cadence__body">
+              <p class="cadence__title">Workstream sync</p>
+              <p class="cadence__sub">Twice weekly · 60 min · Workstream lead + specialists. Hands-on execution, blockers cleared.</p>
+            </div>
+          </div>
+          <div class="cadence__item reveal" data-delay="4">
+            <span class="cadence__icon"><i data-lucide="briefcase" style="width:14px;height:14px"></i></span>
+            <div class="cadence__body">
+              <p class="cadence__title">Steering committee</p>
+              <p class="cadence__sub">Monthly · 3 hr · Cross-functional. Capital reallocation, scope changes, cross-workstream issues.</p>
+            </div>
+          </div>
+          <div class="cadence__item reveal" data-delay="5">
+            <span class="cadence__icon"><i data-lucide="line-chart" style="width:14px;height:14px"></i></span>
+            <div class="cadence__body">
+              <p class="cadence__title">Board prep</p>
+              <p class="cadence__sub">Quarterly · 90 min · Chair + CEO pre-read. Operating partner walks the board narrative in advance.</p>
+            </div>
+          </div>
+          <div class="cadence__item reveal" data-delay="6">
+            <span class="cadence__icon"><i data-lucide="file-text" style="width:14px;height:14px"></i></span>
+            <div class="cadence__body">
+              <p class="cadence__title">Strategy refresh</p>
+              <p class="cadence__sub">Month 4 · 1 day · Offsite. Mid-engagement re-look at scenarios — does the base case hold or do we shift?</p>
+            </div>
+          </div>
+          <div class="cadence__item reveal" data-delay="7">
+            <span class="cadence__icon"><i data-lucide="book-open" style="width:14px;height:14px"></i></span>
+            <div class="cadence__body">
+              <p class="cadence__title">Embed hand-off</p>
+              <p class="cadence__sub">Weeks 1–4 of embed stage. Cadence handed to the team with runbooks, training, and named owners.</p>
+            </div>
+          </div>
+          <div class="cadence__item reveal" data-delay="8">
+            <span class="cadence__icon"><i data-lucide="check-circle-2" style="width:14px;height:14px"></i></span>
+            <div class="cadence__body">
+              <p class="cadence__title">90-day check-in</p>
+              <p class="cadence__sub">Built into the engagement letter. Walk the metrics, write the recommendation, decide on re-engagement.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OUTCOMES -->
+    <section>
+      <div class="container two-col two-col--narrow">
+        <div style="margin-bottom:2.5rem">
+          <span class="eyebrow reveal">What the framework produces</span>
+          <h2 class="section-header__title reveal" data-delay="1" style="margin-top:1rem">The numbers <em>the framework is accountable for.</em></h2>
+          <p class="section-header__lede reveal" data-delay="2">Every output below is a contractual line in the engagement letter, measured against a pre-agreed baseline. We do not invoice final fees until these are reported.</p>
+        </div>
+
+        <div class="outcomes-row">
+          <div class="outcome-stat reveal" data-delay="1">
+            <span class="outcome-stat__num">4.8<sup>×</sup></span>
+            <p class="outcome-stat__label">Median EBITDA uplift on completed transformation engagements, last 36 months.</p>
+          </div>
+          <div class="outcome-stat reveal" data-delay="2">
+            <span class="outcome-stat__num">94%</span>
+            <p class="outcome-stat__label">Client retention across rolling three-year windows. We win the second engagement in 86% of cases.</p>
+          </div>
+          <div class="outcome-stat reveal" data-delay="3">
+            <span class="outcome-stat__num">$2.4B<sup>+</sup></span>
+            <p class="outcome-stat__label">Cumulative transaction value advised across M&amp;A and capital engagements since founding.</p>
+          </div>
+          <div class="outcome-stat reveal" data-delay="4">
+            <span class="outcome-stat__num">11</span>
+            <p class="outcome-stat__label">Years median tenure of the senior team. The partners running your engagement in 2025 have been at Meridian since 2014 on average.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEXT-STEPS NAV -->
+    <section>
+      <div class="container">
+        <div class="engage__card reveal">
+          <div class="engage__card-core">
+            <div class="engage__split">
+              <div>
+                <span class="eyebrow">Continue exploring</span>
+                <h2 class="engage__title">See <em>the work in practice.</em></h2>
+                <p class="engage__sub">Six case studies across the practice areas, each showing what the framework looks like in execution. All anonymized, all with the metrics pre-agreed at signing.</p>
+                <div class="engage__cta-row">
+                  <a href="case-studies.html" class="cta cta--ink">
+                    <span style="padding-left:.3rem">Case studies</span>
+                    <span class="cta__arrow"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  </a>
+                  <a href="engagements.html" class="cta cta--ghost">
+                    <span style="padding-left:.3rem">Engagement pricing</span>
+                    <span class="cta__arrow"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  </a>
+                </div>
+              </div>
+              <div>
+                <div class="bezel"><div class="bezel__core" style="padding:1.75rem">
+                  <p class="eyebrow" style="margin-bottom:1rem">Useful next steps</p>
+                  <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:.65rem">
+                    <li><a href="practice.html" style="color:#D4CCBA">→ Practice areas</a></li>
+                    <li><a href="team.html" style="color:#D4CCBA">→ Partners running engagements</a></li>
+                    <li><a href="contact.html" style="color:#D4CCBA">→ Book a 45-minute intro call</a></li>
+                  </ul>
+                </div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav__brand">
+            <span class="nav__mark"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L4 6V12C4 17 7.5 21 12 22C16.5 21 20 17 20 12V6L12 2Z"/><path d="M12 7V17"/></svg></span>
+            Meridian &amp; Co.
+          </a>
+          <p>Boutique advisory for founder-led companies and private equity operators. Senior-led engagements, measurable outcomes.</p>
+        </div>
+        <div class="footer-col"><h4>Explore</h4><ul>
+          <li><a href="about.html">About</a></li><li><a href="practice.html">Practice</a></li>
+          <li><a href="framework.html">Framework</a></li><li><a href="case-studies.html">Case studies</a></li>
+          <li><a href="team.html">Senior team</a></li><li><a href="insights.html">Insights</a></li>
+        </ul></div>
+        <div class="footer-col"><h4>Engage</h4><ul>
+          <li><a href="engagements.html">Engagement tiers</a></li><li><a href="contact.html">Book a call</a></li>
+          <li><a href="contact.html#intake">Full intake form</a></li><li><a href="contact.html#offices">Office locations</a></li>
+        </ul></div>
+        <div class="footer-col"><h4>Contact</h4><ul>
+          <li><a href="mailto:hello@meridianco.example">hello@meridianco.example</a></li>
+          <li><a href="tel:+15551234567">+1 (555) 123-4567</a></li>
+          <li>200 Park Avenue, Floor 14<br />New York, NY 10166</li>
+        </ul></div>
+      </div>
+      <div class="footer-base">
+        <p>&copy; <span id="year"></span> Meridian &amp; Co. Advisory Partners LLP. All rights reserved.</p>
+        <p><a href="../../index.html#portfolio">← Back to Resplend Studio</a> · <a href="#">Back to top ↑</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function(){const n=document.getElementById('nav'),b=document.getElementById('burger'),o=document.getElementById('menuOverlay');if(!n||!b||!o)return;window.addEventListener('scroll',()=>{n.classList.toggle('is-scrolled',window.scrollY>24);},{passive:!0});const c=()=>{n.classList.remove('is-open');o.classList.remove('is-open');b.setAttribute('aria-expanded','false');o.setAttribute('aria-hidden','true');document.body.style.overflow=''};b.addEventListener('click',()=>{const p=!n.classList.contains('is-open');if(p){n.classList.add('is-open');o.classList.add('is-open');b.setAttribute('aria-expanded','true');o.setAttribute('aria-hidden','false');document.body.style.overflow='hidden'}else c()});o.querySelectorAll('a').forEach(a=>a.addEventListener('click',c))})();
+
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const id=a.getAttribute('href');if(id.length>1){const t=document.querySelector(id);if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'})}}})});
+
+    const reveals=document.querySelectorAll('.reveal');
+    if('IntersectionObserver' in window){const io=new IntersectionObserver(es=>{es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('is-in');io.unobserve(en.target)}})},{rootMargin:'0px 0px -8% 0px',threshold:0.08});reveals.forEach(el=>io.observe(el))}else reveals.forEach(el=>el.classList.add('is-in'));
+
+    document.querySelectorAll('.cta').forEach(el=>{const s=.18;let r=null;el.addEventListener('mousemove',e=>{const re=el.getBoundingClientRect(),x=(e.clientX-re.left-re.width/2)*s,y=(e.clientY-re.top-re.height/2)*s;if(r)cancelAnimationFrame(r);r=requestAnimationFrame(()=>{el.style.transform=`translate(${x}px,${y}px)`})});el.addEventListener('mouseleave',()=>{if(r)cancelAnimationFrame(r);r=null;el.style.transition='transform 600ms cubic-bezier(0.32,0.72,0,1)';el.style.transform='translate(0,0)';setTimeout(()=>{el.style.transition=''},700)})});
+
+    function initLucide(){if(window.lucide&&window.lucide.createIcons)window.lucide.createIcons({attrs:{'stroke-width':1.5}})}
+    const yEl=document.getElementById('year');if(yEl)yEl.textContent=new Date().getFullYear();
+    if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',initLucide);else initLucide();
+  </script>
+</body>
+</html>
