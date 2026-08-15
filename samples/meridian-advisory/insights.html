@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!--
+  © 2026 Resplend Studio · DesignByBryant@gmail.com
+  All rights reserved. Sample work — not for redistribution.
+-->
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Insights — Meridian &amp; Co.</title>
+  <meta name="description" content="Operating notes, frameworks, and field reports from the Meridian & Co. partners. Updated monthly." />
+  <meta name="theme-color" content="#0B0F17" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <link rel="stylesheet" href="styles.css" />
+  <script>
+    /* Preview embed: hide the back-to-portfolio chip when framed */
+    if (window.self !== window.top) document.documentElement.classList.add('is-embedded');
+  </script>
+  <style>
+    /* ── Featured article at top ────────────────────────────── */
+    .featured-article {
+      position: relative;
+      padding: 6px;
+      background: rgba(255,255,255,0.025);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 2.25rem;
+      overflow: hidden;
+      margin-bottom: 2rem;
+    }
+    .featured-article__core {
+      display: grid;
+      grid-template-columns: 1fr;
+      background: rgba(17,22,31,0.7);
+      backdrop-filter: blur(20px) saturate(140%);
+      -webkit-backdrop-filter: blur(20px) saturate(140%);
+      border-radius: 1.875rem;
+      box-shadow: inset 0 1px 1px rgba(255,255,255,0.05);
+      min-height: 460px;
+      overflow: hidden;
+    }
+    @media (min-width: 880px) { .featured-article__core { grid-template-columns: 1.05fr 1fr; } }
+    .featured-article__visual {
+      position: relative;
+      min-height: 280px;
+      overflow: hidden;
+    }
+    .featured-article__visual img {
+      width: 100%; height: 100%; object-fit: cover;
+      filter: grayscale(40%) brightness(0.85);
+    }
+    .featured-article__visual::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(11,15,23,0.10) 0%, rgba(11,15,23,0.55) 100%);
+    }
+    .featured-article__visual-tag {
+      position: absolute; top: 1.25rem; left: 1.25rem; z-index: 2;
+      padding: 0.4rem 0.85rem 0.4rem 0.7rem;
+      background: rgba(11,15,23,0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 999px;
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #D4CCBA;
+    }
+    .featured-article__content {
+      padding: 2.25rem 2.25rem 2.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 1.25rem;
+    }
+    @media (min-width: 1024px) { .featured-article__content { padding: 3rem; } }
+    .featured-article__meta {
+      display: flex; flex-wrap: wrap; gap: 0.85rem;
+      font-size: 0.78rem;
+      color: #A39887;
+      letter-spacing: 0.04em;
+    }
+    .featured-article__meta span { display: inline-flex; align-items: center; gap: 0.4rem; }
+    .featured-article__meta span:not(:last-child)::after {
+      content: '·';
+      color: rgba(255,255,255,0.20);
+      margin-left: 0.85rem;
+    }
+    .featured-article__title {
+      font-family: 'Fraunces', serif;
+      font-variation-settings: 'opsz' 144, 'wght' 400;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      letter-spacing: -0.025em;
+      line-height: 1.05;
+      color: #F5F0E5;
+      margin: 0;
+      max-width: 22ch;
+    }
+    .featured-article__title em {
+      font-style: italic;
+      font-variation-settings: 'opsz' 144, 'wght' 300;
+      color: #14A37D;
+    }
+    .featured-article__lede {
+      color: #A8A092;
+      font-size: 1.05rem;
+      line-height: 1.6;
+      max-width: 50ch;
+      margin: 0;
+    }
+    .featured-article__author {
+      display: flex; align-items: center; gap: 0.85rem;
+      margin-top: 0.5rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .featured-article__avatar {
+      width: 40px; height: 40px;
+      border-radius: 999px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.10);
+    }
+    .featured-article__avatar img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%); }
+    .featured-article__author-name { color: #F5F0E5; font-weight: 500; font-size: 0.92rem; line-height: 1.2; }
+    .featured-article__author-role { color: #A39887; font-size: 0.78rem; }
+
+    /* ── Article filter chips ──────────────────────────────── */
+    .article-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 2.5rem;
+      padding: 1rem 1.1rem;
+      background: rgba(255,255,255,0.025);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 999px;
+      width: fit-content;
+      max-width: 100%;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .article-filters a {
+      padding: 0.4rem 1rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      color: #D4CCBA;
+      transition: background-color 400ms var(--bezier), color 400ms var(--bezier);
+    }
+    .article-filters a:hover, .article-filters a.is-active {
+      background: rgba(20,163,125,0.10);
+      color: #F5F0E5;
+    }
+    .article-filters a span { color: #14A37D; margin-left: 0.4rem; font-size: 0.72rem; }
+
+    /* ── Article card grid ──────────────────────────────────── */
+    .article-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+    @media (min-width: 768px) { .article-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1100px) { .article-grid { grid-template-columns: repeat(3, 1fr); } }
+    .article {
+      position: relative;
+      padding: 6px;
+      background: rgba(255,255,255,0.025);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 1.75rem;
+      overflow: hidden;
+      transition: border-color 600ms var(--bezier), transform 700ms var(--bezier);
+      display: flex;
+      flex-direction: column;
+    }
+    .article:hover { border-color: rgba(20,163,125,0.30); transform: translateY(-3px); }
+    .article__core {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      background: rgba(17,22,31,0.7);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-radius: 1.5rem;
+      box-shadow: inset 0 1px 1px rgba(255,255,255,0.05);
+      overflow: hidden;
+    }
+    .article__visual {
+      position: relative;
+      aspect-ratio: 16 / 10;
+      overflow: hidden;
+    }
+    .article__visual img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      filter: grayscale(40%) contrast(1.05);
+      transition: transform 1400ms var(--bezier), filter 700ms var(--bezier);
+    }
+    .article:hover .article__visual img {
+      transform: scale(1.06);
+      filter: grayscale(15%) contrast(1.0);
+    }
+    .article__visual::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(11,15,23,0.05) 0%, rgba(11,15,23,0.45) 100%);
+    }
+    .article__cat {
+      position: absolute; top: 0.85rem; left: 0.85rem; z-index: 2;
+      padding: 0.3rem 0.7rem;
+      background: rgba(11,15,23,0.85);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 999px;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #D4CCBA;
+    }
+    .article__body {
+      padding: 1.5rem 1.5rem 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      flex: 1;
+    }
+    .article__meta {
+      display: flex; flex-wrap: wrap; gap: 0.85rem;
+      font-size: 0.75rem;
+      color: #A39887;
+    }
+    .article__meta span { display: inline-flex; align-items: center; gap: 0.4rem; }
+    .article__meta span:not(:last-child)::after {
+      content: '·'; color: rgba(255,255,255,0.20);
+      margin-left: 0.85rem;
+    }
+    .article__title {
+      font-family: 'Fraunces', serif;
+      font-variation-settings: 'opsz' 144, 'wght' 400;
+      font-size: clamp(1.25rem, 1.7vw, 1.5rem);
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      color: #F5F0E5;
+      margin: 0;
+    }
+    .article__title em {
+      font-style: italic;
+      color: #14A37D;
+      font-variation-settings: 'opsz' 144, 'wght' 300;
+    }
+    .article__lede {
+      color: #A8A092;
+      font-size: 0.9rem;
+      line-height: 1.55;
+      margin: 0;
+    }
+    .article__foot {
+      margin-top: auto;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 0.8rem;
+    }
+    .article__author { display: flex; align-items: center; gap: 0.6rem; }
+    .article__author img {
+      width: 28px; height: 28px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.10);
+      filter: grayscale(100%);
+      object-fit: cover;
+    }
+    .article__author-name { color: #D4CCBA; font-size: 0.85rem; }
+    .article__more {
+      width: 28px; height: 28px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.10);
+      display: inline-grid;
+      place-items: center;
+      color: #D4CCBA;
+      transition: background-color 500ms var(--bezier), border-color 500ms var(--bezier), color 500ms var(--bezier), transform 700ms var(--bezier);
+    }
+    .article:hover .article__more {
+      background: #14A37D;
+      border-color: #14A37D;
+      color: #0B0F17;
+      transform: rotate(-45deg);
+    }
+
+    /* ── Newsletter inline form ────────────────────────────── */
+    .newsletter {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      align-items: center;
+      padding: 6px;
+      background: rgba(255,255,255,0.025);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 2rem;
+    }
+    .newsletter__core {
+      padding: 2rem;
+      background: rgba(17,22,31,0.7);
+      backdrop-filter: blur(20px) saturate(140%);
+      -webkit-backdrop-filter: blur(20px) saturate(140%);
+      border-radius: 1.625rem;
+      box-shadow: inset 0 1px 1px rgba(255,255,255,0.05);
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      align-items: center;
+    }
+    @media (min-width: 880px) {
+      .newsletter__core { grid-template-columns: 1.3fr 1fr; padding: 2.5rem; gap: 3rem; }
+    }
+    .newsletter__title {
+      font-family: 'Fraunces', serif;
+      font-variation-settings: 'opsz' 144, 'wght' 400;
+      font-size: clamp(1.5rem, 2.4vw, 2.1rem);
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      color: #F5F0E5;
+      margin: 0.4rem 0 0.55rem;
+      max-width: 22ch;
+    }
+    .newsletter__title em { font-style: italic; color: #14A37D; font-variation-settings: 'opsz' 144, 'wght' 300; }
+    .newsletter__sub { color: #A8A092; font-size: 0.95rem; line-height: 1.5; margin: 0 0 1rem; }
+    .newsletter__form {
+      display: flex; gap: 0.5rem;
+      padding: 0.4rem;
+      background: rgba(11,15,23,0.6);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 999px;
+    }
+    .newsletter__form input {
+      flex: 1;
+      padding: 0.7rem 1rem;
+      background: transparent;
+      border: 0;
+      color: #F5F0E5;
+      font-family: inherit;
+      font-size: 0.92rem;
+      outline: none;
+    }
+    .newsletter__form input::placeholder { color: #A39887; }
+  </style>
+</head>
+<body>
+  <div class="mesh-bg" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <div class="nav-wrap">
+    <nav class="nav" id="nav" aria-label="Primary">
+      <a href="index.html" class="nav__brand">
+        <span class="nav__mark"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L4 6V12C4 17 7.5 21 12 22C16.5 21 20 17 20 12V6L12 2Z"/><path d="M12 7V17"/></svg></span>
+        Meridian &amp; Co.
+      </a>
+      <ul class="nav__links">
+        <li><a href="about.html" class="nav__link">About</a></li>
+        <li><a href="practice.html" class="nav__link">Practice</a></li>
+        <li><a href="framework.html" class="nav__link">Framework</a></li>
+        <li><a href="case-studies.html" class="nav__link">Impact</a></li>
+        <li><a href="insights.html" class="nav__link is-current">Insights</a></li>
+        <li><a href="team.html" class="nav__link">Team</a></li>
+        <li><a href="engagements.html" class="nav__link">Engage</a></li>
+      </ul>
+      <a href="contact.html" class="cta nav__cta cta--sm">
+        <span style="padding-left:.3rem">Book a call</span>
+        <span class="cta__arrow"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+      <button class="nav__burger" id="burger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span></button>
+    </nav>
+  </div>
+
+  <div class="menu-overlay" id="menuOverlay" aria-hidden="true">
+    <ul class="menu-overlay__list">
+      <li><a href="about.html">About</a></li>
+      <li><a href="practice.html">Practice</a></li>
+      <li><a href="framework.html">Framework</a></li>
+      <li><a href="case-studies.html">Impact</a></li>
+      <li><a href="insights.html">Insights</a></li>
+      <li><a href="team.html">Team</a></li>
+      <li><a href="engagements.html">Engage</a></li>
+      <li class="menu-overlay__sep">— get in touch —</li>
+      <li><a href="contact.html">Book a call →</a></li>
+    </ul>
+  </div>
+
+  <a class="back-chip" href="../../index.html#portfolio">
+    <span class="back-chip__icon"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M10 6H2M2 6L6 2M2 6L6 10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    Back to Resplend Studio
+  </a>
+
+  <main>
+
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+      <div class="container">
+        <div class="page-hero__split">
+          <div>
+            <span class="eyebrow reveal">Insights · operating notes</span>
+            <h1 class="page-hero__title reveal" data-delay="1">Notes from <em>the field.</em></h1>
+            <p class="page-hero__sub reveal" data-delay="2">Operating notes, frameworks, and engagement debriefs written by the partners at Meridian. Published roughly twice a month. Not a content-marketing vehicle — these are the working notes we share with our senior clients in addition to a wider audience.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED -->
+    <section>
+      <div class="container">
+        <a href="#" class="featured-article reveal" data-delay="1" style="text-decoration:none;color:inherit">
+          <div class="featured-article__core">
+            <div class="featured-article__visual">
+              <span class="featured-article__visual-tag">The Quarterly · Vol. 14</span>
+              <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1400&q=80" alt="" loading="lazy" />
+            </div>
+            <div class="featured-article__content">
+              <div class="featured-article__meta">
+                <span><i data-lucide="calendar" style="width:13px;height:13px"></i> August 8, 2025</span>
+                <span><i data-lucide="clock" style="width:13px;height:13px"></i> 14 min read</span>
+                <span><i data-lucide="tag" style="width:13px;height:13px"></i> Operations</span>
+              </div>
+              <h2 class="featured-article__title">The four-day diagnostic. <em>Why our engagement starts at the bench, not the deck.</em></h2>
+              <p class="featured-article__lede">A walk-through of how we run the first ten business days on every engagement. Why we refuse to start with a kickoff workshop, and what we look for in the first ride-along that tells us whether the transformation thesis will hold.</p>
+              <div class="featured-article__author">
+                <div class="featured-article__avatar"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80" alt="" loading="lazy" /></div>
+                <div>
+                  <p class="featured-article__author-name">Helena Voss</p>
+                  <p class="featured-article__author-role">Founding Partner · Operations</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- FILTERS -->
+    <section>
+      <div class="container">
+        <div class="article-filters reveal" data-delay="1">
+          <a href="#" class="is-active">All <span>28</span></a>
+          <a href="#">Strategy <span>06</span></a>
+          <a href="#">Operations <span>08</span></a>
+          <a href="#">M&amp;A &amp; Capital <span>05</span></a>
+          <a href="#">Digital <span>03</span></a>
+          <a href="#">ESG <span>02</span></a>
+          <a href="#">Field notes <span>04</span></a>
+        </div>
+
+        <!-- ARTICLE GRID -->
+        <div class="article-grid">
+
+          <a href="#" class="article reveal" data-delay="1" style="text-decoration:none;color:inherit">
+            <div class="article__core">
+              <div class="article__visual">
+                <span class="article__cat">Strategy</span>
+                <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=1200&q=80" alt="" loading="lazy" />
+              </div>
+              <div class="article__body">
+                <div class="article__meta"><span>Jul 22</span><span>9 min</span><span>Field-tested</span></div>
+                <h3 class="article__title">The strategy memo that <em>actually gets read.</em></h3>
+                <p class="article__lede">Twelve pages, plain prose, no appendix. The format we have used on more than 200 engagements and the writing rules we follow so they actually get read by the executive team.</p>
+                <div class="article__foot">
+                  <div class="article__author">
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=120&q=80" alt="" />
+                    <span class="article__author-name">James Okafor</span>
+                  </div>
+                  <span class="article__more"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a href="#" class="article reveal" data-delay="2" style="text-decoration:none;color:inherit">
+            <div class="article__core">
+              <div class="article__visual">
+                <span class="article__cat">Operations</span>
+                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80" alt="" loading="lazy" />
+              </div>
+              <div class="article__body">
+                <div class="article__meta"><span>Jul 09</span><span>12 min</span><span>Framework</span></div>
+                <h3 class="article__title">SKU rationalization, <em>without the customer backlash.</em></h3>
+                <p class="article__lede">Twenty-three percent of SKUs representing two percent of revenue is roughly where every rationalization starts. How to sequence exits without damaging the channels you want to keep.</p>
+                <div class="article__foot">
+                  <div class="article__author">
+                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=120&q=80" alt="" />
+                    <span class="article__author-name">Marcus Reilly</span>
+                  </div>
+                  <span class="article__more"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a href="#" class="article reveal" data-delay="3" style="text-decoration:none;color:inherit">
+            <div class="article__core">
+              <div class="article__visual">
+                <span class="article__cat">M&amp;A &amp; Capital</span>
+                <img src="https://images.unsplash.com/photo-1554469384-e58fac16e23a?auto=format&fit=crop&w=1200&q=80" alt="" loading="lazy" />
+              </div>
+              <div class="article__body">
+                <div class="article__meta"><span>Jun 28</span><span>11 min</span><span>Operating memo</span></div>
+                <h3 class="article__title">When to take the cash, <em>and when to wait.</em></h3>
+                <p class="article__lede">Three signals that an inbound offer is the right one to take, and five signs that it is the wrong one despite looking like the right one. We see roughly forty of these a year.</p>
+                <div class="article__foot">
+                  <div class="article__author">
+                    <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=120&q=80" alt="" />
+                    <span class="article__author-name">Eliza Chen</span>
+                  </div>
+                  <span class="article__more"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a href="#" class="article reveal" data-delay="4" style="text-decoration:none;color:inherit">
+            <div class="article__core">
+              <div class="article__visual">
+                <span class="article__cat">Field notes</span>
+                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80" alt="" loading="lazy" />
+              </div>
+              <div class="article__body">
+                <div class="article__meta"><span>Jun 14</span><span>8 min</span><span>Engagement debrief</span></div>
+                <h3 class="article__title">What we learned in <em>the first ride-along, every time.</em></h3>
+                <p class="article__lede">A field report on what we listen for in the first manufacturing-floor or service-queue walk-through. The signal we look for, and what tells us the diagnostic needs to start in a different place than planned.</p>
+                <div class="article__foot">
+                  <div class="article__author">
+                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&q=80" alt="" />
+                    <span class="article__author-name">Daniel Koufos</span>
+                  </div>
+                  <span class="article__more"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a href="#" class="article reveal" data-delay="5" style="text-decoration:none;color:inherit">
+            <div class="article__core">
+              <div class="article__visual">
+                <span class="article__cat">Digital</span>
+                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80" alt="" loading="lazy" />
+              </div>
+              <div class="article__body">
+                <div class="article__meta"><span>May 31</span><span>10 min</span><span>Framework</span></div>
+                <h3 class="article__title">Building the KPI architecture <em>before the data warehouse.</em></h3>
+                <p class="article__lede">Why most analytics transformation programs get the order of operations backwards. Three operating principles for instrumentation that survives the second re-platform.</p>
+                <div class="article__foot">
+                  <div class="article__author">
+                    <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=120&q=80" alt="" />
+                    <span class="article__author-name">Aiden Patel</span>
+                  </div>
+                  <span class="article__more"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a href="#" class="article reveal" data-delay="6" style="text-decoration:none;color:inherit">
+            <div class="article__core">
+              <div class="article__visual">
+                <span class="article__cat">Operations</span>
+                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80" alt="" loading="lazy" />
+              </div>
+              <div class="article__body">
+                <div class="article__meta"><span>May 19</span><span>7 min</span><span>Operating memo</span></div>
+                <h3 class="article__title">The wrong kind of span-of-control <em>cleanup.</em></h3>
+                <p class="article__lede">On the difference between rebalancing the layers in the org and eliminating the layers you actually needed. Six signals you're doing the second one because the data told you, not because it was the right call.</p>
+                <div class="article__foot">
+                  <div class="article__author">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=120&q=80" alt="" />
+                    <span class="article__author-name">Robert Chen</span>
+                  </div>
+                  <span class="article__more"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a href="#" class="article reveal" data-delay="1" style="text-decoration:none;color:inherit">
+            <div class="article__core">
+              <div class="article__visual">
+                <span class="article__cat">ESG</span>
+                <img src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=1200&q=80" alt="" loading="lazy" />
+              </div>
+              <div class="article__body">
+                <div class="article__meta"><span>May 04</span><span>13 min</span><span>Field-tested</span></div>
+                <h3 class="article__title">CSRD as an operating discipline, <em>not a compliance project.</em></h3>
+                <p class="article__lede">Why we built the carbon architecture into the operating cadence from day one at Helios Energy, and how the same instrumentation ended up underwriting the next capital raise.</p>
+                <div class="article__foot">
+                  <div class="article__author">
+                    <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=120&q=80" alt="" />
+                    <span class="article__author-name">Priya Nair</span>
+                  </div>
+                  <span class="article__more"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a href="#" class="article reveal" data-delay="2" style="text-decoration:none;color:inherit">
+            <div class="article__core">
+              <div class="article__visual">
+                <span class="article__cat">Strategy</span>
+                <img src="https://images.unsplash.com/photo-1551836022-deb4988cc6c0?auto=format&fit=crop&w=1200&q=80" alt="" loading="lazy" />
+              </div>
+              <div class="article__body">
+                <div class="article__meta"><span>Apr 21</span><span>9 min</span><span>Field notes</span></div>
+                <h3 class="article__title">Three scenarios, <em>one decision.</em></h3>
+                <p class="article__lede">Why we model three scenarios on every engagement even when the board has already picked the one it wants. How the friction built into the process keeps a strategy from breaking under operating pressure.</p>
+                <div class="article__foot">
+                  <div class="article__author">
+                    <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=120&q=80" alt="" />
+                    <span class="article__author-name">Theo Lindgren</span>
+                  </div>
+                  <span class="article__more"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a href="#" class="article reveal" data-delay="3" style="text-decoration:none;color:inherit">
+            <div class="article__core">
+              <div class="article__visual">
+                <span class="article__cat">M&amp;A &amp; Capital</span>
+                <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80" alt="" loading="lazy" />
+              </div>
+              <div class="article__body">
+                <div class="article__meta"><span>Apr 06</span><span>11 min</span><span>Operating memo</span></div>
+                <h3 class="article__title">The covenant reset. <em>What we look for in the loan docs.</em></h3>
+                <p class="article__lede">A walk-through of the three-page memo we produce for clients facing a covenant trip. What the lenders will actually negotiate on, what they will not, and where we have seen each kind in the past.</p>
+                <div class="article__foot">
+                  <div class="article__author">
+                    <img src="https://images.unsplash.com/photo-1522529599102-193c0d76b5f6?auto=format&fit=crop&w=120&q=80" alt="" />
+                    <span class="article__author-name">Sofia Restrepo</span>
+                  </div>
+                  <span class="article__more"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                </div>
+              </div>
+            </div>
+          </a>
+
+        </div>
+
+        <div style="display:flex;justify-content:center;margin-top:3rem">
+          <a href="#" class="cta cta--ghost">
+            <span style="padding-left:.3rem">Load more articles</span>
+            <span class="cta__arrow"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEWSLETTER -->
+    <section>
+      <div class="container two-col two-col--narrow">
+        <div class="newsletter reveal" data-delay="1">
+          <div class="newsletter__core">
+            <div>
+              <span class="eyebrow">The Quarterly · once a quarter</span>
+              <h3 class="newsletter__title">A long-form note, <em>in your inbox four times a year.</em></h3>
+              <p class="newsletter__sub">A synthesis of the operating notes, engagement debriefs, and partner commentary we publish monthly. No promotion, no vendor content, no event invitations.</p>
+            </div>
+            <form class="newsletter__form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Subscribed ✓'">
+              <input type="email" placeholder="Your email" required />
+              <button type="submit" class="cta cta--ink cta--sm">
+                <span style="padding-left:.3rem">Subscribe</span>
+                <span class="cta__arrow"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEXT-STEPS NAV -->
+    <section>
+      <div class="container">
+        <div class="engage__card reveal">
+          <div class="engage__card-core">
+            <div class="engage__split">
+              <div>
+                <span class="eyebrow">Continue exploring</span>
+                <h2 class="engage__title">Apply the framework <em>to your situation.</em></h2>
+                <p class="engage__sub">Forty-five minutes with a senior partner is the only way to know whether a Meridian engagement is the right fit. The conversation is yours; we leave the call with a clearer view either way.</p>
+                <div class="engage__cta-row">
+                  <a href="contact.html" class="cta cta--ink">
+                    <span style="padding-left:.3rem">Book the intro call</span>
+                    <span class="cta__arrow"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  </a>
+                  <a href="engagements.html" class="cta cta--ghost">
+                    <span style="padding-left:.3rem">Engagement tiers</span>
+                    <span class="cta__arrow"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  </a>
+                </div>
+              </div>
+              <div>
+                <div class="bezel"><div class="bezel__core" style="padding:1.75rem">
+                  <p class="eyebrow" style="margin-bottom:1rem">Useful next steps</p>
+                  <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:.65rem">
+                    <li><a href="framework.html" style="color:#D4CCBA">→ The four-stage framework</a></li>
+                    <li><a href="practice.html" style="color:#D4CCBA">→ Practice areas</a></li>
+                    <li><a href="case-studies.html" style="color:#D4CCBA">→ Case studies</a></li>
+                  </ul>
+                </div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav__brand">
+            <span class="nav__mark"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L4 6V12C4 17 7.5 21 12 22C16.5 21 20 17 20 12V6L12 2Z"/><path d="M12 7V17"/></svg></span>
+            Meridian &amp; Co.
+          </a>
+          <p>Boutique advisory for founder-led companies and private equity operators. Senior-led engagements, measurable outcomes.</p>
+        </div>
+        <div class="footer-col"><h4>Explore</h4><ul>
+          <li><a href="about.html">About</a></li><li><a href="practice.html">Practice</a></li>
+          <li><a href="framework.html">Framework</a></li><li><a href="case-studies.html">Case studies</a></li>
+          <li><a href="team.html">Senior team</a></li><li><a href="insights.html">Insights</a></li>
+        </ul></div>
+        <div class="footer-col"><h4>Engage</h4><ul>
+          <li><a href="engagements.html">Engagement tiers</a></li><li><a href="contact.html">Book a call</a></li>
+          <li><a href="contact.html#intake">Full intake form</a></li><li><a href="contact.html#offices">Office locations</a></li>
+        </ul></div>
+        <div class="footer-col"><h4>Contact</h4><ul>
+          <li><a href="mailto:hello@meridianco.example">hello@meridianco.example</a></li>
+          <li><a href="tel:+15551234567">+1 (555) 123-4567</a></li>
+          <li>200 Park Avenue, Floor 14<br />New York, NY 10166</li>
+        </ul></div>
+      </div>
+      <div class="footer-base">
+        <p>&copy; <span id="year"></span> Meridian &amp; Co. Advisory Partners LLP. All rights reserved.</p>
+        <p><a href="../../index.html#portfolio">← Back to Resplend Studio</a> · <a href="#">Back to top ↑</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function(){const n=document.getElementById('nav'),b=document.getElementById('burger'),o=document.getElementById('menuOverlay');if(!n||!b||!o)return;window.addEventListener('scroll',()=>{n.classList.toggle('is-scrolled',window.scrollY>24);},{passive:!0});const c=()=>{n.classList.remove('is-open');o.classList.remove('is-open');b.setAttribute('aria-expanded','false');o.setAttribute('aria-hidden','true');document.body.style.overflow=''};b.addEventListener('click',()=>{const p=!n.classList.contains('is-open');if(p){n.classList.add('is-open');o.classList.add('is-open');b.setAttribute('aria-expanded','true');o.setAttribute('aria-hidden','false');document.body.style.overflow='hidden'}else c()});o.querySelectorAll('a').forEach(a=>a.addEventListener('click',c))})();
+
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const id=a.getAttribute('href');if(id.length>1){const t=document.querySelector(id);if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'})}}})});
+
+    const reveals=document.querySelectorAll('.reveal');
+    if('IntersectionObserver' in window){const io=new IntersectionObserver(es=>{es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('is-in');io.unobserve(en.target)}})},{rootMargin:'0px 0px -8% 0px',threshold:0.08});reveals.forEach(el=>io.observe(el))}else reveals.forEach(el=>el.classList.add('is-in'));
+
+    document.querySelectorAll('.cta').forEach(el=>{const s=.18;let r=null;el.addEventListener('mousemove',e=>{const re=el.getBoundingClientRect(),x=(e.clientX-re.left-re.width/2)*s,y=(e.clientY-re.top-re.height/2)*s;if(r)cancelAnimationFrame(r);r=requestAnimationFrame(()=>{el.style.transform=`translate(${x}px,${y}px)`})});el.addEventListener('mouseleave',()=>{if(r)cancelAnimationFrame(r);r=null;el.style.transition='transform 600ms cubic-bezier(0.32,0.72,0,1)';el.style.transform='translate(0,0)';setTimeout(()=>{el.style.transition=''},700)})});
+
+    function initLucide(){if(window.lucide&&window.lucide.createIcons)window.lucide.createIcons({attrs:{'stroke-width':1.5}})}
+    const yEl=document.getElementById('year');if(yEl)yEl.textContent=new Date().getFullYear();
+    if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',initLucide);else initLucide();
+  </script>
+</body>
+</html>
