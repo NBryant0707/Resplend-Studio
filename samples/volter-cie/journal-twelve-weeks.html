@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!--
+  © 2026 Resplend Studio · DesignByBryant@gmail.com
+  All rights reserved. Sample work — not for redistribution.
+-->
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Twelve Weeks of Line — VOLTIER &amp; CIE.</title>
+  <meta name="description" content="Marc Aubert on the twelve weeks it took to draft the three hundred and twelve components of the Calibre V-12 by hand." />
+  <meta name="theme-color" content="#050505" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Twelve Weeks of Line — VOLTIER &amp; CIE." />
+  <meta property="og:description" content="Marc Aubert on the twelve weeks it took to draft the three hundred and twelve components of the Calibre V-12 by hand." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="pages.css" />
+</head>
+
+<body class="vc-body">
+  <!-- AMBIENT ORBS + GRAIN ─────────────────────────────────────────── -->
+  <div class="vc-orb vc-orb--top" aria-hidden="true"></div>
+  <div class="vc-orb vc-orb--bottom" aria-hidden="true"></div>
+  <div class="vc-grain" aria-hidden="true"></div>
+
+  <!-- HEADER ────────────────────────────────────────────────────────── -->
+  <header class="vc-header" id="vc-header">
+    <a href="index.html" class="vc-header__brand">VOLTIER <span>&amp;</span> CIE.</a>
+    <nav class="vc-nav" aria-label="Primary">
+      <a href="calibre.html" class="vc-nav__link">Calibre</a>
+      <a href="collection.html" class="vc-nav__link">Collection</a>
+      <a href="atelier.html" class="vc-nav__link">Atelier</a>
+      <a href="journal.html" class="vc-nav__link">Journal</a>
+      <a href="acquisition.html" class="vc-nav__link">Acquire</a>
+    </nav>
+    <div class="vc-header__actions">
+      <div class="vc-locale" role="group" aria-label="Currency locale — visual only, no conversion">
+        <button class="vc-locale__btn is-active" data-locale="CHF" aria-pressed="true">CHF</button>
+        <button class="vc-locale__btn" data-locale="EUR" aria-pressed="false">EUR</button>
+        <button class="vc-locale__btn" data-locale="USD" aria-pressed="false">USD</button>
+        <button class="vc-locale__btn" data-locale="GBP" aria-pressed="false">GBP</button>
+      </div>
+      <button id="vc-cart-open" class="vc-iconbtn" aria-label="Open acquisition bag">
+        <i data-lucide="shopping-bag" class="vc-icon"></i>
+        <span id="vc-cart-badge" class="vc-badge" hidden>0</span>
+      </button>
+      <button id="vc-burger" class="vc-burger" aria-label="Open menu" aria-expanded="false" aria-controls="vc-menu">
+        <span class="vc-burger__bar"></span>
+        <span class="vc-burger__bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- MENU OVERLAY ──────────────────────────────────────────────────── -->
+  <div id="vc-menu" class="vc-menu" aria-hidden="true">
+    <ul class="vc-menu__list">
+      <li class="vc-menu__item"><a class="vc-menu__link" href="index.html"><span class="vc-menu__idx">01</span> Maison</a></li>
+      <li class="vc-menu__item"><a class="vc-menu__link" href="calibre.html"><span class="vc-menu__idx">02</span> The Calibre</a></li>
+      <li class="vc-menu__item"><a class="vc-menu__link" href="collection.html"><span class="vc-menu__idx">03</span> The Collection</a></li>
+      <li class="vc-menu__item"><a class="vc-menu__link" href="reference-12-04.html"><span class="vc-menu__idx">04</span> Reference 12.04</a></li>
+      <li class="vc-menu__item"><a class="vc-menu__link" href="atelier.html"><span class="vc-menu__idx">05</span> The Atelier</a></li>
+      <li class="vc-menu__item"><a class="vc-menu__link" href="artisans.html"><span class="vc-menu__idx">06</span> The Hands</a></li>
+      <li class="vc-menu__item"><a class="vc-menu__link" href="heritage.html"><span class="vc-menu__idx">07</span> Heritage</a></li>
+      <li class="vc-menu__item"><a class="vc-menu__link" href="materials.html"><span class="vc-menu__idx">08</span> Materials</a></li>
+      <li class="vc-menu__item"><a class="vc-menu__link" href="journal.html"><span class="vc-menu__idx">09</span> The Journal</a></li>
+      <li class="vc-menu__item"><a class="vc-menu__link" href="journal-twelve-weeks.html"><span class="vc-menu__idx">10</span> Twelve Weeks of Line</a></li>
+      <li class="vc-menu__item"><a class="vc-menu__link" href="acquisition.html"><span class="vc-menu__idx">11</span> Acquisition</a></li>
+      <li class="vc-menu__item"><a class="vc-menu__link" href="salons.html"><span class="vc-menu__idx">12</span> Salons</a></li>
+    </ul>
+    <div class="vc-menu__foot">
+      <span>Genève · Depuis 1912</span>
+      <span>Editions of twelve</span>
+      <span>Time, kept by hand</span>
+    </div>
+  </div>
+
+  <main>
+    <!-- ═══════════════ PAGE CONTENT GOES HERE ═══════════════ -->
+
+    <!-- PAGE HERO ───────────────────────────────────────────────────── -->
+    <section class="vc-phero vc-phero--plate">
+      <div class="vc-phero__grid">
+        <div>
+          <nav class="vc-crumb" aria-label="Breadcrumb">
+            <a href="index.html">Maison</a>
+            <span class="vc-crumb__sep">/</span>
+            <a href="journal.html">The Journal</a>
+            <span class="vc-crumb__sep">/</span>
+            <span class="vc-crumb__here">Twelve Weeks of Line</span>
+          </nav>
+          <p class="vc-eyebrow vc-eyebrow--champagne">Atelier notes</p>
+          <h1 class="vc-phero__title">Twelve weeks<br /><span class="italic">of line.</span></h1>
+        </div>
+        <div>
+          <p class="vc-phero__lede">Marc Aubert on the eighty-four days it took to draft every one of the three hundred and twelve components of the Calibre V-12 — twice over, in pencil, by hand.</p>
+          <ul class="vc-meta">
+            <li><span class="vc-meta__k">Author</span><span class="vc-meta__v">Marc Aubert</span></li>
+            <li><span class="vc-meta__k">Date</span><span class="vc-meta__v">March 2026</span></li>
+            <li><span class="vc-meta__k">Reading</span><span class="vc-meta__v">9 minutes</span></li>
+            <li><span class="vc-meta__k">Category</span><span class="vc-meta__v">Atelier notes</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="vc-phero__plate" aria-hidden="false">
+        <div class="vc-phero__plate-core">
+          <img src="https://images.unsplash.com/photo-1495856458515-0637185db551?w=1800&q=80&auto=format" alt="A draughtsman's desk in the Geneva atelier, draughts ruling paper, pencil stubs, and a brass loupe laid across unfinished movement drawings." />
+          <div class="vc-phero__plate-scrim"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ESSAY ───────────────────────────────────────────────────────── -->
+    <section class="vc-section">
+      <div class="vc-container">
+        <div class="vc-rule"><span class="vc-rule__num">10</span></div>
+        <div class="vc-split">
+          <aside class="vc-split__aside">
+            <p class="vc-eyebrow text-champagne">The desk</p>
+            <h3 class="vc-h3block">Eighty-four<br /><span class="italic">days.</span></h3>
+            <p class="vc-section__lede" style="margin-top:1.5rem">Two redrawn escapements. One winter. Twelve weeks before the first plate left the atelier for hardening.</p>
+          </aside>
+          <div class="vc-prose vc-prose--dropcap">
+            <p>There is a drawing board on the second floor that no-one else is permitted to use. It is older than the maison — older, in fact, than the building. The baize is worn through at the elbow, and the lamp above it is hung from a brass swing so that it can be brought close to the paper without casting the draughtsman's own shadow across the line. I have started every calibre I have ever drawn at that board. The Calibre V-12 was begun there on the eleventh of January, in a winter cold enough to make the graphite brittle.</p>
+
+            <p>The paper was Arches 90 lb hot-pressed, cut to a half-plate. The pencils were Faber-Castell 9000, in grades 2H through 6B. A movement drawing is not a single line — it is a sequence of lines, each telling a different truth to a different eye, and each demanding a different hardness of lead. The escapement needs the 6B; the going train tolerates 2H; the balance cock is drafted in a wash of HB that hovers somewhere between.</p>
+
+            <h3>The first sketch of the escapement.</h3>
+            <p>The <strong>Swiss lever escapement</strong> is a small, vicious mechanism. Twenty-three parts. Each one must clear the pallet fork by a margin that, on the finished wheel, is measured in hundredths of a millimetre. I began, as I always begin, with the pallet fork — the anchor piece, in every sense — drawn at twelve times scale on the half-plate, then redrawn at six times, then again at two. The first sketch took the best part of a day. I drew the pallet stones three times before I was satisfied that the impulse face was tangent to the locking.</p>
+
+            <p>The mistake I made, in that first week, was to draw the <em>escape wheel</em> before the lever was right. The teeth on a Swiss lever escape wheel are drawn with a special template — a thin celluloid disk with twenty-four radial teeth scored into it — and once the wheel is on the paper it tends to dictate everything else. I erased that first wheel four times in two days before I understood that the problem was not the wheel. The problem was the lever. I turned the plate upside down on the board and started the lever again, this time without the wheel anywhere in sight.</p>
+
+            <h4>Anatomy of a re-draft</h4>
+            <ul>
+              <li>The pallet fork was drawn <strong>eleven times</strong> before its final geometry was agreed.</li>
+              <li>The escape wheel template was re-cut twice — once for tooth depth, once for the impulse-pin clearance.</li>
+              <li>The balance staff was set aside for two weeks while the spring geometry was re-derived from a 1908 set-square belonging to my predecessor.</li>
+            </ul>
+
+            <h3>The week where nothing worked.</h3>
+            <p>The fifth week of the project, the third week of February, was the worst week of my working life. I had been drawing the going train — barrel, centre wheel, third wheel, fourth wheel, escape wheel — and every proportion I set down looked wrong against the main-plate that was to receive them. The wheels were either too small, in which case the energy curve would collapse by the thirty-sixth hour, or too large, in which case the bridge would not seat. I had the entire train laid out on the paper, in pencil, in india ink, in white correcting fluid, and three times erased down to the baize.</p>
+
+            <p>I do not remember much of that week. I remember the lamp, and the temperature — the heating in the atelier failed on the Wednesday, and the radiator under the draughtsman's board gave up a low, unhappy hiss. I remember telephoning <strong>Édouard Vasseur</strong>, the retired Maître who trained me, on the Thursday morning, and his silence on the line for what seemed like a long time before he said only: <em>"re-draw the main-plate."</em></p>
+
+            <blockquote class="vc-quote reveal">
+              <p class="vc-quote__mark">&ldquo;</p>
+              <p class="vc-quote__text">A movement is finished when nothing further can be removed.</p>
+              <p class="vc-quote__by">Marc Aubert · <span class="vc-sig">Maître Horloger</span></p>
+            </blockquote>
+
+            <h3>The going train closes.</h3>
+            <p>The going train closed, finally, on a Monday morning in late March. I had re-drawn the main-plate at three-quarter scale the previous Friday, and on the Saturday taken it to the hardening house in Carouge to be photographed onto a steel photo-etch. By the Monday the new plate had returned, and the train — barrel, centre, third, fourth, escape — had been re-set against it in pencil. The proportions were right. I knew they were right before I measured them. The eye learns this, eventually.</p>
+
+            <figure class="vc-figure vc-figure--wide reveal">
+              <div class="vc-figure__core">
+                <img src="https://images.unsplash.com/photo-1623998021446-45cd9b269c95?w=1800&q=80&auto=format" alt="Movement drawings pinned to a draughtsman's wall: the going train, the escapement, and the balance cock at three scales each." />
+              </div>
+              <figcaption class="vc-figure__cap"><span>Plate 06</span><b>The going train closed — March 24</b></figcaption>
+            </figure>
+
+            <h3>Three hundred and twelve components.</h3>
+            <p>By the eleventh of April, twelve weeks after the first pencil touched paper, the Calibre V-12 existed on paper in its entirety. <strong>Three hundred and twelve components</strong>, drawn at every scale the workshop would later require: one-to-one for the cutters, two-to-one for the inspectors, twelve-to-one for the escapement. Each component on its own sheet. Each sheet stamped, dated, and initialled in the lower right-hand corner. The stack — bound in linen tape, the colour of weak tea from a hundred years of handling — is kept in the safe under the main staircase.</p>
+
+            <p>The first piece of steel left the atelier for hardening on the fourteenth of April, a Tuesday. The going-train bridge. I carried it, in a small wooden box, the two kilometres to the hardening house myself. It was a cold spring morning. The box weighed almost nothing.</p>
+
+            <h4>After the drawing</h4>
+            <p>A movement drawn in twelve weeks takes eleven days to assemble by hand. Each of the three hundred and twelve parts is filed, polished, and seated by one watchmaker — the same one, beginning to end. The case is milled from a single billet of titanium over forty-seven hours. The name on the caseback is the name of the watchmaker, not the maison.</p>
+
+            <p>The drawing is the first part of a long, slow conversation between the paper and the bench. It is not the easier half of that conversation. I have, occasionally, been asked which half I prefer. The honest answer is that I do not know which is harder. I know only that the drawing must be finished before the bench can begin.</p>
+          </div>
+        </div>
+
+        <!-- RELATED JOURNAL CARDS ──────────────────────────────────── -->
+        <div style="margin-top:8rem">
+          <div class="vc-rule"><span class="vc-rule__num">RL</span></div>
+          <header class="vc-section__head reveal">
+            <div>
+              <p class="vc-eyebrow">Continue reading</p>
+              <h2 class="vc-h2">From the <span class="italic text-champagne">atelier</span>.</h2>
+            </div>
+            <p class="vc-section__lede">Three further notes from the second floor of the maison, on the work that surrounds the drawing board.</p>
+          </header>
+          <div class="vc-jgrid">
+            <a class="vc-jcard reveal" href="journal.html">
+              <div class="vc-jcard__core">
+                <div class="vc-jcard__media">
+                  <img src="https://images.unsplash.com/photo-1606857521015-7f9fcf423740?w=1200&q=80&auto=format" alt="A polishing bench under loupe light, the steel surface of a movement bridge catching the lamp." />
+                </div>
+                <div class="vc-jcard__body">
+                  <p class="vc-eyebrow text-champagne">Bench</p>
+                  <h3 class="vc-jcard__title">Polishing the steel</h3>
+                  <p class="vc-jcard__text">A short note on the four grades of diamond paste, the temperature of the bench, and the sound a bridge makes when it has been finished correctly.</p>
+                  <div class="vc-jcard__foot">
+                    <span>February 2026 · 5 min</span>
+                    <span class="vc-btn__dot"><i data-lucide="arrow-up-right" class="vc-icon"></i></span>
+                  </div>
+                </div>
+              </div>
+            </a>
+            <a class="vc-jcard reveal" href="journal.html" style="transition-delay:120ms">
+              <div class="vc-jcard__core">
+                <div class="vc-jcard__media">
+                  <img src="https://images.unsplash.com/photo-1509048191080-d2984bad6ae5?w=1200&q=80&auto=format" alt="A vintage pocket-watch movement, balance wheel exposed, sitting on green felt under glass." />
+                </div>
+                <div class="vc-jcard__body">
+                  <p class="vc-eyebrow text-champagne">Heritage</p>
+                  <h3 class="vc-jcard__title">The 1908 set-square</h3>
+                  <p class="vc-jcard__text">On the oak set-square that has been used to lay out the going train of every Volter calibre since the maison's second decade.</p>
+                  <div class="vc-jcard__foot">
+                    <span>January 2026 · 7 min</span>
+                    <span class="vc-btn__dot"><i data-lucide="arrow-up-right" class="vc-icon"></i></span>
+                  </div>
+                </div>
+              </div>
+            </a>
+            <a class="vc-jcard reveal" href="journal.html" style="transition-delay:240ms">
+              <div class="vc-jcard__core">
+                <div class="vc-jcard__media">
+                  <img src="https://images.unsplash.com/photo-1612817156349-22d77c8b1fe0?w=1200&q=80&auto=format" alt="A loupe held above a balance wheel, the hairspring catching the lamplight in fine concentric rings." />
+                </div>
+                <div class="vc-jcard__body">
+                  <p class="vc-eyebrow text-champagne">Regulation</p>
+                  <h3 class="vc-jcard__title">Fourteen days of adjustment</h3>
+                  <p class="vc-jcard__text">On the six positions, two temperatures, and the fourteen days the calibre spends at the regulator's bench before it is signed.</p>
+                  <div class="vc-jcard__foot">
+                    <span>November 2025 · 11 min</span>
+                    <span class="vc-btn__dot"><i data-lucide="arrow-up-right" class="vc-icon"></i></span>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLOSING CTA ─────────────────────────────────────────────────── -->
+    <section class="vc-band">
+      <div class="vc-band__glow" aria-hidden="true"></div>
+      <div class="vc-band__inner">
+        <p class="vc-eyebrow text-champagne">Continue</p>
+        <h2 class="vc-h2">A piece leaves regulation.</h2>
+        <p class="vc-section__lede" style="margin:1.5rem auto 0">Editions are offered to the register when a calibre is signed. Twelve pieces per reference, each numbered.</p>
+        <div class="vc-band__cta">
+          <a href="acquisition.html" class="vc-btn">
+            <span class="pl-1">Request an audience</span>
+            <span class="vc-btn__dot"><i data-lucide="arrow-up-right" class="vc-icon"></i></span>
+          </a>
+          <a href="journal.html" class="vc-btn vc-btn--ghost"><span class="pl-1">The Journal</span></a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- PAGE NAV ──────────────────────────────────────────────────────── -->
+  <nav class="vc-pagenav" aria-label="Chapter">
+    <a class="vc-pagenav__link" href="journal.html">
+      <span class="vc-pagenav__k">← Previous</span>
+      <p class="vc-pagenav__t">The Journal</p>
+    </a>
+    <a class="vc-pagenav__link vc-pagenav__link--next" href="acquisition.html">
+      <span class="vc-pagenav__k">Next →</span>
+      <p class="vc-pagenav__t">Acquisition</p>
+    </a>
+  </nav>
+
+  <!-- FOOTER ────────────────────────────────────────────────────────── -->
+  <footer class="vc-footer">
+    <div class="vc-footer__newsletter">
+      <div>
+        <p class="vc-eyebrow text-champagne">The register</p>
+        <h2 class="vc-h3block">Editions are offered to the register first.</h2>
+        <p class="vc-footer__lede">
+          Twelve pieces per reference. We write once a season — never more — when a calibre leaves regulation.
+        </p>
+      </div>
+      <form class="vc-footer__form" onsubmit="return false;">
+        <input class="vc-input" type="email" placeholder="Your atelier address" aria-label="Email address" />
+        <button class="vc-btn vc-btn--fill-sm" type="submit">
+          <span class="pl-1">Join</span>
+          <span class="vc-btn__dot"><i data-lucide="arrow-up-right" class="vc-icon"></i></span>
+        </button>
+      </form>
+    </div>
+
+    <div class="vc-footer__grid">
+      <div>
+        <h5 class="vc-eyebrow">Maison</h5>
+        <ul class="vc-footer__list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="heritage.html">Heritage</a></li>
+          <li><a href="artisans.html">The Hands</a></li>
+          <li><a href="salons.html">Salons</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="vc-eyebrow">Calibre</h5>
+        <ul class="vc-footer__list">
+          <li><a href="calibre.html">The Calibre V-12</a></li>
+          <li><a href="materials.html">Materials</a></li>
+          <li><a href="collection.html">The Collection</a></li>
+          <li><a href="reference-12-04.html">Reference 12.04</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="vc-eyebrow">Atelier</h5>
+        <ul class="vc-footer__list">
+          <li><a href="atelier.html">Inside the atelier</a></li>
+          <li><a href="journal.html">The Journal</a></li>
+          <li><a href="acquisition.html">Acquisition</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="vc-eyebrow">Time across ateliers</h5>
+        <ul class="vc-footer__clocks">
+          <li><span class="vc-eyebrow" style="opacity:.6">Geneva</span> <span class="vc-clock" data-tz="Europe/Zurich">--:--:--</span></li>
+          <li><span class="vc-eyebrow" style="opacity:.6">New York</span> <span class="vc-clock" data-tz="America/New_York">--:--:--</span></li>
+          <li><span class="vc-eyebrow" style="opacity:.6">Tokyo</span> <span class="vc-clock" data-tz="Asia/Tokyo">--:--:--</span></li>
+          <li><span class="vc-eyebrow" style="opacity:.6">Dubai</span> <span class="vc-clock" data-tz="Asia/Dubai">--:--:--</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="vc-footer__legal">
+      <span>WCAG 2.1 AA · Made in Geneva · All editions numbered</span>
+      <span id="vc-copy-year">© VOLTIER &amp; CIE.</span>
+    </div>
+  </footer>
+
+  <!-- CART DRAWER ───────────────────────────────────────────────────── -->
+  <div id="vc-cart-scrim" class="vc-cart__scrim" hidden></div>
+  <aside id="vc-cart-drawer" class="vc-cart" aria-label="Acquisition bag" hidden>
+    <header class="vc-cart__head">
+      <h2 class="vc-h3 italic">Acquisition</h2>
+      <button id="vc-cart-close" class="vc-iconbtn" aria-label="Close acquisition bag">
+        <i data-lucide="x" class="vc-icon"></i>
+      </button>
+    </header>
+
+    <div class="vc-cart__ship">
+      <div class="vc-cart__ship-row">
+        <span id="vc-cart-ship-label">CHF 80,000 to complimentary shipping</span>
+        <span id="vc-cart-ship-pct">0%</span>
+      </div>
+      <div class="vc-cart__ship-bar"><span id="vc-cart-ship-fill"></span></div>
+    </div>
+
+    <div class="vc-cart__body" id="vc-cart-body">
+      <p id="vc-cart-empty" class="vc-cart__empty">Your acquisition bag is empty.</p>
+      <ul id="vc-cart-items" class="vc-cart__items" hidden></ul>
+
+      <div class="vc-cart__upsell">
+        <div>
+          <p class="vc-eyebrow text-champagne">Recommended</p>
+          <p class="vc-cart__upsell-text">Hand-stitched alligator strap · CHF 4,200</p>
+        </div>
+        <button class="vc-iconbtn vc-iconbtn--champagne" aria-label="Add strap to acquisition">
+          <i data-lucide="plus" class="vc-icon"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="vc-cart__foot">
+      <div class="vc-cart__subtotal">
+        <span class="vc-eyebrow" style="opacity:.6">Subtotal</span>
+        <span id="vc-cart-subtotal" class="vc-h3">CHF 0</span>
+      </div>
+      <button class="vc-shimmer">
+        <span class="vc-shimmer__label">Proceed to Acquisition</span>
+        <span class="vc-shimmer__bar" aria-hidden="true"></span>
+      </button>
+      <p class="vc-cart__note">Reserved for atelier confirmation</p>
+    </div>
+  </aside>
+
+  <!-- SCRIPTS ───────────────────────────────────────────────────────── -->
+  <script>
+  if (window.tailwind && window.tailwind.config) {
+    window.tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            obsidian:        '#050505',
+            'obsidian-soft': '#0D0D11',
+            ash:             '#1A1A1F',
+            bone:            '#E5E0D8',
+            'bone-soft':     '#A8A092',
+            champagne:       '#D4AF37',
+            bronze:          '#B8763A'
+          },
+          fontFamily: {
+            display: ['"Cormorant Garamond"', 'serif'],
+            sans:    ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif']
+          },
+          letterSpacing: { meta: '0.22em' }
+        }
+      }
+    };
+  }
+  if (window.lucide && window.lucide.createIcons) window.lucide.createIcons();
+  </script>
+  <script src="volter-cie.js" defer></script>
+  <script src="pages.js" defer></script>
+</body>
+</html>

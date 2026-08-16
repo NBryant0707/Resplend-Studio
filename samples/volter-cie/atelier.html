@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!--
+  © 2026 Resplend Studio · DesignByBryant@gmail.com
+  All rights reserved. Sample work — not for redistribution.
+-->
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>The Atelier — VOLTIER &amp; CIE.</title>
+  <meta name="description" content="The Geneva workshop on Rue du Rhône. Twelve benches, north light, and the four named stages of making a V-12 movement." />
+  <meta name="theme-color" content="#050505" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="The Atelier — VOLTIER &amp; CIE." />
+  <meta property="og:description" content="The Geneva workshop on Rue du Rhône. Twelve benches, north light, and the four named stages of making a V-12 movement." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="pages.css" />
+</head>
+
+<body class="vc-body">
+  <!-- AMBIENT ORBS + GRAIN -->
+  <div class="vc-orb vc-orb--top" aria-hidden="true"></div>
+  <div class="vc-orb vc-orb--bottom" aria-hidden="true"></div>
+  <div class="vc-grain" aria-hidden="true"></div>
+
+  <!-- HEADER -->
+  <header class="vc-header" id="vc-header">
+    <a href="index.html" class="vc-header__brand">VOLTIER <span>&amp;</span> CIE.</a>
+    <nav class="vc-nav" aria-label="Primary">
+      <a href="calibre.html" class="vc-nav__link">Calibre</a>
+      <a href="collection.html" class="vc-nav__link">Collection</a>
+      <a href="atelier.html" class="vc-nav__link is-current">Atelier</a>
+      <a href="journal.html" class="vc-nav__link">Journal</a>
+      <a href="acquisition.html" class="vc-nav__link">Acquire</a>
+    </nav>
+    <div class="vc-header__actions">
+      <div class="vc-locale" role="group" aria-label="Currency locale — visual only, no conversion">
+        <button class="vc-locale__btn is-active" data-locale="CHF" aria-pressed="true">CHF</button>
+        <button class="vc-locale__btn" data-locale="EUR" aria-pressed="false">EUR</button>
+        <button class="vc-locale__btn" data-locale="USD" aria-pressed="false">USD</button>
+        <button class="vc-locale__btn" data-locale="GBP" aria-pressed="false">GBP</button>
+      </div>
+      <button id="vc-cart-open" class="vc-iconbtn" aria-label="Open acquisition bag">
+        <i data-lucide="shopping-bag" class="vc-icon"></i>
+        <span id="vc-cart-badge" class="vc-badge" hidden>0</span>
+      </button>
+      <button id="vc-burger" class="vc-burger" aria-label="Open menu" aria-expanded="false" aria-controls="vc-menu">
+        <span class="vc-burger__bar"></span>
+        <span class="vc-burger__bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- MENU OVERLAY -->
+  <div id="vc-menu" class="vc-menu" aria-hidden="true">
+    <ul class="vc-menu__list">
+      <li class="vc-menu__item"><a class="vc-menu__link" href="index.html"><span class="vc-menu__idx">01</span> Maison</a></li>
+      <li class="vc-menu__item"><a class="vc-menu__link" href="calibre.html"><span class="vc-menu__idx">02</span> The Calibre</a></li>
+      <li class="vc-menu__item"><a class="vc-menu__link" href="collection.html"><span class="vc-menu__idx">03</span> The Collection</a></li>
+      <li class="vc-menu__item"><a class="vc-menu__link" href="reference-12-04.html"><span class="vc-menu__idx">04</span> Reference 12.04</a></li>
+      <li class="vc-menu__item"><a class="vc-menu__link is-current" href="atelier.html"><span class="vc-menu__idx">05</span> The Atelier</a></li>
+      <li class="vc-menu__item"><a class="vc-menu__link" href="artisans.html"><span class="vc-menu__idx">06</span> The Hands</a></li>
+      <li class="vc-menu__item"><a class="vc-menu__link" href="heritage.html"><span class="vc-menu__idx">07</span> Heritage</a></li>
+      <li class="vc-menu__item"><a class="vc-menu__link" href="materials.html"><span class="vc-menu__idx">08</span> Materials</a></li>
+      <li class="vc-menu__item"><a class="vc-menu__link" href="journal.html"><span class="vc-menu__idx">09</span> The Journal</a></li>
+      <li class="vc-menu__item"><a class="vc-menu__link" href="journal-twelve-weeks.html"><span class="vc-menu__idx">10</span> Twelve Weeks of Line</a></li>
+      <li class="vc-menu__item"><a class="vc-menu__link" href="acquisition.html"><span class="vc-menu__idx">11</span> Acquisition</a></li>
+      <li class="vc-menu__item"><a class="vc-menu__link" href="salons.html"><span class="vc-menu__idx">12</span> Salons</a></li>
+    </ul>
+    <div class="vc-menu__foot">
+      <span>Genève · Depuis 1912</span>
+      <span>Editions of twelve</span>
+      <span>Time, kept by hand</span>
+    </div>
+  </div>
+
+  <main>
+    <!-- HERO -->
+    <section class="vc-phero">
+      <div class="vc-phero__grid">
+        <div>
+          <nav class="vc-crumb" aria-label="Breadcrumb">
+            <a href="index.html">Maison</a>
+            <span class="vc-crumb__sep">/</span>
+            <span class="vc-crumb__here">The Atelier</span>
+          </nav>
+          <h1 class="vc-phero__title">Twelve benches, <span class="italic">north light</span>.</h1>
+        </div>
+        <div>
+          <p class="vc-phero__lede">The Geneva workshop on Rue du Rhône. Twelve benches, north light, and the four named stages of making a movement.</p>
+          <ul class="vc-meta">
+            <li><span class="vc-meta__k">Established</span><span class="vc-meta__v">1912</span></li>
+            <li><span class="vc-meta__k">Benches</span><span class="vc-meta__v">Twelve</span></li>
+            <li><span class="vc-meta__k">Material</span><span class="vc-meta__v">Grade 5 titanium</span></li>
+            <li><span class="vc-meta__k">City</span><span class="vc-meta__v">Geneva</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 01 · THE BUILDING -->
+    <section class="vc-section">
+      <div class="vc-container">
+        <div class="vc-rule"><span class="vc-rule__num">01</span></div>
+        <header class="vc-section__head reveal">
+          <div>
+            <p class="vc-eyebrow">The building</p>
+            <h2 class="vc-h2">North light on <span class="italic text-champagne">Rue du Rhône</span>.</h2>
+          </div>
+          <p class="vc-section__lede">The workshop occupies a third floor in the old town. The work is paced by the angle of the sun and by the hour of regulation. The room has not changed in fifty years.</p>
+        </header>
+
+        <div class="vc-split">
+          <aside class="vc-split__aside">
+            <p class="vc-eyebrow text-champagne">The atelier</p>
+            <h3 class="vc-h3block">A long room with twelve benches.</h3>
+          </aside>
+          <div class="vc-prose vc-prose--dropcap">
+            <p>The maison occupies the third floor of a stone building at 14 Rue du Rhône, Geneva. The atelier was refitted in 1968 by the architect Pierre Braunschvig, who stripped the partitions and left the original ashlar exposed. Twelve benches now line the bay windows. The glass faces due north. The light is steady from ten until four — the hours during which any measurement of tolerance is taken.</p>
+
+            <p>The floor is oak, laid in 1968 by the parquet firm Berger of Carouge and waxed twice a year. Each bench bears a brass plate — the holder's name, the year of their appointment, and the year of their retirement. Marc Aubert's plate bears the date 1994. The plates of the first bench-holders from 1912 are now in the library. The original loupes hang in the corridor by the door.</p>
+
+            <p>The vault lies behind the last door on the right. It holds the components in progress — baseplates, balance wheels, hairsprings, dials in transit — between stages of hand assembly. Temperature is held at 19°C, ±0.5. Relative humidity is held between forty-five and fifty-five percent. The door is opened by Marc Aubert, Maître Horloger, or by appointment.</p>
+
+            <p>A second room houses the library: catalogues from the Geneva Observatory, dossiers of discontinued movements, the working notebooks of five head watchmakers, and the assay files dating to 1912. Nothing is lent from this room. Visitors are received there on Thursdays, between two and four.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 · THE FOUR STAGES -->
+    <section class="vc-section vc-section--alt">
+      <div class="vc-container">
+        <div class="vc-rule"><span class="vc-rule__num">02</span></div>
+        <header class="vc-section__head reveal">
+          <div>
+            <p class="vc-eyebrow">The four stages</p>
+            <h2 class="vc-h2">From drawing <span class="italic text-champagne">to caseback</span>.</h2>
+          </div>
+          <p class="vc-section__lede">Each V-12 movement passes through four named stages. Each has a duration. None is shortened.</p>
+        </header>
+
+        <div class="vc-time">
+          <article class="vc-time__item reveal">
+            <div class="vc-time__core">
+              <p class="vc-time__year">I</p>
+              <div>
+                <h3 class="vc-time__title">The drawing board</h3>
+                <p class="vc-time__text">Each reference begins on paper. The marker holds a soft pencil and draws the components freehand at scale 12:1, then redraws them at scale 1:1 against the working plate. Three hundred and twelve parts. The drawing takes twelve weeks. No component is committed to manufacture until the marker has signed the sheet. Twelve watches are made each year per reference; none of them shares a working drawing with another. The drawings are filed in the library under the reference number, and kept indefinitely.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="vc-time__item reveal" style="transition-delay:120ms">
+            <div class="vc-time__core">
+              <p class="vc-time__year">II</p>
+              <div>
+                <h3 class="vc-time__title">Case milling</h3>
+                <p class="vc-time__text">The case blank is cut from a single billet of Grade 5 titanium. Forty-seven hours of milling reduces the blank to the case in sub-millimetre increments. The tooling is changed by hand fifteen times across the run. The satin finish is applied afterwards — by a finisher at Bench 03, with a wooden lap and a paste of diamantine, in unbroken strokes that follow the curve of the case. No two cases share the exact grain of the satin; this is one of the more easily observed marks of the maison. The case is delivered to assembly between the eighteenth and twenty-second day of the run.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="vc-time__item reveal" style="transition-delay:240ms">
+            <div class="vc-time__core">
+              <p class="vc-time__year">III</p>
+              <div>
+                <h3 class="vc-time__title">Hand assembly</h3>
+                <p class="vc-time__text">A single watchmaker assembles each piece, from start to seal. The assembly takes eleven working days. Across those days the watchmaker sets the components in their seat — barrel, going train, escapement, balance — oils each jewel with the maison's own synthetic, and the watch is closed. On the last afternoon the caseback is engraved with the watchmaker's name in the maison's hand. The engraver has been trained in-house. No piece leaves the atelier without a signature. If a watchmaker is unavailable, the piece waits for them.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="vc-time__item reveal" style="transition-delay:360ms">
+            <div class="vc-time__core">
+              <p class="vc-time__year">IV</p>
+              <div>
+                <h3 class="vc-time__title">Regulation</h3>
+                <p class="vc-time__text">Once sealed, the watch passes to the regulator. It is worn across six positions for fourteen days. The allowable tolerance is ±2 seconds per day. Anything wider is returned to the bench for re-adjustment; nothing is sent out. The regulator's mark is added to the caseback beneath the watchmaker's mark, in smaller letters, after the run is complete. Regulation is the last act of making. The piece is then returned to Marc Aubert for sign-off before it is boxed for delivery.</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 · THE BENCHES -->
+    <section class="vc-section">
+      <div class="vc-container">
+        <div class="vc-rule"><span class="vc-rule__num">03</span></div>
+        <header class="vc-section__head reveal">
+          <div>
+            <p class="vc-eyebrow">The benches</p>
+            <h2 class="vc-h2">Photographs, <span class="italic text-champagne">1962–1988</span>.</h2>
+          </div>
+          <p class="vc-section__lede">Four plates from the maison's archive. Each photograph is held in the library and is reproduced here by permission.</p>
+        </header>
+
+        <div class="vc-gallery">
+          <figure class="vc-figure vc-figure--wide reveal">
+            <div class="vc-figure__core"><img src="https://images.unsplash.com/photo-1495856458515-0637185db551?w=1600&q=80&auto=format" alt="A watchmaker's bench against the north-facing bay window, summer 1962." /></div>
+            <figcaption class="vc-figure__cap"><span>Plate 09</span><b>Bench 03 · West wall</b></figcaption>
+          </figure>
+          <figure class="vc-figure vc-figure--wide reveal" style="transition-delay:120ms">
+            <div class="vc-figure__core"><img src="https://images.unsplash.com/photo-1564550974352-c33f87a1deae?w=1600&q=80&auto=format" alt="A precision lathe at Bench 07, with a watchmaker's lamp set above the spindle." /></div>
+            <figcaption class="vc-figure__cap"><span>Plate 10</span><b>Bench 07 · The lathe</b></figcaption>
+          </figure>
+          <figure class="vc-figure vc-figure--wide reveal" style="transition-delay:240ms">
+            <div class="vc-figure__core"><img src="https://images.unsplash.com/photo-1606293459339-4ed72a17a7c5?w=1600&q=80&auto=format" alt="Detail of a brass cabinet door with a numerical combination lock, rebuilt in 1988." /></div>
+            <figcaption class="vc-figure__cap"><span>Plate 11</span><b>The vault door · Rebuilt 1988</b></figcaption>
+          </figure>
+          <figure class="vc-figure vc-figure--wide reveal" style="transition-delay:360ms">
+            <div class="vc-figure__core"><img src="https://images.unsplash.com/photo-1606293459320-95bccc9b04dc?w=1600&q=80&auto=format" alt="Working notebooks bound in linen, shelved in the atelier's library." /></div>
+            <figcaption class="vc-figure__cap"><span>Plate 12</span><b>The library · 1912–present</b></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 · TOOLS -->
+    <section class="vc-section vc-section--alt">
+      <div class="vc-container">
+        <div class="vc-rule"><span class="vc-rule__num">04</span></div>
+        <header class="vc-section__head reveal">
+          <div>
+            <p class="vc-eyebrow">Tools</p>
+            <h2 class="vc-h2">Four machines <span class="italic text-champagne">of the bench</span>.</h2>
+          </div>
+          <p class="vc-section__lede">Specialist tools for four kinds of hand. Each is owned, serviced, and used by one watchmaker only.</p>
+        </header>
+
+        <div class="vc-tiles">
+          <article class="vc-tile vc-tiles__c4 reveal">
+            <div class="vc-tile__core vc-tile__core--flush">
+              <div class="vc-tile__media">
+                <img src="https://images.unsplash.com/photo-1606577924006-27d39b132ae2?w=1200&q=80&auto=format" alt="A straight-line rose engine with a hand-cut rosette mounted on the spindle." />
+                <div class="vc-tile__media-scrim"></div>
+              </div>
+              <div class="vc-tile__over">
+                <p class="vc-eyebrow text-champagne">01</p>
+                <h3 class="vc-tile__title">Rose engine</h3>
+              </div>
+            </div>
+          </article>
+
+          <article class="vc-tile vc-tiles__c8 reveal" style="transition-delay:120ms">
+            <div class="vc-tile__core">
+              <div class="vc-tile__body">
+                <span class="vc-tile__num">02</span>
+                <h3 class="vc-tile__title">Jacot tool</h3>
+                <p class="vc-tile__text">A pivoting polisher for the steel pivots of balance staffs, escape wheels, and pallet stones. The maison's two jacot tools date from 1929; both are still in service. A pivot is held against a chamois lap charged with diamantine; the lap rotates at twelve turns a minute. A good pivot reflects a single point of light.</p>
+              </div>
+              <div class="vc-tile__foot"><span>1929</span><span>Two in service</span></div>
+            </div>
+          </article>
+
+          <article class="vc-tile vc-tiles__c4 reveal" style="transition-delay:240ms">
+            <div class="vc-tile__core">
+              <div class="vc-tile__body">
+                <span class="vc-tile__num">03</span>
+                <h3 class="vc-tile__title">Timing machine</h3>
+                <p class="vc-tile__text">A Witschi Proofmaster S, purchased in 1998 and recalibrated every two years at the company's atelier in Grenchen. The watch is read on six positions — dial up, dial down, crown up, crown down, crown left, crown right — for fourteen days. The result is filed against the serial number.</p>
+              </div>
+              <div class="vc-tile__foot"><span>Witschi · 1998</span><span>Six positions</span></div>
+            </div>
+          </article>
+
+          <article class="vc-tile vc-tiles__c8 reveal" style="transition-delay:360ms">
+            <div class="vc-tile__core vc-tile__core--flush">
+              <div class="vc-tile__media">
+                <img src="https://images.unsplash.com/photo-1612817288484-6f916006741a?w=1600&q=80&auto=format" alt="A watchmaker's loupe tilted over a movement on a velvet mat under a cabinet lamp." />
+                <div class="vc-tile__media-scrim"></div>
+              </div>
+              <div class="vc-tile__over">
+                <p class="vc-eyebrow text-champagne">04</p>
+                <h3 class="vc-tile__title">Dust cabinet</h3>
+                <p class="vc-tile__text" style="margin-top:0.4rem">A laminar-flow enclosure, ISO class 7, installed in 2011. The atmosphere is filtered to ten thousand particles per cubic metre. Components under one milligram are weighed, oiled, and seated inside the cabinet, with the watchmaker's hands through neoprene gauntlets.</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 · PULL QUOTE -->
+    <section class="vc-section">
+      <div class="vc-container">
+        <div class="vc-rule"><span class="vc-rule__num">05</span></div>
+        <header class="vc-section__head reveal">
+          <div>
+            <p class="vc-eyebrow">From the bench</p>
+            <h2 class="vc-h2">A note <span class="italic text-champagne">on finishing</span>.</h2>
+          </div>
+          <p class="vc-section__lede">A short extract from the working notebook of the Maître Horloger, dated 11 March 2009.</p>
+        </header>
+
+        <blockquote class="vc-quote reveal">
+          <p class="vc-quote__mark">"</p>
+          <p class="vc-quote__text">A movement is finished when nothing further can be removed. That is the entire exercise.</p>
+          <p class="vc-quote__by">Marc Aubert · <span class="vc-sig">Maître Horloger</span></p>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- STATS RAIL -->
+    <div class="vc-stats reveal">
+      <div class="vc-stat">
+        <p class="vc-stat__n"><span data-count="12">0</span></p>
+        <p class="vc-stat__k">Benches</p>
+      </div>
+      <div class="vc-stat">
+        <p class="vc-stat__n"><span data-count="47">0</span></p>
+        <p class="vc-stat__k">Hours of case milling</p>
+      </div>
+      <div class="vc-stat">
+        <p class="vc-stat__n"><span data-count="11">0</span></p>
+        <p class="vc-stat__k">Days of hand assembly</p>
+      </div>
+      <div class="vc-stat">
+        <p class="vc-stat__n"><span data-count="14">0</span></p>
+        <p class="vc-stat__k">Days of regulation</p>
+      </div>
+    </div>
+
+    <!-- CLOSING BAND -->
+    <section class="vc-band">
+      <div class="vc-band__glow" aria-hidden="true"></div>
+      <div class="vc-band__inner">
+        <p class="vc-eyebrow text-champagne">Next</p>
+        <h2 class="vc-h2">An audience, <span class="italic">by appointment</span>.</h2>
+        <p class="vc-section__lede" style="margin:1.5rem auto 0">The atelier receives visitors on Thursdays, between two and four. Apply in writing.</p>
+        <div class="vc-band__cta">
+          <a href="acquisition.html" class="vc-btn">
+            <span class="pl-1">Request an audience</span>
+            <span class="vc-btn__dot"><i data-lucide="arrow-up-right" class="vc-icon"></i></span>
+          </a>
+          <a href="collection.html" class="vc-btn vc-btn--ghost"><span class="pl-1">The Collection</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- PAGE NAV -->
+  <nav class="vc-pagenav" aria-label="Chapter">
+    <a class="vc-pagenav__link" href="reference-12-04.html">
+      <span class="vc-pagenav__k">← Previous</span>
+      <p class="vc-pagenav__t">Reference 12.04</p>
+    </a>
+    <a class="vc-pagenav__link vc-pagenav__link--next" href="artisans.html">
+      <span class="vc-pagenav__k">Next →</span>
+      <p class="vc-pagenav__t">The Hands</p>
+    </a>
+  </nav>
+
+  <!-- FOOTER -->
+  <footer class="vc-footer">
+    <div class="vc-footer__newsletter">
+      <div>
+        <p class="vc-eyebrow text-champagne">The register</p>
+        <h2 class="vc-h3block">Editions are offered to the register first.</h2>
+        <p class="vc-footer__lede">
+          Twelve pieces per reference. We write once a season — never more — when a calibre leaves regulation.
+        </p>
+      </div>
+      <form class="vc-footer__form" onsubmit="return false;">
+        <input class="vc-input" type="email" placeholder="Your atelier address" aria-label="Email address" />
+        <button class="vc-btn vc-btn--fill-sm" type="submit">
+          <span class="pl-1">Join</span>
+          <span class="vc-btn__dot"><i data-lucide="arrow-up-right" class="vc-icon"></i></span>
+        </button>
+      </form>
+    </div>
+
+    <div class="vc-footer__grid">
+      <div>
+        <h5 class="vc-eyebrow">Maison</h5>
+        <ul class="vc-footer__list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="heritage.html">Heritage</a></li>
+          <li><a href="artisans.html">The Hands</a></li>
+          <li><a href="salons.html">Salons</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="vc-eyebrow">Calibre</h5>
+        <ul class="vc-footer__list">
+          <li><a href="calibre.html">The Calibre V-12</a></li>
+          <li><a href="materials.html">Materials</a></li>
+          <li><a href="collection.html">The Collection</a></li>
+          <li><a href="reference-12-04.html">Reference 12.04</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="vc-eyebrow">Atelier</h5>
+        <ul class="vc-footer__list">
+          <li><a href="atelier.html">Inside the atelier</a></li>
+          <li><a href="journal.html">The Journal</a></li>
+          <li><a href="acquisition.html">Acquisition</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="vc-eyebrow">Time across ateliers</h5>
+        <ul class="vc-footer__clocks">
+          <li><span class="vc-eyebrow" style="opacity:.6">Geneva</span> <span class="vc-clock" data-tz="Europe/Zurich">--:--:--</span></li>
+          <li><span class="vc-eyebrow" style="opacity:.6">New York</span> <span class="vc-clock" data-tz="America/New_York">--:--:--</span></li>
+          <li><span class="vc-eyebrow" style="opacity:.6">Tokyo</span> <span class="vc-clock" data-tz="Asia/Tokyo">--:--:--</span></li>
+          <li><span class="vc-eyebrow" style="opacity:.6">Dubai</span> <span class="vc-clock" data-tz="Asia/Dubai">--:--:--</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="vc-footer__legal">
+      <span>WCAG 2.1 AA · Made in Geneva · All editions numbered</span>
+      <span id="vc-copy-year">© VOLTIER &amp; CIE.</span>
+    </div>
+  </footer>
+
+  <!-- CART DRAWER -->
+  <div id="vc-cart-scrim" class="vc-cart__scrim" hidden></div>
+  <aside id="vc-cart-drawer" class="vc-cart" aria-label="Acquisition bag" hidden>
+    <header class="vc-cart__head">
+      <h2 class="vc-h3 italic">Acquisition</h2>
+      <button id="vc-cart-close" class="vc-iconbtn" aria-label="Close acquisition bag">
+        <i data-lucide="x" class="vc-icon"></i>
+      </button>
+    </header>
+
+    <div class="vc-cart__ship">
+      <div class="vc-cart__ship-row">
+        <span id="vc-cart-ship-label">CHF 80,000 to complimentary shipping</span>
+        <span id="vc-cart-ship-pct">0%</span>
+      </div>
+      <div class="vc-cart__ship-bar"><span id="vc-cart-ship-fill"></span></div>
+    </div>
+
+    <div class="vc-cart__body" id="vc-cart-body">
+      <p id="vc-cart-empty" class="vc-cart__empty">Your acquisition bag is empty.</p>
+      <ul id="vc-cart-items" class="vc-cart__items" hidden></ul>
+
+      <div class="vc-cart__upsell">
+        <div>
+          <p class="vc-eyebrow text-champagne">Recommended</p>
+          <p class="vc-cart__upsell-text">Hand-stitched alligator strap · CHF 4,200</p>
+        </div>
+        <button class="vc-iconbtn vc-iconbtn--champagne" aria-label="Add strap to acquisition">
+          <i data-lucide="plus" class="vc-icon"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="vc-cart__foot">
+      <div class="vc-cart__subtotal">
+        <span class="vc-eyebrow" style="opacity:.6">Subtotal</span>
+        <span id="vc-cart-subtotal" class="vc-h3">CHF 0</span>
+      </div>
+      <button class="vc-shimmer">
+        <span class="vc-shimmer__label">Proceed to Acquisition</span>
+        <span class="vc-shimmer__bar" aria-hidden="true"></span>
+      </button>
+      <p class="vc-cart__note">Reserved for atelier confirmation</p>
+    </div>
+  </aside>
+
+  <!-- SCRIPTS -->
+  <script>
+  if (window.tailwind && window.tailwind.config) {
+    window.tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            obsidian:        '#050505',
+            'obsidian-soft': '#0D0D11',
+            ash:             '#1A1A1F',
+            bone:            '#E5E0D8',
+            'bone-soft':     '#A8A092',
+            champagne:       '#D4AF37',
+            bronze:          '#B8763A'
+          },
+          fontFamily: {
+            display: ['"Cormorant Garamond"', 'serif'],
+            sans:    ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif']
+          },
+          letterSpacing: { meta: '0.22em' }
+        }
+      }
+    };
+  }
+  if (window.lucide && window.lucide.createIcons) window.lucide.createIcons();
+  </script>
+  <script src="volter-cie.js" defer></script>
+  <script src="pages.js" defer></script>
+</body>
+</html>

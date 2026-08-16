@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!--
+  © 2026 Resplend Studio · DesignByBryant@gmail.com
+  All rights reserved. Sample work — not for redistribution.
+-->
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>The Hands — VOLTIER &amp; CIE.</title>
+  <meta name="description" content="The bench-holders of the maison. Marc Aubert, Maître Horloger, and five of his eleven colleagues." />
+  <meta name="theme-color" content="#050505" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="The Hands — VOLTIER &amp; CIE." />
+  <meta property="og:description" content="The bench-holders of the maison. Marc Aubert, Maître Horloger, and five of his eleven colleagues." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="pages.css" />
+</head>
+
+<body class="vc-body">
+  <!-- AMBIENT ORBS + GRAIN -->
+  <div class="vc-orb vc-orb--top" aria-hidden="true"></div>
+  <div class="vc-orb vc-orb--bottom" aria-hidden="true"></div>
+  <div class="vc-grain" aria-hidden="true"></div>
+
+  <!-- HEADER -->
+  <header class="vc-header" id="vc-header">
+    <a href="index.html" class="vc-header__brand">VOLTIER <span>&amp;</span> CIE.</a>
+    <nav class="vc-nav" aria-label="Primary">
+      <a href="calibre.html" class="vc-nav__link">Calibre</a>
+      <a href="collection.html" class="vc-nav__link">Collection</a>
+      <a href="atelier.html" class="vc-nav__link">Atelier</a>
+      <a href="journal.html" class="vc-nav__link">Journal</a>
+      <a href="acquisition.html" class="vc-nav__link">Acquire</a>
+    </nav>
+    <div class="vc-header__actions">
+      <div class="vc-locale" role="group" aria-label="Currency locale — visual only, no conversion">
+        <button class="vc-locale__btn is-active" data-locale="CHF" aria-pressed="true">CHF</button>
+        <button class="vc-locale__btn" data-locale="EUR" aria-pressed="false">EUR</button>
+        <button class="vc-locale__btn" data-locale="USD" aria-pressed="false">USD</button>
+        <button class="vc-locale__btn" data-locale="GBP" aria-pressed="false">GBP</button>
+      </div>
+      <button id="vc-cart-open" class="vc-iconbtn" aria-label="Open acquisition bag">
+        <i data-lucide="shopping-bag" class="vc-icon"></i>
+        <span id="vc-cart-badge" class="vc-badge" hidden>0</span>
+      </button>
+      <button id="vc-burger" class="vc-burger" aria-label="Open menu" aria-expanded="false" aria-controls="vc-menu">
+        <span class="vc-burger__bar"></span>
+        <span class="vc-burger__bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- MENU OVERLAY -->
+  <div id="vc-menu" class="vc-menu" aria-hidden="true">
+    <ul class="vc-menu__list">
+      <li class="vc-menu__item"><a class="vc-menu__link" href="index.html"><span class="vc-menu__idx">01</span> Maison</a></li>
+      <li class="vc-menu__item"><a class="vc-menu__link" href="calibre.html"><span class="vc-menu__idx">02</span> The Calibre</a></li>
+      <li class="vc-menu__item"><a class="vc-menu__link" href="collection.html"><span class="vc-menu__idx">03</span> The Collection</a></li>
+      <li class="vc-menu__item"><a class="vc-menu__link" href="reference-12-04.html"><span class="vc-menu__idx">04</span> Reference 12.04</a></li>
+      <li class="vc-menu__item"><a class="vc-menu__link" href="atelier.html"><span class="vc-menu__idx">05</span> The Atelier</a></li>
+      <li class="vc-menu__item"><a class="vc-menu__link is-current" href="artisans.html"><span class="vc-menu__idx">06</span> The Hands</a></li>
+      <li class="vc-menu__item"><a class="vc-menu__link" href="heritage.html"><span class="vc-menu__idx">07</span> Heritage</a></li>
+      <li class="vc-menu__item"><a class="vc-menu__link" href="materials.html"><span class="vc-menu__idx">08</span> Materials</a></li>
+      <li class="vc-menu__item"><a class="vc-menu__link" href="journal.html"><span class="vc-menu__idx">09</span> The Journal</a></li>
+      <li class="vc-menu__item"><a class="vc-menu__link" href="journal-twelve-weeks.html"><span class="vc-menu__idx">10</span> Twelve Weeks of Line</a></li>
+      <li class="vc-menu__item"><a class="vc-menu__link" href="acquisition.html"><span class="vc-menu__idx">11</span> Acquisition</a></li>
+      <li class="vc-menu__item"><a class="vc-menu__link" href="salons.html"><span class="vc-menu__idx">12</span> Salons</a></li>
+    </ul>
+    <div class="vc-menu__foot">
+      <span>Genève · Depuis 1912</span>
+      <span>Editions of twelve</span>
+      <span>Time, kept by hand</span>
+    </div>
+  </div>
+
+  <main>
+    <!-- HERO -->
+    <section class="vc-phero">
+      <div class="vc-phero__grid">
+        <div>
+          <nav class="vc-crumb" aria-label="Breadcrumb">
+            <a href="index.html">Maison</a>
+            <span class="vc-crumb__sep">/</span>
+            <a href="atelier.html">The Atelier</a>
+            <span class="vc-crumb__sep">/</span>
+            <span class="vc-crumb__here">The Hands</span>
+          </nav>
+          <h1 class="vc-phero__title">The twelve who <span class="italic">hold the bench</span>.</h1>
+        </div>
+        <div>
+          <p class="vc-phero__lede">The bench-holders of the maison. Marc Aubert, Maître Horloger, and five of his eleven colleagues — photographed between runs.</p>
+          <ul class="vc-meta">
+            <li><span class="vc-meta__k">Bench-holders</span><span class="vc-meta__v">Twelve</span></li>
+            <li><span class="vc-meta__k">Apprenticeship</span><span class="vc-meta__v">Seven years</span></li>
+            <li><span class="vc-meta__k">Longest tenure</span><span class="vc-meta__v">31 years</span></li>
+            <li><span class="vc-meta__k">One watchmaker</span><span class="vc-meta__v">per watch</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 01 · THE BENCH-HOLDERS -->
+    <section class="vc-section">
+      <div class="vc-container">
+        <div class="vc-rule"><span class="vc-rule__num">01</span></div>
+        <header class="vc-section__head reveal">
+          <div>
+            <p class="vc-eyebrow">The bench-holders</p>
+            <h2 class="vc-h2">Six of <span class="italic text-champagne">the twelve</span>.</h2>
+          </div>
+          <p class="vc-section__lede">Six of the twelve bench-holders, photographed between regulation runs. Names, benches, and the years of their appointment. The other six — Jacques, Helena, Pierre, and three not pictured — are described in the maison's internal register.</p>
+        </header>
+
+        <div class="vc-people">
+          <article class="vc-person reveal">
+            <div class="vc-person__core">
+              <div class="vc-person__media"><img src="https://images.unsplash.com/photo-1463453091185-61582044d556?w=900&q=80&auto=format" alt="Marc Aubert, Maître Horloger, photographed at Bench 01 during a regulation run, 2024." /></div>
+              <div class="vc-person__body">
+                <p class="vc-person__role">Maître Horloger</p>
+                <h3 class="vc-person__name">Marc Aubert</h3>
+                <p class="vc-person__text">Bench 01 since 1994. Trained in-house under Henri Vuille and served at Patek Philippe before returning to Geneva. Holds the maison's only signature plate. Approves each sealed movement before it is boxed for delivery. Has signed every Reference 12 since the 12.01.</p>
+                <div class="vc-person__meta"><span>Bench 01</span><span>Since 1994</span></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="vc-person reveal" style="transition-delay:80ms">
+            <div class="vc-person__core">
+              <div class="vc-person__media"><img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=900&q=80&auto=format" alt="Anne-Lise Charrière, case finisher, photographed at Bench 03 with a polishing lap." /></div>
+              <div class="vc-person__body">
+                <p class="vc-person__role">Case Finisher</p>
+                <h3 class="vc-person__name">Anne-Lise Charrière</h3>
+                <p class="vc-person__text">Bench 03 since 2002. Trained at the École d'Horlogerie de Genève, then in the maison's atelier for the three-year finishing apprenticeship. Specialises in the satin grain of Grade 5 titanium and the polishing of rose-gold cases. Has finished all editions of 12.02 through 12.12.</p>
+                <div class="vc-person__meta"><span>Bench 03</span><span>Since 2002</span></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="vc-person reveal" style="transition-delay:160ms">
+            <div class="vc-person__core">
+              <div class="vc-person__media"><img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=900&q=80&auto=format" alt="Théo Berthoud, dial guillocheur, photographed at the rose engine at Bench 05." /></div>
+              <div class="vc-person__body">
+                <p class="vc-person__role">Dial Guillocheur</p>
+                <h3 class="vc-person__name">Théo Berthoud</h3>
+                <p class="vc-person__text">Bench 05 since 2008. Trained at the rose engine for seven years under Pierre-Alain Tissot. Holds three rosettes of his own cutting — Clous de Paris, soleil, and panier — and uses them by turn. Responsible for the solid-silver dials of every Reference 12 piece since 12.04.</p>
+                <div class="vc-person__meta"><span>Bench 05</span><span>Since 2008</span></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="vc-person reveal" style="transition-delay:240ms">
+            <div class="vc-person__core">
+              <div class="vc-person__media"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=900&q=80&auto=format" alt="Catherine Mégevand, enameller, photographed at Bench 07 beside her furnace." /></div>
+              <div class="vc-person__body">
+                <p class="vc-person__role">Émaillère</p>
+                <h3 class="vc-person__name">Catherine Mégevand</h3>
+                <p class="vc-person__text">Bench 07 since 1998. Trained at the Geneva School of Decorative Arts, then under the maison's last enameller, Élise Bornand, who retired in 2001. Charges her own furnaces at 820°C. Enamels the maison's grand feu dials in colour-on-colour and signs each. The Bench 07 kiln is rebuilt every nine years.</p>
+                <div class="vc-person__meta"><span>Bench 07</span><span>Since 1998</span></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="vc-person reveal" style="transition-delay:320ms">
+            <div class="vc-person__core">
+              <div class="vc-person__media"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=900&q=80&auto=format" alt="François Devaud, regulator, photographed at Bench 09 beside a Witschi timing machine." /></div>
+              <div class="vc-person__body">
+                <p class="vc-person__role">Régleur</p>
+                <h3 class="vc-person__name">François Devaud</h3>
+                <p class="vc-person__text">Bench 09 since 2011. Trained at the regulator's bench by Henri Devaud (no relation), then served as Marc Aubert's assistant before taking the bench in his own right. Holds the Witschi to ±1 second per day. Wears each piece for the full fourteen days of regulation, in the order of the calendar.</p>
+                <div class="vc-person__meta"><span>Bench 09</span><span>Since 2011</span></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="vc-person reveal" style="transition-delay:400ms">
+            <div class="vc-person__core">
+              <div class="vc-person__media"><img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?w=900&q=80&auto=format" alt="Sébastien Rossier, maître sellier, photographed at Bench 11 with a strap pinned to the bench." /></div>
+              <div class="vc-person__body">
+                <p class="vc-person__role">Maître Sellier</p>
+                <h3 class="vc-person__name">Sébastien Rossier</h3>
+                <p class="vc-person__text">Bench 11 since 2016. Trained at Hermès's leather workshop in Paris, then completed the maison's seven-year programme in saddlery. Cuts and stitches every strap in the maison's selection — alligator, calf, kudu — by hand, using the maison's own linen thread. Bench 11 was refitted for him in 2016.</p>
+                <div class="vc-person__meta"><span>Bench 11</span><span>Since 2016</span></div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 · APPRENTICESHIP -->
+    <section class="vc-section vc-section--alt">
+      <div class="vc-container">
+        <div class="vc-rule"><span class="vc-rule__num">02</span></div>
+        <header class="vc-section__head reveal">
+          <div>
+            <p class="vc-eyebrow">Apprenticeship</p>
+            <h2 class="vc-h2">Seven years to <span class="italic text-champagne">a first movement</span>.</h2>
+          </div>
+          <p class="vc-section__lede">The apprenticeship lasts seven years. The first three are spent at WOSTEP in Le Sentier; the next four are spent at the bench, under one master. The maison trains its own.</p>
+        </header>
+
+        <div class="vc-split">
+          <aside class="vc-split__aside">
+            <p class="vc-eyebrow text-champagne">In-house training</p>
+            <h3 class="vc-h3block">Why the maison<br />raises its own.</h3>
+          </aside>
+          <div class="vc-prose vc-prose--dropcap">
+            <p>No watchmaker has been hired from outside the maison in the last forty-three years. The waiting list for the apprenticeship is held in the registry; new names are added once a year, in March, by post. Eight to ten are taken each year. The rest are kept on file.</p>
+
+            <p>The first three years are spent at the Watchmakers of Switzerland Training and Educational Program in Le Sentier, in the Vallée de Joux. The curriculum is shared with nine other houses. The apprentice learns the common vocabulary — horological terms in French, in English, in the German used by the catalogues — and the standard service operations on third-party calibres.</p>
+
+            <p>Years four through seven are spent at the bench, under a single master. The apprentice is not rotated. The master is paid for the apprentice's seat from the maison's own accounts, and is responsible for the apprentice's first movement, which is given to the library on completion. Of the thirty-two apprentices trained since 1994, nineteen are still at the bench. Four have taken benches elsewhere. One — the first, in 1995 — is the Maître Horloger.</p>
+
+            <p>The maison does not advertise the apprenticeship. The standard route is by introduction. Letters of introduction are read on Thursdays, in the order they arrive, by Marc Aubert or, in his absence, by the Maître-Adjoint. A reply is sent within the month.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 · THE SIGNATURE -->
+    <section class="vc-section">
+      <div class="vc-container">
+        <div class="vc-rule"><span class="vc-rule__num">03</span></div>
+        <header class="vc-section__head reveal">
+          <div>
+            <p class="vc-eyebrow">The signature</p>
+            <h2 class="vc-h2">A name <span class="italic text-champagne">on the caseback</span>.</h2>
+          </div>
+          <p class="vc-section__lede">Every piece carries two engraved marks. The first is the watchmaker's name, in the maison's hand. The second is the regulator's, in smaller letters, set beneath.</p>
+        </header>
+
+        <figure class="vc-figure vc-figure--wide reveal">
+          <div class="vc-figure__core"><img src="https://images.unsplash.com/photo-1620625515032-6ed0c1790c75?w=1600&q=80&auto=format" alt="Detail of an engraved caseback, showing the watchmaker's name and, beneath it, the regulator's mark in smaller letters." /></div>
+          <figcaption class="vc-figure__cap"><span>Plate 14</span><b>Caseback · Reference 12.04, No. 06/12</b></figcaption>
+        </figure>
+
+        <blockquote class="vc-quote reveal" style="margin-top:3rem">
+          <p class="vc-quote__mark">"</p>
+          <p class="vc-quote__text">The name on the caseback is mine, and the name beneath it is the regulator's. Twelve watches pass through this bench every year. I have signed them all.</p>
+          <p class="vc-quote__by">Marc Aubert · <span class="vc-sig">Maître Horloger</span></p>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- 04 · JOINING THE MAISON -->
+    <section class="vc-section vc-section--alt">
+      <div class="vc-container">
+        <div class="vc-rule"><span class="vc-rule__num">04</span></div>
+        <header class="vc-section__head reveal">
+          <div>
+            <p class="vc-eyebrow">Joining the maison</p>
+            <h2 class="vc-h2">How to <span class="italic text-champagne">write</span>.</h2>
+          </div>
+          <p class="vc-section__lede">Openings are rare. Apprenticeships are rarer. Both begin with a letter.</p>
+        </header>
+
+        <div class="vc-acc">
+          <div class="vc-acc__item is-open">
+            <button class="vc-acc__btn">Are there open positions at the bench?<span class="vc-acc__sign"></span></button>
+            <div class="vc-acc__panel"><div>
+              <p>Open positions at the bench are held against the maison's own roster, not the open market. When a bench falls vacant — by retirement, by transfer to the salons, or by leave — the post is offered first to the most senior apprentice. The maison does not advertise bench positions externally.</p>
+              <p>Specialist posts — enameller, guillocheur, saddler — are filled once in a generation. The last such appointment was Sébastien Rossier at Bench 11 in 2016. The previous one was Catherine Mégevand at Bench 07 in 1998. Between these two events, no specialist post was opened.</p>
+            </div></div>
+          </div>
+          <div class="vc-acc__item">
+            <button class="vc-acc__btn">How is the apprenticeship offered, and to whom?<span class="vc-acc__sign"></span></button>
+            <div class="vc-acc__panel"><div>
+              <p>Eight to ten apprenticeships are offered each year. The route is by introduction: a letter from a watchmaker already known to the maison, posted to the atelier with a candidate's name, age, and schooling. The maison replies once the next March intake is set.</p>
+              <p>There is no application form. The candidate is invited to spend one day at the maison, with travel paid from Geneva. The day is spent at the bench with two masters in turn. The decision is given within the week. The maison does not interview for the apprenticeship beyond this one day.</p>
+            </div></div>
+          </div>
+          <div class="vc-acc__item">
+            <button class="vc-acc__btn">Are there openings in the salons?<span class="vc-acc__sign"></span></button>
+            <div class="vc-acc__panel"><div>
+              <p>The salons in Geneva, New York, Tokyo, and Dubai are staffed by senior watchmakers from the atelier. A transfer to a salon is offered after the seventh year at the bench and is held for two to five years before the post returns to the maison. Two salon posts are filled every other year; the most recent were in Tokyo and Dubai, autumn 2025.</p>
+              <p>Salon hosts are not hired externally. The route is the atelier. A watchmaker at the bench for twelve years may apply, in writing, to be considered for a transfer. The Maître Horloger approves the transfer.</p>
+            </div></div>
+          </div>
+          <div class="vc-acc__item">
+            <button class="vc-acc__btn">What should a first letter contain?<span class="vc-acc__sign"></span></button>
+            <div class="vc-acc__panel"><div>
+              <p>A first letter should be short. Handwritten, on a single sheet, in the language of the candidate's schooling. Letters should be addressed to the Maître Horloger and posted to the atelier on Rue du Rhône. Enclosures are not read in advance.</p>
+              <p>Include: a candidate's full name, date of birth, schooling, and the name of the watchmaker who has introduced them, if any. Do not include a CV, a photograph, or a portfolio. The maison reads for the letter, not for the list. Replies are sent within the month.</p>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS RAIL -->
+    <div class="vc-stats reveal">
+      <div class="vc-stat">
+        <p class="vc-stat__n"><span data-count="12">0</span></p>
+        <p class="vc-stat__k">Artisans</p>
+      </div>
+      <div class="vc-stat">
+        <p class="vc-stat__n"><span data-count="7">0</span></p>
+        <p class="vc-stat__k">Years to a first movement</p>
+      </div>
+      <div class="vc-stat">
+        <p class="vc-stat__n"><span data-count="31">0</span></p>
+        <p class="vc-stat__k">Years longest tenure</p>
+      </div>
+      <div class="vc-stat">
+        <p class="vc-stat__n"><span data-count="1">0</span></p>
+        <p class="vc-stat__k">Watchmaker per watch</p>
+      </div>
+    </div>
+
+    <!-- CLOSING BAND -->
+    <section class="vc-band">
+      <div class="vc-band__glow" aria-hidden="true"></div>
+      <div class="vc-band__inner">
+        <p class="vc-eyebrow text-champagne">Next</p>
+        <h2 class="vc-h2">An audience, <span class="italic">by appointment</span>.</h2>
+        <p class="vc-section__lede" style="margin:1.5rem auto 0">A register is held of those who would like to meet the bench-holders. Apply in writing.</p>
+        <div class="vc-band__cta">
+          <a href="acquisition.html" class="vc-btn">
+            <span class="pl-1">Request an audience</span>
+            <span class="vc-btn__dot"><i data-lucide="arrow-up-right" class="vc-icon"></i></span>
+          </a>
+          <a href="collection.html" class="vc-btn vc-btn--ghost"><span class="pl-1">The Collection</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- PAGE NAV -->
+  <nav class="vc-pagenav" aria-label="Chapter">
+    <a class="vc-pagenav__link" href="atelier.html">
+      <span class="vc-pagenav__k">← Previous</span>
+      <p class="vc-pagenav__t">The Atelier</p>
+    </a>
+    <a class="vc-pagenav__link vc-pagenav__link--next" href="heritage.html">
+      <span class="vc-pagenav__k">Next →</span>
+      <p class="vc-pagenav__t">Heritage</p>
+    </a>
+  </nav>
+
+  <!-- FOOTER -->
+  <footer class="vc-footer">
+    <div class="vc-footer__newsletter">
+      <div>
+        <p class="vc-eyebrow text-champagne">The register</p>
+        <h2 class="vc-h3block">Editions are offered to the register first.</h2>
+        <p class="vc-footer__lede">
+          Twelve pieces per reference. We write once a season — never more — when a calibre leaves regulation.
+        </p>
+      </div>
+      <form class="vc-footer__form" onsubmit="return false;">
+        <input class="vc-input" type="email" placeholder="Your atelier address" aria-label="Email address" />
+        <button class="vc-btn vc-btn--fill-sm" type="submit">
+          <span class="pl-1">Join</span>
+          <span class="vc-btn__dot"><i data-lucide="arrow-up-right" class="vc-icon"></i></span>
+        </button>
+      </form>
+    </div>
+
+    <div class="vc-footer__grid">
+      <div>
+        <h5 class="vc-eyebrow">Maison</h5>
+        <ul class="vc-footer__list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="heritage.html">Heritage</a></li>
+          <li><a href="artisans.html">The Hands</a></li>
+          <li><a href="salons.html">Salons</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="vc-eyebrow">Calibre</h5>
+        <ul class="vc-footer__list">
+          <li><a href="calibre.html">The Calibre V-12</a></li>
+          <li><a href="materials.html">Materials</a></li>
+          <li><a href="collection.html">The Collection</a></li>
+          <li><a href="reference-12-04.html">Reference 12.04</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="vc-eyebrow">Atelier</h5>
+        <ul class="vc-footer__list">
+          <li><a href="atelier.html">Inside the atelier</a></li>
+          <li><a href="journal.html">The Journal</a></li>
+          <li><a href="acquisition.html">Acquisition</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="vc-eyebrow">Time across ateliers</h5>
+        <ul class="vc-footer__clocks">
+          <li><span class="vc-eyebrow" style="opacity:.6">Geneva</span> <span class="vc-clock" data-tz="Europe/Zurich">--:--:--</span></li>
+          <li><span class="vc-eyebrow" style="opacity:.6">New York</span> <span class="vc-clock" data-tz="America/New_York">--:--:--</span></li>
+          <li><span class="vc-eyebrow" style="opacity:.6">Tokyo</span> <span class="vc-clock" data-tz="Asia/Tokyo">--:--:--</span></li>
+          <li><span class="vc-eyebrow" style="opacity:.6">Dubai</span> <span class="vc-clock" data-tz="Asia/Dubai">--:--:--</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="vc-footer__legal">
+      <span>WCAG 2.1 AA · Made in Geneva · All editions numbered</span>
+      <span id="vc-copy-year">© VOLTIER &amp; CIE.</span>
+    </div>
+  </footer>
+
+  <!-- CART DRAWER -->
+  <div id="vc-cart-scrim" class="vc-cart__scrim" hidden></div>
+  <aside id="vc-cart-drawer" class="vc-cart" aria-label="Acquisition bag" hidden>
+    <header class="vc-cart__head">
+      <h2 class="vc-h3 italic">Acquisition</h2>
+      <button id="vc-cart-close" class="vc-iconbtn" aria-label="Close acquisition bag">
+        <i data-lucide="x" class="vc-icon"></i>
+      </button>
+    </header>
+
+    <div class="vc-cart__ship">
+      <div class="vc-cart__ship-row">
+        <span id="vc-cart-ship-label">CHF 80,000 to complimentary shipping</span>
+        <span id="vc-cart-ship-pct">0%</span>
+      </div>
+      <div class="vc-cart__ship-bar"><span id="vc-cart-ship-fill"></span></div>
+    </div>
+
+    <div class="vc-cart__body" id="vc-cart-body">
+      <p id="vc-cart-empty" class="vc-cart__empty">Your acquisition bag is empty.</p>
+      <ul id="vc-cart-items" class="vc-cart__items" hidden></ul>
+
+      <div class="vc-cart__upsell">
+        <div>
+          <p class="vc-eyebrow text-champagne">Recommended</p>
+          <p class="vc-cart__upsell-text">Hand-stitched alligator strap · CHF 4,200</p>
+        </div>
+        <button class="vc-iconbtn vc-iconbtn--champagne" aria-label="Add strap to acquisition">
+          <i data-lucide="plus" class="vc-icon"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="vc-cart__foot">
+      <div class="vc-cart__subtotal">
+        <span class="vc-eyebrow" style="opacity:.6">Subtotal</span>
+        <span id="vc-cart-subtotal" class="vc-h3">CHF 0</span>
+      </div>
+      <button class="vc-shimmer">
+        <span class="vc-shimmer__label">Proceed to Acquisition</span>
+        <span class="vc-shimmer__bar" aria-hidden="true"></span>
+      </button>
+      <p class="vc-cart__note">Reserved for atelier confirmation</p>
+    </div>
+  </aside>
+
+  <!-- SCRIPTS -->
+  <script>
+  if (window.tailwind && window.tailwind.config) {
+    window.tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            obsidian:        '#050505',
+            'obsidian-soft': '#0D0D11',
+            ash:             '#1A1A1F',
+            bone:            '#E5E0D8',
+            'bone-soft':     '#A8A092',
+            champagne:       '#D4AF37',
+            bronze:          '#B8763A'
+          },
+          fontFamily: {
+            display: ['"Cormorant Garamond"', 'serif'],
+            sans:    ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif']
+          },
+          letterSpacing: { meta: '0.22em' }
+        }
+      }
+    };
+  }
+  if (window.lucide && window.lucide.createIcons) window.lucide.createIcons();
+  </script>
+  <script src="volter-cie.js" defer></script>
+  <script src="pages.js" defer></script>
+</body>
+</html>
