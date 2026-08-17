@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!--
+  © 2026 Resplend Studio · DesignByBryant@gmail.com
+  All rights reserved. Sample work — not for redistribution.
+-->
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Acquisition — VOLTIER &amp; CIE.</title>
+  <meta name="description" content="How a piece leaves the maison: the letter, the audience, the allocation, and the delivery — written to the register first, by appointment in Geneva or any of the four salons." />
+  <meta name="theme-color" content="#050505" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Acquisition — VOLTIER &amp; CIE." />
+  <meta property="og:description" content="How a piece leaves the maison: the letter, the audience, the allocation, and the delivery — written to the register first, by appointment in Geneva or any of the four salons." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="pages.css" />
+</head>
+
+<body class="vc-body">
+<!-- Parent-aware back-to-portfolio chip (only visible when framed by Resplend Studio) -->
+<style>
+  .vc-parent-back{position:fixed;top:1rem;left:1rem;z-index:100;display:inline-flex;align-items:center;gap:.5rem;padding:.5rem .9rem;background:rgba(11,15,23,.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:#F5F0E5;border-radius:999px;font-size:.76rem;letter-spacing:.02em;text-decoration:none;border:1px solid rgba(255,255,255,.12);font-family:'Plus Jakarta Sans',system-ui,sans-serif;box-shadow:0 6px 24px rgba(0,0,0,.4)}
+  .vc-parent-back:hover{background:rgba(11,15,23,.95);color:#fff}
+  .vc-parent-back svg{flex-shrink:0}
+</style>
+<a href="../../index.html#portfolio" class="vc-parent-back" aria-label="Back to Resplend Studio portfolio" hidden>
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+  <span>Resplend Studio</span>
+</a>
+<script>
+  if (window.self !== window.top) {
+    var b = document.querySelector('.vc-parent-back');
+    if (b) b.removeAttribute('hidden');
+  }
+</script>
+
+  <div class="vc-orb vc-orb--top" aria-hidden="true"></div>
+  <div class="vc-orb vc-orb--bottom" aria-hidden="true"></div>
+  <div class="vc-grain" aria-hidden="true"></div>
+
+  <header class="vc-header" id="vc-header">
+    <a href="index.html" class="vc-header__brand">VOLTIER <span>&amp;</span> CIE.</a>
+    <nav class="vc-nav" aria-label="Primary">
+      <a href="calibre.html" class="vc-nav__link">Calibre</a>
+      <a href="collection.html" class="vc-nav__link">Collection</a>
+      <a href="atelier.html" class="vc-nav__link">Atelier</a>
+      <a href="journal.html" class="vc-nav__link">Journal</a>
+      <a href="acquisition.html" class="vc-nav__link">Acquire</a>
+    </nav>
+    <div class="vc-header__actions">
+      <div class="vc-locale" role="group" aria-label="Currency locale — visual only, no conversion">
+        <button class="vc-locale__btn is-active" data-locale="CHF" aria-pressed="true">CHF</button>
+        <button class="vc-locale__btn" data-locale="EUR" aria-pressed="false">EUR</button>
+        <button class="vc-locale__btn" data-locale="USD" aria-pressed="false">USD</button>
+        <button class="vc-locale__btn" data-locale="GBP" aria-pressed="false">GBP</button>
+      </div>
+      <button id="vc-cart-open" class="vc-iconbtn" aria-label="Open acquisition bag">
+        <i data-lucide="shopping-bag" class="vc-icon"></i>
+        <span id="vc-cart-badge" class="vc-badge" hidden>0</span>
+      </button>
+      <button id="vc-burger" class="vc-burger" aria-label="Open menu" aria-expanded="false" aria-controls="vc-menu">
+        <span class="vc-burger__bar"></span>
+        <span class="vc-burger__bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <div id="vc-menu" class="vc-menu" aria-hidden="true">
+    <ul class="vc-menu__list">
+      <li class="vc-menu__item"><a class="vc-menu__link" href="index.html"><span class="vc-menu__idx">01</span> Maison</a></li>
+      <li class="vc-menu__item"><a class="vc-menu__link" href="calibre.html"><span class="vc-menu__idx">02</span> The Calibre</a></li>
+      <li class="vc-menu__item"><a class="vc-menu__link" href="collection.html"><span class="vc-menu__idx">03</span> The Collection</a></li>
+      <li class="vc-menu__item"><a class="vc-menu__link" href="reference-12-04.html"><span class="vc-menu__idx">04</span> Reference 12.04</a></li>
+      <li class="vc-menu__item"><a class="vc-menu__link" href="atelier.html"><span class="vc-menu__idx">05</span> The Atelier</a></li>
+      <li class="vc-menu__item"><a class="vc-menu__link" href="artisans.html"><span class="vc-menu__idx">06</span> The Hands</a></li>
+      <li class="vc-menu__item"><a class="vc-menu__link" href="heritage.html"><span class="vc-menu__idx">07</span> Heritage</a></li>
+      <li class="vc-menu__item"><a class="vc-menu__link" href="materials.html"><span class="vc-menu__idx">08</span> Materials</a></li>
+      <li class="vc-menu__item"><a class="vc-menu__link" href="journal.html"><span class="vc-menu__idx">09</span> The Journal</a></li>
+      <li class="vc-menu__item"><a class="vc-menu__link" href="journal-twelve-weeks.html"><span class="vc-menu__idx">10</span> Twelve Weeks of Line</a></li>
+      <li class="vc-menu__item"><a class="vc-menu__link" href="acquisition.html"><span class="vc-menu__idx">11</span> Acquisition</a></li>
+      <li class="vc-menu__item"><a class="vc-menu__link" href="salons.html"><span class="vc-menu__idx">12</span> Salons</a></li>
+    </ul>
+    <div class="vc-menu__foot">
+      <span>Genève · Depuis 1912</span>
+      <span>Editions of twelve</span>
+      <span>Time, kept by hand</span>
+    </div>
+  </div>
+
+  <main>
+    <!-- PAGE HERO -->
+    <section class="vc-phero">
+      <div class="vc-phero__grid">
+        <div>
+          <nav class="vc-crumb" aria-label="Breadcrumb">
+            <a href="index.html">Maison</a>
+            <span class="vc-crumb__sep">/</span>
+            <span class="vc-crumb__here">Acquisition</span>
+          </nav>
+          <p class="vc-eyebrow vc-eyebrow--champagne">How a piece leaves the maison</p>
+          <h1 class="vc-phero__title">By letter.<br /><span class="italic">By audience.</span></h1>
+        </div>
+        <div>
+          <p class="vc-phero__lede">Editions are offered to the register first. The maison does not advertise availability; a piece is acquired through four quiet stages, beginning with a written enquiry and ending in person at the atelier.</p>
+          <ul class="vc-meta">
+            <li><span class="vc-meta__k">Edition</span><span class="vc-meta__v">Twelve pieces</span></li>
+            <li><span class="vc-meta__k">Reference</span><span class="vc-meta__v">V-12 · manual</span></li>
+            <li><span class="vc-meta__k">From</span><span class="vc-meta__v">CHF 84,000</span></li>
+            <li><span class="vc-meta__k">Wait</span><span class="vc-meta__v">9 to 14 months</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 01 THE PROCESS -->
+    <section class="vc-section">
+      <div class="vc-container">
+        <div class="vc-rule"><span class="vc-rule__num">01</span></div>
+        <header class="vc-section__head reveal">
+          <div>
+            <p class="vc-eyebrow">The process</p>
+            <h2 class="vc-h2">Four <span class="italic text-champagne">quiet</span> stages.</h2>
+          </div>
+          <p class="vc-section__lede">Acquisition is unhurried. Each stage is conducted in writing or in person; none of them requires a payment processor, a courier, or a counter.</p>
+        </header>
+
+        <div class="vc-time">
+          <article class="vc-time__item reveal">
+            <div class="vc-time__core">
+              <p class="vc-time__year">01</p>
+              <div>
+                <h3 class="vc-time__title">The letter</h3>
+                <p class="vc-time__text">A written enquiry, addressed to the Direction at the Geneva atelier. Letters are read by hand and answered within two working days. A letter is preferable to a form: it carries, in its handwriting or its turn of phrase, something the maison regards as essential — the temper of the writer. There is no obligation in writing, and no expectation in the reply.</p>
+              </div>
+            </div>
+          </article>
+          <article class="vc-time__item reveal" style="transition-delay:120ms">
+            <div class="vc-time__core">
+              <p class="vc-time__year">02</p>
+              <div>
+                <h3 class="vc-time__title">The audience</h3>
+                <p class="vc-time__text">A visit, by appointment, to Geneva or to one of the four salons. The audience takes between one and two hours. The piece is shown once, in daylight, on linen. The director of the salon — or, in Geneva, the maître horloger himself — answers questions without hurry. Nothing is offered that is not yet ready to leave regulation.</p>
+              </div>
+            </div>
+          </article>
+          <article class="vc-time__item reveal" style="transition-delay:240ms">
+            <div class="vc-time__core">
+              <p class="vc-time__year">03</p>
+              <div>
+                <h3 class="vc-time__title">The allocation</h3>
+                <p class="vc-time__text">A number within the edition of twelve is reserved. The allocation is binding on both sides once a deposit of thirty per cent has been received and acknowledged in writing. The piece is then inscribed with the owner's initials and enters the bench for verification at the salon of intended delivery. Pieces are not numbered in the order in which they are paid for; they are numbered, capriciously and with care, by the maison.</p>
+              </div>
+            </div>
+          </article>
+          <article class="vc-time__item reveal" style="transition-delay:360ms">
+            <div class="vc-time__core">
+              <p class="vc-time__year">04</p>
+              <div>
+                <h3 class="vc-time__title">The delivery</h3>
+                <p class="vc-time__text">Collected, where possible, in person at the atelier. The delivery is a single meeting with the watchmaker who assembled the piece, during which the case is opened, the movement explained, and the caseback signed. International delivery, where the owner cannot attend, is by hand. The maison does not courier; it sends a watchmaker. The wait, between allocation and delivery, is presently nine to fourteen months.</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 THE REGISTER + PRICES -->
+    <section class="vc-section vc-section--alt">
+      <div class="vc-container">
+        <div class="vc-rule"><span class="vc-rule__num">02</span></div>
+        <header class="vc-section__head reveal">
+          <div>
+            <p class="vc-eyebrow">The register</p>
+            <h2 class="vc-h2">Offered to the <span class="italic text-champagne">register</span> first.</h2>
+          </div>
+          <p class="vc-section__lede">The maison writes once a season, when a calibre leaves regulation, to those whose names appear on the register. The register is private. There is no fee, no obligation, and no unsubscribe button — only a quiet removal on written request.</p>
+        </header>
+
+        <div class="vc-stats reveal">
+          <div class="vc-stat">
+            <p class="vc-stat__n"><span data-count="4">0</span></p>
+            <p class="vc-stat__k">References in series</p>
+          </div>
+          <div class="vc-stat">
+            <p class="vc-stat__n"><span data-count="48">0</span></p>
+            <p class="vc-stat__k">Pieces per cycle</p>
+          </div>
+          <div class="vc-stat">
+            <p class="vc-stat__n"><span data-count="17">0</span></p>
+            <p class="vc-stat__k">Pieces remaining this season</p>
+          </div>
+          <div class="vc-stat">
+            <p class="vc-stat__n"><span data-count="11" data-suffix=" mo">0</span></p>
+            <p class="vc-stat__k">Mean wait · 9–14 months</p>
+          </div>
+        </div>
+
+        <div style="margin-top:5rem" class="reveal">
+          <div class="vc-specs">
+            <div class="vc-specs__core">
+              <div class="vc-specs__row">
+                <span class="vc-specs__k">Reference 12.01 · Steel</span>
+                <span class="vc-specs__v">CHF 84,000<small>Brushed grade-5 titanium case, anthracite dial, hand-stitched calf strap.</small></span>
+              </div>
+              <div class="vc-specs__row">
+                <span class="vc-specs__k">Reference 12.02 · Rose Gold</span>
+                <span class="vc-specs__v">CHF 96,000<small>18-karat rose-gold case, champagne dial, alligator strap.</small></span>
+              </div>
+              <div class="vc-specs__row">
+                <span class="vc-specs__k">Reference 12.03 · Platinum</span>
+                <span class="vc-specs__v">CHF 112,000<small>Platinum 950 case, silvered dial, navy alligator strap.</small></span>
+              </div>
+              <div class="vc-specs__row">
+                <span class="vc-specs__k">Reference 12.04 · Blacked</span>
+                <span class="vc-specs__v">CHF 88,000<small>DLC-coated grade-5 titanium, matte-black dial, smoked alligator strap.</small></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 REQUEST AN AUDIENCE (FORM) -->
+    <section class="vc-section">
+      <div class="vc-container">
+        <div class="vc-rule"><span class="vc-rule__num">03</span></div>
+        <header class="vc-section__head reveal">
+          <div>
+            <p class="vc-eyebrow">Request an audience</p>
+            <h2 class="vc-h2">A line of <span class="italic text-champagne">enquiry</span>.</h2>
+          </div>
+          <p class="vc-section__lede">Provide the maison with a direction in which to reply. Forms are read in the order they arrive and acknowledged within two working days. Nothing further is sent without consent.</p>
+        </header>
+
+        <form class="vc-form reveal" onsubmit="return false;">
+          <div class="vc-form__core">
+            <div class="vc-field__row">
+              <div class="vc-field">
+                <label for="acq-fn">First name</label>
+                <input id="acq-fn" type="text" placeholder="Marc" />
+              </div>
+              <div class="vc-field">
+                <label for="acq-ln">Last name</label>
+                <input id="acq-ln" type="text" placeholder="Aubert" />
+              </div>
+            </div>
+            <div class="vc-field">
+              <label for="acq-email">Email</label>
+              <input id="acq-email" type="email" placeholder="m.aubert@example.com" />
+            </div>
+            <div class="vc-field">
+              <label for="acq-tel">Telephone</label>
+              <input id="acq-tel" type="tel" placeholder="+41 22 312 00 12" />
+            </div>
+            <div class="vc-field">
+              <label for="acq-salon">Preferred salon</label>
+              <select id="acq-salon">
+                <option>Geneva</option>
+                <option>New York</option>
+                <option>Tokyo</option>
+                <option>Dubai</option>
+              </select>
+            </div>
+            <div class="vc-field">
+              <label for="acq-ref">Reference of interest</label>
+              <select id="acq-ref">
+                <option>Reference 12.01 — Steel — CHF 84,000</option>
+                <option>Reference 12.02 — Rose Gold — CHF 96,000</option>
+                <option>Reference 12.03 — Platinum — CHF 112,000</option>
+                <option>Reference 12.04 — Blacked — CHF 88,000</option>
+              </select>
+            </div>
+            <div class="vc-field">
+              <label for="acq-msg">Note</label>
+              <textarea id="acq-msg" placeholder="Anything the maison ought to know — the date of a planned visit, a particular piece of writing, a name to whom we may refer."></textarea>
+            </div>
+            <p class="vc-form__note">No obligation · Reply within two working days · Held in confidence</p>
+            <div class="vc-band__cta" style="justify-content:flex-start;margin-top:2rem">
+              <button type="submit" class="vc-btn">
+                <span class="pl-1">Send the enquiry</span>
+                <span class="vc-btn__dot"><i data-lucide="arrow-up-right" class="vc-icon"></i></span>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- 04 TERMS (ACCORDION) -->
+    <section class="vc-section vc-section--alt">
+      <div class="vc-container">
+        <div class="vc-rule"><span class="vc-rule__num">04</span></div>
+        <header class="vc-section__head reveal">
+          <div>
+            <p class="vc-eyebrow">Terms</p>
+            <h2 class="vc-h2">The <span class="italic text-champagne">agreements</span>.</h2>
+          </div>
+          <p class="vc-section__lede">Written plainly, in the language the maison has used since 1912. Each term may be discussed in the audience; each may be varied, by mutual letter, where circumstances warrant.</p>
+        </header>
+
+        <div class="vc-acc reveal">
+          <div class="vc-acc__item">
+            <button class="vc-acc__btn">Deposit<span class="vc-acc__sign"></span></button>
+            <div class="vc-acc__panel"><div><p>Allocation is confirmed on receipt of a deposit of thirty per cent of the price. The deposit is held against the piece and credited to the final settlement. It is not, at any point, refundable in cash; where the maison is unable to deliver within twenty-four months, the deposit is returned in full with interest at the prevailing Swiss savings rate.</p></div></div>
+          </div>
+          <div class="vc-acc__item is-open">
+            <button class="vc-acc__btn">Cancellation<span class="vc-acc__sign"></span></button>
+            <div class="vc-acc__panel"><div><p>An allocation may be cancelled by the client, in writing, at any point before the piece enters final regulation. The deposit is, in that case, transferred to the next available edition of the same reference, or to a reference of equivalent value. Cancellations after final regulation are at the maison's discretion; the maison prefers, in such cases, to find a buyer than to retain the deposit.</p></div></div>
+          </div>
+          <div class="vc-acc__item">
+            <button class="vc-acc__btn">Valuation<span class="vc-acc__sign"></span></button>
+            <div class="vc-acc__panel"><div><p>Each piece is sold with a written valuation at the moment of delivery, signed by the maître horloger and the directeur. The valuation is honoured, against the maison, for a period of five years from delivery, and is the figure used in any subsequent resale or inheritance.</p></div></div>
+          </div>
+          <div class="vc-acc__item">
+            <button class="vc-acc__btn">Service interval<span class="vc-acc__sign"></span></button>
+            <div class="vc-acc__panel"><div><p>The maison recommends a complete service every five to seven years, conducted at the Geneva atelier by the watchmaker named on the caseback, where practicable. Service is at cost; the estimate is provided in advance and is accompanied by a photograph of each component removed.</p></div></div>
+          </div>
+          <div class="vc-acc__item">
+            <button class="vc-acc__btn">International delivery<span class="vc-acc__sign"></span></button>
+            <div class="vc-acc__panel"><div><p>Where the owner cannot collect in Geneva or in a salon, the maison sends a watchmaker in person. The watchmaker remains with the piece for the first twenty-four hours in the owner's residence, answers questions on the movement, and returns with the previous owner's written instructions for the next service. The cost of the watchmaker's travel is borne by the maison.</p></div></div>
+          </div>
+          <div class="vc-acc__item">
+            <button class="vc-acc__btn">VAT and duty<span class="vc-acc__sign"></span></button>
+            <div class="vc-acc__panel"><div><p>Prices are quoted exclusive of VAT, customs duty, and any importation charge applicable in the country of delivery. Where the piece is to be collected in Switzerland and exported by the owner, the maison arranges the relevant Swiss documentation. The owner is responsible for all declarations in the country of residence.</p></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLOSING CTA -->
+    <section class="vc-band">
+      <div class="vc-band__glow" aria-hidden="true"></div>
+      <div class="vc-band__inner">
+        <p class="vc-eyebrow text-champagne">Continue</p>
+        <h2 class="vc-h2">Where the maison receives.</h2>
+        <p class="vc-section__lede" style="margin:1.5rem auto 0">Four salons — Geneva, New York, Tokyo, Dubai — and one atelier on the Rue du Rhône.</p>
+        <div class="vc-band__cta">
+          <a href="salons.html" class="vc-btn">
+            <span class="pl-1">The salons</span>
+            <span class="vc-btn__dot"><i data-lucide="arrow-up-right" class="vc-icon"></i></span>
+          </a>
+          <a href="journal.html" class="vc-btn vc-btn--ghost"><span class="pl-1">The Journal</span></a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <nav class="vc-pagenav" aria-label="Chapter">
+    <a class="vc-pagenav__link" href="journal-twelve-weeks.html">
+      <span class="vc-pagenav__k">← Previous</span>
+      <p class="vc-pagenav__t">Twelve Weeks of Line</p>
+    </a>
+    <a class="vc-pagenav__link vc-pagenav__link--next" href="salons.html">
+      <span class="vc-pagenav__k">Next →</span>
+      <p class="vc-pagenav__t">Salons</p>
+    </a>
+  </nav>
+
+  <footer class="vc-footer">
+    <div class="vc-footer__newsletter">
+      <div>
+        <p class="vc-eyebrow text-champagne">The register</p>
+        <h2 class="vc-h3block">Editions are offered to the register first.</h2>
+        <p class="vc-footer__lede">
+          Twelve pieces per reference. We write once a season — never more — when a calibre leaves regulation.
+        </p>
+      </div>
+      <form class="vc-footer__form" onsubmit="return false;">
+        <input class="vc-input" type="email" placeholder="Your atelier address" aria-label="Email address" />
+        <button class="vc-btn vc-btn--fill-sm" type="submit">
+          <span class="pl-1">Join</span>
+          <span class="vc-btn__dot"><i data-lucide="arrow-up-right" class="vc-icon"></i></span>
+        </button>
+      </form>
+    </div>
+
+    <div class="vc-footer__grid">
+      <div>
+        <h5 class="vc-eyebrow">Maison</h5>
+        <ul class="vc-footer__list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="heritage.html">Heritage</a></li>
+          <li><a href="artisans.html">The Hands</a></li>
+          <li><a href="salons.html">Salons</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="vc-eyebrow">Calibre</h5>
+        <ul class="vc-footer__list">
+          <li><a href="calibre.html">The Calibre V-12</a></li>
+          <li><a href="materials.html">Materials</a></li>
+          <li><a href="collection.html">The Collection</a></li>
+          <li><a href="reference-12-04.html">Reference 12.04</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="vc-eyebrow">Atelier</h5>
+        <ul class="vc-footer__list">
+          <li><a href="atelier.html">Inside the atelier</a></li>
+          <li><a href="journal.html">The Journal</a></li>
+          <li><a href="acquisition.html">Acquisition</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="vc-eyebrow">Time across ateliers</h5>
+        <ul class="vc-footer__clocks">
+          <li><span class="vc-eyebrow" style="opacity:.6">Geneva</span> <span class="vc-clock" data-tz="Europe/Zurich">--:--:--</span></li>
+          <li><span class="vc-eyebrow" style="opacity:.6">New York</span> <span class="vc-clock" data-tz="America/New_York">--:--:--</span></li>
+          <li><span class="vc-eyebrow" style="opacity:.6">Tokyo</span> <span class="vc-clock" data-tz="Asia/Tokyo">--:--:--</span></li>
+          <li><span class="vc-eyebrow" style="opacity:.6">Dubai</span> <span class="vc-clock" data-tz="Asia/Dubai">--:--:--</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="vc-footer__legal">
+      <span>WCAG 2.1 AA · Made in Geneva · All editions numbered</span>
+      <span id="vc-copy-year">© VOLTIER &amp; CIE.</span>
+    </div>
+  </footer>
+
+  <div id="vc-cart-scrim" class="vc-cart__scrim" hidden></div>
+  <aside id="vc-cart-drawer" class="vc-cart" aria-label="Acquisition bag" hidden>
+    <header class="vc-cart__head">
+      <h2 class="vc-h3 italic">Acquisition</h2>
+      <button id="vc-cart-close" class="vc-iconbtn" aria-label="Close acquisition bag">
+        <i data-lucide="x" class="vc-icon"></i>
+      </button>
+    </header>
+    <div class="vc-cart__ship">
+      <div class="vc-cart__ship-row">
+        <span id="vc-cart-ship-label">CHF 80,000 to complimentary shipping</span>
+        <span id="vc-cart-ship-pct">0%</span>
+      </div>
+      <div class="vc-cart__ship-bar"><span id="vc-cart-ship-fill"></span></div>
+    </div>
+    <div class="vc-cart__body" id="vc-cart-body">
+      <p id="vc-cart-empty" class="vc-cart__empty">Your acquisition bag is empty.</p>
+      <ul id="vc-cart-items" class="vc-cart__items" hidden></ul>
+      <div class="vc-cart__upsell">
+        <div>
+          <p class="vc-eyebrow text-champagne">Recommended</p>
+          <p class="vc-cart__upsell-text">Hand-stitched alligator strap · CHF 4,200</p>
+        </div>
+        <button class="vc-iconbtn vc-iconbtn--champagne" aria-label="Add strap to acquisition">
+          <i data-lucide="plus" class="vc-icon"></i>
+        </button>
+      </div>
+    </div>
+    <div class="vc-cart__foot">
+      <div class="vc-cart__subtotal">
+        <span class="vc-eyebrow" style="opacity:.6">Subtotal</span>
+        <span id="vc-cart-subtotal" class="vc-h3">CHF 0</span>
+      </div>
+      <button class="vc-shimmer">
+        <span class="vc-shimmer__label">Proceed to Acquisition</span>
+        <span class="vc-shimmer__bar" aria-hidden="true"></span>
+      </button>
+      <p class="vc-cart__note">Reserved for atelier confirmation</p>
+    </div>
+  </aside>
+
+  <script>
+  if (window.tailwind && window.tailwind.config) {
+    window.tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            obsidian:        '#050505',
+            'obsidian-soft': '#0D0D11',
+            ash:             '#1A1A1F',
+            bone:            '#E5E0D8',
+            'bone-soft':     '#A8A092',
+            champagne:       '#D4AF37',
+            bronze:          '#B8763A'
+          },
+          fontFamily: {
+            display: ['"Cormorant Garamond"', 'serif'],
+            sans:    ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif']
+          },
+          letterSpacing: { meta: '0.22em' }
+        }
+      }
+    };
+  }
+  if (window.lucide && window.lucide.createIcons) window.lucide.createIcons();
+  </script>
+  <script src="volter-cie.js" defer></script>
+  <script src="pages.js" defer></script>
+</body>
+</html>

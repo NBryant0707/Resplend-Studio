@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!--
+  © 2026 Resplend Studio · DesignByBryant@gmail.com
+  All rights reserved. Sample work — not for redistribution.
+-->
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Team — Meridian &amp; Co.</title>
+  <meta name="description" content="The fourteen partners leading Meridian's engagements, with median tenure of nine years at the firm. Former operators from industry, balanced across three offices." />
+  <meta name="theme-color" content="#0B0F17" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <link rel="stylesheet" href="styles.css" />
+  <script>
+    /* Preview embed: hide the back-to-portfolio chip when framed */
+    if (window.self !== window.top) document.documentElement.classList.add('is-embedded');
+  </script>
+  <style>
+    /* ── Featured partner grid (founders + managing) ─────────── */
+    .featured-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+    @media (min-width: 768px) { .featured-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; } }
+    .featured {
+      position: relative;
+      padding: 6px;
+      background: rgba(255,255,255,0.025);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 2rem;
+      overflow: hidden;
+      transition: border-color 600ms var(--bezier), transform 700ms var(--bezier);
+    }
+    .featured:hover { border-color: rgba(20,163,125,0.30); transform: translateY(-3px); }
+    .featured__core {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 1.5rem;
+      align-items: start;
+      padding: 1.5rem;
+      background: rgba(17,22,31,0.6);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-radius: 1.625rem;
+      box-shadow: inset 0 1px 1px rgba(255,255,255,0.05);
+    }
+    @media (min-width: 640px) { .featured__core { grid-template-columns: 160px 1fr; padding: 1.75rem; gap: 2rem; } }
+    .featured__photo {
+      position: relative;
+      aspect-ratio: 1;
+      border-radius: 1.25rem;
+      overflow: hidden;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .featured__photo img {
+      width: 100%; height: 100%; object-fit: cover;
+      filter: grayscale(100%) contrast(1.05);
+      transition: filter 700ms var(--bezier), transform 1400ms var(--bezier);
+    }
+    .featured:hover .featured__photo img { filter: grayscale(20%) contrast(1.0); transform: scale(1.06); }
+    .featured__photo::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(11,15,23,0.20) 0%, rgba(11,15,23,0.60) 100%);
+      pointer-events: none;
+    }
+    .featured__name {
+      font-family: 'Fraunces', serif;
+      font-variation-settings: 'opsz' 144, 'wght' 400;
+      font-size: clamp(1.4rem, 2.2vw, 1.8rem);
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+      color: #F5F0E5;
+      margin: 0.4rem 0 0.45rem;
+    }
+    .featured__role {
+      font-size: 0.88rem;
+      color: #14A37D;
+      letter-spacing: 0.06em;
+      margin: 0 0 0.85rem;
+    }
+    .featured__bio {
+      color: #A8A092;
+      font-size: 0.92rem;
+      line-height: 1.55;
+      margin: 0 0 1rem;
+    }
+    .featured__logos {
+      display: flex; flex-wrap: wrap; gap: 0.5rem 0.75rem;
+      padding-top: 0.85rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      font-size: 0.78rem;
+      color: #A39887;
+    }
+    .featured__logos span { position: relative; padding-right: 0.85rem; }
+    .featured__logos span:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      right: 0; top: 50%;
+      width: 3px; height: 3px;
+      background: rgba(255,255,255,0.20);
+      border-radius: 999px;
+      transform: translateY(-50%);
+    }
+
+    /* ── Senior partners (smaller cards) ────────────────────── */
+    .senior-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    @media (min-width: 640px) { .senior-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1024px) { .senior-grid { grid-template-columns: repeat(3, 1fr); } }
+    .senior {
+      position: relative;
+      padding: 6px;
+      background: rgba(255,255,255,0.025);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 1.5rem;
+      overflow: hidden;
+      transition: border-color 600ms var(--bezier), transform 700ms var(--bezier);
+    }
+    .senior:hover { border-color: rgba(20,163,125,0.25); transform: translateY(-2px); }
+    .senior__core {
+      padding: 1.5rem;
+      background: rgba(17,22,31,0.6);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-radius: 1.25rem;
+      box-shadow: inset 0 1px 1px rgba(255,255,255,0.05);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+    .senior__head {
+      display: flex; gap: 1rem; align-items: center;
+    }
+    .senior__photo {
+      width: 56px; height: 56px;
+      border-radius: 999px;
+      overflow: hidden;
+      flex-shrink: 0;
+      border: 1px solid rgba(255,255,255,0.10);
+    }
+    .senior__photo img {
+      width: 100%; height: 100%; object-fit: cover;
+      filter: grayscale(100%) contrast(1.05);
+    }
+    .senior__name {
+      font-family: 'Fraunces', serif;
+      font-variation-settings: 'opsz' 144, 'wght' 400;
+      font-size: 1.15rem;
+      letter-spacing: -0.015em;
+      color: #F5F0E5;
+      margin: 0;
+      line-height: 1.1;
+    }
+    .senior__role {
+      font-size: 0.8rem;
+      color: #14A37D;
+      margin: 0;
+    }
+    .senior__bio {
+      color: #A8A092;
+      font-size: 0.85rem;
+      line-height: 1.55;
+      margin: 0;
+    }
+    .senior__stack {
+      margin-top: auto;
+      padding-top: 0.85rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.75rem;
+      color: #A39887;
+    }
+    .senior__stack-tenure {
+      letter-spacing: 0.04em;
+    }
+
+    /* ── Operating bench (smaller still) ────────────────────── */
+    .bench-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+    }
+    @media (min-width: 640px) { .bench-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1024px) { .bench-grid { grid-template-columns: repeat(4, 1fr); } }
+    .bench-card {
+      position: relative;
+      padding: 6px;
+      background: rgba(255,255,255,0.025);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 1.25rem;
+    }
+    .bench-card__core {
+      padding: 1.25rem;
+      background: rgba(17,22,31,0.55);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 1rem;
+      box-shadow: inset 0 1px 1px rgba(255,255,255,0.05);
+    }
+    .bench-card__role {
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #A39887;
+      margin: 0 0 0.55rem;
+    }
+    .bench-card__name {
+      font-family: 'Fraunces', serif;
+      font-variation-settings: 'opsz' 144, 'wght' 400;
+      font-size: 1.05rem;
+      letter-spacing: -0.015em;
+      color: #F5F0E5;
+      margin: 0 0 0.55rem;
+    }
+    .bench-card__bio {
+      font-size: 0.82rem;
+      line-height: 1.5;
+      color: #D4CCBA;
+      margin: 0;
+    }
+
+    /* ── Office tabs ─────────────────────────────────────────── */
+    .office-tabs {
+      display: inline-flex;
+      padding: 0.4rem;
+      background: rgba(255,255,255,0.025);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 999px;
+      margin-bottom: 2rem;
+    }
+    .office-tabs a {
+      padding: 0.45rem 1.1rem;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      color: #D4CCBA;
+      transition: background-color 400ms var(--bezier), color 400ms var(--bezier);
+    }
+    .office-tabs a.is-active {
+      background: rgba(20,163,125,0.10);
+      color: #F5F0E5;
+      box-shadow: inset 0 0 0 1px rgba(20,163,125,0.30);
+    }
+  </style>
+</head>
+<body>
+  <div class="mesh-bg" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <div class="nav-wrap">
+    <nav class="nav" id="nav" aria-label="Primary">
+      <a href="index.html" class="nav__brand">
+        <span class="nav__mark"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L4 6V12C4 17 7.5 21 12 22C16.5 21 20 17 20 12V6L12 2Z"/><path d="M12 7V17"/></svg></span>
+        Meridian &amp; Co.
+      </a>
+      <ul class="nav__links">
+        <li><a href="about.html" class="nav__link">About</a></li>
+        <li><a href="practice.html" class="nav__link">Practice</a></li>
+        <li><a href="framework.html" class="nav__link">Framework</a></li>
+        <li><a href="case-studies.html" class="nav__link">Impact</a></li>
+        <li><a href="insights.html" class="nav__link">Insights</a></li>
+        <li><a href="team.html" class="nav__link is-current">Team</a></li>
+        <li><a href="engagements.html" class="nav__link">Engage</a></li>
+      </ul>
+      <a href="contact.html" class="cta nav__cta cta--sm">
+        <span style="padding-left:.3rem">Book a call</span>
+        <span class="cta__arrow"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+      <button class="nav__burger" id="burger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span></button>
+    </nav>
+  </div>
+
+  <div class="menu-overlay" id="menuOverlay" aria-hidden="true">
+    <ul class="menu-overlay__list">
+      <li><a href="about.html">About</a></li>
+      <li><a href="practice.html">Practice</a></li>
+      <li><a href="framework.html">Framework</a></li>
+      <li><a href="case-studies.html">Impact</a></li>
+      <li><a href="insights.html">Insights</a></li>
+      <li><a href="team.html">Team</a></li>
+      <li><a href="engagements.html">Engage</a></li>
+      <li class="menu-overlay__sep">— get in touch —</li>
+      <li><a href="contact.html">Book a call →</a></li>
+    </ul>
+  </div>
+
+  <a class="back-chip" href="../../index.html#portfolio">
+    <span class="back-chip__icon"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M10 6H2M2 6L6 2M2 6L6 10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    Back to Resplend Studio
+  </a>
+
+  <main id="top">
+
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+      <div class="container">
+        <div class="page-hero__split">
+          <div>
+            <span class="eyebrow reveal">The Meridian team</span>
+            <h1 class="page-hero__title reveal" data-delay="1">Fourteen partners, <em>each running their own engagement.</em></h1>
+            <p class="page-hero__sub reveal" data-delay="2">The senior team at Meridian is a deliberately small bench — fourteen partners and ten senior associates across three offices. Median tenure is nine years; most arrived from operating roles at companies you've heard of. Every engagement you see at Meridian is led from start to finish by the partner named here.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOUNDING PARTNERS (featured) -->
+    <section>
+      <div class="container">
+        <header class="section-header">
+          <div>
+            <span class="eyebrow reveal">Founding &amp; managing partners</span>
+            <h2 class="section-header__title reveal" data-delay="1">The four who <em>started the firm.</em></h2>
+          </div>
+          <p class="section-header__lede reveal" data-delay="2">Each runs active engagements in addition to firm leadership. Helena and James alternate as the engagement letter signatory on most retainer work.</p>
+        </header>
+
+        <div class="featured-grid">
+          <article class="featured reveal" data-delay="1">
+            <div class="featured__core">
+              <div class="featured__photo">
+                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=600&q=80" alt="" loading="lazy" />
+              </div>
+              <div>
+                <p style="font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:#A39887;margin:0">Founding Partner</p>
+                <h3 class="featured__name">Helena Voss</h3>
+                <p class="featured__role">Managing Partner · Operations</p>
+                <p class="featured__bio">Twelve years at Meridian. Previously SVP Operations at a $1B industrial roll-up vehicle. Eighteen transformation engagements led, average tenure on engagement 14 months. Leads the firm's largest engagements — the ones that span two or more practice areas and require embedded operators over six-to-eighteen-month horizons.</p>
+                <div class="featured__logos">
+                  <span>Roll-up vehicle · $1B</span>
+                  <span>Boeing</span>
+                  <span>Cargill</span>
+                  <span>Kellogg MBA</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="featured reveal" data-delay="2">
+            <div class="featured__core">
+              <div class="featured__photo">
+                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=600&q=80" alt="" loading="lazy" />
+              </div>
+              <div>
+                <p style="font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:#A39887;margin:0">Founding Partner</p>
+                <h3 class="featured__name">James Okafor</h3>
+                <p class="featured__role">Senior Partner · Strategy &amp; M&amp;A</p>
+                <p class="featured__bio">Twelve years at Meridian. Previously partner at a Tier-1 strategy firm and CFO of a DTC platform before that. Runs most of the firm's strategy stage engagements and leads most capital advisory work. Sits on two portfolio company boards on retention.</p>
+                <div class="featured__logos">
+                  <span>McKinsey · partner</span>
+                  <span>DTC platform · CFO</span>
+                  <span>Wharton MBA</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="featured reveal" data-delay="3">
+            <div class="featured__core">
+              <div class="featured__photo">
+                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=600&q=80" alt="" loading="lazy" />
+              </div>
+              <div>
+                <p style="font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:#A39887;margin:0">Founding Partner</p>
+                <h3 class="featured__name">Marcus Reilly</h3>
+                <p class="featured__role">Senior Partner · Manufacturing &amp; Digital</p>
+                <p class="featured__bio">Twelve years at Meridian. Previously VP Manufacturing at a global industrial OEM, and CTO of a digital industrial platform before that. Leads the firm's manufacturing and digital practice. Built and ran the Chicago office for the first six years of the firm.</p>
+                <div class="featured__logos">
+                  <span>Industrial OEM · VP Mfg</span>
+                  <span>Industrial SaaS · CTO</span>
+                  <span>MIT MS Engineering</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="featured reveal" data-delay="4">
+            <div class="featured__core">
+              <div class="featured__photo">
+                <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=600&q=80" alt="" loading="lazy" />
+              </div>
+              <div>
+                <p style="font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:#A39887;margin:0">Founding Partner</p>
+                <h3 class="featured__name">Eliza Chen</h3>
+                <p class="featured__role">Senior Partner · Capital Markets</p>
+                <p class="featured__bio">Twelve years at Meridian. Previously managing director at a mid-market investment bank and head of IR at a public industrial company. Leads the capital practice work and most of the firm's M&amp;A process management. Built the London office in 2021.</p>
+                <div class="featured__logos">
+                  <span>Investment banking · MD</span>
+                  <span>Industrial IR · Head</span>
+                  <span>INSEAD MBA</span>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SENIOR PARTNERS BY OFFICE -->
+    <section id="newyork">
+      <div class="container">
+        <header class="section-header">
+          <div>
+            <span class="eyebrow reveal">New York office</span>
+            <h2 class="section-header__title reveal" data-delay="1">The senior bench <em>across practice.</em></h2>
+          </div>
+          <p class="section-header__lede reveal" data-delay="2">Eight partners in New York covering the firm's largest engagement footprint — mostly industrials, financial services, and consumer.</p>
+        </header>
+
+        <div class="office-tabs reveal">
+          <a href="#newyork" class="is-active">New York · 8</a>
+          <a href="#chicago">Chicago · 4</a>
+          <a href="#london">London · 2</a>
+        </div>
+
+        <div class="senior-grid">
+          <article class="senior reveal" data-delay="1">
+            <div class="senior__core">
+              <div class="senior__head">
+                <div class="senior__photo"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=300&q=80" alt="" loading="lazy" /></div>
+                <div>
+                  <p style="font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:#A39887;margin:0 0 .2rem">Partner</p>
+                  <h3 class="senior__name">Daniel Koufos</h3>
+                  <p class="senior__role">Energy &amp; Renewables</p>
+                </div>
+              </div>
+              <p class="senior__bio">Seven years at Meridian. Built the energy practice from a single engagement to a four-partner team. Previously ran the operating function at a utility-scale developer; led the Helios engagement from diagnostic through embed.</p>
+              <div class="senior__stack"><span>Former: Utility-scale renewables operator</span><span class="senior__stack-tenure">7 yrs</span></div>
+            </div>
+          </article>
+
+          <article class="senior reveal" data-delay="2">
+            <div class="senior__core">
+              <div class="senior__head">
+                <div class="senior__photo"><img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=300&q=80" alt="" loading="lazy" /></div>
+                <div>
+                  <p style="font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:#A39887;margin:0 0 .2rem">Partner</p>
+                  <h3 class="senior__name">Priya Nair</h3>
+                  <p class="senior__role">ESG &amp; Sustainability</p>
+                </div>
+              </div>
+              <p class="senior__bio">Joined as partner in 2024, first dedicated sustainability practice hire. Built the carbon architecture for the Helios engagement while at a Big Four climate practice; PhD in energy systems from Stanford.</p>
+              <div class="senior__stack"><span>Former: Big Four climate practice</span><span class="senior__stack-tenure">2 yrs</span></div>
+            </div>
+          </article>
+
+          <article class="senior reveal" data-delay="3">
+            <div class="senior__core">
+              <div class="senior__head">
+                <div class="senior__photo"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80" alt="" loading="lazy" /></div>
+                <div>
+                  <p style="font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:#A39887;margin:0 0 .2rem">Partner</p>
+                  <h3 class="senior__name">Theo Lindgren</h3>
+                  <p class="senior__role">Financial Services</p>
+                </div>
+              </div>
+              <p class="senior__bio">Ten years at Meridian. Built the financial services practice. Previously COO of a regional bank; led the Atlas Healthcare engagement from the operating-model side. Sits on three portfolio boards.</p>
+              <div class="senior__stack"><span>Former: Regional bank · COO</span><span class="senior__stack-tenure">10 yrs</span></div>
+            </div>
+          </article>
+
+          <article class="senior reveal" data-delay="4">
+            <div class="senior__core">
+              <div class="senior__head">
+                <div class="senior__photo"><img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=300&q=80" alt="" loading="lazy" /></div>
+                <div>
+                  <p style="font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:#A39887;margin:0 0 .2rem">Partner</p>
+                  <h3 class="senior__name">Yuki Tanaka</h3>
+                  <p class="senior__role">Consumer / DTC</p>
+                </div>
+              </div>
+              <p class="senior__bio">Six years at Meridian. Leads most consumer and DTC engagements. Previously head of strategy at a category-leading DTC platform; joined Meridian after the company's acquisition.</p>
+              <div class="senior__stack"><span>Former: DTC platform · Head of Strategy</span><span class="senior__stack-tenure">6 yrs</span></div>
+            </div>
+          </article>
+
+          <article class="senior reveal" data-delay="5">
+            <div class="senior__core">
+              <div class="senior__head">
+                <div class="senior__photo"><img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=300&q=80" alt="" loading="lazy" /></div>
+                <div>
+                  <p style="font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:#A39887;margin:0 0 .2rem">Partner</p>
+                  <h3 class="senior__name">Aiden Patel</h3>
+                  <p class="senior__role">Digital &amp; Technology</p>
+                </div>
+              </div>
+              <p class="senior__bio">Joined in 2023 to scale the digital practice alongside Marcus. Previously VP Engineering at a healthcare data platform. Brings engineering depth to operating-model technology work.</p>
+              <div class="senior__stack"><span>Former: Healthcare data · VP Eng</span><span class="senior__stack-tenure">3 yrs</span></div>
+            </div>
+          </article>
+
+          <article class="senior reveal" data-delay="6">
+            <div class="senior__core">
+              <div class="senior__head">
+                <div class="senior__photo"><img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=300&q=80" alt="" loading="lazy" /></div>
+                <div>
+                  <p style="font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:#A39887;margin:0 0 .2rem">Partner</p>
+                  <h3 class="senior__name">Sofia Restrepo</h3>
+                  <p class="senior__role">Capital Markets</p>
+                </div>
+              </div>
+              <p class="senior__bio">Four years at Meridian. Joined from a credit fund focused on PE-backed mid-market. Leads most private credit process work alongside Eliza. Native Spanish, working knowledge of Portuguese.</p>
+              <div class="senior__stack"><span>Former: Private credit fund</span><span class="senior__stack-tenure">4 yrs</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="chicago">
+      <div class="container">
+        <header class="section-header">
+          <div>
+            <span class="eyebrow reveal">Chicago office</span>
+            <h2 class="section-header__title reveal" data-delay="1">The midwestern <em>operating bench.</em></h2>
+          </div>
+          <p class="section-header__lede reveal" data-delay="2">Four partners based in Chicago, covering the firm's largest concentration of industrials and PE-backed operator engagements.</p>
+        </header>
+
+        <div class="office-tabs reveal">
+          <a href="#newyork">New York · 8</a>
+          <a href="#chicago" class="is-active">Chicago · 4</a>
+          <a href="#london">London · 2</a>
+        </div>
+
+        <div class="senior-grid">
+          <article class="senior reveal" data-delay="1">
+            <div class="senior__core">
+              <div class="senior__head">
+                <div class="senior__photo"><img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=300&q=80" alt="" loading="lazy" /></div>
+                <div>
+                  <p style="font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:#A39887;margin:0 0 .2rem">Partner</p>
+                  <h3 class="senior__name">Robert Chen</h3>
+                  <p class="senior__role">Industrials · Operations</p>
+                </div>
+              </div>
+              <p class="senior__bio">Eleven years at Meridian, nine in Chicago. Runs the office day-to-day. Led most of the firm's largest transformation engagements including Northwind Industrial from diagnostic through exit.</p>
+              <div class="senior__stack"><span>Former: Manufacturing GM</span><span class="senior__stack-tenure">11 yrs</span></div>
+            </div>
+          </article>
+
+          <article class="senior reveal" data-delay="2">
+            <div class="senior__core">
+              <div class="senior__head">
+                <div class="senior__photo"><img src="https://images.unsplash.com/photo-1463453091185-61582044d556?auto=format&fit=crop&w=300&q=80" alt="" loading="lazy" /></div>
+                <div>
+                  <p style="font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:#A39887;margin:0 0 .2rem">Partner</p>
+                  <h3 class="senior__name">Carla Diaz</h3>
+                  <p class="senior__role">Supply Chain</p>
+                </div>
+              </div>
+              <p class="senior__bio">Five years at Meridian. Previously SVP Supply Chain at a $2B building products manufacturer. Owns the supply-chain practice, with deep procurement and network-design experience.</p>
+              <div class="senior__stack"><span>Former: Building products · SVP SC</span><span class="senior__stack-tenure">5 yrs</span></div>
+            </div>
+          </article>
+
+          <article class="senior reveal" data-delay="3">
+            <div class="senior__core">
+              <div class="senior__head">
+                <div class="senior__photo"><img src="https://images.unsplash.com/photo-1543132220-3ec99c6094dc?auto=format&fit=crop&w=300&q=80" alt="" loading="lazy" /></div>
+                <div>
+                  <p style="font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:#A39887;margin:0 0 .2rem">Partner</p>
+                  <h3 class="senior__name">Marcus Quinn</h3>
+                  <p class="senior__role">Commercial Strategy</p>
+                </div>
+              </div>
+              <p class="senior__bio">Four years at Meridian. Previously head of pricing at a global industrial distributor. Owns the pricing architecture work and most channel-pricing engagements.</p>
+              <div class="senior__stack"><span>Former: Industrial distribution · Head of Pricing</span><span class="senior__stack-tenure">4 yrs</span></div>
+            </div>
+          </article>
+
+          <article class="senior reveal" data-delay="4">
+            <div class="senior__core">
+              <div class="senior__head">
+                <div class="senior__photo"><img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=300&q=80" alt="" loading="lazy" /></div>
+                <div>
+                  <p style="font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:#A39887;margin:0 0 .2rem">Partner</p>
+                  <h3 class="senior__name">Aisha Khoury</h3>
+                  <p class="senior__role">Operating Cadence</p>
+                </div>
+              </div>
+              <p class="senior__bio">Three years at Meridian. Previously chief of staff to the COO of a Fortune 500 industrials company. Owns the operating-cadence implementation work across engagements.</p>
+              <div class="senior__stack"><span>Former: Fortune 500 · Chief of Staff</span><span class="senior__stack-tenure">3 yrs</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="london">
+      <div class="container">
+        <header class="section-header">
+          <div>
+            <span class="eyebrow reveal">London office</span>
+            <h2 class="section-header__title reveal" data-delay="1">The European <em>outpost.</em></h2>
+          </div>
+          <p class="section-header__lede reveal" data-delay="2">Two partners cover European engagements across manufacturing, energy, and consumer. Cross-Atlantic PE deals are staffed from both offices in tandem.</p>
+        </header>
+
+        <div class="office-tabs reveal">
+          <a href="#newyork">New York · 8</a>
+          <a href="#chicago">Chicago · 4</a>
+          <a href="#london" class="is-active">London · 2</a>
+        </div>
+
+        <div class="senior-grid">
+          <article class="senior reveal" data-delay="1">
+            <div class="senior__core">
+              <div class="senior__head">
+                <div class="senior__photo"><img src="https://images.unsplash.com/photo-1551836022-deb4988cc6c0?auto=format&fit=crop&w=300&q=80" alt="" loading="lazy" /></div>
+                <div>
+                  <p style="font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:#A39887;margin:0 0 .2rem">Partner</p>
+                  <h3 class="senior__name">Sophia Brandt</h3>
+                  <p class="senior__role">Europe · Operations</p>
+                </div>
+              </div>
+              <p class="senior__bio">Joined in 2021 to open the London office. Previously partner at a European strategy firm and operations leader at a UK-listed industrial company. Fluent in English, German, and French.</p>
+              <div class="senior__stack"><span>Former: UK-listed industrial</span><span class="senior__stack-tenure">5 yrs</span></div>
+            </div>
+          </article>
+
+          <article class="senior reveal" data-delay="2">
+            <div class="senior__core">
+              <div class="senior__head">
+                <div class="senior__photo"><img src="https://images.unsplash.com/photo-1522529599102-193c0d76b5f6?auto=format&fit=crop&w=300&q=80" alt="" loading="lazy" /></div>
+                <div>
+                  <p style="font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:#A39887;margin:0 0 .2rem">Partner</p>
+                  <h3 class="senior__name">Henrik Vasilenko</h3>
+                  <p class="senior__role">Europe · Capital</p>
+                </div>
+              </div>
+              <p class="senior__bio">Joined in 2022. Previously head of European M&amp;A at a global investment bank. Leads European cross-Atlantic deal-flow work and capital advisory on PE-backed assets.</p>
+              <div class="senior__stack"><span>Former: Global IB · Europe M&amp;A</span><span class="senior__stack-tenure">4 yrs</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- OPERATING BENCH -->
+    <section>
+      <div class="container">
+        <header class="section-header">
+          <div>
+            <span class="eyebrow reveal">Operating bench</span>
+            <h2 class="section-header__title reveal" data-delay="1">Ten senior associates, <em>embedded across engagements.</em></h2>
+          </div>
+          <p class="section-header__lede reveal" data-delay="2">Senior associates at Meridian spend 80% of their time inside client engagements. Most came in as operators from the same industries they now serve.</p>
+        </header>
+
+        <div class="bench-grid">
+          <article class="bench-card reveal" data-delay="1">
+            <div class="bench-card__core">
+              <p class="bench-card__role">Senior Associate</p>
+              <h3 class="bench-card__name">Naveen Iyer</h3>
+              <p class="bench-card__bio">Manufacturing ops. Former ops manager at a precision components plant.</p>
+            </div>
+          </article>
+          <article class="bench-card reveal" data-delay="2">
+            <div class="bench-card__core">
+              <p class="bench-card__role">Senior Associate</p>
+              <h3 class="bench-card__name">Olamide Bello</h3>
+              <p class="bench-card__bio">Commercial diligence. Former associate at a Tier-1 consulting firm.</p>
+            </div>
+          </article>
+          <article class="bench-card reveal" data-delay="3">
+            <div class="bench-card__core">
+              <p class="bench-card__role">Senior Associate</p>
+              <h3 class="bench-card__name">Connor Walsh</h3>
+              <p class="bench-card__bio">Capital markets. Former investment banking analyst at a boutique.</p>
+            </div>
+          </article>
+          <article class="bench-card reveal" data-delay="4">
+            <div class="bench-card__core">
+              <p class="bench-card__role">Senior Associate</p>
+              <h3 class="bench-card__name">Hina Saito</h3>
+              <p class="bench-card__bio">Digital integration. Former product manager at an industrial SaaS company.</p>
+            </div>
+          </article>
+          <article class="bench-card reveal" data-delay="5">
+            <div class="bench-card__core">
+              <p class="bench-card__role">Senior Associate</p>
+              <h3 class="bench-card__name">Jonas Eriksen</h3>
+              <p class="bench-card__bio">Pricing analytics. Former revenue management lead at a SaaS platform.</p>
+            </div>
+          </article>
+          <article class="bench-card reveal" data-delay="6">
+            <div class="bench-card__core">
+              <p class="bench-card__role">Senior Associate</p>
+              <h3 class="bench-card__name">Esme Laurent</h3>
+              <p class="bench-card__bio">ESG instrumentation. Former climate strategy consultant at a Big Four.</p>
+            </div>
+          </article>
+          <article class="bench-card reveal" data-delay="1">
+            <div class="bench-card__core">
+              <p class="bench-card__role">Senior Associate</p>
+              <h3 class="bench-card__name">Ravi Subramanian</h3>
+              <p class="bench-card__bio">Supply-chain. Former operations research lead at a logistics company.</p>
+            </div>
+          </article>
+          <article class="bench-card reveal" data-delay="2">
+            <div class="bench-card__core">
+              <p class="bench-card__role">Senior Associate</p>
+              <h3 class="bench-card__name">Penny Whitaker</h3>
+              <p class="bench-card__bio">Operating cadence. Former chief of staff at a mid-cap consumer company.</p>
+            </div>
+          </article>
+          <article class="bench-card reveal" data-delay="3">
+            <div class="bench-card__core">
+              <p class="bench-card__role">Senior Associate</p>
+              <h3 class="bench-card__name">Mateo Alarcon</h3>
+              <p class="bench-card__bio">Working capital. Former treasury lead at a Fortune 500 distributor.</p>
+            </div>
+          </article>
+          <article class="bench-card reveal" data-delay="4">
+            <div class="bench-card__core">
+              <p class="bench-card__role">Senior Associate</p>
+              <h3 class="bench-card__name">Nadia Hassan</h3>
+              <p class="bench-card__bio">Healthcare transformation. Former strategy lead at a regional hospital system.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEXT-STEPS NAV -->
+    <section>
+      <div class="container">
+        <div class="engage__card reveal">
+          <div class="engage__card-core">
+            <div class="engage__split">
+              <div>
+                <span class="eyebrow">Continue exploring</span>
+                <h2 class="engage__title">See <em>the work in practice.</em></h2>
+                <p class="engage__sub">Six case studies across the practice areas, each showing what the framework looks like in execution. All anonymized, all with the metrics pre-agreed at signing.</p>
+                <div class="engage__cta-row">
+                  <a href="case-studies.html" class="cta cta--ink">
+                    <span style="padding-left:.3rem">Case studies</span>
+                    <span class="cta__arrow"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  </a>
+                  <a href="engagements.html" class="cta cta--ghost">
+                    <span style="padding-left:.3rem">Engagement pricing</span>
+                    <span class="cta__arrow"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  </a>
+                </div>
+              </div>
+              <div>
+                <div class="bezel"><div class="bezel__core" style="padding:1.75rem">
+                  <p class="eyebrow" style="margin-bottom:1rem">Useful next steps</p>
+                  <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:.65rem">
+                    <li><a href="practice.html" style="color:#D4CCBA">→ Practice areas</a></li>
+                    <li><a href="framework.html" style="color:#D4CCBA">→ The four-stage framework</a></li>
+                    <li><a href="contact.html" style="color:#D4CCBA">→ Book a 45-minute intro call</a></li>
+                  </ul>
+                </div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav__brand">
+            <span class="nav__mark"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L4 6V12C4 17 7.5 21 12 22C16.5 21 20 17 20 12V6L12 2Z"/><path d="M12 7V17"/></svg></span>
+            Meridian &amp; Co.
+          </a>
+          <p>Boutique advisory for founder-led companies and private equity operators. Senior-led engagements, measurable outcomes.</p>
+        </div>
+        <div class="footer-col"><h4>Explore</h4><ul>
+          <li><a href="about.html">About</a></li><li><a href="practice.html">Practice</a></li>
+          <li><a href="framework.html">Framework</a></li><li><a href="case-studies.html">Case studies</a></li>
+          <li><a href="team.html">Senior team</a></li><li><a href="insights.html">Insights</a></li>
+        </ul></div>
+        <div class="footer-col"><h4>Engage</h4><ul>
+          <li><a href="engagements.html">Engagement tiers</a></li><li><a href="contact.html">Book a call</a></li>
+          <li><a href="contact.html#intake">Full intake form</a></li><li><a href="contact.html#offices">Office locations</a></li>
+        </ul></div>
+        <div class="footer-col"><h4>Contact</h4><ul>
+          <li><a href="mailto:hello@meridianco.example">hello@meridianco.example</a></li>
+          <li><a href="tel:+15551234567">+1 (555) 123-4567</a></li>
+          <li>200 Park Avenue, Floor 14<br />New York, NY 10166</li>
+        </ul></div>
+      </div>
+      <div class="footer-base">
+        <p>&copy; <span id="year"></span> Meridian &amp; Co. Advisory Partners LLP. All rights reserved.</p>
+        <p><a href="../../index.html#portfolio">← Back to Resplend Studio</a> · <a href="#top">Back to top ↑</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function(){const n=document.getElementById('nav'),b=document.getElementById('burger'),o=document.getElementById('menuOverlay');if(!n||!b||!o)return;window.addEventListener('scroll',()=>{n.classList.toggle('is-scrolled',window.scrollY>24);},{passive:!0});const c=()=>{n.classList.remove('is-open');o.classList.remove('is-open');b.setAttribute('aria-expanded','false');o.setAttribute('aria-hidden','true');document.body.style.overflow=''};b.addEventListener('click',()=>{const p=!n.classList.contains('is-open');if(p){n.classList.add('is-open');o.classList.add('is-open');b.setAttribute('aria-expanded','true');o.setAttribute('aria-hidden','false');document.body.style.overflow='hidden'}else c()});o.querySelectorAll('a').forEach(a=>a.addEventListener('click',c))})();
+
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const id=a.getAttribute('href');if(id.length>1){const t=document.querySelector(id);if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'})}}})});
+
+    const reveals=document.querySelectorAll('.reveal');
+    if('IntersectionObserver' in window){const io=new IntersectionObserver(es=>{es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('is-in');io.unobserve(en.target)}})},{rootMargin:'0px 0px -8% 0px',threshold:0.08});reveals.forEach(el=>io.observe(el))}else reveals.forEach(el=>el.classList.add('is-in'));
+
+    document.querySelectorAll('.cta').forEach(el=>{const s=.18;let r=null;el.addEventListener('mousemove',e=>{const re=el.getBoundingClientRect(),x=(e.clientX-re.left-re.width/2)*s,y=(e.clientY-re-top-re.height/2)*s;if(r)cancelAnimationFrame(r);r=requestAnimationFrame(()=>{el.style.transform=`translate(${x}px,${y}px)`})});el.addEventListener('mouseleave',()=>{if(r)cancelAnimationFrame(r);r=null;el.style.transition='transform 600ms cubic-bezier(0.32,0.72,0,1)';el.style.transform='translate(0,0)';setTimeout(()=>{el.style.transition=''},700)})});
+
+    function initLucide(){if(window.lucide&&window.lucide.createIcons)window.lucide.createIcons({attrs:{'stroke-width':1.5}})}
+    const yEl=document.getElementById('year');if(yEl)yEl.textContent=new Date().getFullYear();
+    if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',initLucide);else initLucide();
+  </script>
+</body>
+</html>

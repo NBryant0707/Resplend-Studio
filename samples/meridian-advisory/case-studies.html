@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!--
+  © 2026 Resplend Studio · DesignByBryant@gmail.com
+  All rights reserved. Sample work — not for redistribution.
+-->
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Case Studies — Meridian &amp; Co.</title>
+  <meta name="description" content="Six anonymized engagement case studies across the practice areas, anonymized and with metrics pre-agreed at signing." />
+  <meta name="theme-color" content="#0B0F17" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <link rel="stylesheet" href="styles.css" />
+  <script>
+    /* Preview embed: hide the back-to-portfolio chip when framed */
+    if (window.self !== window.top) document.documentElement.classList.add('is-embedded');
+  </script>
+  <style>
+    /* ── Case study header (at the top of the page) ──────────── */
+    .cs-hero {
+      position: relative;
+      padding-top: clamp(8rem, 14vw, 11rem);
+      padding-bottom: clamp(3rem, 6vw, 5rem);
+    }
+    .cs-hero__filter {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 2rem;
+    }
+    .cs-hero__filter a {
+      padding: 0.45rem 1rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.025);
+      border: 1px solid rgba(255,255,255,0.08);
+      font-size: 0.82rem;
+      color: #D4CCBA;
+      transition: background-color 400ms var(--bezier), border-color 400ms var(--bezier), color 400ms var(--bezier);
+    }
+    .cs-hero__filter a:hover { background: rgba(20,163,125,0.08); border-color: rgba(20,163,125,0.30); color: #F5F0E5; }
+
+    /* ── Case study block ────────────────────────────────────── */
+    .cs-block {
+      position: relative;
+      padding-top: clamp(4rem, 8vw, 7rem);
+      padding-bottom: clamp(4rem, 8vw, 7rem);
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .cs-block:first-of-type { border-top: 0; }
+
+    .cs-block__head {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      align-items: end;
+      margin-bottom: 3.5rem;
+    }
+    @media (min-width: 880px) { .cs-block__head { grid-template-columns: 1.1fr 0.9fr; gap: 3rem; } }
+
+    .cs-block__meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 1rem 0 0;
+    }
+    .cs-block__chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.4rem 0.85rem 0.4rem 0.7rem;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 999px;
+      font-size: 0.78rem;
+      color: #D4CCBA;
+    }
+    .cs-block__chip::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 999px;
+      background: #14A37D;
+    }
+    .cs-block__num {
+      font-family: 'Fraunces', serif;
+      font-variation-settings: 'opsz' 144, 'wght' 400;
+      font-size: clamp(3rem, 6vw, 4.5rem);
+      letter-spacing: -0.03em;
+      line-height: 0.9;
+      color: #A39887;
+      margin: 0 0 0.85rem;
+    }
+    .cs-block__num em {
+      font-style: italic;
+      font-variation-settings: 'opsz' 144, 'wght' 300;
+      color: #14A37D;
+    }
+    .cs-block__client {
+      font-size: 0.85rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #A39887;
+      margin: 0 0 1rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+    .cs-block__client::before {
+      content: '';
+      width: 28px; height: 1px;
+      background: #14A37D;
+    }
+    .cs-block__title {
+      font-family: 'Fraunces', serif;
+      font-variation-settings: 'opsz' 144, 'wght' 400;
+      font-size: clamp(2rem, 4vw, 3rem);
+      letter-spacing: -0.025em;
+      line-height: 1.05;
+      color: #F5F0E5;
+      margin: 0;
+      max-width: 22ch;
+    }
+    .cs-block__title em {
+      font-style: italic;
+      font-variation-settings: 'opsz' 144, 'wght' 300;
+      color: #14A37D;
+    }
+    .cs-block__hero-image {
+      position: relative;
+      aspect-ratio: 16 / 10;
+      border-radius: 1.5rem;
+      overflow: hidden;
+      background: rgba(255,255,255,0.025);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .cs-block__hero-image img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      filter: grayscale(40%) contrast(1.05);
+    }
+
+    /* ── Body of a case study ────────────────────────────────── */
+    .cs-body {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    @media (min-width: 880px) {
+      .cs-body { grid-template-columns: 0.35fr 0.65fr; gap: 4rem; }
+    }
+    .cs-aside {
+      position: sticky;
+      top: 7rem;
+      align-self: start;
+    }
+    .cs-aside__section {
+      padding-bottom: 1.5rem;
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .cs-aside__section:last-child { border-bottom: 0; }
+    .cs-aside__label {
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #A39887;
+      margin: 0 0 0.55rem;
+    }
+    .cs-aside__value {
+      color: #D4CCBA;
+      font-size: 0.92rem;
+      line-height: 1.45;
+    }
+    .cs-aside__value strong { color: #F5F0E5; font-weight: 500; }
+
+    .cs-content h3 {
+      font-family: 'Fraunces', serif;
+      font-variation-settings: 'opsz' 144, 'wght' 400;
+      font-size: 1.5rem;
+      letter-spacing: -0.02em;
+      color: #F5F0E5;
+      margin: 2.5rem 0 0.85rem;
+    }
+    .cs-content h3:first-of-type { margin-top: 0; }
+    .cs-content h3 em {
+      font-style: italic;
+      color: #14A37D;
+      font-variation-settings: 'opsz' 144, 'wght' 300;
+    }
+    .cs-content p {
+      color: #A8A092;
+      font-size: 1rem;
+      line-height: 1.65;
+      margin: 0 0 1rem;
+    }
+    .cs-content ul {
+      list-style: none; padding: 0; margin: 0 0 1.5rem;
+      display: flex; flex-direction: column; gap: 0.5rem;
+    }
+    .cs-content ul li {
+      display: flex; gap: 0.7rem; align-items: flex-start;
+      color: #D4CCBA;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    .cs-content ul li::before {
+      content: '→';
+      color: #14A37D;
+      flex-shrink: 0;
+    }
+
+    /* ── Metrics strip at the bottom of each case ────────────── */
+    .cs-strip {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+      margin-top: 2.5rem;
+      padding: 6px;
+      background: rgba(255,255,255,0.025);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 1.75rem;
+    }
+    .cs-strip__core {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      background: rgba(17,22,31,0.7);
+      backdrop-filter: blur(20px) saturate(140%);
+      -webkit-backdrop-filter: blur(20px) saturate(140%);
+      border-radius: 1.5rem;
+      box-shadow: inset 0 1px 1px rgba(255,255,255,0.05);
+    }
+    @media (min-width: 768px) { .cs-strip__core { grid-template-columns: repeat(4, 1fr); } }
+    .cs-strip__cell {
+      padding: 1.5rem;
+      border-right: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .cs-strip__cell:last-child { border-right: 0; }
+    @media (max-width: 767px) {
+      .cs-strip__cell:nth-child(2n) { border-right: 0; }
+      .cs-strip__cell:nth-last-child(-n+2) { border-bottom: 0; }
+    }
+    @media (min-width: 768px) {
+      .cs-strip__cell { border-bottom: 0; }
+    }
+    .cs-strip__num {
+      display: block;
+      font-family: 'Fraunces', serif;
+      font-variation-settings: 'opsz' 144, 'wght' 400;
+      font-size: clamp(1.7rem, 3vw, 2.4rem);
+      letter-spacing: -0.02em;
+      line-height: 1;
+      color: #F5F0E5;
+    }
+    .cs-strip__num sup {
+      font-size: 0.5em;
+      color: #14A37D;
+      margin-left: 0.05em;
+    }
+    .cs-strip__label {
+      margin-top: 0.5rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #A39887;
+    }
+  </style>
+</head>
+<body>
+  <div class="mesh-bg" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <div class="nav-wrap">
+    <nav class="nav" id="nav" aria-label="Primary">
+      <a href="index.html" class="nav__brand">
+        <span class="nav__mark"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L4 6V12C4 17 7.5 21 12 22C16.5 21 20 17 20 12V6L12 2Z"/><path d="M12 7V17"/></svg></span>
+        Meridian &amp; Co.
+      </a>
+      <ul class="nav__links">
+        <li><a href="about.html" class="nav__link">About</a></li>
+        <li><a href="practice.html" class="nav__link">Practice</a></li>
+        <li><a href="framework.html" class="nav__link">Framework</a></li>
+        <li><a href="case-studies.html" class="nav__link is-current">Impact</a></li>
+        <li><a href="insights.html" class="nav__link">Insights</a></li>
+        <li><a href="team.html" class="nav__link">Team</a></li>
+        <li><a href="engagements.html" class="nav__link">Engage</a></li>
+      </ul>
+      <a href="contact.html" class="cta nav__cta cta--sm">
+        <span style="padding-left:.3rem">Book a call</span>
+        <span class="cta__arrow"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+      <button class="nav__burger" id="burger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span></button>
+    </nav>
+  </div>
+
+  <div class="menu-overlay" id="menuOverlay" aria-hidden="true">
+    <ul class="menu-overlay__list">
+      <li><a href="about.html">About</a></li>
+      <li><a href="practice.html">Practice</a></li>
+      <li><a href="framework.html">Framework</a></li>
+      <li><a href="case-studies.html">Impact</a></li>
+      <li><a href="insights.html">Insights</a></li>
+      <li><a href="team.html">Team</a></li>
+      <li><a href="engagements.html">Engage</a></li>
+      <li class="menu-overlay__sep">— get in touch —</li>
+      <li><a href="contact.html">Book a call →</a></li>
+    </ul>
+  </div>
+
+  <a class="back-chip" href="../../index.html#portfolio">
+    <span class="back-chip__icon"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M10 6H2M2 6L6 2M2 6L6 10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    Back to Resplend Studio
+  </a>
+
+  <main id="top">
+
+    <!-- PAGE HERO -->
+    <section class="cs-hero">
+      <div class="container">
+        <div class="page-hero__split">
+          <div>
+            <span class="eyebrow reveal">Selected case studies · 2022–2025</span>
+            <h1 class="page-hero__title reveal" data-delay="1">Engagements that <em>moved the number.</em></h1>
+            <p class="page-hero__sub reveal" data-delay="2">Six anonymized engagements across our practice areas. Clients are referred to with anonymized names; metrics are reported as documented in the engagement letter at signing. We have changed some identifying details at the request of the client, but not the underlying outcomes.</p>
+            <div class="cs-hero__filter reveal" data-delay="3">
+              <a href="#all">All industries</a>
+              <a href="#industrial">Industrials</a>
+              <a href="#consumer">Consumer / DTC</a>
+              <a href="#energy">Energy</a>
+              <a href="#b2b">B2B services</a>
+              <a href="#healthcare">Healthcare</a>
+              <a href="#tech">Technology</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ──────────────────────────────────────────────────────────── -->
+
+    <!-- CS 1 - Northwind Industrial -->
+    <article class="cs-block" id="northwind">
+      <div class="container">
+        <header class="cs-block__head">
+          <div>
+            <p class="cs-block__num reveal"><em>01</em></p>
+            <p class="cs-block__client reveal" data-delay="1">Anonymized as Northwind Industrial</p>
+            <h2 class="cs-block__title reveal" data-delay="2">A 4.2× EBITDA recovery in eighteen months. <em>From a 110-year-old manufacturer.</em></h2>
+            <div class="cs-block__meta reveal" data-delay="3">
+              <span class="cs-block__chip">Industrials · PE-backed</span>
+              <span class="cs-block__chip">Operational Excellence</span>
+              <span class="cs-block__chip">18 months</span>
+            </div>
+          </div>
+          <div class="cs-block__hero-image reveal" data-delay="3">
+            <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1400&q=80" alt="" loading="lazy" />
+          </div>
+        </header>
+
+        <div class="cs-body">
+          <aside class="cs-aside">
+            <div class="cs-aside__section">
+              <p class="cs-aside__label">Industry / Mandate</p>
+              <p class="cs-aside__value"><strong>Industrials — precision components.</strong> Acquired in a roll-up by a mid-market sponsor, then under-managed through two years of margin compression.</p>
+            </div>
+            <div class="cs-aside__section">
+              <p class="cs-aside__label">Engagement</p>
+              <p class="cs-aside__value"><strong>Operational excellence stage 03.</strong> Embedded five-person Meridian team across ops, finance, and commercial for 18 months.</p>
+            </div>
+            <div class="cs-aside__section">
+              <p class="cs-aside__label">Senior team</p>
+              <p class="cs-aside__value"><strong>Lead partner:</strong> Helena Voss (Operations).<br /><strong>Specialist:</strong> Marcus Reilly (Manufacturing).</p>
+            </div>
+            <div class="cs-aside__section">
+              <p class="cs-aside__label">Engagement fee</p>
+              <p class="cs-aside__value"><strong>$2.6M</strong> over 18 months, 35% at-risk against pre-agreed outcomes.</p>
+            </div>
+          </aside>
+
+          <div class="cs-content reveal" data-delay="2">
+            <h3>Context</h3>
+            <p>The company had been through two owners across seven years. The most recent roll-up had acquired it with a hold period of four to five years, and a clear value-creation thesis: margin recovery, working-capital release, and bolt-on capacity in the existing footprint. By the time Meridian was retained, EBITDA had compressed by 38% from acquisition and the hold-period thesis was in question.</p>
+            <p>The CEO and COO were capable operators whose intuition had run out of road. They did not need a strategy firm to tell them what the issue was — they needed an embedded team with the operating muscle to actually run the rebuild.</p>
+
+            <h3>The engagement</h3>
+            <p>Meridian embedded a five-person team across ops, finance, and commercial for an 18-month operational excellence engagement. The first eight weeks were teardown: SKU-level margin analysis, customer cohort review, supplier renegotiation, capacity audit, and a full organizational-design pass.</p>
+            <p>The next phase was execution against the operating plan: SKU rationalization (23% of SKUs representing 2% of revenue exited), three-year supplier renegotiation, plant-network rebalancing, and a redesigned sales incentive plan that moved reps from volume to mix.</p>
+
+            <h3>Outcomes</h3>
+            <p>By the end of the engagement, EBITDA had grown 4.2× from the start-of-engagement baseline. Gross margin expanded 32 points. Working capital released $14M in cash. The hold-period thesis was preserved, with an exit three years later at a 3.4× multiple.</p>
+
+            <div class="cs-strip">
+              <div class="cs-strip__core">
+                <div class="cs-strip__cell">
+                  <span class="cs-strip__num">4.2<sup>×</sup></span>
+                  <span class="cs-strip__label">EBITDA recovery</span>
+                </div>
+                <div class="cs-strip__cell">
+                  <span class="cs-strip__num">32<sup>pts</sup></span>
+                  <span class="cs-strip__label">Gross margin gain</span>
+                </div>
+                <div class="cs-strip__cell">
+                  <span class="cs-strip__num">$14M</span>
+                  <span class="cs-strip__label">Working capital released</span>
+                </div>
+                <div class="cs-strip__cell">
+                  <span class="cs-strip__num">3.4<sup>×</sup></span>
+                  <span class="cs-strip__label">Exit multiple</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- CS 2 - Verdant Foods Group -->
+    <article class="cs-block" id="verdant">
+      <div class="container">
+        <header class="cs-block__head">
+          <div>
+            <p class="cs-block__num reveal"><em>02</em></p>
+            <p class="cs-block__client reveal" data-delay="1">Anonymized as Verdant Foods Group</p>
+            <h2 class="cs-block__title reveal" data-delay="2">A $120M Series D, closed in eleven weeks. <em>From a DTC brand at the cash-eats-growth inflection.</em></h2>
+            <div class="cs-block__meta reveal" data-delay="3">
+              <span class="cs-block__chip">Consumer · Better-for-you</span>
+              <span class="cs-block__chip">M&amp;A Advisory · Capital</span>
+              <span class="cs-block__chip">11 weeks</span>
+            </div>
+          </div>
+          <div class="cs-block__hero-image reveal" data-delay="3">
+            <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=1400&q=80" alt="" loading="lazy" />
+          </div>
+        </header>
+
+        <div class="cs-body">
+          <aside class="cs-aside">
+            <div class="cs-aside__section">
+              <p class="cs-aside__label">Industry / Mandate</p>
+              <p class="cs-aside__value"><strong>Consumer / better-for-you DTC.</strong> $80M ARR with high growth, approaching the cash-eats-growth inflection.</p>
+            </div>
+            <div class="cs-aside__section">
+              <p class="cs-aside__label">Engagement</p>
+              <p class="cs-aside__value"><strong>M&amp;A advisory + equity story development.</strong> Strategy and execution in parallel, 11 weeks.</p>
+            </div>
+            <div class="cs-aside__section">
+              <p class="cs-aside__label">Senior team</p>
+              <p class="cs-aside__value"><strong>Lead partner:</strong> James Okafor (M&amp;A).<br /><strong>Specialist:</strong> Eliza Chen (Capital Markets).</p>
+            </div>
+            <div class="cs-aside__section">
+              <p class="cs-aside__label">Engagement fee</p>
+              <p class="cs-aside__value"><strong>$1.4M</strong> in advisory + 4.8% placement fee on $120M raise.</p>
+            </div>
+          </aside>
+
+          <div class="cs-content reveal" data-delay="2">
+            <h3>Context</h3>
+            <p>Verdant had built a strong brand and a profitable DTC engine. The Series C investor was supportive but unwilling to bridge a round that didn't reset the cost-of-capital picture. The board had three options on the table: bootstrap growth, raise a flat or down round, or run a heavily engineered narrative-led process.</p>
+            <p>The founder-CEO was skeptical of bankers — a view that was earned at the Series C, where the prior process had been a six-month affair that ended in terms the founder had not championed. Meridian was engaged on the strength of our operating credibility, not our placement credentials.</p>
+
+            <h3>The engagement</h3>
+            <p>Meridian led the strategy refresh in parallel with the narrative rebuild. Three financial scenarios were modeled (cash-positive, hybrid growth, and full institutional), each with an explicit cap structure and an investor-messaging framework tied to it. The selected scenario — hybrid growth — became the basis for the round.</p>
+            <p>The institutional investor universe was built bottom-up, with 28 first-meet targets narrowed to a nine-firm deep process across the active window. Materials were written by the Meridian team alongside the CFO, with the founder holding the narrative voice throughout.</p>
+
+            <h3>Outcomes</h3>
+            <p>The round closed in eleven weeks from engagement mandate. $120M raised at a 2.4× valuation step-up to the prior round. The lead investor introduced through the process became a long-term operating partner to the CEO. Verdant's Series E eighteen months later was materially over-subscribed.</p>
+
+            <div class="cs-strip">
+              <div class="cs-strip__core">
+                <div class="cs-strip__cell"><span class="cs-strip__num">$120M</span><span class="cs-strip__label">Capital raised</span></div>
+                <div class="cs-strip__cell"><span class="cs-strip__num">11<sup>wks</sup></span><span class="cs-strip__label">From mandate to close</span></div>
+                <div class="cs-strip__cell"><span class="cs-strip__num">2.4<sup>×</sup></span><span class="cs-strip__label">Valuation step-up</span></div>
+                <div class="cs-strip__cell"><span class="cs-strip__num">28→9</span><span class="cs-strip__label">Investor universe refined</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- CS 3 - Helios Energy Partners -->
+    <article class="cs-block" id="helios">
+      <div class="container">
+        <header class="cs-block__head">
+          <div>
+            <p class="cs-block__num reveal"><em>03</em></p>
+            <p class="cs-block__client reveal" data-delay="1">Anonymized as Helios Energy Partners</p>
+            <h2 class="cs-block__title reveal" data-delay="2">A 32% structural cost reduction, sustained three years. <em>For a renewable operator preparing for institutional capital.</em></h2>
+            <div class="cs-block__meta reveal" data-delay="3">
+              <span class="cs-block__chip">Energy · Renewables</span>
+              <span class="cs-block__chip">ESG · Operations</span>
+              <span class="cs-block__chip">14 months</span>
+            </div>
+          </div>
+          <div class="cs-block__hero-image reveal" data-delay="3">
+            <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=1400&q=80" alt="" loading="lazy" />
+          </div>
+        </header>
+
+        <div class="cs-body">
+          <aside class="cs-aside">
+            <div class="cs-aside__section">
+              <p class="cs-aside__label">Industry / Mandate</p>
+              <p class="cs-aside__value"><strong>Energy — utility-scale renewables.</strong> Regional operator preparing for institutional capital under CSRD-grade disclosure.</p>
+            </div>
+            <div class="cs-aside__section">
+              <p class="cs-aside__label">Engagement</p>
+              <p class="cs-aside__value"><strong>Operations + ESG.</strong> Operating-model redesign with sustainability instrumentation built in.</p>
+            </div>
+            <div class="cs-aside__section">
+              <p class="cs-aside__label">Senior team</p>
+              <p class="cs-aside__value"><strong>Lead partner:</strong> Daniel Koufos (Energy).<br /><strong>Specialist:</strong> Priya Nair (ESG).</p>
+            </div>
+            <div class="cs-aside__section">
+              <p class="cs-aside__label">Engagement fee</p>
+              <p class="cs-aside__value"><strong>$1.9M</strong> over 14 months, 30% at-risk against pre-agreed outcomes.</p>
+            </div>
+          </aside>
+
+          <div class="cs-content reveal" data-delay="2">
+            <h3>Context</h3>
+            <p>Helios operated 1.4 GW of renewable capacity across three regional markets. The operating model had grown organically alongside the asset base, and the cost structure carried the cost of that organic growth. The board had agreed to a private placement the following year, and the underwriting memo would scrutinize the operating cost line on a per-MW basis.</p>
+            <p>Concurrently, the EU CSRD was being scoped into effect, and Helios — though outside the EU — had voluntarily committed to CSRD-grade disclosure to maintain investor positioning. The two workstreams had to be unified: the operating model had to be rebuilt with the controls and instrumentation needed for institutional underwriting.</p>
+
+            <h3>The engagement</h3>
+            <p>Meridian embedded a four-person team for 14 months. The first six weeks were teardown: per-MW cost analysis across the asset base, organizational-design mapping, and CSRD-ready KPI architecture across operations, finance, and ESG.</p>
+            <p>The rebuild touched field-services organization, asset-management functions, and the central operating cadence. Field-services was reorganized from regional to network-of-nodes with a redesigned service-contract structure. Asset-management brought in a new operating model with three-scenario quarterly planning. The CSRD instrumentation was built into the operating cadence from day one — it was not a parallel workstream.</p>
+
+            <h3>Outcomes</h3>
+            <p>32% structural cost reduction sustained for three years. CSRD-grade disclosure produced on time for underwriting. The private placement closed at a $780M capital raise. The CSRD-grade instrumentation later became a marketed capability for the operations business to its peers.</p>
+
+            <div class="cs-strip">
+              <div class="cs-strip__core">
+                <div class="cs-strip__cell"><span class="cs-strip__num">32%</span><span class="cs-strip__label">Structural cost reduction</span></div>
+                <div class="cs-strip__cell"><span class="cs-strip__num">3<sup>yr</sup></span><span class="cs-strip__label">Sustained period</span></div>
+                <div class="cs-strip__cell"><span class="cs-strip__num">$780M</span><span class="cs-strip__label">Capital unlocked</span></div>
+                <div class="cs-strip__cell"><span class="cs-strip__num">100%</span><span class="cs-strip__label">CSRD audit pass</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- CS 4 - Atlas Specialty Health -->
+    <article class="cs-block" id="atlas">
+      <div class="container">
+        <header class="cs-block__head">
+          <div>
+            <p class="cs-block__num reveal"><em>04</em></p>
+            <p class="cs-block__client reveal" data-delay="1">Anonymized as Atlas Specialty Health</p>
+            <h2 class="cs-block__title reveal" data-delay="2">A 47% reduction in claims-processing cycle time. <em>For a specialty health operator with nine legacy systems.</em></h2>
+            <div class="cs-block__meta reveal" data-delay="3">
+              <span class="cs-block__chip">Healthcare · Specialty</span>
+              <span class="cs-block__chip">Digital Transformation</span>
+              <span class="cs-strip__cell"></span>
+            </div>
+          </div>
+          <div class="cs-block__hero-image reveal" data-delay="3">
+            <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1400&q=80" alt="" loading="lazy" />
+          </div>
+        </header>
+
+        <div class="cs-body">
+          <aside class="cs-aside">
+            <div class="cs-aside__section">
+              <p class="cs-aside__label">Industry / Mandate</p>
+              <p class="cs-aside__value"><strong>Healthcare — specialty TPA.</strong> 1.2M members, nine legacy claims systems, regulator scrutiny growing.</p>
+            </div>
+            <div class="cs-aside__section">
+              <p class="cs-aside__label">Engagement</p>
+              <p class="cs-aside__value"><strong>Digital transformation stage 04.</strong> Vendor rationalization + AI integration in claims operations.</p>
+            </div>
+            <div class="cs-aside__section">
+              <p class="cs-aside__label">Senior team</p>
+              <p class="cs-aside__value"><strong>Lead partner:</strong> Helena Voss (Operations).<br /><strong>Specialist:</strong> Marcus Reilly (Digital).</p>
+            </div>
+            <div class="cs-aside__section">
+              <p class="cs-aside__label">Engagement fee</p>
+              <p class="cs-aside__value"><strong>$3.1M</strong> over 11 months, 30% at-risk.</p>
+            </div>
+          </aside>
+
+          <div class="cs-content reveal" data-delay="2">
+            <h3>Context</h3>
+            <p>Atlas was a specialty third-party administrator with a 30-year operating history and nine claims-processing systems acquired through three different M&amp;A transactions. Cycle-time on a typical claim was 14 days — twice the industry benchmark. The state regulator had flagged the operating variance in the prior two audits.</p>
+            <p>The CIO had been advocating for a platform consolidation for two years, but could not get past a board that was uncertain whether the costs of change were worth the operational risks. Meridian was engaged to lead the operating-model work that the platform decision depended on.</p>
+
+            <h3>The engagement</h3>
+            <p>The diagnostic stage instrumented each of the nine legacy systems, mapped the actual processing paths, and identified that 41% of cycle time was non-value-added. The strategy stage modelled three scenarios — vendor consolidation, in-house platform, and hybrid — and the operating-model work in parallel: redeployment of processing teams, retraining, and incentive-plan redesign.</p>
+            <p>The execution stage ran a hybrid model: vendor consolidation for two systems, in-house platform for the high-volume line of business, and AI integration in the adjudication step. The embed stage transitioned the operating team to the new platform with documentation and coaching.</p>
+
+            <h3>Outcomes</h3>
+            <p>47% reduction in claims-processing cycle time sustained over three years. 37% reduction in vendor-cost line. Operating variance cleared in the next regulator audit. Annual NPS lifted by 14 points.</p>
+
+            <div class="cs-strip">
+              <div class="cs-strip__core">
+                <div class="cs-strip__cell"><span class="cs-strip__num">47%</span><span class="cs-strip__label">Cycle-time reduction</span></div>
+                <div class="cs-strip__cell"><span class="cs-strip__num">9→3</span><span class="cs-strip__label">Platform consolidation</span></div>
+                <div class="cs-strip__cell"><span class="cs-strip__num">37%</span><span class="cs-strip__label">Vendor-cost reduction</span></div>
+                <div class="cs-strip__cell"><span class="cs-strip__num">+14</span><span class="cs-strip__label">NPS lift</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- CS 5 - Linnea B2B Services -->
+    <article class="cs-block" id="linnea">
+      <div class="container">
+        <header class="cs-block__head">
+          <div>
+            <p class="cs-block__num reveal"><em>05</em></p>
+            <p class="cs-block__client reveal" data-delay="1">Anonymized as Linnea B2B Services</p>
+            <h2 class="cs-block__title reveal" data-delay="2">A category-of-one story that took share from four incumbents. <em>For a regional facilities-services operator.</em></h2>
+            <div class="cs-block__meta reveal" data-delay="3">
+              <span class="cs-block__chip">B2B Services · Regional</span>
+              <span class="cs-block__chip">Strategy · Growth</span>
+              <span class="cs-block__chip">14 weeks</span>
+            </div>
+          </div>
+          <div class="cs-block__hero-image reveal" data-delay="3">
+            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1400&q=80" alt="" loading="lazy" />
+          </div>
+        </header>
+
+        <div class="cs-body">
+          <aside class="cs-aside">
+            <div class="cs-aside__section">
+              <p class="cs-aside__label">Industry / Mandate</p>
+              <p class="cs-aside__value"><strong>B2B services — facilities management.</strong> $140M regional operator competing against four national incumbents.</p>
+            </div>
+            <div class="cs-aside__section">
+              <p class="cs-aside__label">Engagement</p>
+              <p class="cs-aside__value"><strong>Strategy stage 02.</strong> Category positioning rebuild and 36-month growth strategy.</p>
+            </div>
+            <div class="cs-aside__section">
+              <p class="cs-aside__label">Senior team</p>
+              <p class="cs-aside__value"><strong>Lead partner:</strong> James Okafor (Strategy).</p>
+            </div>
+            <div class="cs-aside__section">
+              <p class="cs-aside__label">Engagement fee</p>
+              <p class="cs-aside__value"><strong>$340K</strong> fixed-fee, 14-week engagement.</p>
+            </div>
+          </aside>
+
+          <div class="cs-content reveal" data-delay="2">
+            <h3>Context</h3>
+            <p>Linnea was a tightly-run regional facilities-services business with strong unit economics and a founder-CEO who had built the business over twelve years. The challenge was not the business — it was the marketing narrative. Linnea's story looked identical to the four national incumbents it competed against, and the procurement officers running national accounts were not differentiating the offering.</p>
+            <p>The board had been pushing toward an inorganic growth strategy to expand the regional footprint, but the founder was concerned that consolidation would obscure the operating quality that had gotten them this far.</p>
+
+            <h3>The engagement</h3>
+            <p>Meridian led the strategy stage in 14 weeks. The diagnostic mapped the four-incumbent competitive landscape, the procurement decision-making structure at enterprise accounts, and the actual operating data that Linnea had been under-reporting. The strategy was a category-of-one positioning built around the operating data — the kind of metrics that the incumbents could not credibly claim.</p>
+            <p>The 36-month growth strategy leaned into regional density rather than geographic expansion, sequenced around organic share-take first and one strategic acquisition at year two. The board approved the plan; the founder-CEO became the lead communicator of the narrative.</p>
+
+            <h3>Outcomes</h3>
+            <p>41% revenue growth across the 36-month engagement window. Three national accounts moved from incumbents to Linnea after the re-positioning. The year-two acquisition closed with operating and cultural integration successful within nine months.</p>
+
+            <div class="cs-strip">
+              <div class="cs-strip__core">
+                <div class="cs-strip__cell"><span class="cs-strip__num">41%</span><span class="cs-strip__label">Revenue growth</span></div>
+                <div class="cs-strip__cell"><span class="cs-strip__num">3</span><span class="cs-strip__label">National accounts won</span></div>
+                <div class="cs-strip__cell"><span class="cs-strip__num">9<sup>mo</sup></span><span class="cs-strip__label">Integration period</span></div>
+                <div class="cs-strip__cell"><span class="cs-strip__num">1.6×</span><span class="cs-strip__label">Multiple expansion</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- CS 6 - Coriolis Technology -->
+    <article class="cs-block" id="coriolis">
+      <div class="container">
+        <header class="cs-block__head">
+          <div>
+            <p class="cs-block__num reveal"><em>06</em></p>
+            <p class="cs-block__client reveal" data-delay="1">Anonymized as Coriolis Technology</p>
+            <h2 class="cs-block__title reveal" data-delay="2">A sell-side process at a 4.1× multiple, in a consolidating market. <em>For a founder looking for the right home.</em></h2>
+            <div class="cs-block__meta reveal" data-delay="3">
+              <span class="cs-block__chip">Technology · Vertical SaaS</span>
+              <span class="cs-block__chip">M&amp;A Advisory</span>
+              <span class="cs-block__chip">16 weeks</span>
+            </div>
+          </div>
+          <div class="cs-block__hero-image reveal" data-delay="3">
+            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1400&q=80" alt="" loading="lazy" />
+          </div>
+        </header>
+
+        <div class="cs-body">
+          <aside class="cs-aside">
+            <div class="cs-aside__section">
+              <p class="cs-aside__label">Industry / Mandate</p>
+              <p class="cs-aside__value"><strong>Technology — vertical SaaS.</strong> $52M ARR, founder-owned, in a consolidating category.</p>
+            </div>
+            <div class="cs-aside__section">
+              <p class="cs-aside__label">Engagement</p>
+              <p class="cs-aside__value"><strong>Sell-side M&amp;A advisory.</strong> Strategic narrative, materials prep, buyer-process management.</p>
+            </div>
+            <div class="cs-aside__section">
+              <p class="cs-aside__label">Senior team</p>
+              <p class="cs-aside__value"><strong>Lead partner:</strong> James Okafor (M&amp;A).<br /><strong>Specialist:</strong> Eliza Chen (Capital Markets).</p>
+            </div>
+            <div class="cs-aside__section">
+              <p class="cs-aside__label">Engagement fee</p>
+              <p class="cs-aside__value"><strong>$1.1M</strong> in advisory + 3.2% success fee on a $214M transaction.</p>
+            </div>
+          </aside>
+
+          <div class="cs-content reveal" data-delay="2">
+            <h3>Context</h3>
+            <p>The founder of Coriolis had built the company over nine years, taking it from a founder-led scratch build to a category-leading vertical SaaS business. The category was consolidating, and three strategic acquirers had approached the founder in the prior 18 months. The founder's thesis was that if the company was going to be sold, it should be sold to the partner that was the right home for the product and the team — not the highest bidder.</p>
+
+            <h3>The engagement</h3>
+            <p>Meridian led the sell-side process in 16 weeks. The diagnostic established the founder's thesis on partner-fit and translated it into a structured process. The strategy stage reframed the materials — shifting from a typical SaaS metrics narrative to one anchored on the operational fit with five named strategic acquirers.</p>
+            <p>The materials were written alongside the founder; every slide was a discussion between us. The first-round process ran to nine parties, narrowed to a second round of three. The buyer-process management included founder-priority briefings, not the typical banker-led pace.</p>
+
+            <h3>Outcomes</h3>
+            <p>$214M sale closed at a 4.1× ARR multiple — at the top end of the comparable category benchmarks. The founder's preferred acquirer (the second-highest bidder on price) was selected on partner-fit grounds. The founder joined the acquirer's leadership team post-close and is still there three years later. The team retention rate post-close was 96%.</p>
+
+            <div class="cs-strip">
+              <div class="cs-strip__core">
+                <div class="cs-strip__cell"><span class="cs-strip__num">$214M</span><span class="cs-strip__label">Transaction value</span></div>
+                <div class="cs-strip__cell"><span class="cs-strip__num">4.1<sup>×</sup></span><span class="cs-strip__label">ARR multiple</span></div>
+                <div class="cs-strip__cell"><span class="cs-strip__num">9→3</span><span class="cs-strip__label">Buyer universe refined</span></div>
+                <div class="cs-strip__cell"><span class="cs-strip__num">96%</span><span class="cs-strip__label">Team retention</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- NEXT-STEPS NAV -->
+    <section>
+      <div class="container">
+        <div class="engage__card reveal">
+          <div class="engage__card-core">
+            <div class="engage__split">
+              <div>
+                <span class="eyebrow">Continue exploring</span>
+                <h2 class="engage__title">See <em>who runs the work.</em></h2>
+                <p class="engage__sub">Fourteen partners across the practice areas, with median tenure of nine years at the firm. Every engagement is led by the named partner from start to finish.</p>
+                <div class="engage__cta-row">
+                  <a href="team.html" class="cta cta--ink">
+                    <span style="padding-left:.3rem">Meet the partners</span>
+                    <span class="cta__arrow"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  </a>
+                  <a href="engagements.html" class="cta cta--ghost">
+                    <span style="padding-left:.3rem">Engagement pricing</span>
+                    <span class="cta__arrow"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  </a>
+                </div>
+              </div>
+              <div>
+                <div class="bezel"><div class="bezel__core" style="padding:1.75rem">
+                  <p class="eyebrow" style="margin-bottom:1rem">Useful next steps</p>
+                  <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:.65rem">
+                    <li><a href="framework.html" style="color:#D4CCBA">→ The four-stage framework</a></li>
+                    <li><a href="practice.html" style="color:#D4CCBA">→ The practice areas</a></li>
+                    <li><a href="contact.html" style="color:#D4CCBA">→ Book a 45-minute intro call</a></li>
+                  </ul>
+                </div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav__brand">
+            <span class="nav__mark"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L4 6V12C4 17 7.5 21 12 22C16.5 21 20 17 20 12V6L12 2Z"/><path d="M12 7V17"/></svg></span>
+            Meridian &amp; Co.
+          </a>
+          <p>Boutique advisory for founder-led companies and private equity operators. Senior-led engagements, measurable outcomes.</p>
+        </div>
+        <div class="footer-col"><h4>Explore</h4><ul>
+          <li><a href="about.html">About</a></li><li><a href="practice.html">Practice</a></li>
+          <li><a href="framework.html">Framework</a></li><li><a href="case-studies.html">Case studies</a></li>
+          <li><a href="team.html">Senior team</a></li><li><a href="insights.html">Insights</a></li>
+        </ul></div>
+        <div class="footer-col"><h4>Engage</h4><ul>
+          <li><a href="engagements.html">Engagement tiers</a></li><li><a href="contact.html">Book a call</a></li>
+          <li><a href="contact.html#intake">Full intake form</a></li><li><a href="contact.html#offices">Office locations</a></li>
+        </ul></div>
+        <div class="footer-col"><h4>Contact</h4><ul>
+          <li><a href="mailto:hello@meridianco.example">hello@meridianco.example</a></li>
+          <li><a href="tel:+15551234567">+1 (555) 123-4567</a></li>
+          <li>200 Park Avenue, Floor 14<br />New York, NY 10166</li>
+        </ul></div>
+      </div>
+      <div class="footer-base">
+        <p>&copy; <span id="year"></span> Meridian &amp; Co. Advisory Partners LLP. All rights reserved.</p>
+        <p><a href="../../index.html#portfolio">← Back to Resplend Studio</a> · <a href="#top">Back to top ↑</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function(){const n=document.getElementById('nav'),b=document.getElementById('burger'),o=document.getElementById('menuOverlay');if(!n||!b||!o)return;window.addEventListener('scroll',()=>{n.classList.toggle('is-scrolled',window.scrollY>24);},{passive:!0});const c=()=>{n.classList.remove('is-open');o.classList.remove('is-open');b.setAttribute('aria-expanded','false');o.setAttribute('aria-hidden','true');document.body.style.overflow=''};b.addEventListener('click',()=>{const p=!n.classList.contains('is-open');if(p){n.classList.add('is-open');o.classList.add('is-open');b.setAttribute('aria-expanded','true');o.setAttribute('aria-hidden','false');document.body.style.overflow='hidden'}else c()});o.querySelectorAll('a').forEach(a=>a.addEventListener('click',c))})();
+
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const id=a.getAttribute('href');if(id.length>1){const t=document.querySelector(id);if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'})}}})});
+
+    const reveals=document.querySelectorAll('.reveal');
+    if('IntersectionObserver' in window){const io=new IntersectionObserver(es=>{es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('is-in');io.unobserve(en.target)}})},{rootMargin:'0px 0px -8% 0px',threshold:0.08});reveals.forEach(el=>io.observe(el))}else reveals.forEach(el=>el.classList.add('is-in'));
+
+    document.querySelectorAll('.cta').forEach(el=>{const s=.18;let r=null;el.addEventListener('mousemove',e=>{const re=el.getBoundingClientRect(),x=(e.clientX-re.left-re.width/2)*s,y=(e.clientY-re.top-re.height/2)*s;if(r)cancelAnimationFrame(r);r=requestAnimationFrame(()=>{el.style.transform=`translate(${x}px,${y}px)`})});el.addEventListener('mouseleave',()=>{if(r)cancelAnimationFrame(r);r=null;el.style.transition='transform 600ms cubic-bezier(0.32,0.72,0,1)';el.style.transform='translate(0,0)';setTimeout(()=>{el.style.transition=''},700)})});
+
+    function initLucide(){if(window.lucide&&window.lucide.createIcons)window.lucide.createIcons({attrs:{'stroke-width':1.5}})}
+    const yEl=document.getElementById('year');if(yEl)yEl.textContent=new Date().getFullYear();
+    if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',initLucide);else initLucide();
+  </script>
+</body>
+</html>

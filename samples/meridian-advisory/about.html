@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!--
+  © 2026 Resplend Studio · DesignByBryant@gmail.com
+  All rights reserved. Sample work — not for redistribution.
+-->
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>About — Meridian &amp; Co.</title>
+  <meta name="description" content="Meridian & Co. is a boutique advisory firm founded in 2014 by former operators. We staff senior partners into every engagement and measure ourselves against pre-agreed outcomes." />
+  <meta name="theme-color" content="#0B0F17" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <link rel="stylesheet" href="styles.css" />
+  <script>
+    /* Preview embed: hide the back-to-portfolio chip when framed */
+    if (window.self !== window.top) document.documentElement.classList.add('is-embedded');
+  </script>
+  <style>
+    /* ── Two-column rows for about page ────────────────────── */
+    .about-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      align-items: start;
+    }
+    @media (min-width: 880px) { .about-row { grid-template-columns: 0.45fr 0.55fr; gap: 4.5rem; } }
+    .about-row__aside {
+      position: sticky;
+      top: 7rem;
+    }
+    .about-row__heading {
+      font-family: 'Fraunces', serif;
+      font-variation-settings: 'opsz' 144, 'wght' 400;
+      font-size: clamp(2rem, 4vw, 3rem);
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+      color: #F5F0E5;
+      margin: 0.5rem 0 1rem;
+    }
+
+    /* ── Principles grid ─────────────────────────────────────── */
+    .principles {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    @media (min-width: 768px) { .principles { grid-template-columns: repeat(2, 1fr); gap: 1.25rem; } }
+    .principle {
+      position: relative;
+      padding: 6px;
+      background: rgba(255,255,255,0.025);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 1.5rem;
+      transition: border-color 600ms var(--bezier), transform 700ms var(--bezier);
+    }
+    .principle:hover { border-color: rgba(20,163,125,0.30); transform: translateY(-2px); }
+    .principle__core {
+      padding: 1.65rem 1.5rem 1.5rem;
+      background: rgba(17,22,31,0.6);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-radius: 1.25rem;
+      box-shadow: inset 0 1px 1px rgba(255,255,255,0.05);
+      height: 100%;
+    }
+    .principle__num {
+      font-family: 'Fraunces', serif;
+      font-variation-settings: 'opsz' 144, 'wght' 400;
+      font-size: 2rem;
+      letter-spacing: -0.02em;
+      color: #14A37D;
+      line-height: 1;
+      margin: 0 0 0.85rem;
+    }
+    .principle__title {
+      font-family: 'Fraunces', serif;
+      font-variation-settings: 'opsz' 144, 'wght' 400;
+      font-size: 1.25rem;
+      letter-spacing: -0.015em;
+      color: #F5F0E5;
+      margin: 0 0 0.5rem;
+    }
+    .principle__body {
+      font-size: 0.92rem;
+      line-height: 1.55;
+      color: #A8A092;
+      margin: 0;
+    }
+
+    /* ── Timeline ────────────────────────────────────────────── */
+    .timeline {
+      position: relative;
+      padding-left: 1.5rem;
+      border-left: 1px solid rgba(20,163,125,0.30);
+      display: flex;
+      flex-direction: column;
+      gap: 2.25rem;
+    }
+    .timeline__year {
+      font-family: 'Fraunces', serif;
+      font-variation-settings: 'opsz' 144, 'wght' 500;
+      font-size: 1.5rem;
+      letter-spacing: -0.015em;
+      color: #14A37D;
+      line-height: 1;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+    .timeline__year::before {
+      content: '';
+      position: absolute;
+      left: -1.5rem;
+      width: 11px; height: 11px;
+      border-radius: 999px;
+      background: #14A37D;
+      box-shadow: 0 0 0 4px rgba(11,15,23,1), 0 0 0 5px rgba(20,163,125,0.40);
+      transform: translateX(-50%);
+    }
+    .timeline__title {
+      font-family: 'Fraunces', serif;
+      font-variation-settings: 'opsz' 144, 'wght' 400;
+      font-size: 1.3rem;
+      letter-spacing: -0.015em;
+      color: #F5F0E5;
+      margin: 0.55rem 0 0.55rem;
+    }
+    .timeline__body {
+      color: #A8A092;
+      font-size: 0.95rem;
+      line-height: 1.55;
+      margin: 0;
+      max-width: 60ch;
+    }
+
+    /* ── Locations ───────────────────────────────────────────── */
+    .locations {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    @media (min-width: 640px) { .locations { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1024px) { .locations { grid-template-columns: repeat(4, 1fr); } }
+    .location {
+      position: relative;
+      padding: 6px;
+      background: rgba(255,255,255,0.025);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 1.5rem;
+    }
+    .location__core {
+      padding: 1.4rem;
+      background: rgba(17,22,31,0.6);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-radius: 1.25rem;
+      box-shadow: inset 0 1px 1px rgba(255,255,255,0.05);
+    }
+    .location__city {
+      font-family: 'Fraunces', serif;
+      font-variation-settings: 'opsz' 144, 'wght' 400;
+      font-size: 1.3rem;
+      letter-spacing: -0.02em;
+      color: #F5F0E5;
+      margin: 0 0 0.4rem;
+    }
+    .location__role {
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #A39887;
+      margin: 0 0 0.85rem;
+    }
+    .location__addr {
+      font-size: 0.88rem;
+      line-height: 1.5;
+      color: #D4CCBA;
+      margin: 0;
+    }
+
+    /* ── Quote ───────────────────────────────────────────────── */
+    .quote-card {
+      position: relative;
+      padding: 6px;
+      background: rgba(255,255,255,0.025);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 2rem;
+    }
+    .quote-card__core {
+      padding: 2.25rem 2.25rem 2rem;
+      background: rgba(17,22,31,0.7);
+      backdrop-filter: blur(20px) saturate(140%);
+      -webkit-backdrop-filter: blur(20px) saturate(140%);
+      border-radius: 1.625rem;
+      box-shadow: inset 0 1px 1px rgba(255,255,255,0.05);
+      position: relative;
+    }
+    .quote-card__mark {
+      font-family: 'Fraunces', serif;
+      font-variation-settings: 'opsz' 144, 'wght' 400;
+      font-size: 5rem;
+      line-height: 0.6;
+      color: #14A37D;
+      margin: 0 0 1rem;
+    }
+    .quote-card__body {
+      font-family: 'Fraunces', serif;
+      font-variation-settings: 'opsz' 144, 'wght' 400;
+      font-size: clamp(1.4rem, 2.5vw, 2rem);
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+      color: #F5F0E5;
+      margin: 0 0 1.5rem;
+      max-width: 36ch;
+    }
+    .quote-card__attr {
+      font-size: 0.85rem;
+      color: #A39887;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+  <div class="mesh-bg" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <div class="nav-wrap">
+    <nav class="nav" id="nav" aria-label="Primary">
+      <a href="index.html" class="nav__brand">
+        <span class="nav__mark" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L4 6V12C4 17 7.5 21 12 22C16.5 21 20 17 20 12V6L12 2Z"/><path d="M12 7V17"/></svg>
+        </span>
+        Meridian &amp; Co.
+      </a>
+      <ul class="nav__links">
+        <li><a href="about.html" class="nav__link is-current">About</a></li>
+        <li><a href="practice.html" class="nav__link">Practice</a></li>
+        <li><a href="framework.html" class="nav__link">Framework</a></li>
+        <li><a href="case-studies.html" class="nav__link">Impact</a></li>
+        <li><a href="insights.html" class="nav__link">Insights</a></li>
+        <li><a href="team.html" class="nav__link">Team</a></li>
+        <li><a href="engagements.html" class="nav__link">Engage</a></li>
+      </ul>
+      <a href="contact.html" class="cta nav__cta cta--sm">
+        <span style="padding-left:.3rem">Book a call</span>
+        <span class="cta__arrow"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+      <button class="nav__burger" id="burger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span></button>
+    </nav>
+  </div>
+
+  <div class="menu-overlay" id="menuOverlay" aria-hidden="true">
+    <ul class="menu-overlay__list">
+      <li><a href="about.html">About</a></li>
+      <li><a href="practice.html">Practice</a></li>
+      <li><a href="framework.html">Framework</a></li>
+      <li><a href="case-studies.html">Impact</a></li>
+      <li><a href="insights.html">Insights</a></li>
+      <li><a href="team.html">Team</a></li>
+      <li><a href="engagements.html">Engage</a></li>
+      <li class="menu-overlay__sep">— get in touch —</li>
+      <li><a href="contact.html">Book a call →</a></li>
+    </ul>
+  </div>
+
+  <a class="back-chip" href="../../index.html#portfolio">
+    <span class="back-chip__icon"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M10 6H2M2 6L6 2M2 6L6 10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    Back to Resplend Studio
+  </a>
+
+  <main id="top">
+
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+      <div class="container">
+        <div class="page-hero__split">
+          <div>
+            <span class="eyebrow reveal">About Meridian · est. 2014</span>
+            <h1 class="page-hero__title reveal" data-delay="1">A boutique advisory, <em>built for the engagements we wish we'd hired for.</em></h1>
+            <p class="page-hero__sub reveal" data-delay="2">Meridian &amp; Co. was founded in 2014 by four former operators who had spent a decade inside strategy firms and Fortune 500 operating roles. We started Meridian to do one thing well: put senior judgment on the hardest questions facing founder-led companies and private-equity-backed operators — at a price point and engagement model that actually works.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRINCIPLES -->
+    <section>
+      <div class="container">
+        <header class="section-header">
+          <div>
+            <span class="eyebrow reveal">Principles</span>
+            <h2 class="section-header__title reveal" data-delay="1">Five convictions <em>that shape every engagement.</em></h2>
+          </div>
+          <p class="section-header__lede reveal" data-delay="2">These are not aspirational banners. They are the tradeoffs we've made repeatedly in how we staff, price, and run our work.</p>
+        </header>
+
+        <div class="principles">
+          <div class="principle reveal" data-delay="1">
+            <div class="principle__core">
+              <p class="principle__num">01</p>
+              <h3 class="principle__title">Senior-led, every engagement.</h3>
+              <p class="principle__body">No junior pyramids. A partner sits in your weekly cadence, with a small bench of senior specialists underneath. We lose some leverage; we gain trust.</p>
+            </div>
+          </div>
+          <div class="principle reveal" data-delay="2">
+            <div class="principle__core">
+              <p class="principle__num">02</p>
+              <h3 class="principle__title">Embedded operators, not distant strategists.</h3>
+              <p class="principle__body">Our principals are operators first, strategists second. Three of our four founders ran P&amp;Ls of $200M+. We know what the decision you need to make looks like at the weekly business review.</p>
+            </div>
+          </div>
+          <div class="principle reveal" data-delay="3">
+            <div class="principle__core">
+              <p class="principle__num">03</p>
+              <h3 class="principle__title">Outcomes measured against pre-agreed baselines.</h3>
+              <p class="principle__body">Every engagement has a small set of explicit outcomes negotiated at signing. We are paid against them. Our fees in the years after are the consequence.</p>
+            </div>
+          </div>
+          <div class="principle reveal" data-delay="4">
+            <div class="principle__core">
+              <p class="principle__num">04</p>
+              <h3 class="principle__title">A small firm on purpose.</h3>
+              <p class="principle__body">We cap the partnership at 18 people. We have turned down billion-dollar firms as acquirers for that reason. The day Meridian is recognizable to your cousin is the day it stops being useful.</p>
+            </div>
+          </div>
+          <div class="principle reveal" data-delay="5">
+            <div class="principle__core">
+              <p class="principle__num">05</p>
+              <h3 class="principle__title">Patient with principle.</h3>
+              <p class="principle__body">We have turned down work that did not pass our standards, even at the cost of revenue. We can afford to because our partners earned when we ran our own businesses — and we keep our costs flat.</p>
+            </div>
+          </div>
+          <div class="principle reveal" data-delay="6">
+            <div class="principle__core">
+              <p class="principle__num">06</p>
+              <h3 class="principle__title">Honest about what we don't do.</h3>
+              <p class="principle__body">We don't do regulatory advice, IP litigation strategy, or investment banking. We have a roster of three specialized partners we introduce in those cases — with no referral economics.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STORY + TIMELINE -->
+    <section>
+      <div class="container">
+        <div class="about-row">
+          <aside class="about-row__aside">
+            <span class="eyebrow reveal">The story</span>
+            <h2 class="about-row__heading reveal" data-delay="1">From operating benches <em>to advisory benches.</em></h2>
+          </aside>
+          <div class="prose reveal" data-delay="2">
+            <p>Meridian was founded by four colleagues who met at a Fortune 500 conglomerate in the early 2010s. We had each been frustrated with the same problem from different angles: outside strategy and consulting firms that delivered slide decks but no operating muscle.</p>
+            <p>We founded the firm with a simple thesis — that mid-market companies and PE-backed operators needed <strong>embedded judgment</strong>, not episodic decks, and that the right seniority profile was a partner who had run something, not a partner who had advised on something.</p>
+            <p>The first engagement was a $40M roll-up in the Midwest running out of cash. We embedded for eleven months, rebuilt the operating cadence, and returned it to baseline EBITDA within the year. We have been operating ever since.</p>
+            <p>Twelve years on, the firm has 14 partners across three offices, ~38 active engagements, and an average tenure of 9 years on the senior team. We do not chase growth. We do not chase rankings. We do not have a press team. We have a roster of clients who call us back, and a steady flow of introductions from them.</p>
+
+            <div class="timeline" style="margin-top:3rem">
+              <div class="reveal" data-delay="1">
+                <p class="timeline__year">2014</p>
+                <h4 class="timeline__title">Founded in a borrowed conference room.</h4>
+                <p class="timeline__body">Four co-founders, one engagement at a time. The first engagement closes the week the firm opens its first checking account.</p>
+              </div>
+              <div class="reveal" data-delay="2">
+                <p class="timeline__year">2017</p>
+                <h4 class="timeline__title">Chicago office opens. Three partners join.</h4>
+                <p class="timeline__body">The second office is opened to support the firm's growing PE operating partner engagements. Three senior operators are recruited from industry.</p>
+              </div>
+              <div class="reveal" data-delay="3">
+                <p class="timeline__year">2019</p>
+                <h4 class="timeline__title">The framework is formalized.</h4>
+                <p class="timeline__body">The four-stage operating model is written down for the first time after 60+ engagements. It will be revised eighteen times in the next six years.</p>
+              </div>
+              <div class="reveal" data-delay="4">
+                <p class="timeline__year">2021</p>
+                <h4 class="timeline__title">The London office opens.</h4>
+                <p class="timeline__body">A London outpost serves as our European hub — managing 11 European clients and supporting cross-Atlantic PE deals.</p>
+              </div>
+              <div class="reveal" data-delay="5">
+                <p class="timeline__year">2024</p>
+                <h4 class="timeline__title">Two more partners join. Practice grows to six.</h4>
+                <p class="timeline__body">The first dedicated digital and sustainability practice partners join the firm. The framework is rebuilt to accommodate capital-structure work.</p>
+              </div>
+              <div class="reveal" data-delay="6">
+                <p class="timeline__year">2026</p>
+                <h4 class="timeline__title">Where we are today.</h4>
+                <p class="timeline__body">14 partners, 38 active engagements, 94% client retention across rolling three-year windows, 4.8× median EBITDA uplift on completed transformations.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUOTE -->
+    <section>
+      <div class="container two-col two-col--narrow">
+        <div class="quote-card reveal">
+          <div class="quote-card__core">
+            <p class="quote-card__mark">&ldquo;</p>
+            <p class="quote-card__body">Our model is intentionally small. We turn down two of every three engagements we are approached for, and we send the rest to partners we trust. We measure our success in client retention and second-engagement rate — not headcount.</p>
+            <p class="quote-card__attr">Helena Voss · Founding Partner</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOCATIONS -->
+    <section>
+      <div class="container">
+        <header class="section-header">
+          <div>
+            <span class="eyebrow reveal">Locations</span>
+            <h2 class="section-header__title reveal" data-delay="1">Three offices, <em>one senior bench.</em></h2>
+          </div>
+          <p class="section-header__lede reveal" data-delay="2">We staff engagements from the office closest to the work, with one partner always on-site within 24 hours.</p>
+        </header>
+
+        <div class="locations">
+          <div class="location reveal" data-delay="1">
+            <div class="location__core">
+              <p class="location__role">Headquarters</p>
+              <h3 class="location__city">New York</h3>
+              <p class="location__addr">200 Park Avenue, Floor 14<br />New York, NY 10166<br />+1 (555) 123-4567</p>
+            </div>
+          </div>
+          <div class="location reveal" data-delay="2">
+            <div class="location__core">
+              <p class="location__role">Operations hub</p>
+              <h3 class="location__city">Chicago</h3>
+              <p class="location__addr">401 South Wacker Drive, Suite 2200<br />Chicago, IL 60606<br />+1 (555) 234-5678</p>
+            </div>
+          </div>
+          <div class="location reveal" data-delay="3">
+            <div class="location__core">
+              <p class="location__role">European hub</p>
+              <h3 class="location__city">London</h3>
+              <p class="location__addr">8 Devonshire Square<br />London EC2M 4PL<br />+44 20 7946 1234</p>
+            </div>
+          </div>
+          <div class="location reveal" data-delay="4">
+            <div class="location__core">
+              <p class="location__role">Practice partner</p>
+              <h3 class="location__city">San Francisco</h3>
+              <p class="location__addr">One Sansome Street, Floor 18<br />San Francisco, CA 94104<br />+1 (555) 345-6789</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEXT-STEPS NAV -->
+    <section>
+      <div class="container">
+        <div class="engage__card reveal">
+          <div class="engage__card-core">
+            <div class="engage__split">
+              <div>
+                <span class="eyebrow">Continue exploring</span>
+                <h2 class="engage__title">See <em>how we work.</em></h2>
+                <p class="engage__sub">Our four-stage framework is what every engagement runs against. Whether you're hiring a strategic review or a transformation, the model is the same.</p>
+                <div class="engage__cta-row">
+                  <a href="framework.html" class="cta cta--ink">
+                    <span style="padding-left:.3rem">Read the framework</span>
+                    <span class="cta__arrow"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  </a>
+                  <a href="team.html" class="cta cta--ghost">
+                    <span style="padding-left:.3rem">Meet the partners</span>
+                    <span class="cta__arrow"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  </a>
+                </div>
+              </div>
+              <div>
+                <div class="bezel"><div class="bezel__core" style="padding:1.75rem">
+                  <p class="eyebrow" style="margin-bottom:1rem">Useful next steps</p>
+                  <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:.65rem">
+                    <li><a href="practice.html" style="color:#D4CCBA">→ The practice areas</a></li>
+                    <li><a href="case-studies.html" style="color:#D4CCBA">→ Selected case studies</a></li>
+                    <li><a href="engagements.html" style="color:#D4CCBA">→ Engagement tiers and pricing</a></li>
+                    <li><a href="contact.html" style="color:#D4CCBA">→ Book a 45-minute intro call</a></li>
+                  </ul>
+                </div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav__brand">
+            <span class="nav__mark"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L4 6V12C4 17 7.5 21 12 22C16.5 21 20 17 20 12V6L12 2Z"/><path d="M12 7V17"/></svg></span>
+            Meridian &amp; Co.
+          </a>
+          <p>Boutique advisory for founder-led companies and private equity operators. Senior-led engagements, measurable outcomes.</p>
+        </div>
+        <div class="footer-col"><h4>Explore</h4><ul>
+          <li><a href="about.html">About</a></li><li><a href="practice.html">Practice</a></li>
+          <li><a href="framework.html">Framework</a></li><li><a href="case-studies.html">Case studies</a></li>
+          <li><a href="team.html">Senior team</a></li><li><a href="insights.html">Insights</a></li>
+        </ul></div>
+        <div class="footer-col"><h4>Engage</h4><ul>
+          <li><a href="engagements.html">Engagement tiers</a></li><li><a href="contact.html">Book a call</a></li>
+          <li><a href="contact.html#intake">Full intake form</a></li><li><a href="contact.html#offices">Office locations</a></li>
+        </ul></div>
+        <div class="footer-col"><h4>Contact</h4><ul>
+          <li><a href="mailto:hello@meridianco.example">hello@meridianco.example</a></li>
+          <li><a href="tel:+15551234567">+1 (555) 123-4567</a></li>
+          <li>200 Park Avenue, Floor 14<br />New York, NY 10166</li>
+        </ul></div>
+      </div>
+      <div class="footer-base">
+        <p>&copy; <span id="year"></span> Meridian &amp; Co. Advisory Partners LLP. All rights reserved.</p>
+        <p><a href="../../index.html#portfolio">← Back to Resplend Studio</a> · <a href="#top">Back to top ↑</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const nav = document.getElementById('nav');
+      const burger = document.getElementById('burger');
+      const overlay = document.getElementById('menuOverlay');
+      if (!nav || !burger || !overlay) return;
+      const onScroll = () => { nav.classList.toggle('is-scrolled', window.scrollY > 24); };
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+      const close = () => { nav.classList.remove('is-open'); overlay.classList.remove('is-open'); burger.setAttribute('aria-expanded','false'); overlay.setAttribute('aria-hidden','true'); document.body.style.overflow=''; };
+      burger.addEventListener('click', () => {
+        const open = !nav.classList.contains('is-open');
+        if (open) { nav.classList.add('is-open'); overlay.classList.add('is-open'); burger.setAttribute('aria-expanded','true'); overlay.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; } else close();
+      });
+      overlay.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
+    })();
+
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', (e) => {
+        const id = a.getAttribute('href');
+        if (id.length > 1) { const t = document.querySelector(id); if (t) { e.preventDefault(); t.scrollIntoView({behavior:'smooth',block:'start'}); } }
+      });
+    });
+
+    const reveals = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('is-in'); io.unobserve(en.target); } });
+      }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+      reveals.forEach(el => io.observe(el));
+    } else reveals.forEach(el => el.classList.add('is-in'));
+
+    document.querySelectorAll('.cta').forEach((el, i) => {
+      const strength = 0.18;
+      let raf = null;
+      el.addEventListener('mousemove', (e) => {
+        const r = el.getBoundingClientRect();
+        const x = (e.clientX - r.left - r.width/2) * strength;
+        const y = (e.clientY - r.top - r.height/2) * strength;
+        if (raf) cancelAnimationFrame(raf);
+        raf = requestAnimationFrame(() => { el.style.transform = `translate(${x}px, ${y}px)`; });
+      });
+      el.addEventListener('mouseleave', () => {
+        if (raf) cancelAnimationFrame(raf); raf = null;
+        el.style.transition = 'transform 600ms cubic-bezier(0.32, 0.72, 0, 1)';
+        el.style.transform = 'translate(0,0)';
+        setTimeout(() => { el.style.transition = ''; }, 700);
+      });
+    });
+
+    function initLucide() {
+      if (window.lucide && window.lucide.createIcons) window.lucide.createIcons({ attrs: { 'stroke-width': 1.5 } });
+    }
+    const yEl = document.getElementById('year');
+    if (yEl) yEl.textContent = new Date().getFullYear();
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initLucide); else initLucide();
+  </script>
+</body>
+</html>

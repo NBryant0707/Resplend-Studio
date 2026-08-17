@@ -1,0 +1,1920 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Pricing — Resplend Studio</title>
+  <meta name="description" content="Three flat-rate website packages plus a $499 styling refresh gateway. Full pricing FAQ, what every tier includes, and what happens after launch." />
+  <meta name="theme-color" content="#F2E8DA" />
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Pricing — Resplend Studio">
+  <meta property="og:description" content="Three flat-rate website packages plus a $499 styling refresh gateway. Full pricing FAQ, what every tier includes, and what happens after launch.">
+  <meta property="og:image" content="assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Resplend Studio — origami quetzal mark with brand wordmark">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Pricing — Resplend Studio">
+  <meta name="twitter:description" content="Three flat-rate website packages plus a $499 styling refresh gateway.">
+  <meta name="twitter:image" content="assets/og-image.png">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+  <link rel="shortcut icon" href="assets/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ─────────────────────────────────────────────────────────────
+       DESIGN TOKENS
+       ───────────────────────────────────────────────────────────── */
+    :root {
+      /* Warm & inviting palette — Editorial Luxury */
+      --cream: #F2E8DA;
+      --cream-deep: #E8D5B7;
+      --card: #FFFBF5;
+      --card-sunken: #EADBC4;
+      --ink: #3D2E1F;
+      --ink-soft: #1F1611;
+      --muted: #5C4A3A;
+      --taupe: #5A4536;
+      --gold: #E07856;
+      --gold-deep: #8B4513;
+      --gold-soft: rgba(224, 120, 86, 0.14);
+      --hairline: rgba(61, 46, 31, 0.10);
+      --hairline-strong: rgba(61, 46, 31, 0.18);
+      --inner-highlight: inset 0 1px 1px rgba(255, 251, 245, 0.8);
+
+      --bezier: cubic-bezier(0.32, 0.72, 0, 1);
+      --bezier-soft: cubic-bezier(0.22, 0.61, 0.36, 1);
+
+      --shell-pad: 0.375rem;
+      --radius-shell: 2rem;
+      --radius-core: calc(2rem - 0.375rem);
+
+      --maxw: 1320px;
+      --pad-x: clamp(1.25rem, 4vw, 3rem);
+      --section-y: clamp(2.5rem, 5vw, 4.5rem);
+    }
+
+    /* RESET & BASE */
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      font-weight: 400;
+      font-size: 17px;
+      line-height: 1.55;
+      color: var(--ink);
+      background: var(--cream);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+    img, svg { display: block; max-width: 100%; }
+    button { font-family: inherit; cursor: pointer; }
+    a { color: inherit; text-decoration: none; }
+
+    ::selection { background: var(--gold-deep); color: #FFFFFF; }
+
+    /* GRAIN OVERLAY */
+    .grain {
+      position: fixed;
+      inset: 0;
+      z-index: 60;
+      pointer-events: none;
+      opacity: 0.045;
+      mix-blend-mode: multiply;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    }
+
+    /* TYPOGRAPHY */
+    .display {
+      font-family: 'Fraunces', 'Times New Roman', serif;
+      font-variation-settings: 'opsz' 144, 'wght' 400;
+      letter-spacing: -0.025em;
+      line-height: 0.96;
+      color: var(--ink);
+    }
+    .display em {
+      font-style: italic;
+      font-variation-settings: 'opsz' 144, 'wght' 300;
+      color: var(--gold-deep);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 0.85rem;
+      border-radius: 999px;
+      background: var(--card-sunken);
+      border: 1px solid var(--hairline);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--taupe);
+      box-shadow: var(--inner-highlight);
+    }
+    .eyebrow::before {
+      content: '';
+      width: 6px; height: 6px; border-radius: 999px;
+      background: var(--gold);
+      box-shadow: 0 0 0 3px var(--gold-soft);
+    }
+
+    .lede {
+      font-size: clamp(1.05rem, 1.4vw, 1.25rem);
+      line-height: 1.55;
+      color: var(--taupe);
+      max-width: 38ch;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding-inline: var(--pad-x);
+    }
+
+    /* DOUBLE-BEZEL */
+    .bezel {
+      position: relative;
+      padding: var(--shell-pad);
+      background: rgba(61, 46, 31, 0.04);
+      border: 1px solid var(--hairline);
+      border-radius: var(--radius-shell);
+      box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+    }
+    .bezel__core {
+      position: relative;
+      background: var(--card);
+      border-radius: var(--radius-core);
+      box-shadow:
+        inset 0 1px 1px rgba(255, 255, 255, 0.6),
+        0 1px 2px rgba(61, 46, 31, 0.04);
+    }
+
+    /* BUTTON-IN-BUTTON */
+    .cta {
+      --pad-y: 0.85rem;
+      --pad-x: 1.25rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.85rem;
+      padding: var(--pad-y) calc(var(--pad-x) + 0.4rem) var(--pad-y) calc(var(--pad-x) + 0.4rem);
+      background: var(--ink);
+      color: var(--cream);
+      border: none;
+      border-radius: 999px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 500;
+      letter-spacing: -0.005em;
+      cursor: pointer;
+      transition:
+        transform 700ms var(--bezier),
+        background-color 600ms var(--bezier);
+      will-change: transform;
+      position: relative;
+      isolation: isolate;
+    }
+    .cta::before {
+      content: '';
+      position: absolute;
+      inset: 1px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent 40%);
+      pointer-events: none;
+    }
+    .cta:hover { background: #0F0D0B; }
+    .cta:active { transform: scale(0.97); }
+
+    .cta__arrow {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      transition: transform 700ms var(--bezier), background-color 600ms var(--bezier);
+    }
+    .cta:hover .cta__arrow {
+      transform: translate(3px, -3px) scale(1.06);
+      background: var(--gold);
+      color: var(--ink);
+    }
+    .cta:hover .cta__arrow svg { transform: rotate(0); }
+
+    .cta--ghost {
+      background: transparent;
+      color: var(--ink);
+      border: 1px solid var(--hairline-strong);
+      padding: calc(var(--pad-y) - 1px) calc(var(--pad-x) + 0.4rem) calc(var(--pad-y) - 1px) calc(var(--pad-x) + 0.4rem);
+    }
+    .cta--ghost::before { display: none; }
+    .cta--ghost:hover { background: var(--card); border-color: var(--ink); }
+    .cta--ghost .cta__arrow {
+      background: rgba(61, 46, 31, 0.06);
+    }
+    .cta--ghost:hover .cta__arrow {
+      background: var(--ink);
+      color: var(--cream);
+    }
+
+    /* NAV */
+    .nav-wrap {
+      position: fixed;
+      top: 1.25rem;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      display: flex;
+      justify-content: center;
+      padding-inline: var(--pad-x);
+      pointer-events: none;
+    }
+    .nav {
+      pointer-events: auto;
+      display: inline-flex;
+      align-items: center;
+      gap: 1.5rem;
+      padding: 0.55rem 0.55rem 0.55rem 1.5rem;
+      background: rgba(242, 232, 218, 0.72);
+      backdrop-filter: blur(20px) saturate(140%);
+      -webkit-backdrop-filter: blur(20px) saturate(140%);
+      border: 1px solid var(--hairline);
+      border-radius: 999px;
+      box-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.6) inset,
+        0 8px 24px -10px rgba(61, 46, 31, 0.18),
+        0 2px 6px -2px rgba(61, 46, 31, 0.06);
+      transition: transform 700ms var(--bezier), background-color 600ms var(--bezier);
+    }
+    .nav.is-scrolled {
+      background: rgba(242, 232, 218, 0.88);
+    }
+    .nav__brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      font-family: 'Fraunces', serif;
+      font-variation-settings: 'opsz' 36, 'wght' 500;
+      font-size: 1.15rem;
+      letter-spacing: -0.02em;
+    }
+    .nav__mark {
+      width: 40px;
+      height: 40px;
+      flex-shrink: 0;
+      display: block;
+    }
+
+    .nav__links {
+      display: none;
+      list-style: none;
+      padding: 0; margin: 0;
+      gap: 1.5rem;
+      align-items: center;
+    }
+    .nav__links a {
+      font-size: 0.9rem;
+      color: var(--taupe);
+      transition: color 400ms var(--bezier);
+      position: relative;
+    }
+    .nav__links a:hover,
+    .nav__links a.is-current { color: var(--ink); }
+
+    .nav__cta { display: none; }
+
+    .nav__burger {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 999px;
+      background: var(--ink);
+      border: none;
+      color: var(--cream);
+      position: relative;
+      overflow: hidden;
+    }
+    .nav__burger span {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 16px;
+      height: 1.5px;
+      background: var(--cream);
+      border-radius: 2px;
+      transform-origin: center;
+      transition: transform 600ms var(--bezier), top 600ms var(--bezier);
+    }
+    .nav__burger span:nth-child(1) { transform: translate(-50%, -4px); }
+    .nav__burger span:nth-child(2) { transform: translate(-50%, 4px); }
+    .nav.is-open .nav__burger span:nth-child(1) { transform: translate(-50%, -50%) rotate(45deg); top: 50%; }
+    .nav.is-open .nav__burger span:nth-child(2) { transform: translate(-50%, -50%) rotate(-45deg); top: 50%; }
+
+    /* DROPDOWN PILLS */
+    .nav__item {
+      position: relative;
+    }
+    .nav__trigger {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.4rem 0.85rem;
+      background: transparent;
+      border: none;
+      border-radius: 999px;
+      font-family: inherit;
+      font-size: 0.9rem;
+      color: var(--taupe);
+      cursor: pointer;
+      transition: color 400ms var(--bezier), background-color 400ms var(--bezier);
+    }
+    .nav__trigger:hover,
+    .nav__item.is-open .nav__trigger,
+    .nav__item.is-current .nav__trigger {
+      color: var(--ink);
+      background: rgba(61, 46, 31, 0.06);
+    }
+    .nav__trigger svg {
+      width: 12px; height: 12px;
+      transition: transform 400ms var(--bezier);
+    }
+    .nav__item.is-open .nav__trigger svg {
+      transform: rotate(180deg);
+    }
+
+    .nav__bridge {
+      position: absolute;
+      left: 0; right: 0;
+      top: 100%;
+      height: 14px;
+      pointer-events: auto;
+    }
+
+    .nav__panel {
+      position: absolute;
+      top: calc(100% + 14px);
+      left: 50%;
+      transform: translateX(-50%) translateY(-6px);
+      min-width: 380px;
+      padding: 0.5rem;
+      background: var(--cream-deep);
+      border: 1px solid var(--hairline-strong);
+      border-radius: 18px;
+      box-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.6) inset,
+        0 18px 40px -16px rgba(61, 46, 31, 0.28),
+        0 4px 10px -4px rgba(61, 46, 31, 0.08);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 280ms var(--bezier), transform 280ms var(--bezier);
+      z-index: 50;
+    }
+    .nav__panel::before {
+      content: '';
+      position: absolute;
+      top: -6px;
+      left: 50%;
+      width: 12px; height: 12px;
+      background: var(--cream-deep);
+      border-top: 1px solid var(--hairline-strong);
+      border-left: 1px solid var(--hairline-strong);
+      transform: translateX(-50%) rotate(45deg);
+    }
+    .nav__item.is-open .nav__panel {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+      pointer-events: auto;
+    }
+
+    .nav__panel-inner {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.25rem;
+    }
+    .nav__panel--two {
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+      gap: 0.75rem;
+    }
+
+    .nav__list {
+      list-style: none;
+      padding: 0.5rem;
+      margin: 0;
+      background: var(--card);
+      border: 1px solid var(--hairline);
+      border-radius: 14px;
+      box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6) inset;
+    }
+
+    .nav__subitem {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.55rem 0.6rem;
+      border-radius: 10px;
+      color: var(--ink);
+      transition: background-color 200ms var(--bezier), color 200ms var(--bezier);
+    }
+    .nav__subitem:hover {
+      background: var(--card-sunken);
+    }
+    .nav__subitem-icon {
+      flex: 0 0 auto;
+      width: 32px; height: 32px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--cream);
+      border: 1px solid var(--hairline);
+      border-radius: 8px;
+      color: var(--gold-deep);
+      box-shadow: var(--inner-highlight);
+    }
+    .nav__subitem-icon svg {
+      width: 16px; height: 16px;
+    }
+    .nav__subitem-text {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+      min-width: 0;
+    }
+    .nav__subitem-title {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--ink);
+      line-height: 1.2;
+    }
+    .nav__subitem-desc {
+      font-size: 0.75rem;
+      color: var(--muted);
+      line-height: 1.3;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .nav__panel-aside {
+      list-style: none;
+      padding: 0.75rem 0.5rem 0.75rem 0.75rem;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      align-self: stretch;
+      border-left: 1px solid var(--hairline);
+    }
+    .nav__panel-aside .nav__subitem {
+      padding: 0.55rem 0.7rem;
+    }
+    .nav__panel-aside .nav__subitem-icon {
+      display: none;
+    }
+    .nav__panel-aside .nav__subitem-title {
+      font-weight: 500;
+      font-size: 0.92rem;
+      line-height: 1.3;
+    }
+
+    .nav__panel-foot {
+      padding: 0.5rem 0.75rem 0.25rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .nav__panel-foot a {
+      color: var(--ink);
+      font-weight: 500;
+      border-bottom: 1px solid var(--gold);
+    }
+    .nav__panel-foot a:hover {
+      color: var(--gold-deep);
+    }
+
+    @media (min-width: 880px) {
+      .nav__links { display: inline-flex; }
+      .nav__cta { display: inline-flex; }
+      .nav__burger { display: none; }
+    }
+
+    /* MENU OVERLAY */
+    .menu-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 40;
+      background: rgba(242, 232, 218, 0.92);
+      backdrop-filter: blur(40px) saturate(140%);
+      -webkit-backdrop-filter: blur(40px) saturate(140%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 600ms var(--bezier);
+    }
+    .menu-overlay.is-open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .menu-overlay__list {
+      list-style: none;
+      padding: 0; margin: 0;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .menu-overlay__list li {
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(2rem);
+      transition:
+        opacity 700ms var(--bezier),
+        transform 700ms var(--bezier),
+        visibility 0s linear 700ms;
+    }
+    .menu-overlay.is-open .menu-overlay__list li {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      transition:
+        opacity 700ms var(--bezier),
+        transform 700ms var(--bezier),
+        visibility 0s linear 0s;
+    }
+    .menu-overlay.is-open .menu-overlay__list li:nth-child(1) { transition-delay: 120ms; }
+    .menu-overlay.is-open .menu-overlay__list li:nth-child(2) { transition-delay: 180ms; }
+    .menu-overlay.is-open .menu-overlay__list li:nth-child(3) { transition-delay: 240ms; }
+    .menu-overlay.is-open .menu-overlay__list li:nth-child(4) { transition-delay: 300ms; }
+    .menu-overlay.is-open .menu-overlay__list li:nth-child(5) { transition-delay: 360ms; }
+    .menu-overlay__list a {
+      font-family: 'Fraunces', serif;
+      font-variation-settings: 'opsz' 144, 'wght' 400;
+      font-size: clamp(2rem, 7vw, 4rem);
+      letter-spacing: -0.02em;
+      color: var(--ink);
+    }
+    .menu-overlay__list a:hover { color: var(--gold-deep); }
+
+    /* SCROLL REVEAL */
+    .reveal {
+      opacity: 0;
+      transform: translateY(2rem);
+      filter: blur(8px);
+      transition:
+        opacity 900ms var(--bezier),
+        transform 900ms var(--bezier),
+        filter 900ms var(--bezier);
+    }
+    .reveal.is-in {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+    .reveal[data-delay="1"].is-in { transition-delay: 80ms; }
+    .reveal[data-delay="2"].is-in { transition-delay: 160ms; }
+    .reveal[data-delay="3"].is-in { transition-delay: 240ms; }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; filter: none; transition: none; }
+    }
+
+    /* SECTIONS */
+    section {
+      padding-block: var(--section-y);
+      position: relative;
+    }
+    .section--alt    { background: var(--cream-deep); }
+    .section--alt    .bezel { background: rgba(255, 251, 245, 0.5); }
+    .section--lift   { background: var(--card); }
+    .section--lift   .bezel__core { background: var(--cream); }
+    .section--lift   .bezel { background: rgba(61, 46, 31, 0.05); }
+    .section--sunken { background: var(--card-sunken); }
+    .section--sunken .bezel__core { background: var(--card); }
+    .section--sunken .bezel { background: rgba(255, 251, 245, 0.55); }
+    .section--lift   { --hairline: rgba(61, 46, 31, 0.12);
+                        --hairline-strong: rgba(61, 46, 31, 0.20); }
+    .section--sunken { --hairline: rgba(61, 46, 31, 0.10);
+                        --hairline-strong: rgba(61, 46, 31, 0.18); }
+
+    /* SECTION HEADER */
+    .section-header {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin-bottom: clamp(2.5rem, 5vw, 4.5rem);
+    }
+    @media (min-width: 760px) {
+      .section-header {
+        grid-template-columns: 1.1fr 0.9fr;
+        align-items: end;
+        gap: 4rem;
+      }
+    }
+    .section-header__title {
+      font-family: 'Fraunces', serif;
+      font-variation-settings: 'opsz' 144, 'wght' 400;
+      font-size: clamp(2.1rem, 4.5vw, 3.6rem);
+      letter-spacing: -0.025em;
+      line-height: 1.02;
+      color: var(--ink);
+      margin: 1rem 0 0;
+      max-width: 18ch;
+    }
+    .section-header__title em {
+      font-style: italic;
+      font-variation-settings: 'opsz' 144, 'wght' 300;
+      color: var(--gold-deep);
+    }
+    .section-header__lede {
+      color: var(--taupe);
+      font-size: 1.02rem;
+      line-height: 1.55;
+      max-width: 38ch;
+    }
+
+    /* HERO (page intro) */
+    .pricing-hero {
+      padding-top: clamp(8rem, 14vw, 11rem);
+      padding-bottom: clamp(3rem, 6vw, 5rem);
+    }
+    .pricing-hero__title {
+      font-family: 'Fraunces', serif;
+      font-variation-settings: 'opsz' 144, 'wght' 400;
+      font-size: clamp(2.6rem, 6.5vw, 5rem);
+      letter-spacing: -0.03em;
+      line-height: 1.0;
+      color: var(--ink);
+      margin: 1.25rem 0 1.5rem;
+      max-width: 18ch;
+    }
+    .pricing-hero__title em {
+      font-style: italic;
+      font-variation-settings: 'opsz' 144, 'wght' 300;
+      color: var(--gold-deep);
+    }
+    .pricing-hero__sub {
+      font-size: clamp(1.05rem, 1.3vw, 1.2rem);
+      line-height: 1.55;
+      color: var(--taupe);
+      max-width: 52ch;
+      margin: 0 0 1.5rem;
+    }
+
+    /* TIER BENTO (Foundation / Growth / Authority) */
+    .bento {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+    @media (min-width: 880px) {
+      .bento {
+        grid-template-columns: repeat(12, 1fr);
+        grid-auto-rows: minmax(0, auto);
+        gap: 1.5rem;
+      }
+    }
+    .tier {
+      position: relative;
+      padding: var(--shell-pad);
+      background: rgba(61, 46, 31, 0.04);
+      border: 1px solid var(--hairline);
+      border-radius: 28px;
+      box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6) inset;
+      transition: transform 700ms var(--bezier);
+    }
+    .tier:hover { transform: translateY(-4px); }
+    .tier__core {
+      background: var(--card);
+      border-radius: calc(28px - 6px);
+      padding: 2rem;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      box-shadow:
+        inset 0 1px 1px rgba(255, 255, 255, 0.6),
+        0 1px 2px rgba(61, 46, 31, 0.04);
+    }
+    @media (min-width: 880px) {
+      .tier--foundation { grid-column: span 5; }
+      .tier--growth     { grid-column: span 7; background: rgba(61, 46, 31, 0.08); }
+      .tier--authority  { grid-column: span 12; }
+    }
+    .tier--growth { background: rgba(61, 46, 31, 0.09); }
+    .tier--growth .tier__core {
+      background: linear-gradient(180deg, var(--ink) 0%, var(--ink-soft) 100%);
+      color: var(--cream);
+      box-shadow:
+        inset 0 1px 1px rgba(255, 255, 255, 0.1),
+        0 30px 60px -30px rgba(61, 46, 31, 0.5);
+    }
+    .tier--growth .tier__price,
+    .tier--growth .tier__name { color: var(--cream); }
+    .tier--growth .tier__ideal { color: #D4C5B0; }
+    .tier--growth .tier__features li { color: #E8DBC8; }
+    .tier--growth .tier__features li::before { background: var(--gold); }
+    .tier--growth .tier__divider { background: rgba(242, 232, 218, 0.12); }
+    .tier--growth .tier__timeline { color: #C2B49E; }
+    .tier--growth .tier__timeline strong { color: var(--cream); }
+    .tier--growth .tier__badge {
+      background: var(--gold-deep);
+      color: #FFFFFF;
+    }
+    .tier__badge {
+      position: absolute;
+      top: -0.65rem;
+      right: 1.5rem;
+      padding: 0.35rem 0.75rem;
+      background: var(--ink);
+      color: var(--cream);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      border-radius: 999px;
+      font-weight: 500;
+    }
+    .tier__name {
+      font-family: 'Fraunces', serif;
+      font-variation-settings: 'opsz' 144, 'wght' 400;
+      font-size: clamp(1.6rem, 2.5vw, 2.1rem);
+      letter-spacing: -0.02em;
+      line-height: 1;
+      color: var(--ink);
+      margin: 0;
+    }
+    .tier__price {
+      margin-top: 0.5rem;
+      font-family: 'Fraunces', serif;
+      font-variation-settings: 'opsz' 144, 'wght' 500;
+      font-size: 2.4rem;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      line-height: 1;
+    }
+    .tier__price small {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 400;
+      color: var(--muted);
+      margin-left: 0.25rem;
+    }
+    .tier__ideal {
+      color: var(--taupe);
+      font-size: 0.95rem;
+      margin: 0.85rem 0 0;
+      max-width: 32ch;
+    }
+    .tier__divider {
+      height: 1px;
+      background: var(--hairline);
+      margin: 1.5rem 0;
+    }
+    .tier__features {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+      flex-grow: 1;
+    }
+    .tier__features li {
+      font-size: 0.92rem;
+      color: var(--ink-soft);
+      display: flex;
+      gap: 0.65rem;
+      align-items: flex-start;
+    }
+    .tier__features li::before {
+      content: '';
+      flex-shrink: 0;
+      margin-top: 0.5em;
+      width: 5px;
+      height: 5px;
+      border-radius: 999px;
+      background: var(--gold);
+    }
+    .tier__timeline {
+      margin: 1.5rem 0 1.5rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    .tier__timeline strong { color: var(--ink); font-weight: 500; }
+    .tier__cta-row { margin-top: auto; }
+
+    /* STYLING REFRESH GATEWAY CARD */
+    .refresh {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: clamp(2rem, 4vw, 3rem);
+      align-items: center;
+      padding: clamp(1.75rem, 4vw, 3rem);
+    }
+    @media (min-width: 760px) {
+      .refresh { grid-template-columns: 1.4fr 1fr; gap: 3rem; }
+    }
+    .refresh__title {
+      font-family: 'Fraunces', serif;
+      font-variation-settings: 'opsz' 144, 'wght' 400;
+      font-size: clamp(1.85rem, 3.5vw, 2.65rem);
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+      color: var(--ink);
+      margin: 1rem 0 1rem;
+      max-width: 18ch;
+    }
+    .refresh__title em {
+      font-style: italic;
+      font-variation-settings: 'opsz' 144, 'wght' 300;
+      color: var(--gold-deep);
+    }
+    .refresh__body {
+      color: var(--taupe);
+      font-size: 1.02rem;
+      line-height: 1.55;
+      margin: 0 0 1.5rem;
+      max-width: 50ch;
+    }
+    .refresh__price {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 1.25rem;
+      background: var(--gold-soft);
+      border: 1px solid rgba(224, 120, 86, 0.3);
+      border-radius: 16px;
+      width: 100%;
+      margin-bottom: 1.25rem;
+    }
+    .refresh__price-amount {
+      font-family: 'Fraunces', serif;
+      font-variation-settings: 'opsz' 144, 'wght' 500;
+      font-size: 2.25rem;
+      line-height: 1;
+      color: var(--gold-deep);
+      flex-shrink: 0;
+    }
+    .refresh__price-detail {
+      font-size: 0.88rem;
+      color: var(--ink);
+      line-height: 1.4;
+    }
+    .refresh__note {
+      margin: 1rem 0 0;
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* FAQ ACCORDION */
+    .faq {
+      max-width: 56rem;
+      margin: 0 auto;
+    }
+    .faq details {
+      border-top: 1px solid var(--hairline);
+      padding: 0;
+    }
+    .faq details:last-of-type {
+      border-bottom: 1px solid var(--hairline);
+    }
+    .faq__summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      padding: 1.5rem 0;
+      list-style: none;
+      cursor: pointer;
+      font-family: 'Fraunces', serif;
+      font-variation-settings: 'opsz' 36, 'wght' 500;
+      font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      transition: color 400ms var(--bezier);
+    }
+    .faq__summary::-webkit-details-marker { display: none; }
+    .faq__summary::marker { content: ''; }
+    .faq__summary:hover { color: var(--gold-deep); }
+    .faq__icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 999px;
+      background: var(--card-sunken);
+      border: 1px solid var(--hairline);
+      color: var(--ink);
+      font-size: 0.95rem;
+      line-height: 1;
+      flex-shrink: 0;
+      transition:
+        transform 500ms var(--bezier),
+        background 400ms var(--bezier),
+        color 400ms var(--bezier);
+    }
+    .faq details[open] .faq__icon {
+      transform: rotate(45deg);
+      background: var(--ink);
+      color: var(--cream);
+    }
+    .faq__body {
+      padding: 0 0 1.75rem;
+      color: var(--taupe);
+      font-size: 1rem;
+      line-height: 1.65;
+      max-width: 60ch;
+    }
+    .faq__body p { margin: 0 0 0.85rem; }
+    .faq__body p:last-child { margin-bottom: 0; }
+    .faq__body strong { color: var(--ink); font-weight: 500; }
+
+    /* CTA CLOSER */
+    .closer {
+      text-align: center;
+      padding: clamp(2rem, 4vw, 3rem);
+    }
+    .closer__title {
+      font-family: 'Fraunces', serif;
+      font-variation-settings: 'opsz' 144, 'wght' 400;
+      font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+      letter-spacing: -0.025em;
+      line-height: 1.05;
+      color: var(--ink);
+      margin: 1rem auto;
+      max-width: 18ch;
+    }
+    .closer__title em {
+      font-style: italic;
+      font-variation-settings: 'opsz' 144, 'wght' 300;
+      color: var(--gold-deep);
+    }
+    .closer__body {
+      color: var(--taupe);
+      font-size: 1.05rem;
+      line-height: 1.55;
+      max-width: 50ch;
+      margin: 0 auto 2rem;
+    }
+
+    /* FOOTER */
+    .site-footer {
+      padding-block: 3rem 2rem;
+      border-top: 1px solid var(--hairline);
+      background: var(--cream);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      margin-bottom: 2.5rem;
+    }
+    @media (min-width: 760px) {
+      .footer-grid {
+        grid-template-columns: 1.5fr 1fr 1fr 1fr;
+        gap: 3rem;
+      }
+    }
+    .footer-brand p {
+      color: var(--taupe);
+      font-size: 0.95rem;
+      max-width: 36ch;
+      margin-top: 1rem;
+    }
+    .footer-col h3 {
+      font-family: 'Fraunces', serif;
+      font-variation-settings: 'opsz' 36, 'wght' 500;
+      font-size: 1.05rem;
+      margin: 0 0 0.85rem;
+      color: var(--ink);
+    }
+    .footer-col ul {
+      list-style: none;
+      padding: 0; margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+    }
+    .footer-col a {
+      color: var(--taupe);
+      font-size: 0.92rem;
+      transition: color 400ms var(--bezier);
+    }
+    .footer-col a:hover { color: var(--ink); }
+    .footer-base {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--hairline);
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+    .footer-base p { margin: 0; }
+    /* legacy footer styles (kept for any stale references) */
+    .footer {
+      padding: clamp(2.5rem, 5vw, 4rem) 0;
+      border-top: 1px solid var(--hairline);
+    }
+    .footer__row {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+    @media (min-width: 720px) {
+      .footer__row { flex-direction: row; align-items: center; }
+    }
+    .footer__brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      font-family: 'Fraunces', serif;
+      font-variation-settings: 'opsz' 36, 'wght' 500;
+      font-size: 1.1rem;
+      letter-spacing: -0.02em;
+    }
+    .footer__brand .nav__mark {
+      width: 36px;
+      height: 36px;
+    }
+    .footer__meta {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    /* ─────────────────────────────────────────────────────────────
+       SECTION DIVIDERS — organic blend with grain + ambient aura
+       ───────────────────────────────────────────────────────────── */
+    .divider {
+      position: relative;
+      height: clamp(120px, 14vh, 160px);
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom,
+        var(--from, var(--cream)),
+        var(--to, var(--cream-deep)));
+      overflow: hidden;
+      pointer-events: none;
+      isolation: isolate;
+    }
+    /* Grain overlay prevents color banding, keeps paper texture. */
+    .divider::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.04'/></svg>");
+      background-size: 220px 220px;
+      opacity: 0.04;
+      mix-blend-mode: multiply;
+      pointer-events: none;
+    }
+    .divider__aura {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 400px;
+      height: 400px;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(circle at 50% 50%,
+        var(--gold-soft) 0%,
+        transparent 65%);
+      filter: blur(100px);
+      opacity: 0.12;
+      pointer-events: none;
+      animation: divider-drift 20s ease-in-out infinite alternate;
+      will-change: transform;
+    }
+    @keyframes divider-drift {
+      0%   { transform: translate(calc(-50% - 30px), calc(-50% - 18px)); }
+      50%  { transform: translate(calc(-50% + 24px), calc(-50% + 14px)); }
+      100% { transform: translate(calc(-50% + 36px), calc(-50% - 22px)); }
+    }
+    /* Respect users who prefer reduced motion. */
+    @media (prefers-reduced-motion: reduce) {
+      .divider__aura { animation: none; }
+    }
+    /* Raise any positioned descendants above the divider's aura bleed. */
+    .section > * { position: relative; z-index: 1; }
+  </style>
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- NAV -->
+  <div class="nav-wrap">
+    <nav class="nav" id="nav" aria-label="Primary">
+      <a href="index.html" class="nav__brand" aria-label="Resplend Studio home">
+        <img class="nav__mark" src="assets/quetzal-logo.png" alt="" width="40" height="40">
+        Resplend Studio
+      </a>
+      <ul class="nav__links">
+        <li class="nav__item" data-dropdown>
+          <button class="nav__trigger" type="button" aria-haspopup="true" aria-expanded="false">
+            Packages
+            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5L6 8L9 5"/></svg>
+          </button>
+          <span class="nav__bridge" aria-hidden="true"></span>
+          <div class="nav__panel" role="menu">
+            <div class="nav__panel-inner">
+              <ul class="nav__list">
+                <li role="none">
+                  <a href="index.html#styling-refresh" class="nav__subitem" role="menuitem">
+                    <span class="nav__subitem-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3L14 9L20 10L15.5 14L17 20L12 17L7 20L8.5 14L4 10L10 9L12 3Z"/></svg>
+                    </span>
+                    <span class="nav__subitem-text">
+                      <span class="nav__subitem-title">Styling refresh</span>
+                      <span class="nav__subitem-desc">$499 — gateway to a full rebuild</span>
+                    </span>
+                  </a>
+                </li>
+                <li role="none">
+                  <a href="index.html#services" class="nav__subitem" role="menuitem">
+                    <span class="nav__subitem-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+                    </span>
+                    <span class="nav__subitem-text">
+                      <span class="nav__subitem-title">Foundation</span>
+                      <span class="nav__subitem-desc">$1,499 — small practices, tight budget</span>
+                    </span>
+                  </a>
+                </li>
+                <li role="none">
+                  <a href="index.html#services" class="nav__subitem" role="menuitem">
+                    <span class="nav__subitem-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17L9 11L13 15L21 7"/><path d="M21 7V13"/><path d="M21 7H15"/></svg>
+                    </span>
+                    <span class="nav__subitem-text">
+                      <span class="nav__subitem-title">Growth</span>
+                      <span class="nav__subitem-desc">$2,499 — lead gen + booking pipeline</span>
+                    </span>
+                  </a>
+                </li>
+                <li role="none">
+                  <a href="index.html#services" class="nav__subitem" role="menuitem">
+                    <span class="nav__subitem-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L4 6V12C4 17 7.5 21 12 22C16.5 21 20 17 20 12V6L12 2Z"/><path d="M9 12L11 14L15 10"/></svg>
+                    </span>
+                    <span class="nav__subitem-text">
+                      <span class="nav__subitem-title">Authority</span>
+                      <span class="nav__subitem-desc">$4,499 — competitive positioning</span>
+                    </span>
+                  </a>
+                </li>
+              </ul>
+              <div class="nav__panel-foot">
+                Need a custom build? <a href="index.html#contact">Tell us what you're trying to fix</a>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="nav__item" data-dropdown>
+          <button class="nav__trigger" type="button" aria-haspopup="true" aria-expanded="false">
+            Studio
+            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5L6 8L9 5"/></svg>
+          </button>
+          <span class="nav__bridge" aria-hidden="true"></span>
+          <div class="nav__panel" role="menu">
+            <div class="nav__panel-inner nav__panel--two">
+              <ul class="nav__list">
+                <li role="none">
+                  <a href="index.html#about" class="nav__subitem" role="menuitem">
+                    <span class="nav__subitem-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21C4 16.5 7.5 13 12 13C16.5 13 20 16.5 20 21"/></svg>
+                    </span>
+                    <span class="nav__subitem-text">
+                      <span class="nav__subitem-title">About</span>
+                      <span class="nav__subitem-desc">Built For</span>
+                    </span>
+                  </a>
+                </li>
+                <li role="none">
+                  <a href="index.html#process" class="nav__subitem" role="menuitem">
+                    <span class="nav__subitem-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7V12L15 14"/></svg>
+                    </span>
+                    <span class="nav__subitem-text">
+                      <span class="nav__subitem-title">Process</span>
+                      <span class="nav__subitem-desc">How We Run</span>
+                    </span>
+                  </a>
+                </li>
+                <li role="none">
+                  <a href="index.html#portfolio" class="nav__subitem" role="menuitem">
+                    <span class="nav__subitem-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9H21"/><path d="M9 21V9"/></svg>
+                    </span>
+                    <span class="nav__subitem-text">
+                      <span class="nav__subitem-title">Sample Sites</span>
+                      <span class="nav__subitem-desc">Recent builds</span>
+                    </span>
+                  </a>
+                </li>
+              </ul>
+              <ul class="nav__panel-aside">
+                <li role="none"><a href="index.html#about" class="nav__subitem" role="menuitem"><span class="nav__subitem-text"><span class="nav__subitem-title">Why Solo Studio</span></span></a></li>
+                <li role="none"><a href="index.html#contact" class="nav__subitem" role="menuitem"><span class="nav__subitem-text"><span class="nav__subitem-title">Press &amp; FAQs</span></span></a></li>
+                <li role="none"><a href="mailto:DesignByBryant@gmail.com" class="nav__subitem" role="menuitem"><span class="nav__subitem-text"><span class="nav__subitem-title">Direct Email</span></span></a></li>
+              </ul>
+            </div>
+            <div class="nav__panel-foot">
+              Available for new projects · <a href="index.html#contact">Book an intro call</a>
+            </div>
+          </div>
+        </li>
+        <li class="nav__item is-current" data-dropdown>
+          <button class="nav__trigger" type="button" aria-haspopup="true" aria-expanded="false">
+            Pricing
+            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5L6 8L9 5"/></svg>
+          </button>
+          <span class="nav__bridge" aria-hidden="true"></span>
+          <div class="nav__panel" role="menu">
+            <div class="nav__panel-inner">
+              <ul class="nav__list">
+                <li role="none">
+                  <a href="#tiers" class="nav__subitem" role="menuitem">
+                    <span class="nav__subitem-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+                    </span>
+                    <span class="nav__subitem-text">
+                      <span class="nav__subitem-title">Packages</span>
+                      <span class="nav__subitem-desc">Foundation, Growth, Authority</span>
+                    </span>
+                  </a>
+                </li>
+                <li role="none">
+                  <a href="#refresh" class="nav__subitem" role="menuitem">
+                    <span class="nav__subitem-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3L14 9L20 10L15.5 14L17 20L12 17L7 20L8.5 14L4 10L10 9L12 3Z"/></svg>
+                    </span>
+                    <span class="nav__subitem-text">
+                      <span class="nav__subitem-title">Style refresh</span>
+                      <span class="nav__subitem-desc">$499 — gateway to a full rebuild</span>
+                    </span>
+                  </a>
+                </li>
+                <li role="none">
+                  <a href="#faq" class="nav__subitem" role="menuitem">
+                    <span class="nav__subitem-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5C9.5 8 10.5 7 12 7C13.5 7 14.5 8 14.5 9.5C14.5 10.5 13.5 11 12.5 11.5C12 11.75 12 12 12 12.5"/><circle cx="12" cy="16" r="0.9" fill="currentColor"/></svg>
+                    </span>
+                    <span class="nav__subitem-text">
+                      <span class="nav__subitem-title">FAQ</span>
+                      <span class="nav__subitem-desc">Pricing questions answered</span>
+                    </span>
+                  </a>
+                </li>
+              </ul>
+              <div class="nav__panel-foot">
+                Flat rate, no surprises · <a href="#tiers">See the full breakdown</a>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <a href="start.html" class="cta cta--ghost nav__cta" style="--pad-y:.5rem;--pad-x:1rem;font-size:.85rem">
+        <span style="padding-left:.4rem">Start a project</span>
+        <span class="cta__arrow">
+          <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
+      <button class="nav__burger" id="burger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+    </nav>
+  </div>
+
+  <!-- Expanded menu overlay (mobile) -->
+  <div class="menu-overlay" id="menuOverlay" aria-hidden="true">
+    <ul class="menu-overlay__list">
+      <li><a href="index.html#services">Packages</a></li>
+      <li><a href="#tiers">Pricing · Packages</a></li>
+      <li><a href="#refresh">Pricing · Style refresh</a></li>
+      <li><a href="#faq">Pricing · FAQ</a></li>
+      <li><a href="index.html#about">Studio</a></li>
+      <li><a href="index.html#process">Process</a></li>
+      <li><a href="index.html#portfolio">Selected Work</a></li>
+      <li><a href="start.html">Start a project</a></li>
+    </ul>
+  </div>
+
+  <main>
+    <!-- HERO -->
+    <section class="pricing-hero">
+      <div class="container">
+        <span class="eyebrow reveal">Pricing</span>
+        <h1 class="pricing-hero__title reveal" data-delay="1">
+          Flat rate, <em>no surprises.</em>
+        </h1>
+        <p class="pricing-hero__sub reveal" data-delay="2">
+          Three full packages, infinite styling gateways, and an included care plan. Everything below is what you actually pay and what you actually get. No hourly billing, no scope creep.
+        </p>
+      </div>
+    </section>
+
+    <!-- TIERS -->
+    <div class="divider" style="--from: var(--cream); --to: var(--cream-deep);" aria-hidden="true"><div class="divider__aura"></div></div>
+    <section id="tiers" class="section--alt">
+      <div class="container">
+        <header class="section-header">
+          <div>
+            <span class="eyebrow reveal">What you buy</span>
+            <h2 class="section-header__title reveal" data-delay="1">
+              Three tiers. <em>Every one</em> ships a complete site.
+            </h2>
+          </div>
+          <p class="section-header__lede reveal" data-delay="2">
+            The difference between tiers is depth of strategy, compliance depth, and outcome-focused features. A working website is included in every tier.
+          </p>
+        </header>
+
+        <div class="bento">
+
+          <!-- FOUNDATION -->
+          <article class="tier tier--foundation reveal" data-delay="1" title="Foundation — $1,499 flat, 2 to 3 weeks. For a professional presence, fast and on a tight budget.">
+            <div class="tier__core">
+              <p class="tier__vertical" style="font-size:11px;text-transform:uppercase;letter-spacing:0.16em;color:var(--muted);margin:0 0 0.5rem">Foundation</p>
+              <h3 class="tier__name">Foundation</h3>
+              <p class="tier__price">$1,499<small>flat</small></p>
+              <p class="tier__ideal">For a professional presence, fast and on a tight budget.</p>
+              <div class="tier__divider"></div>
+              <ul class="tier__features">
+                <li>Up to 5 custom designed pages</li>
+                <li>Mobile and tablet optimized layouts</li>
+                <li>ADA accessibility baseline (WCAG 2.2 AA)</li>
+                <li>Content Management System for easy self editing</li>
+                <li>Google Search Console and XML sitemap submission</li>
+                <li>Basic on-page SEO (page titles, meta descriptions, image alt tags)</li>
+                <li>Contact form with automated email notification routing</li>
+                <li>SSL certificate configuration and basic security hardening</li>
+                <li>Fast loading performance optimization</li>
+                <li>404 error redirect page</li>
+                <li>Social media profile linking and open graph share previews</li>
+                <li>14 days post-launch technical support</li>
+                <li>1 month of Care Plan retainer included (domain, content, security, priority support)</li>
+              </ul>
+              <p class="tier__timeline"><strong>Timeline:</strong> 2 to 3 weeks</p>
+              <div class="tier__cta-row">
+                <a href="index.html#contact" class="cta cta--ghost">
+                  <span style="padding-left:.4rem">Get started</span>
+                  <span class="cta__arrow">
+                    <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- GROWTH -->
+          <article class="tier tier--growth reveal" data-delay="2" title="Growth — $2,499 flat, 3 to 5 weeks. For businesses ready to turn the site into a real lead pipeline.">
+            <span class="tier__badge">Most popular</span>
+            <div class="tier__core">
+              <p class="tier__vertical" style="font-size:11px;text-transform:uppercase;letter-spacing:0.16em;color:#C2B49E;margin:0 0 0.5rem">Growth</p>
+              <h3 class="tier__name">Growth</h3>
+              <p class="tier__price">$2,499<small>flat</small></p>
+              <p class="tier__ideal">For businesses ready to turn the site into a real lead pipeline.</p>
+              <div class="tier__divider"></div>
+              <ul class="tier__features">
+                <li>Everything in Foundation included</li>
+                <li>Up to 8 custom designed pages</li>
+                <li>Booking or scheduling system integrated end to end</li>
+                <li>Lead magnet delivery (ebook, checklist, guide) with email capture</li>
+                <li>Custom blog or case study archive setup</li>
+                <li>Google Analytics 4 event and conversion tracking</li>
+                <li>20% off extra landing pages</li>
+                <li>30 days post-launch support and training walkthrough video</li>
+                <li>3 months of Care Plan retainer included (domain, content, security, priority support)</li>
+              </ul>
+              <p class="tier__timeline"><strong>Timeline:</strong> 3 to 5 weeks</p>
+              <div class="tier__cta-row">
+                <a href="index.html#contact" class="cta">
+                  <span style="padding-left:.4rem">Get started</span>
+                  <span class="cta__arrow">
+                    <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- AUTHORITY -->
+          <article class="tier tier--authority reveal" data-delay="3" title="Authority — $4,499 flat, 5 to 7 weeks. For established brands that need a site to carry real weight in their category.">
+            <div class="tier__core">
+              <div style="display:grid;grid-template-columns:1fr;gap:1.5rem">
+                <div>
+                  <p class="tier__vertical" style="font-size:11px;text-transform:uppercase;letter-spacing:0.16em;color:var(--muted);margin:0 0 0.5rem">Authority</p>
+                  <h3 class="tier__name">Authority</h3>
+                  <p class="tier__price">$4,499<small>flat</small></p>
+                  <p class="tier__ideal">For established brands that need a site to carry real weight in their category.</p>
+                </div>
+                <div>
+                  <p class="tier__ideal" style="margin:0">Adds a deeper strategy workshop, advanced conversion architecture, and a longer post-launch window. Built for businesses where the website is a primary surface, not a brochure.</p>
+                </div>
+              </div>
+              <div class="tier__divider"></div>
+              <div style="display:grid;grid-template-columns:1fr;gap:1.25rem">
+                <ul class="tier__features" style="display:grid;grid-template-columns:1fr 1fr;gap:0.7rem 1.5rem">
+                  <li>Everything in Growth included</li>
+                  <li>Up to 12 custom designed pages</li>
+                  <li>Strategy workshop with decision makers</li>
+                  <li>Conversion architecture mapped to buyer journey</li>
+                  <li>Personalized landing pages for top services</li>
+                  <li>Resource library or premium content hub</li>
+                  <li>Email marketing platform integration (ConvertKit, Mailchimp, or equivalent)</li>
+                  <li>Advanced lead scoring and routing</li>
+                  <li>Multi step form with conditional logic</li>
+                  <li>Live chat or AI chatbot integration</li>
+                  <li>Custom animations and micro interactions</li>
+                  <li>Gated content or downloadable lead magnet delivery setup</li>
+                  <li>Local search directory optimization setup</li>
+                  <li>Advanced site speed caching configuration</li>
+                  <li>50% off extra landing pages</li>
+                  <li>60 days priority support with monthly health checkups</li>
+                  <li>6 months of Care Plan retainer included (domain, content, security, priority support)</li>
+                </ul>
+              </div>
+              <p class="tier__timeline"><strong>Timeline:</strong> 5 to 7 weeks</p>
+              <div class="tier__cta-row" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-top:auto;padding-top:1.5rem;border-top:1px solid var(--hairline)">
+                <p class="tier__timeline" style="margin:0"><strong>Timeline:</strong> 5 to 7 weeks</p>
+                <a href="index.html#contact" class="cta cta--ghost">
+                  <span style="padding-left:.4rem">Get started</span>
+                  <span class="cta__arrow">
+                    <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- STYLING REFRESH GATEWAY -->
+    <div class="divider" style="--from: var(--cream-deep); --to: var(--card);" aria-hidden="true"><div class="divider__aura"></div></div>
+    <section id="refresh" class="section--lift">
+      <div class="container">
+        <div class="bezel reveal" title="Styling refresh — $499 flat, 5 to 7 business days. A focused typography, color, and layout pass on your existing site. $499 is credited in full toward any full package.">
+          <div class="bezel__core refresh">
+            <div>
+              <span class="eyebrow">Gateway offer</span>
+              <h2 class="refresh__title">
+                Already have a site? <em>Start at $499.</em>
+              </h2>
+              <p class="refresh__body">
+                A focused styling refresh of your existing site: typography, color, spacing, layout. Nothing is rebuilt. Most refresh clients book a full package within a few months, and their $499 is credited in full.
+              </p>
+              <div class="refresh__price">
+                <span class="refresh__price-amount">$499</span>
+                <span class="refresh__price-detail">flat rate<br>5 to 7 business days</span>
+              </div>
+              <a href="index.html#contact" class="cta">
+                <span style="padding-left:.4rem">Start with a refresh</span>
+                <span class="cta__arrow">
+                  <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+              </a>
+              <p class="refresh__note">Your <strong>$499 is credited in full</strong> toward any full package.</p>
+            </div>
+            <div>
+              <p class="eyebrow" style="margin-bottom:1rem">What a refresh covers</p>
+              <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.85rem;font-size:0.95rem;color:var(--ink-soft);line-height:1.5">
+                <li style="display:flex;align-items:flex-start;gap:0.75rem"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" style="flex-shrink:0;margin-top:0.35rem;color:var(--gold)" aria-hidden="true"><path d="M3 8.5L6.5 12L13 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Typography, palette, and spacing refinements across every page</li>
+                <li style="display:flex;align-items:flex-start;gap:0.75rem"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" style="flex-shrink:0;margin-top:0.35rem;color:var(--gold)" aria-hidden="true"><path d="M3 8.5L6.5 12L13 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Mobile and tablet layout fixes included</li>
+                <li style="display:flex;align-items:flex-start;gap:0.75rem"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" style="flex-shrink:0;margin-top:0.35rem;color:var(--gold)" aria-hidden="true"><path d="M3 8.5L6.5 12L13 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Delivered in 5 to 7 business days</li>
+                <li style="display:flex;align-items:flex-start;gap:0.75rem"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" style="flex-shrink:0;margin-top:0.35rem;color:var(--gold)" aria-hidden="true"><path d="M3 8.5L6.5 12L13 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>One round of refinements included</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <div class="divider" style="--from: var(--card); --to: var(--cream-deep);" aria-hidden="true"><div class="divider__aura"></div></div>
+    <section id="faq" class="section--alt">
+      <div class="container">
+        <header class="section-header">
+          <div>
+            <span class="eyebrow reveal">Pricing questions</span>
+            <h2 class="section-header__title reveal" data-delay="1">
+              What people <em>actually ask</em> before they book.
+            </h2>
+          </div>
+          <p class="section-header__lede reveal" data-delay="2">
+            If your question is not here, send it through the contact form. The same human who designs the site replies.
+          </p>
+        </header>
+
+        <div class="faq">
+
+          <details>
+            <summary class="faq__summary">
+              <span>Why three tiers instead of one flat site package?</span>
+              <span class="faq__icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="faq__body">
+              <p>Because not every business needs the same thing. A solo practitioner who needs a credible web presence fast does not need lead scoring or a chatbot, and a six-figure consultancy cannot afford a brochure site. Three tiers lets you pick the depth of strategy and outcome features that match your actual situation, instead of paying for capability you will never use or settling for capability you do not have.</p>
+              <p>If none of the three fit, send a note through the contact form and we can scope a custom package.</p>
+            </div>
+          </details>
+
+          <details>
+            <summary class="faq__summary">
+              <span>Can I switch tiers after I have started?</span>
+              <span class="faq__icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="faq__body">
+              <p>Yes. Moving up is straightforward. We adjust the scope, you pay the difference, and the extra features get folded into the remaining timeline. Moving down is possible before design starts. After design has begun, the scope lock means a downgrade would mean dropping features already in flight, which is usually not worth the savings.</p>
+            </div>
+          </details>
+
+          <details>
+            <summary class="faq__summary">
+              <span>What is the $499 styling refresh and who is it for?</span>
+              <span class="faq__icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="faq__body">
+              <p>The styling refresh is a focused pass on typography, color, spacing, and layout on the site you already have. Nothing gets rebuilt. It is for businesses whose existing site is functional but visually tired, or for owners who want a low-risk way to feel the work before committing to a full package.</p>
+              <p>If you go on to book Foundation, Growth, or Authority within a few months, your $499 is credited in full toward the package.</p>
+            </div>
+          </details>
+
+          <details>
+            <summary class="faq__summary">
+              <span>What is the Care Plan retainer and what does it cover?</span>
+              <span class="faq__icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="faq__body">
+              <p>The Care Plan retainer is the ongoing maintenance package. It covers domain changes, content edits, security updates, and priority support on a monthly subscription. Each tier includes a starting window of retainer time so you are not on your own the day after launch.</p>
+              <p>Foundation ships with 1 month, Growth with 3 months, Authority with 6 months. After that, the Care Plan is optional and billed monthly. You can stop at any time.</p>
+            </div>
+          </details>
+
+          <details>
+            <summary class="faq__summary">
+              <span>Do you offer payment plans?</span>
+              <span class="faq__icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="faq__body">
+              <p>Yes. The default is 50% to book, 50% at launch. For Growth and Authority, three payments (40 / 30 / 30) is available on request. The full amount is locked at booking and does not change mid-project.</p>
+            </div>
+          </details>
+
+          <details>
+            <summary class="faq__summary">
+              <span>What is not included in any tier?</span>
+              <span class="faq__icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="faq__body">
+              <p><strong>Hosting and domain.</strong> Every site needs them to stay live. They are billed directly to you, run about $10 a month for a small business site, and continue after launch regardless of which tier you choose. You own the domain and the hosting account.</p>
+              <p><strong>Copywriting and photography.</strong> Stock or existing imagery is fine for most projects. If you need professional photography or full copy from scratch, that is a separate engagement and we can refer you to trusted partners.</p>
+              <p><strong>E-commerce, custom web apps, and complex backends.</strong> These are out of scope for the listed tiers. Custom projects are quoted separately.</p>
+            </div>
+          </details>
+
+          <details>
+            <summary class="faq__summary">
+              <span>How many revisions are included?</span>
+              <span class="faq__icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="faq__body">
+              <p>Foundation and Growth include 1 to 2 rounds of revisions per page. Authority includes 2 to 3 rounds. The intent is to keep the feedback loop focused: you react to real pages instead of an open-ended comment thread. Extra revision rounds can be added at an hourly rate if a project genuinely needs more iteration.</p>
+            </div>
+          </details>
+
+          <details>
+            <summary class="faq__summary">
+              <span>What happens after the site launches?</span>
+              <span class="faq__icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="faq__body">
+              <p>Every tier ships with a post-launch support window (14, 30, or 60 days depending on tier) for bug fixes, training questions, and minor tweaks. After that, the Care Plan retainer covers ongoing changes, or you can handle things in-house through the content management system included with every project.</p>
+            </div>
+          </details>
+
+          <details>
+            <summary class="faq__summary">
+              <span>Do I own the site when it is done?</span>
+              <span class="faq__icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="faq__body">
+              <p>Yes. The site, the code, the design files, and the domain are all yours at launch. There is no proprietary platform holding your content hostage. If you want to take the site to another developer or bring maintenance in-house, you can.</p>
+            </div>
+          </details>
+
+          <details>
+            <summary class="faq__summary">
+              <span>What if I am not happy with the result?</span>
+              <span class="faq__icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="faq__body">
+              <p>The revision rounds are designed to surface problems early, and there is a 14-day satisfaction checkpoint after launch on every project. If something is genuinely not landing, the work continues until it does, within the scope of the original package. Refunds are handled on a case-by-case basis, but the goal is to ship something you are proud to send people to, not to argue about scope.</p>
+            </div>
+          </details>
+
+          <details>
+            <summary class="faq__summary">
+              <span>Do you build online stores or booking marketplaces?</span>
+              <span class="faq__icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="faq__body">
+              <p>Growth includes a scheduling or booking system integration. Authority includes advanced forms and lead routing. Full e-commerce with inventory, payments, shipping, and a custom cart is outside the listed tiers and quoted as a custom project. Send a note through the contact form with what you are selling and we can scope it.</p>
+            </div>
+          </details>
+
+          <details>
+            <summary class="faq__summary">
+              <span>Can I bring my own design or developer?</span>
+              <span class="faq__icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="faq__body">
+              <p>Yes. If you have a designer or a developer you want to work with, the build can be handed off in design files or in code at agreed milestones. The project just becomes design-only or build-only at that point, and the price is prorated accordingly.</p>
+            </div>
+          </details>
+
+          <details>
+            <summary class="faq__summary">
+              <span>Will you write the copy and pick the photos?</span>
+              <span class="faq__icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="faq__body">
+              <p>The strategy session produces a content outline and recommended page structure. You write the actual copy (or your team does), or we can refer you to a copywriter. For imagery, existing photos and stock work for most projects. Custom photography is a separate engagement.</p>
+            </div>
+          </details>
+
+          <details>
+            <summary class="faq__summary">
+              <span>How long until my site is live?</span>
+              <span class="faq__icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="faq__body">
+              <p>Foundation runs 2 to 3 weeks. Growth runs 3 to 5 weeks. Authority runs 5 to 7 weeks. Timelines assume content is provided on a steady cadence. If content takes longer to land, the launch shifts to match. If a project needs to move faster, that can be discussed at booking.</p>
+            </div>
+          </details>
+
+          <details>
+            <summary class="faq__summary">
+              <span>Do you work with agencies or take on white-label projects?</span>
+              <span class="faq__icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="faq__body">
+              <p>Occasionally, on a project basis. The agency keeps the client relationship and Resplend Studio handles the build under an NDA. Reach out through the contact form with the project details and we can talk scope.</p>
+            </div>
+          </details>
+
+          <details>
+            <summary class="faq__summary">
+              <span>Is the ADA accessibility baseline really a baseline?</span>
+              <span class="faq__icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="faq__body">
+              <p>Yes. Every tier ships with WCAG 2.2 AA contrast, keyboard navigation, screen reader landmarks, focus states, and clean semantic markup. It is the floor, not a premium add-on. Authority includes additional accessibility work for sites in regulated categories, but the foundation is universal.</p>
+            </div>
+          </details>
+
+          <details>
+            <summary class="faq__summary">
+              <span>What if I just want to ask a question first?</span>
+              <span class="faq__icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="faq__body">
+              <p>Send a note through the contact form on the home page. The same person who would design your site replies, usually within one business day. No sales scripts, no discovery call required to ask a question.</p>
+            </div>
+          </details>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CLOSER -->
+    <div class="divider" style="--from: var(--cream-deep); --to: var(--card);" aria-hidden="true"><div class="divider__aura"></div></div>
+    <section id="start" class="section--lift">
+      <div class="container">
+        <div class="bezel reveal">
+          <div class="bezel__core closer">
+            <span class="eyebrow">Ready when you are</span>
+            <h2 class="closer__title">
+              Pick a tier. <em>Or send a note.</em>
+            </h2>
+            <p class="closer__body">
+              If you already know which package fits, the contact form takes 90 seconds. If you would rather talk it through first, send what you know and we will reply within one business day.
+            </p>
+            <a href="index.html#contact" class="cta">
+              <span style="padding-left:.4rem">Start a project</span>
+              <span class="cta__arrow">
+                <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav__brand" aria-label="Resplend Studio home">
+            <img class="nav__mark" src="assets/quetzal-logo.png" alt="" width="52" height="52">
+            Resplend Studio
+          </a>
+          <p>Outcome-focused websites for any business — styled to fit your industry.</p>
+        </div>
+        <div class="footer-col">
+          <h3>Packages</h3>
+          <ul>
+            <li><a href="#tiers">Foundation</a></li>
+            <li><a href="#tiers">Growth</a></li>
+            <li><a href="#tiers">Authority</a></li>
+            <li><a href="#refresh">Style refresh</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Studio</h3>
+          <ul>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#process">Process</a></li>
+            <li><a href="index.html#portfolio">Work</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Contact</h3>
+          <ul>
+            <li><a href="mailto:DesignByBryant@gmail.com">DesignByBryant@gmail.com</a></li>
+            <li><a href="start.html">Start a project</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-base">
+        <p>&copy; <span id="year"></span> Resplend Studio. All rights reserved.</p>
+        <p>WCAG 2.1 AA accessibility standards on every build.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Nav scroll state
+    const nav = document.getElementById('nav');
+    const onScroll = () => {
+      if (window.scrollY > 24) nav.classList.add('is-scrolled');
+      else nav.classList.remove('is-scrolled');
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    // Mobile menu
+    const burger = document.getElementById('burger');
+    const overlay = document.getElementById('menuOverlay');
+    const closeMenu = () => {
+      nav.classList.remove('is-open');
+      overlay.classList.remove('is-open');
+      burger.setAttribute('aria-expanded', 'false');
+      overlay.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    };
+    burger.addEventListener('click', () => {
+      const open = !nav.classList.contains('is-open');
+      if (open) {
+        nav.classList.add('is-open');
+        overlay.classList.add('is-open');
+        burger.setAttribute('aria-expanded', 'true');
+        overlay.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      } else {
+        closeMenu();
+      }
+    });
+    overlay.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+
+    // Dropdown nav (Packages / Studio) — hover open on desktop, click toggle on touch
+    (function () {
+      const items = document.querySelectorAll('.nav__item[data-dropdown]');
+      if (!items.length) return;
+
+      let closeTimer = null;
+
+      const open = (item) => {
+        clearTimeout(closeTimer);
+        items.forEach((other) => {
+          if (other !== item) {
+            other.classList.remove('is-open');
+            const trig = other.querySelector('.nav__trigger');
+            if (trig) trig.setAttribute('aria-expanded', 'false');
+          }
+        });
+        item.classList.add('is-open');
+        const trig = item.querySelector('.nav__trigger');
+        if (trig) trig.setAttribute('aria-expanded', 'true');
+      };
+
+      const scheduleClose = (item) => {
+        closeTimer = setTimeout(() => {
+          item.classList.remove('is-open');
+          const trig = item.querySelector('.nav__trigger');
+          if (trig) trig.setAttribute('aria-expanded', 'false');
+        }, 120);
+      };
+
+      items.forEach((item) => {
+        const trigger = item.querySelector('.nav__trigger');
+        if (!trigger) return;
+
+        item.addEventListener('mouseenter', () => open(item));
+        item.addEventListener('mouseleave', () => scheduleClose(item));
+
+        trigger.addEventListener('click', (e) => {
+          e.preventDefault();
+          if (item.classList.contains('is-open')) {
+            item.classList.remove('is-open');
+            trigger.setAttribute('aria-expanded', 'false');
+          } else {
+            open(item);
+          }
+        });
+
+        // Keyboard: ArrowDown opens, Escape closes
+        trigger.addEventListener('keydown', (e) => {
+          if (e.key === 'ArrowDown') {
+            e.preventDefault();
+            open(item);
+            const first = item.querySelector('.nav__subitem');
+            if (first) first.focus();
+          } else if (e.key === 'Escape') {
+            item.classList.remove('is-open');
+            trigger.setAttribute('aria-expanded', 'false');
+            trigger.focus();
+          }
+        });
+      });
+
+      // Close on outside click
+      document.addEventListener('click', (e) => {
+        if (!e.target.closest('.nav__item[data-dropdown]')) {
+          items.forEach((item) => {
+            item.classList.remove('is-open');
+            const trig = item.querySelector('.nav__trigger');
+            if (trig) trig.setAttribute('aria-expanded', 'false');
+          });
+        }
+      });
+
+      // Close on Escape
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          items.forEach((item) => {
+            item.classList.remove('is-open');
+            const trig = item.querySelector('.nav__trigger');
+            if (trig) trig.setAttribute('aria-expanded', 'false');
+          });
+        }
+      });
+
+      // Close when a link inside the dropdown is clicked
+      items.forEach((item) => {
+        item.querySelectorAll('.nav__subitem').forEach((link) => {
+          link.addEventListener('click', () => {
+            item.classList.remove('is-open');
+            const trig = item.querySelector('.nav__trigger');
+            if (trig) trig.setAttribute('aria-expanded', 'false');
+          });
+        });
+      });
+    })();
+
+    // IntersectionObserver scroll reveals
+    const reveals = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-in');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { rootMargin: '0px 0px -10% 0px', threshold: 0.08 });
+      reveals.forEach(el => io.observe(el));
+    } else {
+      reveals.forEach(el => el.classList.add('is-in'));
+    }
+  </script>
+</body>
+</html>

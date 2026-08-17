@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!--
+  © 2026 Resplend Studio · DesignByBryant@gmail.com
+  All rights reserved. Sample work — not for redistribution.
+-->
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Practice Areas — Meridian &amp; Co.</title>
+  <meta name="description" content="Six advisory practice areas: Strategy & Growth, M&A Advisory, Operational Excellence, Digital Transformation, ESG & Sustainability, and Capital & Financing Strategy." />
+  <meta name="theme-color" content="#0B0F17" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <link rel="stylesheet" href="styles.css" />
+  <script>
+    /* Preview embed: hide the back-to-portfolio chip when framed */
+    if (window.self !== window.top) document.documentElement.classList.add('is-embedded');
+  </script>
+  <style>
+    /* ── Practice index (jump nav) ─────────────────────────────── */
+    .practice-index {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      padding: 0.85rem 0.95rem;
+      background: rgba(255,255,255,0.025);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 999px;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      width: fit-content;
+      max-width: 100%;
+      margin-top: 2.25rem;
+    }
+    .practice-index a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.45rem 1rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      color: #D4CCBA;
+      transition: background-color 400ms var(--bezier), color 400ms var(--bezier);
+    }
+    .practice-index a:hover { background: rgba(20,163,125,0.10); color: #F5F0E5; }
+    .practice-index a span {
+      font-family: 'Fraunces', serif;
+      font-variation-settings: 'opsz' 36, 'wght' 500;
+      font-size: 0.78rem;
+      color: #A39887;
+    }
+
+    /* ── Practice section ────────────────────────────────────── */
+    .practice-section {
+      padding-top: clamp(4rem, 8vw, 7rem);
+      padding-bottom: clamp(4rem, 8vw, 7rem);
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .practice-section:first-of-type { border-top: 0; }
+    .practice-section__grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    @media (min-width: 960px) {
+      .practice-section__grid { grid-template-columns: 0.9fr 1.1fr; gap: 5rem; }
+      .practice-section--reverse .practice-section__intro { order: 2; }
+      .practice-section--reverse .practice-section__detail { order: 1; }
+    }
+    .practice-section__intro { position: relative; }
+    .practice-section__num {
+      font-family: 'Fraunces', serif;
+      font-variation-settings: 'opsz' 144, 'wght' 400;
+      font-size: clamp(3.5rem, 7vw, 6.5rem);
+      letter-spacing: -0.04em;
+      line-height: 0.9;
+      color: #A39887;
+      margin: 0 0 1rem;
+    }
+    .practice-section__num em {
+      font-style: italic;
+      font-variation-settings: 'opsz' 144, 'wght' 300;
+      color: #14A37D;
+    }
+    .practice-section__title {
+      font-family: 'Fraunces', serif;
+      font-variation-settings: 'opsz' 144, 'wght' 400;
+      font-size: clamp(2rem, 4.5vw, 3.4rem);
+      letter-spacing: -0.025em;
+      line-height: 1.05;
+      color: #F5F0E5;
+      margin: 0 0 1rem;
+      max-width: 14ch;
+    }
+    .practice-section__title em {
+      font-style: italic;
+      font-variation-settings: 'opsz' 144, 'wght' 300;
+      color: #14A37D;
+    }
+    .practice-section__desc {
+      font-size: 1.05rem;
+      line-height: 1.55;
+      color: #A8A092;
+      margin: 0 0 2rem;
+      max-width: 44ch;
+    }
+    .practice-section__meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      margin-bottom: 2rem;
+    }
+    .practice-section__chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.4rem 0.85rem 0.4rem 0.7rem;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 999px;
+      font-size: 0.78rem;
+      color: #D4CCBA;
+    }
+    .practice-section__chip::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 999px;
+      background: #14A37D;
+    }
+
+    /* ── Detail panel (left or right column) ─────────────────── */
+    .practice-detail {
+      position: relative;
+      padding: 6px;
+      background: rgba(255,255,255,0.025);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 2rem;
+    }
+    .practice-detail__core {
+      padding: clamp(1.75rem, 3vw, 2.5rem);
+      background: rgba(17,22,31,0.7);
+      backdrop-filter: blur(20px) saturate(140%);
+      -webkit-backdrop-filter: blur(20px) saturate(140%);
+      border-radius: 1.625rem;
+      box-shadow: inset 0 1px 1px rgba(255,255,255,0.05);
+    }
+    .practice-detail__heading {
+      font-family: 'Fraunces', serif;
+      font-variation-settings: 'opsz' 144, 'wght' 400;
+      font-size: 1.4rem;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      color: #F5F0E5;
+      margin: 0 0 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .practice-detail__heading i { color: #14A37D; width: 16px; height: 16px; }
+    .practice-detail__heading::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(255,255,255,0.08);
+    }
+    .practice-detail__list {
+      list-style: none; padding: 0; margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+    .practice-detail__list li {
+      display: flex;
+      gap: 0.85rem;
+      align-items: flex-start;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: #D4CCBA;
+    }
+    .practice-detail__list li::before {
+      content: '→';
+      color: #14A37D;
+      flex-shrink: 0;
+      margin-top: 0.05em;
+    }
+    .practice-detail__divider {
+      height: 1px;
+      background: rgba(255,255,255,0.08);
+      margin: 1.5rem 0;
+    }
+    .practice-detail__stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      margin-top: 1rem;
+    }
+    .practice-detail__stat {
+      text-align: left;
+    }
+    .practice-detail__stat-num {
+      display: block;
+      font-family: 'Fraunces', serif;
+      font-variation-settings: 'opsz' 144, 'wght' 400;
+      font-size: clamp(1.6rem, 2.4vw, 2.1rem);
+      letter-spacing: -0.02em;
+      line-height: 1;
+      color: #F5F0E5;
+    }
+    .practice-detail__stat-num sup {
+      font-size: 0.5em;
+      color: #14A37D;
+      margin-left: 0.05em;
+    }
+    .practice-detail__stat-label {
+      margin-top: 0.4rem;
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #A39887;
+    }
+
+    /* ── Detail case excerpt ─────────────────────────────────── */
+    .practice-detail__excerpt {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .practice-detail__excerpt-label {
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #A39887;
+    }
+    .practice-detail__excerpt-title {
+      font-family: 'Fraunces', serif;
+      font-variation-settings: 'opsz' 144, 'wght' 400;
+      font-size: 1.15rem;
+      letter-spacing: -0.015em;
+      line-height: 1.2;
+      color: #F5F0E5;
+      margin: 0;
+    }
+    .practice-detail__excerpt-meta {
+      display: flex;
+      gap: 1rem;
+      font-size: 0.82rem;
+      color: #A39887;
+      margin-top: 0.4rem;
+    }
+    .practice-detail__excerpt-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-top: 0.6rem;
+      font-size: 0.88rem;
+      color: #F5F0E5;
+      font-weight: 500;
+    }
+    .practice-detail__excerpt-link-circle {
+      width: 26px; height: 26px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.10);
+      display: inline-grid;
+      place-items: center;
+      transition: transform 600ms var(--bezier), background 500ms var(--bezier), border-color 500ms var(--bezier), color 500ms var(--bezier);
+    }
+    a:hover .practice-detail__excerpt-link-circle {
+      transform: rotate(-45deg);
+      background: #14A37D;
+      border-color: #14A37D;
+      color: #0B0F17;
+    }
+  </style>
+</head>
+<body>
+  <div class="mesh-bg" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <div class="nav-wrap">
+    <nav class="nav" id="nav" aria-label="Primary">
+      <a href="index.html" class="nav__brand">
+        <span class="nav__mark"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L4 6V12C4 17 7.5 21 12 22C16.5 21 20 17 20 12V6L12 2Z"/><path d="M12 7V17"/></svg></span>
+        Meridian &amp; Co.
+      </a>
+      <ul class="nav__links">
+        <li><a href="about.html" class="nav__link">About</a></li>
+        <li><a href="practice.html" class="nav__link is-current">Practice</a></li>
+        <li><a href="framework.html" class="nav__link">Framework</a></li>
+        <li><a href="case-studies.html" class="nav__link">Impact</a></li>
+        <li><a href="insights.html" class="nav__link">Insights</a></li>
+        <li><a href="team.html" class="nav__link">Team</a></li>
+        <li><a href="engagements.html" class="nav__link">Engage</a></li>
+      </ul>
+      <a href="contact.html" class="cta nav__cta cta--sm">
+        <span style="padding-left:.3rem">Book a call</span>
+        <span class="cta__arrow"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+      <button class="nav__burger" id="burger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span></button>
+    </nav>
+  </div>
+
+  <div class="menu-overlay" id="menuOverlay" aria-hidden="true">
+    <ul class="menu-overlay__list">
+      <li><a href="about.html">About</a></li>
+      <li><a href="practice.html">Practice</a></li>
+      <li><a href="framework.html">Framework</a></li>
+      <li><a href="case-studies.html">Impact</a></li>
+      <li><a href="insights.html">Insights</a></li>
+      <li><a href="team.html">Team</a></li>
+      <li><a href="engagements.html">Engage</a></li>
+      <li class="menu-overlay__sep">— get in touch —</li>
+      <li><a href="contact.html">Book a call →</a></li>
+    </ul>
+  </div>
+
+  <a class="back-chip" href="../../index.html#portfolio">
+    <span class="back-chip__icon"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M10 6H2M2 6L6 2M2 6L6 10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    Back to Resplend Studio
+  </a>
+
+  <main id="top">
+
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+      <div class="container">
+        <div class="page-hero__split">
+          <div>
+            <span class="eyebrow reveal">Practice areas · six disciplines</span>
+            <h1 class="page-hero__title reveal" data-delay="1">Six disciplines, <em>one senior bench.</em></h1>
+            <p class="page-hero__sub reveal" data-delay="2">Every engagement is staffed by senior practitioners with operating backgrounds in the discipline they lead. The firm draws on fourteen partners and a deliberately small bench of senior specialists — large enough to staff four concurrent transformations, small enough that every client knows their lead partner by name.</p>
+            <div class="practice-index reveal" data-delay="3">
+              <a href="#strategy"><span>01</span> Strategy &amp; Growth</a>
+              <a href="#ma"><span>02</span> M&amp;A Advisory</a>
+              <a href="#ops"><span>03</span> Operational Excellence</a>
+              <a href="#digital"><span>04</span> Digital Transformation</a>
+              <a href="#esg"><span>05</span> ESG &amp; Sustainability</a>
+              <a href="#capital"><span>06</span> Capital &amp; Financing</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 01 STRATEGY & GROWTH -->
+    <section class="practice-section" id="strategy">
+      <div class="container">
+        <div class="practice-section__grid">
+          <div class="practice-section__intro">
+            <p class="practice-section__num reveal"><em>01</em> / 06</p>
+            <h2 class="practice-section__title reveal" data-delay="1">Strategy &amp; <em>Growth.</em></h2>
+            <p class="practice-section__desc reveal" data-delay="2">Helping founder-led companies and PE-backed operators graduate from intuition-led planning to institutional-grade strategy — without becoming a strategy-firm hostage.</p>
+            <div class="practice-section__meta reveal" data-delay="3">
+              <span class="practice-section__chip">04 partners</span>
+              <span class="practice-section__chip">12 weeks avg</span>
+              <span class="practice-section__chip">$200K–$1.2M</span>
+            </div>
+            <a href="engagements.html#strategy" class="cta cta--ghost reveal" data-delay="4">
+              <span style="padding-left:.3rem">Engagement pricing</span>
+              <span class="cta__arrow"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </a>
+          </div>
+
+          <div class="practice-detail reveal" data-delay="2">
+            <div class="practice-detail__core">
+              <h3 class="practice-detail__heading"><i data-lucide="compass"></i> What we do</h3>
+              <ul class="practice-detail__list">
+                <li>Market entry — sizing and sequencing of adjacent categories, with capital allocation modelled across each path</li>
+                <li>Category positioning — category-of-one narrative and ICP rebuild for growth-stage go-to-market teams</li>
+                <li>Topline growth strategy — three-scenario revenue models tied to channel mix, pricing architecture, and hiring plans</li>
+                <li>PE portfolio support — strategic reviews, value-creation roadmaps, and 100-day planning for new acquisitions</li>
+                <li>Annual operating planning — translating strategy into a defensible operating cadence and KPI architecture</li>
+              </ul>
+              <div class="practice-detail__divider"></div>
+              <h3 class="practice-detail__heading"><i data-lucide="line-chart"></i> By the numbers</h3>
+              <div class="practice-detail__stats">
+                <div class="practice-detail__stat"><span class="practice-detail__stat-num">32%</span><span class="practice-detail__stat-label">Median revenue growth, 18mo</span></div>
+                <div class="practice-detail__stat"><span class="practice-detail__stat-num">3.4×</span><span class="practice-detail__stat-label">Multiple expansion delivered</span></div>
+                <div class="practice-detail__stat"><span class="practice-detail__stat-num">86%</span><span class="practice-detail__stat-label">Of clients re-engage within 24mo</span></div>
+              </div>
+              <div class="practice-detail__divider"></div>
+              <div class="practice-detail__excerpt">
+                <span class="practice-detail__excerpt-label">Representative engagement</span>
+                <h4 class="practice-detail__excerpt-title">A regional industrial distributor redefining its category.</h4>
+                <p style="margin:0;color:#A8A092;font-size:.92rem;line-height:1.5">Rebuilt the ICP, modelled four adjacent categories, and sequenced a 36-month diversification roadmap. Outcome: 41% revenue growth and three strategic acquisitions over the post-engagement window.</p>
+                <div class="practice-detail__excerpt-meta"><span>Industry · B2B Services</span><span>14 weeks</span></div>
+                <a href="case-studies.html#northwind" class="practice-detail__excerpt-link">
+                  Read the engagement brief
+                  <span class="practice-detail__excerpt-link-circle"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 M&A ADVISORY -->
+    <section class="practice-section practice-section--reverse" id="ma">
+      <div class="container">
+        <div class="practice-section__grid">
+          <div class="practice-section__intro">
+            <p class="practice-section__num reveal"><em>02</em> / 06</p>
+            <h2 class="practice-section__title reveal" data-delay="1">M&amp;A <em>advisory.</em></h2>
+            <p class="practice-section__desc reveal" data-delay="2">Buy-side, sell-side, and capital raises from $25M to $500M. We run the strategic narrative, the diligence, and the close — without the conflict-of-interest overhead of a banker that doesn't have a view.</p>
+            <div class="practice-section__meta reveal" data-delay="3">
+              <span class="practice-section__chip">03 partners · 01 MD</span>
+              <span class="practice-section__chip">$25M–$500M</span>
+              <span class="practice-section__chip">8–16 weeks</span>
+            </div>
+            <a href="engagements.html#ma" class="cta cta--ghost reveal" data-delay="4">
+              <span style="padding-left:.3rem">Engagement pricing</span>
+              <span class="cta__arrow"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </a>
+          </div>
+
+          <div class="practice-detail reveal" data-delay="2">
+            <div class="practice-detail__core">
+              <h3 class="practice-detail__heading"><i data-lucide="trending-up"></i> What we do</h3>
+              <ul class="practice-detail__list">
+                <li>Buy-side — target identification, thesis-driven outreach, commercial and financial diligence, integration planning</li>
+                <li>Sell-side — narrative development, materials preparation, buyer universe design, process management</li>
+                <li>Capital raises — debt and equity, including recapitalizations, refinancings, and growth equity rounds</li>
+                <li>Joint ventures and minority transactions — structure design, partner selection, term negotiation</li>
+                <li>Post-merger integration — 100-day plans, synergy modelling, and operating integration through close+12</li>
+              </ul>
+              <div class="practice-detail__divider"></div>
+              <h3 class="practice-detail__heading"><i data-lucide="line-chart"></i> By the numbers</h3>
+              <div class="practice-detail__stats">
+                <div class="practice-detail__stat"><span class="practice-detail__stat-num">$2.4B+</span><span class="practice-detail__stat-num" style="display:block"><span style="font-size:.45em;color:#14A37D;letter-spacing:.15em;text-transform:uppercase">cumulative value</span></span></div>
+                <div class="practice-detail__stat"><span class="practice-detail__stat-num">38</span><span class="practice-detail__stat-num" style="display:block"><span style="font-size:.7rem;color:#A39887;letter-spacing:.18em;text-transform:uppercase">transactions advised</span></span></div>
+                <div class="practice-detail__stat"><span class="practice-detail__stat-num">2.1×</span><span class="practice-detail__stat-label">Median multiple uplift</span></div>
+              </div>
+              <div class="practice-detail__divider"></div>
+              <div class="practice-detail__excerpt">
+                <span class="practice-detail__excerpt-label">Representative engagement</span>
+                <h4 class="practice-detail__excerpt-title">A better-for-you D2C brand raising Series D against the cash-eats-growth inflection.</h4>
+                <p style="margin:0;color:#A8A092;font-size:.92rem;line-height:1.5">Modelled three financing paths, ran institutional investor outreach alongside the CFO, and negotiated terms that locked in a 2.4× valuation step-up. Outcome: $120M raised in eleven weeks.</p>
+                <div class="practice-detail__excerpt-meta"><span>Industry · Consumer / DTC</span><span>11 weeks</span></div>
+                <a href="case-studies.html#verdant" class="practice-detail__excerpt-link">
+                  Read the engagement brief
+                  <span class="practice-detail__excerpt-link-circle"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 OPERATIONAL EXCELLENCE -->
+    <section class="practice-section" id="ops">
+      <div class="container">
+        <div class="practice-section__grid">
+          <div class="practice-section__intro">
+            <p class="practice-section__num reveal"><em>03</em> / 06</p>
+            <h2 class="practice-section__title reveal" data-delay="1">Operational <em>excellence.</em></h2>
+            <p class="practice-section__desc reveal" data-delay="2">Margin recovery, supply-chain redesign, and ops-org redesign for industrials and B2B services. We embed in your operating cadence for the duration of the engagement.</p>
+            <div class="practice-section__meta reveal" data-delay="3">
+              <span class="practice-section__chip">02 partners</span>
+              <span class="practice-section__chip">6–18 months</span>
+              <span class="practice-section__chip">Industrials · B2B</span>
+            </div>
+            <a href="engagements.html#ops" class="cta cta--ghost reveal" data-delay="4">
+              <span style="padding-left:.3rem">Engagement pricing</span>
+              <span class="cta__arrow"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </a>
+          </div>
+
+          <div class="practice-detail reveal" data-delay="2">
+            <div class="practice-detail__core">
+              <h3 class="practice-detail__heading"><i data-lucide="gauge"></i> What we do</h3>
+              <ul class="practice-detail__list">
+                <li>Margin recovery — gross-margin teardowns, product-mix rebalancing, and pricing-architecture optimization</li>
+                <li>Supply-chain redesign — sourcing strategy, footprint modelling, and inventory rebalancing across the network</li>
+                <li>Operating cadence design — weekly business reviews, monthly steering committees, KPI architecture</li>
+                <li>Ops org redesign — span-of-control reviews, role clarity, and performance-management systems</li>
+                <li>Working-capital optimization — cash conversion cycle, payment-terms restructuring, inventory policy</li>
+              </ul>
+              <div class="practice-detail__divider"></div>
+              <h3 class="practice-detail__heading"><i data-lucide="line-chart"></i> By the numbers</h3>
+              <div class="practice-detail__stats">
+                <div class="practice-detail__stat"><span class="practice-detail__stat-num">4.8<sup>×</sup></span><span class="practice-detail__stat-label">Median EBITDA uplift</span></div>
+                <div class="practice-detail__stat"><span class="practice-detail__stat-num">28%</span><span class="practice-detail__stat-label">Median gross margin gain</span></div>
+                <div class="practice-detail__stat"><span class="practice-detail__stat-num">11d</span><span class="practice-detail__stat-label">Median DIO reduction</span></div>
+              </div>
+              <div class="practice-detail__divider"></div>
+              <div class="practice-detail__excerpt">
+                <span class="practice-detail__excerpt-label">Representative engagement</span>
+                <h4 class="practice-detail__excerpt-title">A 110-year-old components manufacturer acquired by a roll-up vehicle.</h4>
+                <p style="margin:0;color:#A8A092;font-size:.92rem;line-height:1.5">Embedded a five-person team across ops, finance, and commercial. Outcome: 4.2× EBITDA in 18 months, a 32-point gross margin gain, and three operational restructuring milestones achieved on schedule.</p>
+                <div class="practice-detail__excerpt-meta"><span>Industry · Industrials / PE-backed</span><span>18 months</span></div>
+                <a href="case-studies.html#northwind" class="practice-detail__excerpt-link">
+                  Read the engagement brief
+                  <span class="practice-detail__excerpt-link-circle"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 DIGITAL TRANSFORMATION -->
+    <section class="practice-section practice-section--reverse" id="digital">
+      <div class="container">
+        <div class="practice-section__grid">
+          <div class="practice-section__intro">
+            <p class="practice-section__num reveal"><em>04</em> / 06</p>
+            <h2 class="practice-section__title reveal" data-delay="1">Digital <em>transformation.</em></h2>
+            <p class="practice-section__desc reveal" data-delay="2">Technology strategy, data infrastructure, and AI integration across the operating model. We don't sell software — we make the operating decisions that technology supports.</p>
+            <div class="practice-section__meta reveal" data-delay="3">
+              <span class="practice-section__chip">02 partners</span>
+              <span class="practice-section__chip">04–12 months</span>
+              <span class="practice-section__chip">Tech-light industries</span>
+            </div>
+            <a href="engagements.html#digital" class="cta cta--ghost reveal" data-delay="4">
+              <span style="padding-left:.3rem">Engagement pricing</span>
+              <span class="cta__arrow"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </a>
+          </div>
+
+          <div class="practice-detail reveal" data-delay="2">
+            <div class="practice-detail__core">
+              <h3 class="practice-detail__heading"><i data-lucide="cpu"></i> What we do</h3>
+              <ul class="practice-detail__list">
+                <li>Technology strategy — vendor selection, build-vs-buy decisions, architecture roadmaps tied to operating priorities</li>
+                <li>Data infrastructure — instrumentation strategy, data warehousing, and KPI architecture across functions</li>
+                <li>AI integration — use-case identification, model evaluation, and embedding into operating workflows</li>
+                <li>Operating-model change — translating tech decisions into role, process, and incentive changes across the org</li>
+                <li>Vendor rationalization — replacing legacy tech stacks with consolidated platforms, reducing license spend</li>
+              </ul>
+              <div class="practice-detail__divider"></div>
+              <h3 class="practice-detail__heading"><i data-lucide="line-chart"></i> By the numbers</h3>
+              <div class="practice-detail__stats">
+                <div class="practice-detail__stat"><span class="practice-detail__stat-num">37%</span><span class="practice-detail__stat-label">Median vendor cost reduction</span></div>
+                <div class="practice-detail__stat"><span class="practice-detail__stat-num">9</span><span class="practice-detail__stat-label">AI use-cases in production</span></div>
+                <div class="practice-detail__stat"><span class="practice-detail__stat-num">22%</span><span class="practice-detail__stat-label">Operating cost taken out</span></div>
+              </div>
+              <div class="practice-detail__divider"></div>
+              <div class="practice-detail__excerpt">
+                <span class="practice-detail__excerpt-label">Representative engagement</span>
+                <h4 class="practice-detail__excerpt-title">A 75-year-old industrial operator modernizing its field services function.</h4>
+                <p style="margin:0;color:#A8A092;font-size:.92rem;line-height:1.5">Replaced nine legacy systems with three platforms. Built the KPI architecture for the field services org and embedded change-management support for 340 technicians. Outcome: 22% cost takeout, 19% reduction in mean-time-to-resolution.</p>
+                <div class="practice-detail__excerpt-meta"><span>Industry · Industrials</span><span>11 months</span></div>
+                <a href="case-studies.html" class="practice-detail__excerpt-link">
+                  See related work
+                  <span class="practice-detail__excerpt-link-circle"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 ESG & SUSTAINABILITY -->
+    <section class="practice-section" id="esg">
+      <div class="container">
+        <div class="practice-section__grid">
+          <div class="practice-section__intro">
+            <p class="practice-section__num reveal"><em>05</em> / 06</p>
+            <h2 class="practice-section__title reveal" data-delay="1">ESG &amp; <em>sustainability.</em></h2>
+            <p class="practice-section__desc reveal" data-delay="2">Carbon strategy, reporting frameworks, and transition planning for regulated industries. We treat sustainability as an operating discipline, not a compliance project.</p>
+            <div class="practice-section__meta reveal" data-delay="3">
+              <span class="practice-section__chip">01 partner</span>
+              <span class="practice-section__chip">12–24 months</span>
+              <span class="practice-section__chip">Regulated + heavy industry</span>
+            </div>
+            <a href="engagements.html#esg" class="cta cta--ghost reveal" data-delay="4">
+              <span style="padding-left:.3rem">Engagement pricing</span>
+              <span class="cta__arrow"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </a>
+          </div>
+
+          <div class="practice-detail reveal" data-delay="2">
+            <div class="practice-detail__core">
+              <h3 class="practice-detail__heading"><i data-lucide="leaf"></i> What we do</h3>
+              <ul class="practice-detail__list">
+                <li>Carbon strategy — Scope 1/2/3 accounting, intensity-based KPI architecture, third-party audit-readiness</li>
+                <li>Reporting frameworks — CSRD, ISSB, and TCFD readiness with operating-model implications built in</li>
+                <li>Transition planning — 10-year decarbonization roadmaps with sequenced capital allocation and operating choices</li>
+                <li>Climate-risk due diligence — physical and transition risk assessment for asset-heavy businesses</li>
+                <li>ESG operating change — translating climate ambition into role definitions, incentives, and operational metrics</li>
+              </ul>
+              <div class="practice-detail__divider"></div>
+              <h3 class="practice-detail__heading"><i data-lucide="line-chart"></i> By the numbers</h3>
+              <div class="practice-detail__stats">
+                <div class="practice-detail__stat"><span class="practice-detail__stat-num">41%</span><span class="practice-detail__stat-label">Median Scope 1+2 reduction</span></div>
+                <div class="practice-detail__stat"><span class="practice-detail__stat-num">5</span><span class="practice-detail__stat-label">Reporting frameworks supported</span></div>
+                <div class="practice-detail__stat"><span class="practice-detail__stat-num">100%</span><span class="practice-detail__stat-label">Audit pass rate, first attempt</span></div>
+              </div>
+              <div class="practice-detail__divider"></div>
+              <div class="practice-detail__excerpt">
+                <span class="practice-detail__excerpt-label">Representative engagement</span>
+                <h4 class="practice-detail__excerpt-title">A renewable energy operator preparing for institutional capital with CSRD-grade disclosure.</h4>
+                <p style="margin:0;color:#A8A092;font-size:.92rem;line-height:1.5">Built the carbon-accounting architecture, redesigned the field services function for Scope 1 reductions, and stood up the controls required for institutional underwriting. Outcome: 32% Scope 1 reduction, $780M capital unlocked.</p>
+                <div class="practice-detail__excerpt-meta"><span>Industry · Renewables</span><span>14 months</span></div>
+                <a href="case-studies.html#helios" class="practice-detail__excerpt-link">
+                  Read the engagement brief
+                  <span class="practice-detail__excerpt-link-circle"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 CAPITAL & FINANCING -->
+    <section class="practice-section practice-section--reverse" id="capital">
+      <div class="container">
+        <div class="practice-section__grid">
+          <div class="practice-section__intro">
+            <p class="practice-section__num reveal"><em>06</em> / 06</p>
+            <h2 class="practice-section__title reveal" data-delay="1">Capital &amp; <em>financing.</em></h2>
+            <p class="practice-section__desc reveal" data-delay="2">Recapitalizations, debt restructurings, and equity story development. We work alongside your CFO and outside counsel as a single team — no internal politics, no surprises at close.</p>
+            <div class="practice-section__meta reveal" data-delay="3">
+              <span class="practice-section__chip">03 partners · 01 senior associate</span>
+              <span class="practice-section__chip">8–20 weeks</span>
+              <span class="practice-section__chip">$25M–$500M</span>
+            </div>
+            <a href="engagements.html#capital" class="cta cta--ghost reveal" data-delay="4">
+              <span style="padding-left:.3rem">Engagement pricing</span>
+              <span class="cta__arrow"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </a>
+          </div>
+
+          <div class="practice-detail reveal" data-delay="2">
+            <div class="practice-detail__core">
+              <h3 class="practice-detail__heading"><i data-lucide="line-chart"></i> What we do</h3>
+              <ul class="practice-detail__list">
+                <li>Recapitalizations — leveraged and minority recap structures with lender universe design and term negotiation</li>
+                <li>Debt restructurings — covenant work-outs, refinancings, and creditor negotiations when leverage becomes wrong</li>
+                <li>Equity story development — narrative, financial-model architecture, and investor-messaging frameworks</li>
+                <li>Lender outreach and process management — fully-managed debt processes from kickoff to close</li>
+                <li>Capital structure optimization — weighted-average cost-of-capital teardown and capital architecture rebalancing</li>
+              </ul>
+              <div class="practice-detail__divider"></div>
+              <h3 class="practice-detail__heading"><i data-lucide="line-chart"></i> By the numbers</h3>
+              <div class="practice-detail__stats">
+                <div class="practice-detail__stat"><span class="practice-detail__stat-num">$1.8B</span><span class="practice-detail__stat-label">Total debt arranged</span></div>
+                <div class="practice-detail__stat"><span class="practice-detail__stat-num">175bps</span><span class="practice-detail__stat-label">Median spread compression</span></div>
+                <div class="practice-detail__stat"><span class="practice-detail__stat-num">23</span><span class="practice-detail__stat-label">Recapitalizations advised</span></div>
+              </div>
+              <div class="practice-detail__divider"></div>
+              <div class="practice-detail__excerpt">
+                <span class="practice-detail__excerpt-label">Representative engagement</span>
+                <h4 class="practice-detail__excerpt-title">A middle-market manufacturer heading toward a covenant breach without the cash to refi in the open market.</h4>
+                <p style="margin:0;color:#A8A092;font-size:.92rem;line-height:1.5">Restructured the term sheet, ran a parallel process to private credit and select institutional lenders, and negotiated an amendment with one of three incumbent banks. Outcome: covenant reset, $90M new facility, no equity dilution.</p>
+                <div class="practice-detail__excerpt-meta"><span>Industry · Industrials</span><span>14 weeks</span></div>
+                <a href="case-studies.html" class="practice-detail__excerpt-link">
+                  See related work
+                  <span class="practice-detail__excerpt-link-circle"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEXT-STEPS NAV -->
+    <section>
+      <div class="container">
+        <div class="engage__card reveal">
+          <div class="engage__card-core">
+            <div class="engage__split">
+              <div>
+                <span class="eyebrow">Continue exploring</span>
+                <h2 class="engage__title">See <em>how an engagement runs.</em></h2>
+                <p class="engage__sub">Every practice area uses the same four-stage framework. The detail panel explains what happens at each stage, who is in the room, and what you leave with.</p>
+                <div class="engage__cta-row">
+                  <a href="framework.html" class="cta cta--ink">
+                    <span style="padding-left:.3rem">Read the framework</span>
+                    <span class="cta__arrow"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  </a>
+                  <a href="case-studies.html" class="cta cta--ghost">
+                    <span style="padding-left:.3rem">Selected case studies</span>
+                    <span class="cta__arrow"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  </a>
+                </div>
+              </div>
+              <div>
+                <div class="bezel"><div class="bezel__core" style="padding:1.75rem">
+                  <p class="eyebrow" style="margin-bottom:1rem">Useful next steps</p>
+                  <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:.65rem">
+                    <li><a href="engagements.html" style="color:#D4CCBA">→ Engagement tiers and pricing</a></li>
+                    <li><a href="team.html" style="color:#D4CCBA">→ Practice-area partners</a></li>
+                    <li><a href="contact.html" style="color:#D4CCBA">→ Book a 45-minute intro call</a></li>
+                  </ul>
+                </div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav__brand">
+            <span class="nav__mark"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L4 6V12C4 17 7.5 21 12 22C16.5 21 20 17 20 12V6L12 2Z"/><path d="M12 7V17"/></svg></span>
+            Meridian &amp; Co.
+          </a>
+          <p>Boutique advisory for founder-led companies and private equity operators. Senior-led engagements, measurable outcomes.</p>
+        </div>
+        <div class="footer-col"><h4>Explore</h4><ul>
+          <li><a href="about.html">About</a></li><li><a href="practice.html">Practice</a></li>
+          <li><a href="framework.html">Framework</a></li><li><a href="case-studies.html">Case studies</a></li>
+          <li><a href="team.html">Senior team</a></li><li><a href="insights.html">Insights</a></li>
+        </ul></div>
+        <div class="footer-col"><h4>Engage</h4><ul>
+          <li><a href="engagements.html">Engagement tiers</a></li><li><a href="contact.html">Book a call</a></li>
+          <li><a href="contact.html#intake">Full intake form</a></li><li><a href="contact.html#offices">Office locations</a></li>
+        </ul></div>
+        <div class="footer-col"><h4>Contact</h4><ul>
+          <li><a href="mailto:hello@meridianco.example">hello@meridianco.example</a></li>
+          <li><a href="tel:+15551234567">+1 (555) 123-4567</a></li>
+          <li>200 Park Avenue, Floor 14<br />New York, NY 10166</li>
+        </ul></div>
+      </div>
+      <div class="footer-base">
+        <p>&copy; <span id="year"></span> Meridian &amp; Co. Advisory Partners LLP. All rights reserved.</p>
+        <p><a href="../../index.html#portfolio">← Back to Resplend Studio</a> · <a href="#top">Back to top ↑</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function(){const n=document.getElementById('nav'),b=document.getElementById('burger'),o=document.getElementById('menuOverlay');if(!n||!b||!o)return;window.addEventListener('scroll',()=>{n.classList.toggle('is-scrolled',window.scrollY>24);},{passive:!0});const c=()=>{n.classList.remove('is-open');o.classList.remove('is-open');b.setAttribute('aria-expanded','false');o.setAttribute('aria-hidden','true');document.body.style.overflow=''};b.addEventListener('click',()=>{const p=!n.classList.contains('is-open');if(p){n.classList.add('is-open');o.classList.add('is-open');b.setAttribute('aria-expanded','true');o.setAttribute('aria-hidden','false');document.body.style.overflow='hidden'}else c()});o.querySelectorAll('a').forEach(a=>a.addEventListener('click',c))})();
+
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const id=a.getAttribute('href');if(id.length>1){const t=document.querySelector(id);if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'})}}})});
+
+    const reveals=document.querySelectorAll('.reveal');
+    if('IntersectionObserver' in window){const io=new IntersectionObserver(es=>{es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('is-in');io.unobserve(en.target)}})},{rootMargin:'0px 0px -8% 0px',threshold:0.08});reveals.forEach(el=>io.observe(el))}else reveals.forEach(el=>el.classList.add('is-in'));
+
+    document.querySelectorAll('.cta').forEach(el=>{const s=.18;let r=null;el.addEventListener('mousemove',e=>{const re=el.getBoundingClientRect(),x=(e.clientX-re.left-re.width/2)*s,y=(e.clientY-re.top-re.height/2)*s;if(r)cancelAnimationFrame(r);r=requestAnimationFrame(()=>{el.style.transform=`translate(${x}px,${y}px)`})});el.addEventListener('mouseleave',()=>{if(r)cancelAnimationFrame(r);r=null;el.style.transition='transform 600ms cubic-bezier(0.32,0.72,0,1)';el.style.transform='translate(0,0)';setTimeout(()=>{el.style.transition=''},700)})});
+
+    function initLucide(){if(window.lucide&&window.lucide.createIcons)window.lucide.createIcons({attrs:{'stroke-width':1.5}})}
+    const yEl=document.getElementById('year');if(yEl)yEl.textContent=new Date().getFullYear();
+    if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',initLucide);else initLucide();
+  </script>
+</body>
+</html>
